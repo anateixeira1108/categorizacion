@@ -1,0 +1,208 @@
+{% extends "base_funcionario.html" %}
+{% block main_content %}
+{% load filtros_solicitudes %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <section class="content-header">
+	        <h1> Edición
+	            <small>Gerente</small>
+	        </h1>
+	        <ol class="breadcrumb">
+	            <li><a href="#"><i class="fa fa-edit"></i> Edición</a></li>
+	            <li class="active">Gerente</li>
+	        </ol>
+	    </section>
+        <!-- Main content -->
+        <section class="content">
+        	<div class="box box-danger">
+	        	<div class="box-body" ng-controller="editarSolicitudCtrl">
+	                <form action="{% url 'editar_solicitud_gerente' solicitud.id %}" method="POST" name="formEditarSolicitud" novalidate>
+                        {% csrf_token %}
+                        <input type="hidden" name="id_solicitud" value="{{solicitud.id}}">
+                        <input type="hidden" name="tipo_solicitud" value="{{solicitud.tipo_solicitud}}">
+                        <div class="body" id="funcionario">
+                        	<div class="row">
+                        		<div class="col-xs-12">
+                        			<div class="title"> Solicitud de {{ solicitud.tipo_solicitud|get_name_request }} </div>
+                        		</div>
+                        	</div>
+                            <div class="alert [[alerta.htmlclass]]" ng-show="alerta.mostrar" ng-cloak >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                [[alerta.texto]]
+                            </div>
+                            
+                            {% if solicitud.tipo_solicitud == verificacion%}
+                            	<div class="row">
+                            		<div class="col-xs-4 text-right">
+                            			<label>Tipo de verificación</label>
+                            		</div>
+                            		<div class="col-xs-3" ng-init="tipos={{tipos_verificacion}} ">
+                            			<select name="tipoVerificacion" ng-model="tipoVerificacion" ng-init="tipoVerificacion.id={{solicitud.tipo_verificacion}}" ng-options="v.nombre for v in tipos track by v.id" class="select">
+                            			</select>
+                        		  </div>
+                                </div>
+                            {% endif %}
+                        	<div class="row">
+                        		<div class="col-xs-12">
+                                    <div class="title"> Datos de PST </div>
+                                </div>
+                        	</div>
+                            <div class="row">
+                                <div class="col-xs-4 text-right">
+                                    <label>RIF:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ solicitud.rif }}</span>
+                                    {% if solicitud.pst.archivo_rif %}
+                                    <a href="{{ MEDIA_URL }}{{ solicitud.pst.archivo_rif }}" target="_blank">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 text-right">
+                                    <label>Tipo de persona juridica:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ solicitud.pst.tipo_juridica|tipo_persona_juridica }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 text-right">
+                                    <label>Razón social:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ solicitud.pst.rif }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 text-right">
+                                    <label>Denominación comercial:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ solicitud.pst.denominacion_comercial }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                            	<div class="col-xs-4 text-right">
+                                    <label>Fecha de registro:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ solicitud.pst.creado_el }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                            	<div class="col-xs-4 text-right">
+                                    <label>Última verificación:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ ultima_verificacion }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                            	<div class="col-xs-4 text-right">
+                                    <label>Última fiscalización:</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <span>{{ ultima_fiscalizacion }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title"> Período </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="error col-xs-12 text-center" data-ng-show="submitted && formEditarSolicitud.desde.$error.required" ng-cloak>
+                                    <li class="col-xs-8">Este campo es requerido</li>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <label>Desde:</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="input-group input-append date" data-date-format="MM-yyyy" data-date-min-view-mode="months">
+                                        <input type="text" name="desde" class="form-control" value="{{solicitud.desde|format_date}}" readonly>
+                                        <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="error col-xs-12 text-center" data-ng-show="submitted && formEditarSolicitud.hasta.$error.required" ng-cloak>
+                                    <li class="col-xs-8" >Este campo es requerido</li>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <label>Hasta:</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="input-group input-append date" data-date-format="MM-yyyy" data-date-min-view-mode="months">
+                                        <input type="text" name="hasta" class="form-control" value="{{solicitud.hasta|format_date}}" readonly>
+                                        <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title">
+                                        Funcionarios actuantes
+                                        <div class="col-xs-3 pull-right">
+                                        	<a href="#" class="btn btn-info btn-block btn-flat btn-add" data-toggle="modal" data-target="#modalFuncionario">
+                                        		Agregar funcionario
+                                        	</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div ng-init="funcionariosList={{ funcionarios }}" ></div>
+                            	<div class="col-xs-12">
+                            		<table class="table table-striped">
+                            			<thead>
+                            				<tr>
+                            					<th class="col-xs-2">Credencial</th>
+                            					<th class="col-xs-2">Nombres</th>
+                            					<th class="col-xs-2">Apellidos</th>
+                                                <th class="col-xs-2">Tipo asignación</th>
+                            					<th class="col-xs-4 text-center">Opciones</th>
+                            				</tr>
+                            			</thead>
+                            			<tbody id="body-funcionarios">
+                            				<tr id="func-[[index]]" ng-repeat="usuario in funcionariosList" ng-init="index=$index" ng-cloak>
+                                                <input type="hidden" name="data[ [[usuario.usuario_id]] ][es_coordinador]" value="[[usuario.es_coordinador]]">
+                                                <td class="col-xs-2">[[ usuario.rif ]]</td>
+                            					<td class="col-xs-2">[[ usuario.nombres ]]</td>
+                            					<td class="col-xs-2">[[ usuario.apellidos ]]</td>
+                                                <td class="col-xs-2">
+                                                    <span ng-if="usuario.es_coordinador">Coordinador</span>
+                                                    <span ng-if="usuario.es_apoyo">Apoyo</span>
+                                                    <span ng-if="!usuario.es_apoyo && !usuario.es_coordinador">Funcionario</span>
+                                                </td>
+                            					<td class="text-center col-xs-4">
+                                                <button type="button" class="btn btn-block btn-danger btn-flat" ng-click="eliminar_funcionario([[$index]])">
+                                                    Borrar
+                                                    <i class="fa fa-trash-o icon-white btn-icon"></i>
+                                                </button>
+                            					</td>
+                            				</tr>
+                            			</tbody>
+                            		</table>
+                            	</div>
+                            </div><br>
+                            <div class="row">
+                            	<div class="col-xs-6 col-lg-3 col-lg-offset-3">
+                                    <button type="submit" ng-click="submit(formEditarSolicitud, $event)" class="btn btn-info btn-flat btn-block">Guardar</button>
+                            	</div>
+                            	<div class="col-xs-6 col-lg-3">
+                            		<a href="{% url 'funcionario_verificacion_gerente' %}" class="btn btn-danger btn-flat btn-block"> Cancelar </a>
+                            	</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal para agregar funcionario -->
+            {% include '_modal_funcionario.html'%}
+        </section>
+        
+    </aside>
+{% endblock %}

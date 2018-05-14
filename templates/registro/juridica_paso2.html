@@ -1,0 +1,359 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load filtros_datos %}
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side" ng-init="change=true">
+
+        <section class="content-header">
+            <h1>
+                {{ pst|get_tipo_usuario }}
+                <small>Registro</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-edit"></i>{{ pst|get_tipo_usuario_short }}</a></li>
+                <li class="active">Registro</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content" >
+            <div class="box box-danger" ng-controller="MunicipiosParroquiasCtrl">
+                <div class="box-body">
+                    <form action="{% url 'cuentas_juridica_2' %}" method="POST" >
+                     {% csrf_token %}
+                        <div class="body" id="persona-juridica">
+                            <div class="row">
+                                <div class="col-xs-6 col-xs-offset-6">
+                                    <label>Proceso de registro</label><br>
+                                    <select class="select" onchange="location = this.options[this.selectedIndex].value;">
+                                        <option value="{% url 'cuentas_juridica_1' %}">Paso 1: Datos básicos</option>
+                                        <option selected>Paso 2: Domicilio Fiscal</option>
+                                        <option value="{% url 'cuentas_juridica_3' %}">Paso 3: Representante legal</option>
+                                        <option value="{% url 'cuentas_juridica_4' %}">Paso 4: Persona de contacto</option>
+                                        <option value="{% url 'cuentas_juridica_5' %}">Paso 5: Información específica</option>
+                                        <option value="{% url 'cuentas_juridica_6' %}">Paso 6: Detalles del acta constitutiva</option>
+                                        <option value="{% url 'cuentas_juridica_7' %}">Paso 7: Accionistas/Socios/Asociados</option>
+                                        <option value="{% url 'cuentas_juridica_8' %}">Paso 8: Otros documentos</option>
+                                        <option value="{% url 'cuentas_juridica_9' %}?next={% url 'cuentas_juridica_2' %}">Paso 9: Vista previa</option>
+                                        <option value="{% url 'cuentas_juridica_10' %}?next={% url 'cuentas_juridica_2' %}">Paso 10: Confirmar registro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="title">Domicilio Fiscal</div>
+                            <div class="alert [[alerta.htmlclass]]" ng-show="alerta.mostrar" ng-cloak >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                [[alerta.texto]]
+                            </div>
+                            <div class="row">
+                                {% if form.estado.value.id %}
+                                    <div ng-init="estados={{form.estado.value.id}}" hidden></div>
+                                {% elif form.estado.value %}
+                                    <div ng-init="estados={{form.estado.value}}" hidden ></div>
+                                {% endif %}
+                                <div class="col-xs-6" >
+                                    <label>Estado</label><br>
+                                    {% render_field form.estado|attr:"ng-cloak" class+="select" ng-model+="estados" %}
+                                    <div class="error">
+                                        {% if form.estado.errors %}
+                                            {{ form.estado.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% if form.municipio.value.id %}
+                                    <div ng-init="municipio.id={{form.municipio.value.id}}" hidden ></div>
+                                {% elif form.municipio.value %}
+                                    <div ng-init="municipio.id={{form.municipio.value}}" hidden></div>
+                                {% endif %}
+                                <div class="col-xs-6">
+                                    <label >Municipio</label><br>
+                                    {% render_field form.municipio|attr:"ng-cloak" class+="select" ng-model+="municipio" ng-options+="mcpo.nombre for mcpo in municipiosList track by mcpo.id" autocomplete+="on"%}
+                                    <div class="error">
+                                        {% if form.municipio.errors %}
+                                            {{ form.municipio.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                {% if form.parroquia.value.id %}
+                                    <div ng-init="parroquia.id={{form.parroquia.value.id}}" hidden ></div>
+                                {% elif form.parroquia.value %}
+                                    <div ng-init="parroquia.id={{form.parroquia.value}}" hidden></div>
+                                {% endif %}
+                                <div class="col-xs-6" >
+
+                                    <label>Parroquia</label><br>
+                                    {% render_field form.parroquia|attr:"ng-cloak" class+="select" ng-model+="parroquia" ng-options+="pquia.nombre for pquia in parroquiasList track by pquia.id" %}
+                                    <div class="error">
+                                        {% if form.parroquia.errors %}
+                                            {{ form.parroquia.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 {% if form.urbanizacion.errors %} has-error {% endif %}">
+                                    <label>Urbanizaci&oacute;n/Sector</label><br>
+                                    {% render_field form.urbanizacion class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.urbanizacion.errors %}
+                                            {{ form.urbanizacion.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Avenida/Calle/Carrera</label><br>
+                                    {% render_field form.avenida_calle class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.avenida_calle.errors %}
+                                            {{ form.avenida_calle.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Edificio/Casa</label><br>
+                                    {% render_field form.edificio class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.edificio.errors %}
+                                            {{ form.edificio.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Oficina/Apto/No.</label><br>
+                                    {% render_field form.oficina_apartamento class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.oficina_apartamento.errors %}
+                                            {{ form.oficina_apartamento.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>C&oacute;digo postal</label><br>
+                                    {% render_field form.codigo_postal class+="form-control zip-mask" %}
+                                    <div class="error">
+                                        {% if form.codigo_postal.errors %}
+                                            {{ form.codigo_postal.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>Punto de referencia</label><br>
+                                    {% render_field form.punto_referencia|attr:"maxlength:200" class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.punto_referencia.errors %}
+                                            {{ form.punto_referencia.errors }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div>
+                            <div class="col-xs-3 pull-right">
+                                <button type="submit"  class="btn btn-primary btn-flat btn-block btn-add"> Guardar Domicilio fiscal </button>
+                            </div>
+                        </div><br>
+                        {% if domicilio %}
+                            <div class="title">
+                                Sucursales
+                                <div class="col-xs-3 pull-right">
+                                    <a href="#" class="btn btn-info btn-flat btn-block btn-add" data-toggle="modal" data-target="#sucursales-modal">
+                                        Agregar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="alert [[sucursal.htmlclass]]" ng-show="sucursal.mostrar" ng-cloak >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                [[sucursal.texto]]
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-xs-2">Estado</th>
+                                                <th class="col-xs-2">Municipio</th>
+                                                <th class="col-xs-2">Parroquia</th>
+                                                <th class="col-xs-2">Urbanización/Sector</th>
+                                                <th class="col-xs-3">Avenida/Calle/Carrera</th>
+                                                <th class="col-xs-1">Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for sucursal in sucursales %}
+                                                <tr id="branch-office-{{ sucursal.id }}">
+                                                    <td class="col-xs-2">{{ sucursal.estado.estado }}</td>
+                                                    <td class="col-xs-2">{{ sucursal.municipio.municipio }}</td>
+                                                    <td class="col-xs-2">{{ sucursal.parroquia.parroquia }}</td>
+                                                    <td class="col-xs-2">{{ sucursal.urbanizacion }}</td>
+                                                    <td class="col-xs-3">{{ sucursal.avenida_calle }}</td>
+                                                    <td class="col-xs-1 text-center">
+                                                        <a href="" ng-click="deleteItem({{ sucursal.id }})">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        {% endif %}<br>
+                            <div class="footer">
+                                <div class="row">
+                                    <div class="col-xs-6 col-lg-5 col-lg-offset-1">
+                                        <a href="{% url 'cuentas_juridica_1' %}" class="btn btn-info btn-flat btn-block">
+                                            <i class="fa fa-arrow-circle-o-left btn-icon-back"></i>
+                                            Volver al paso 1
+                                        </a>
+                                    </div>
+                                        <div class="col-xs-6 col-lg-5">
+                                            <a href="{% url 'cuentas_juridica_3' %}" class="btn btn-primary btn-flat btn-block">
+                                            Guardar y continuar al paso 3: Representante legal
+                                            <i class="fa fa-arrow-circle-o-right btn-icon"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sucursaslLabel" aria-hidden="true" id="sucursales-modal" ng-controller="RegistrarSucursalCtrl">
+                <form action="{% url 'registrar_sucursal' %}" method="POST" name="formSucursales" novalidate>
+                    {% csrf_token %}
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Agregar Sucursal</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Datos de la Sucursal</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                    <label>Nombre sucursal</label>
+                                                    <input type="text" name="_nombre_sucursal" ng-model="numeroAcciones" class="form-control" required>
+                                                <div class="error" data-ng-show="submitted && formSucursales._nombre_sucursal.$error.required">
+                                                    <ul>
+                                                        <li>Este campo es requerido</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label>Estado</label>
+                                                {% render_field form.estado|attr:"ng-cloak"|attr:"required" name+="_estado" class+="select" ng-model+="sucursalEstado" %}
+                                                <div class="error" data-ng-show="submitted && formSucursales._estado.$error.required">
+                                                    <ul>
+                                                        <li>Este campo es requerido</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <label>Municipio</label>
+                                                <select name="_municipio" ng-model="sucursalMunicipio" ng-options="mcpo.nombre for mcpo in municipiosList track by mcpo.id" class="select" required></select>
+                                                <div class="error" data-ng-show="submitted && formSucursales._municipio.$error.required">
+                                                    <ul>
+                                                        <li>Este campo es requerido</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label>Parroquia</label>
+                                                <select name="_parroquia" ng-model="sucursalParroquia" ng-options="pquia.nombre for pquia in parroquiasList track by pquia.id" class="select" required></select>
+                                                <div class="error" data-ng-show="submitted && formSucursales._parroquia.$error.required">
+                                                    <ul>
+                                                        <li>Este campo es requerido</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <label>Urbanizaci&oacute;n/Sector</label>
+                                                <input type="text" name="_urbanizacion" ng-model="urbanizacion" class="form-control" required>
+                                                <div class="error" data-ng-show="submitted && formSucursales._urbanizacion.$error.required">
+                                                    <ul><li>Este campo es requerido</li></ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label>Avenida/Calle/Carrera</label>
+                                                <input type="text" name="_avenida_calle" ng-model="avenidaCalle" class="form-control" required>
+                                                <div class="error" data-ng-show="submitted && formSucursales._avenida_calle.$error.required">
+                                                    <ul><li>Este campo es requerido</li></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <label>Oficina/Apto/No.</label>
+                                                <input type="text" name="_oficina_apartamento" ng-model="oficinaApto" class="form-control" required>
+                                                <div class="error" data-ng-show="submitted && formSucursales._oficina_apartamento.$error.required">
+                                                    <ul><li>Este campo es requerido</li></ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label>Código postal</label>
+                                                <input type="text" name="_codigo_postal" ng-model="codigoPostal" class="form-control" required ng-pattern="patternPostal" zip-mask>
+                                                <div class="error">
+                                                    <ul>
+                                                        <li data-ng-show="submitted && formSucursales._codigo_postal.$error.required">Este campo es requerido</li>
+                                                        <li data-ng-show="submitted && formSucursales._codigo_postal.$invalid">El codigo postal es invalido!</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-9">
+                                                <label>Edificio/Casa.</label>
+                                                <input type="text" name="_edificio" ng-model="edificio" class="form-control" required>
+                                                <div class="error" data-ng-show="submitted && formSucursales._edificio.$error.required">
+                                                    <ul>
+                                                        <li>Este campo es requerido</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <label>Punto de referencia</label>
+                                                <textarea name="_punto_referencia" class="form-control" ng-model="punto_referencia" required></textarea>
+                                                <div class="error" data-ng-show="submitted && formSucursales._punto_referencia.$error.required">
+                                                    <li>Este campo es requerido</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <button class="btn btn-primary btn-flat btn-block" ng-click="validate(formSucursales, $event)">Agregar</button>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="" class="btn btn-danger btn-flat btn-block" data-dismiss="modal"> Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{% endblock %}

@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top : 6cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 3cm;
+					margin-right: 1cm;
+					height: 11cm;
+				}
+				@frame header {
+					-pdf-frame-content: headerTextContent;
+					top: 4cm;
+					margin-left: 1.5cm;
+					margin-right: 1cm;
+					height: 5cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			@page noHeader{
+				size: letter portrait;
+				top : 2cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			#headerLogoContent{
+				
+				width:100;
+				height: 100;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img width="100" height="100" src="static/img/credenciales/Escudo-Venezuela.jpg">
+		</div>
+		<div id="headerTextContent">
+			REPUBLICA BOLIVARIANA DE VENEZUELA
+			<br>MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+			<br>DESPACHO DEL VICEMINISTERIO DE TURISMO NACIONAL
+			<br>Nro. {{ data.n_despacho }}
+		</div>
+
+		<div>
+			<div style="font-style:italic;font-size:14px;">Se&ntilde;or(es):</div>
+			<span class="bold">{{ data.nombre_pst }}</span>
+			<div style="font-style:italic;">Representante(s) de:</div>
+			<span class="bold">{{ data.nombre_establecimiento }}</span>
+			<br>Direcci&oacute;n: {{ data.direccion }}<br>
+			<div style="font-style:italic;font-size:14px;">Presente.-</div>
+			<br>
+			<div class="parrafo">
+				Con un saludo me dirijo a usted en la oportunidad de notificarle el resultado de la Inspecci&oacute;n para la Categorizaci&oacute;n realizada en fecha {{ data.fecha_inspeccion.day }} del {{ data.fecha_inspeccion.month }} de {{ data.fecha_inspeccion.year }} al establecimiento de alojamiento tur&iacute;stico {{ data.nombre_establecimiento }}, inscrito en el  Registro  Tur&iacute;stico  Nacional  (RTN)  con  el Nro {{ data.rtn }} y con Licencia de Turismo Nro {{ data.licencia }}, por usted representado.
+			</div>
+			<div class="parrafo">
+				En tal sentido, una vez analizado el Informe de Inspecci&oacute;n de Categorizaci&oacute;n y verificada la conformidad de lo establecido en la Resoluci&oacute;n Nro {{ data.tabulador }} "Tabulador de Servicios para las Categor&iacute;as de los Establecimientos de Alojamiento Tur&iacute;stico: Tipo {{ data.tipo_establecimiento }}", publicada en la Gaceta Oficial Nro {{ data.nro_gaceta }} de fecha {{ data.fecha_gaceta.day }} del {{ data.fecha_gaceta.month }} de {{ data.fecha_gaceta.year }}, el establecimiento de alojamiento {{ data.nombre_establecimiento }} debe proceder a subsanar los requisitos faltantes que se detallan a continuaci&oacute;n, referidos a la categor&iacute;a que desea optar: 
+				<br>{{ data.incumplimientos }}
+			</div>
+			<br>
+			<div class="parrafo">
+				En cuanto al mantenimiento y funcionalidad, se evidenciaron las siguientes deficiencias:
+				<br>{{ data.deficiencias }}
+			</div>
+			<div class="parrafo">
+				Asimismo, se comprob&oacute; que el porcentaje de cumplimiento en cuanto a los requisitos m&iacute;nimos de servicios es el siguiente:
+				<br>{{ data.resultado }}
+			</div>
+			<div class="parrafo">
+				Por lo antes expuesto, se le informa que las recomendaciones de servicio, mantenimiento o reparaci&oacute;n aqu&iacute; notificadas, deber&aacute;n ser acometidas en un plazo no mayor de treinta (30) d&iacute;as h&aacute;biles contados a partir de dicha notificaci&oacute;n y en caso de necesitar una pr&oacute;rroga, deber&aacute; notificarlo a este Despacho con diez (10) d&iacute;as hábiles de anticipaci&oacute;n a que venza el plazo otorgado, todo de conformidad con lo establecido en  los art&iacute;culos 11 y 12 de la Resoluci&oacute;n Nro 011 de fecha 12 de marzo de 2013, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 40.132 del 20 de marzo de 2013.
+			</div>
+			<div>
+				<pdf:nexttemplate name="noHeader"/>
+			</div>
+			<div>
+				<pdf:nextpage/>
+			</div>
+			<div class="parrafo">
+				Por &uacute;ltimo, contra la presente decisi&oacute;n podr&aacute; ejercer, dentro de un lapso de quince (15) d&iacute;as h&aacute;biles contados a partir del d&iacute;a siguiente a su notificaci&oacute;n, el Recurso de Reconsideraci&oacute;n contemplado en el art&iacute;culo 94 de la Ley Org&aacute;nica de Procedimientos Administrativos, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 36.607 de fecha 21 de diciembre de 1998, de conformidad con lo dispuesto en el art&iacute;culo 73.
+			</div>
+			<div class="parrafo">
+				Prestador de Servicios Tur&iacute;sticos, denuncia cualquier irregularidad a trav&eacute;s del correo <a href="denuncia@mintur.gob.ve">denuncia@mintur.gob.ve</a>; los Mensajes de Datos estar&aacute;n sometidos a las disposiciones constitucionales y legales que garantizan los derechos a la privacidad de las comunicaciones y de acceso a la informaci&oacute;n personal, seg&uacute;n lo dispuesto en el Art&iacute;culo 5 del Decreto Nro 1204 con Fuerza de Ley sobre Mensajes de Datos y Firmas Electr&oacute;nicas, publicado en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 37.148 de fecha 10 de febrero de 2001.
+			</div>
+		</div>
+
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

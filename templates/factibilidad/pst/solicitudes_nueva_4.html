@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load widget_tweaks %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+      <section class="content-header">
+        <h1> Factibilidad
+          <small>Nueva solicitud</small>
+        </h1>
+
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+          <li class="active">Factibilidad</li>
+        </ol>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+          <div class="box box-danger">
+              <div class="box-body">
+                <div class="row">
+                    <div class="col-xs-6">  
+                        <h3>Datos Socio-Tecnicos</h3> 
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Proceso de solicitud</label><br>
+                        <select class="select" 
+                            onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}">Paso 1: Datos del proyecto</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_dos' proyecto.id %}">Paso 2: Datos del terreno</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_tres' proyecto.id %}">Paso 3: Tipo y categoría</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_cuatro' proyecto.id %}" selected>Paso 4: Datos Socio-Tecnicos</option>
+                            <option data-url="{% url 'pst_factibilidad_vista_previa' proyecto.id %}">Paso 5: Vista previa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="title">Recaudos Establecimientos turísticos</div>
+                <form action="{% url 'pst_solicitudes_factibilidad_paso_cuatro' proyecto.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if proyecto.tipo_actividad == establecimiento_turistico %}
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Fotocopia del título de propiedad (si es propio)</label><br>
+                                {% render_field form.archivo_titulo_propiedad class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_titulo_propiedad.errors %} {{ form.archivo_titulo_propiedad.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Contrato de arrendamiento o comodato</label><br>
+                                {% render_field form.archivo_contrato class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_contrato.errors %} {{ form.archivo_contrato.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Autorización del propietario del uso del inmueble con fines turísticos. (Si no tiene contrato de arrendamiento o comodato)</label><br>
+                                {% render_field form.archivo_autorizacion class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_autorizacion.errors %} {{ form.archivo_autorizacion.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Constancia de Uso Turístico y Condiciones de Desarrollo del terreno emitida por el ente competente.</label><br>
+                                {% render_field form.archivo_uso_turistico class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_uso_turistico.errors %} {{ form.archivo_uso_turistico.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Memoria descriptiva del proyecto</label><br>
+                                {% render_field form.archivo_memoria_descriptiva class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_memoria_descriptiva.errors %} {{ form.archivo_memoria_descriptiva.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Presupuesto de la inversión estimada</label><br>
+                                {% render_field form.archivo_presupuesto class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_presupuesto.errors %} {{ form.archivo_presupuesto.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                    {% endif %}
+
+                    {% if proyecto.tipo_actividad == transporte_turistico %}
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Conformidad del órgano competente en caso de operar en áreas protegidas.</label><br>
+                                {% render_field form.archivo_conformidad_competente class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_conformidad_competente.errors %} {{ form.archivo_conformidad_competente.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Facturas proforma, cotización u opción a compra verificadas por el INTT (transporte terrestre)</label><br>
+                                {% render_field form.archivo_factura_proforma class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_factura_proforma.errors %} {{ form.archivo_factura_proforma.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Visto bueno del Instituto Nacional de espacios acuáticos (transporte acuático)</label><br>
+                                {% render_field form.archivo_visto_bueno class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_visto_bueno.errors %} {{ form.archivo_visto_bueno.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Factibilidad económica del Instituto Nacional de Aeronáutica Civil (Transporte Aéreo)</label><br>
+                                {% render_field form.archivo_factibilidad_economica class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_factibilidad_economica.errors %} {{ form.archivo_factibilidad_economica.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Memoria descriptiva del proyecto</label><br>
+                                {% render_field form.archivo_memoria_descriptiva class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_memoria_descriptiva.errors %} {{ form.archivo_memoria_descriptiva.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                    {% endif %}
+
+                    {% if proyecto.tipo_actividad == actividades_recreativas %}
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Conformidad, aval o permiso del órgano o ente competente de la Administración Pública, de acuerdo a su ubicación y naturaleza del servicio (si aplica).</label><br>
+                                {% render_field form.archivo_conformidad_aval class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_conformidad_aval.errors %} {{ form.archivo_conformidad_aval.errors }} {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-xs-6 ">
+                                <label>Memoria descriptiva del Proyecto.</label><br>
+                                {% render_field form.archivo_memoria_descriptiva class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_memoria_descriptiva.errors %} {{ form.archivo_memoria_descriptiva.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-6 ">
+                                <label>Presupuesto de la inversión estimada.</label><br>
+                                {% render_field form.archivo_presupuesto class+="form-control" %}
+                                <div class="error">
+                                    {% if form.archivo_presupuesto.errors %} {{ form.archivo_presupuesto.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div><br>
+                    {% endif %}
+
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-6 col-lg-5 col-lg-offset-7">
+                                <button type="submit" class="btn btn-primary btn-flat btn-block">
+                                    Continuar al paso 4: Vista previa
+                                    <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+              </div>
+          </div>
+      </section>
+
+    </aside>
+{% endblock %}

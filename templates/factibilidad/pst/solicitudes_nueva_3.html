@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+      <section class="content-header">
+        <h1>
+          Factibilidad
+          <small>Nueva solicitud</small>
+        </h1>
+
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+          <li class="active">Factibilidad</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+          <div class="box box-danger">
+              <div class="box-body">
+                <div class="row">
+                    <div class="col-xs-6">  
+                        <h3>Tipo y categoria</h3> 
+                    </div>
+                    <div class="col-xs-6">
+                        <label>Proceso de solicitud</label><br>
+                        <select class="select" 
+                            onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}">Paso 1: Datos del proyecto</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_dos' proyecto.id %}">Paso 2: Datos del terreno</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_tres' proyecto.id %}" selected>Paso 3: Tipo y categoría</option>
+                            <option data-url="{% url 'pst_solicitudes_factibilidad_paso_cuatro' proyecto.id %}">Paso 4: Datos Socio-Tecnicos</option>
+                            <option data-url="{% url 'pst_factibilidad_vista_previa' proyecto.id %}">Paso 5: Vista previa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="title">Tipo de proyecto</div>
+                <form action="{% url 'pst_solicitudes_factibilidad_paso_tres' proyecto.id %}" method="POST"  name="formFactibilidadTres"  ng-controller="FactibilidadPasoTresCtrl" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <label>Hotel</label><br>
+                        {% if proyecto.categoria.hotel %} <div ng-init="hotel={{proyecto.categoria.hotel}}"></div> {% endif %}
+                        {% for i in range %}
+                          {{i}} <span class="fa fa-star"></span>
+                          <input type="radio" name="hotel" id="hotel-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                      <div class="col-xs-4">
+                        <label>Hotel residencia</label><br>
+                        {% if proyecto.categoria.hotel_residencia %} <div ng-init="hotel_residencia={{proyecto.categoria.hotel_residencia}}"></div> {% endif %}
+                        {% for i in range %}
+                          {{i}} <span class="fa fa-star"></span>
+                          <input type="radio" name="hotel_residencia" id="residencia-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                      <div class="col-xs-4">
+                        <label>Posada</label><br>
+                        {% if proyecto.categoria.posada %} <div ng-init="posada={{proyecto.categoria.posada}}"></div> {% endif %}
+                        {% for i in range %}
+                          {{i}} <span class="fa fa-star"></span>
+                          <input type="radio" name="posada" id="posada-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <label>Campamentos, estancias, hatos, fincas o haciendas</label><br>
+                        {% if proyecto.categoria.campamentos_estancias %} <div ng-init="campamentos_estancias={{proyecto.categoria.campamentos_estancias}}"></div> {% endif %}
+                        {% for i in range %}
+                          {{i}} <span class="fa fa-star"></span>
+                          <input type="radio" name="campamentos_estancias" id="campamentos-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                      <div class="col-xs-4">
+                        <label>Parador turístico</label><br>
+                        {% if proyecto.categoria.parador_turistico %} <div ng-init="parador={{proyecto.categoria.parador_turistico}}"></div> {% endif %}
+                        {% for i in range %}
+                            {{i}} <span class="fa fa-star"></span>
+                            <input type="radio" name="parador_turistico" id="parador-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                      <div class="col-xs-4">
+                        <label for="">Balneario</label><br>
+                        {% if proyecto.categoria.balneario %} <div ng-init="balneario={{proyecto.categoria.balneario}}"></div> {% endif %}
+                        {% for i in range %}
+                            {{i}} <span class="fa fa-star"></span>
+                            <input type="radio" name="balneario" id="balneario-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <label for="">Posada familiar</label><br>
+                        {% if proyecto.categoria.posada_familiar %} <div ng-init="posada_familiar={{proyecto.categoria.posada_familiar}}"></div> {% endif %}
+                        {% for i in range %}
+                            {{i}} <span class="fa fa-star"></span>
+                            <input type="radio" name="posada_familiar" id="posada_familiar-{{i}}" value="{{i}}">
+                        {% endfor %}
+                      </div>
+                    </div><br><br>
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-6 col-lg-5 col-lg-offset-7">
+                                <button type="button" class="btn btn-primary btn-flat btn-block" ng-click="validar_formulario($event, formFactibilidadTres)">
+                                    Continuar al paso 4: Vista previa
+                                    <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+              </div>
+          </div>
+      </section>
+
+    </aside>
+{% endblock %}

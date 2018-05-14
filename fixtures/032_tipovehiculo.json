@@ -1,0 +1,68 @@
+[
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Motocicleta"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Carro"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Camioneta"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Camión"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Furgoneta"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Microbus"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Bus"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Lancha"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Yate"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Barco"
+    }
+  },
+  {
+    "model": "registro.tipovehiculo",
+    "fields": {
+      "nombre": "Crucero"
+    }
+  }
+]

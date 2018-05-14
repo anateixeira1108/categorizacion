@@ -1,0 +1,27 @@
+{% extends "base_cuentas.html" %}
+{% load widget_tweaks %}
+
+{% block form_box %}
+<div class="form-box">
+    <div class="header">Recuperación de correo electrónico</div>
+
+        <div class="body bg-gray">
+            <p>Ha respondido correctamente las preguntas de seguridad, su correo electrónico es el siguiente:</p>
+            <br/>
+            <p style="font-size: 20px; text-align: center;">
+                <strong >{{ usuario.correo_electronico }}</strong>
+            </p>
+
+        </div>
+        <div class="footer">
+            <a href="{% url 'cuentas_login' %}" class="btn bg-blue btn-block">Ir a inicio de sesión</a>
+            <br>
+        </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

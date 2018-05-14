@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load filtros_factibilidad %}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <section class="content-header">
+        <h1>Factibilidad
+            <small>Nueva solicitud</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+            <li class="active">Factibilidad</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+        <div class="box box-danger">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-xs-6">  <h3>Datos del proyecto</h3> </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label>Proceso de solicitud</label><br>
+                            <select class="select" 
+                                onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                                <option data-url="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}"selected >Paso 1: Datos del proyecto</option>
+                                <option data-url="{% url 'pst_solicitudes_factibilidad_paso_dos' proyecto.id %}">Paso 2: Datos del terreno</option>
+                                <option data-url="{% url 'pst_solicitudes_factibilidad_paso_tres' proyecto.id %}">Paso 3: Tipo y categoría</option>
+                                <option data-url="{% url 'pst_solicitudes_factibilidad_paso_cuatro' proyecto.id %}">Paso 4: Datos Socio-Tecnicos</option>
+                                <option data-url="{% url 'pst_factibilidad_vista_previa' proyecto.id %}">Paso 5: Vista previa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <form action="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}" method="POST" name="formFactibilidadUno" ng-controller="FactibilidadNuevaCtrl" novalidate>
+                    {% if proyecto.tipo_proyecto >= 0 %} <div ng-init="tipo_proyecto={{ proyecto.tipo_proyecto }}"></div> {% endif %}
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-xs-6">
+                            {% if proyecto.nombre  %} <div ng-init="nombre_proyecto='{{ proyecto.nombre }}'"></div> {% endif %}
+                            <label>Nombre del proyecto</label>
+                            <div class="error" data-ng-show="submitted && formFactibilidadUno.nombre_proyecto.$error.required"  ng-cloak>
+                                <ul><li>Este campo es requerido</li></ul>
+                            </div>
+                            <input type="text" name="nombre_proyecto" ng-model="nombre_proyecto" class="form-control" required>
+                      </div>
+                      <div class="col-xs-6">
+                            {% if proyecto.monto  %} <div ng-init="monto_proyecto='{{ proyecto.monto }}'"></div> {% endif %}
+                            <label>Monto de inversión estimado (BsF)</label>
+                            <div class="error" data-ng-show="submitted && formFactibilidadUno.monto_proyecto.$error.required" ng-cloak>
+                                <ul><li>Este campo es requerido</li></ul>
+                            </div>
+                            <input type="text" name="monto_proyecto" ng-model="monto_proyecto" class="form-control" required money-format >
+                      </div>
+                    </div><br>
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <div class="box box-danger box-small">
+                          <div class="box-body">
+                            <div class="title">Tipo de proyecto</div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="error" data-ng-show="submitted && input.tipo_proyecto" ng-cloak>
+                                        <ul><li>Este campo es requerido</li></ul>
+                                    </div>
+                                    {% for tipo_proyecto in tipos_proyectos %}
+                                        <input type="radio" name="tipo_proyecto" id="tipo-{{tipo_proyecto.0}}" value="{{tipo_proyecto.0}}">
+                                        <label>{{ tipo_proyecto.1 }}</label><br>  
+                                    {% endfor %}
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-xs-4">
+                        <div class="box box-danger box-small">
+                          <div class="box-body">
+                          {% if unidad_transporte %} <div ng-init="unidad_transporte={{ unidad_transporte }}"></div> {% endif %}
+                            <div class="title">Adquisición de unidades de transporte</div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="error" data-ng-show="submitted && input.unidades" ng-cloak>
+                                        <ul><li>Este campo es requerido</li></ul>
+                                    </div>
+                                    {% for unidad in unidades_transportes %}
+                                        <input type="checkbox" name="unidad_transporte[transporte]" id="transporte-{{unidad.0}}" value="{{unidad.0}}">
+                                        <label>{{unidad.1}}</label><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="box box-danger box-small">
+                            <div class="box-body">
+                                <div class="title">Número de empleos generados</div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {% if proyecto.empleos_directos  %} <div ng-init="empleos_directos={{proyecto.empleos_directos}}"></div> {% endif %}
+                                        <label>Directos</label>
+                                        <div class="error" data-ng-show="submitted && formFactibilidadUno.empleos_directos.$error.required" ng-cloak>
+                                            <ul><li>Este campo es requerido</li></ul>
+                                        </div>
+                                        <input type="text" name="empleos_directos" ng-model="empleos_directos" class="form-control" numbers-only required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {% if proyecto.empleos_indirectos  %} <div ng-init="empleos_indirectos={{proyecto.empleos_indirectos}}"></div> {% endif %}
+                                        <label>Indirectos</label>
+                                        <div class="error" data-ng-show="submitted && formFactibilidadUno.empleos_indirectos.$error.required" ng-cloak>
+                                            <ul><li>Este campo es requerido</li></ul>
+                                        </div>
+                                        <input type="text" name="empleos_indirectos" ng-model="empleos_indirectos" class="form-control" numbers-only required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="box box-danger box-small">
+                                <div class="box-body">
+                                    <div class="title">Aspecto social</div>
+                                    {% if aspecto_social %} <div ng-init="aspecto_social={{ aspecto_social }}"></div> {% endif %}
+                                    <h4>Alianzas</h4>
+                                    <div class="error" data-ng-show="submitted && input.aspecto" ng-cloak>
+                                        <ul><li>Este campo es requerido</li></ul>
+                                    </div>
+                                    <div class="row">
+                                        {% for aspecto in tipos_aspectos %}
+                                            <div class="col-xs-6">
+                                                <label>{{ aspecto.1 }}</label><br>
+                                                <input type="checkbox" name="tipo_aspecto[aspecto]" id="aspecto-{{aspecto.0}}" value="{{aspecto.0}}">
+                                            </div>
+                                        {% endfor %}
+                                         <div class="col-xs-6">
+                                         {% if proyecto.otro_aspecto %} <div ng-init="otro_aspecto='{{proyecto.otro_aspecto}}'"></div> {% endif %}
+                                            <label>Otros</label>
+                                            <div class="error" data-ng-show="submitted && formFactibilidadUno.otro_aspecto.$error.required" ng-cloak>
+                                                <ul><li>Este campo es requerido</li></ul>
+                                            </div>
+                                            <input type="text" name="otro_aspecto" ng-model="otro_aspecto" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="col-xs-4">
+                        <div class="box box-danger box-small">
+                          <div class="box-body">
+                            <div class="title">Índole del proyecto</div>
+                            <div class="error" data-ng-show="submitted && input.indole" ng-cloak>
+                                <ul><li>Este campo es requerido</li></ul>
+                            </div>
+                            <div class="row">
+                                {% if indole %} <div ng-init="indole={{ indole }}"></div> {% endif %}
+                                {% for indole in tipos_indole %}
+                                    <div class="col-xs-6">
+                                        <label>{{indole.1}}</label><br>
+                                        <input type="checkbox" name="tipo_indole[indole]" id="indole-{{indole.0}}" value="{{indole.0}}">
+                                    </div>
+                                {% endfor %}
+                              <div class="col-xs-6">
+                                <label>Otros</label>
+                                {% if proyecto.otra_indole %} <div ng-init="otra_indole='{{proyecto.otra_indole}}'"></div> {% endif %}
+                                <input type="text" name="otra_indole" ng-model="otra_indole">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-4">
+                        <div class="box box-danger box-small">
+                          <div class="box-body">
+                            <div class="title">Unidades de alojamiento</div>
+                            <div class="row">
+                              <div class="col-xs-6">
+                                {% if proyecto.alojamiento.numero_habitaciones %} <div ng-init="numero_habitaciones={{proyecto.alojamiento.numero_habitaciones}}"></div> {% endif %}
+                                <label>Habitaciones</label><br>
+                                <div class="error" data-ng-show="submitted && formFactibilidadUno.numero_habitaciones.$error.required" ng-cloak>
+                                    <ul><li>Este campo es requerido</li></ul>
+                                </div>
+                                <input type="text" name="numero_habitaciones" ng-model="numero_habitaciones" numbers-only required>
+                              </div>
+                              <div class="col-xs-6">
+                                {% if proyecto.alojamiento.numero_apartamentos %} <div ng-init="numero_apartamentos={{proyecto.alojamiento.numero_apartamentos}}"></div> {% endif %}
+                                <label >Apartamentos</label><br>
+                                <div class="error" data-ng-show="submitted && formFactibilidadUno.numero_apartamentos.$error.required" ng-cloak>
+                                    <ul><li>Este campo es requerido</li></ul>
+                                </div>
+                                <input type="text" name="numero_apartamentos" ng-model="numero_apartamentos" numbers-only required >
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-6">
+                                {% if proyecto.alojamiento.numero_suites %} <div ng-init="numero_suites={{proyecto.alojamiento.numero_suites}}"></div> {% endif %}
+                                <label >Suites</label><br>
+                                <div class="error" data-ng-show="submitted && formFactibilidadUno.numero_suites.$error.required" ng-cloak >
+                                    <ul><li>Este campo es requerido</li></ul>
+                                </div>
+                                <input type="text" name="numero_suites" ng-model="numero_suites" numbers-only required>
+                              </div>
+                              <div class="col-xs-6">
+                               {% if proyecto.alojamiento.numero_cabanias %} <div ng-init="numero_cabanias={{proyecto.alojamiento.numero_cabanias}}"></div> {% endif %}
+                                <label >Cabañas</label><br>
+                                <div class="error" data-ng-show="submitted && formFactibilidadUno.numero_cabanias.$error.required" ng-cloak>
+                                    <ul><li>Este campo es requerido</li></ul>
+                                </div>
+                                <input type="text" name="numero_cabanias" ng-model="numero_cabanias" numbers-only required>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12">
+                              {% if proyecto.alojamiento.otro_alojamiento %} <div ng-init="otro_alojamiento='{{proyecto.alojamiento.otro_alojamiento}}'"></div> {% endif %}
+                                <label>Otros</label>
+                                <div class="error" data-ng-show="submitted && formFactibilidadUno.otro_alojamiento.$error.required" ng-cloak>
+                                    <ul><li>Este campo es requerido</li></ul>
+                                </div>
+                                <input type="text" name="otro_alojamiento" ng-model="otro_alojamiento" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br><br>
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-6 col-lg-5 col-lg-offset-7">
+                            <button type="button" class="btn btn-primary btn-flat btn-block" ng-click="validar_formulario($event, formFactibilidadUno)">
+                              Continuar al paso 3: Tipo y categoría del proyecto
+                              <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</aside>
+{% endblock %}

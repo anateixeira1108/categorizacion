@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+
+<aside class="right-side">
+    <!-- Main content -->
+    <section class="content-header">
+        <h1>Categorizaci&oacute;n<small>Panel Administrativo</small></h1>
+            <ol class="breadcrumb">
+            <li><a href="/categorizacion/administrador/"> Inicio</a></li>
+            <li><a href="{% url 'home_panel_administrativo' m %}"><i class="fa fa-th-large"></i> {{modelo|capfirst}}</a></li>
+            <li class="active"><i class="fa fa-edit"></i>&nbsp;Editar recurso</li> 
+            </ol>
+    </section>
+
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-body">
+
+                <div class="row title">
+                    <div class="col-xs-6">
+                        <h4>Formulario <small>{{modelo}}</small></h4>
+                    </div>
+
+                    {% if  es_editable %}
+                    <div class="col-xs-2 col-xs-offset-4 contenido-centrado">
+                        <button editable="true" class="activar-campos btn btn-flat btn-primary">Desactivar Edici&oacute;n&nbsp;<i class="fa fa-edit"></i></button>
+                    </div>
+                    {% else %}
+                    <div class="col-xs-2 col-xs-offset-4 contenido-centrado">
+                        <button editable="false" class="activar-campos btn btn-flat btn-primary">Activar Edici&oacute;n&nbsp;<i class="fa fa-edit"></i></button>
+                    </div>
+                    {% endif%}
+                </div>                
+
+                <div class="row">
+                	    <div class="col-xs-offset-3 col-xs-6">
+                	    	<form method="post" action="{% url 'editar_recurso_form' m id %}"
+                             role="form" 
+                             id="form-editar" 
+                             class="formulario-editar">
+                	    	    {% csrf_token %}
+                                    <input hidden name="modelo" value="{{ modelo }}"/>
+                                    {% for field in form%}
+
+                                    <div class="row">
+                                    <div class="col-xs-12">
+                                        {{ field.label_tag }}                                        
+                                        {{ field | addcss:"form-control" }}
+                                    </div>
+                                    </div>
+
+                                    {% if field.errors  %}
+                                        <div class="col-xs-12 col-lg-12">
+                                        <div class="alert alert-ajustado alert-warning alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert">
+                                          <span aria-hidden="true">&times;</span>
+                                          <span class="sr-only">Close</span>
+                                          </button>
+                                          {{ field.errors }}                                
+                                        </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% endfor %}
+
+                                   <!-- 
+                                   <div class="col-xs-6"  >
+                                        <div class="padd-0">
+                                            <button 
+                                            class="col-xs-12 btn btn-flat btn-primary"
+                                            type="submit"
+                                            value="Guardar">
+                                            Guardar&nbsp;
+                                            <i class="fa fa-save"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    -->
+                                </form>
+                	    </div>	   
+            	</div>
+        	</div>
+        </div>	
+    </section>
+        
+    <div class="save-bar col-lg-12 col-md-12 botones-formulario">
+        
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+            <a class="btn btn-flat btn-danger col-lg-12 col-md-12" href="{%url 'home_panel_administrativo' m%}">
+                <i class="fa fa-arrow-left "></i> &nbsp;&nbsp;Anterior
+            </a>
+        </div>
+        
+        {% if  es_editable %}
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="mostrar">
+             <a class="col-xs-12 btn btn-flat btn-primary submit-form-editar"               
+              id="editar">
+              Guardar&nbsp;&nbsp;<i class="fa fa-save"></i>
+             </a>
+        </div>
+        {% endif %}
+
+    </div>
+    
+</aside>
+
+
+{% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+	
+	{{ block.super }}
+	
+    <script src="{{ STATIC_URL }}js/edit_form.js" type="application/javascript" ng-autobind></script>
+    <script src="{{ STATIC_URL }}js/jquery.validate.min.js" type="application/javascript"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-switch.min.js" type="application/javascript"></script>
+
+    <script 
+      src="{{ STATIC_URL }}js/iconset/iconset-fontawesome-4.0.0.min.js" 
+      type="application/javascript">
+    </script>
+
+    <script 
+      src="{{ STATIC_URL }}js/bootstrap-iconpicker.min.js"
+      type="application/javascript">
+    </script>
+
+    <script type="text/template" id="iconpicker_referencia">
+      <button 
+        id = "id_representacion"
+        class="btn btn-flat btn-default iconpicker form-control" 
+        role="iconpicker"
+        name="representacion"
+        style="background-color: white;border-color: #ddd;color: #333;"
+        >
+      </button>
+    </script>
+
+    <script type="application/javascript">
+        $(function(){
+            $('#id_fecha').attr('type', 'date'); 
+            
+            $(".formulario-editar").submit(function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                $('#notificacion-general-Label').html('Confirmar edici&oacute;n');                
+                $('#notificacion-general-body').html('¿Est&aacute; seguro que desea editar este recurso?');                
+                $('#notificacion-general-footer').html(
+                   '<div class="col-xs-6" data-dismiss="modal">\
+                    <a href="#" class="btn btn-danger col-xs-12">Cancelar</a>\
+                </div>\
+                <div class="col-xs-6" data-dismiss="modal">\
+                    <a href="#" id="boton-aceptar" class="btn btn-primary col-xs-12">Aceptar</a>\
+                </div>'
+                );
+                $('#notificacion-general').modal();
+                
+            });
+
+            $(document).on('click','#boton-aceptar',function(){
+                $(".formulario-editar").unbind('submit').submit();
+            });
+
+            $('.cargador_recursos').click(function(){
+              url = ($(this).attr('url')).split('/');              
+              location.href = "{% url 'home_panel_administrativo' %}"+ url[4];
+            });
+
+            $('input,textarea,select').addClass('input-ajustado');
+
+            $(document).on('click','#editar',function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                $(".formulario-editar").validate();
+                if($(".formulario-editar").valid()){
+                    $(".formulario-editar").submit();
+                }                    
+            });
+
+            control_version = function(state, tabuladorid, tipo_pst){
+                var token = document.getElementsByName('csrfmiddlewaretoken')[0] != undefined ? document.getElementsByName('csrfmiddlewaretoken')[0].value : undefined ;              
+
+                $('#notificacion-general-Label').html("Cambio de versi&oacute;n detectado");
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{% url 'cargar_version_tabulador' %}",
+                    data: {
+                        tabulador: tabuladorid,
+                        estado : state,
+                        tipo_pst: tipo_pst,
+                        csrfmiddlewaretoken: token
+                    },
+                    success: function(server_data) {                        
+                        var msg = server_data.success_msg;
+                        var data = jQuery.parseJSON(server_data.data);
+
+                        $('#notificacion-general-body').css('text-align','justify');
+                        $('#notificacion-general-body').html(
+                            "<div class = 'row'><h4>"+msg+".</h4></div>\
+                            <table class = 'table-tabuladores table table-striped table-partner table-hover'> \
+                            </table>");
+
+                        $.each(data, function(k,v){                            
+                            $(".table-tabuladores").append(
+                            "<tr id = '"+ v.pk +"'> \
+                                <td>"+ v.fields.nombre +"</td> \
+                                <td><label class='label label-default etiqueta-estatus'>v."+v.fields.version+"</td> \
+                                <td> \
+                                <input \
+                                type='radio' \
+                                name='version_sustituta' \
+                                value = '"+v.pk+"' class = 'radio_sustituto' /></td> \
+                            </tr>");
+                        });
+
+                        $('#notificacion-general-footer').html(
+                            '<div class="col-xs-6" data-dismiss="modal">\
+                                <a href="#" class="btn btn-danger btn-flat col-xs-12 btn-cancelar-cambio-version">Cancelar</a>\
+                            </div>\
+                            <div class="col-xs-6">\
+                                <a href="#" class="btn btn-primary btn-flat col-xs-12 btn-aceptar-cambio-version" disabled="disabled">Aceptar</a>\
+                            </div>');
+
+                        $('input').iCheck({
+                            checkboxClass: 'icheckbox_minimal',
+                            radioClass: 'iradio_minimal',
+                            increaseArea: '20%'
+                        });
+                        
+                        $('#id_version_actual').on('ifChecked', en_chequeo );
+                        $('#id_version_actual').on('ifUnchecked', en_deschequeo );                        
+                        $('#notificacion-general').css('overflow-y','visible');
+
+                        $('#notificacion-general').modal({
+                            keyboard: false,
+                            backdrop: 'static'
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        
+                        try{
+                            var responsejson = jQuery.parseJSON(xhr.responseText);
+                            $('#notificacion-general-body').html(
+                                "<div class='row'> \
+                                <div class='col-xs-offset-4 col-xs-4 warning-icon'> \
+                                <i class = 'fa fa-exclamation-triangle fa-4x' style = 'color:#FF8000;'></i> \
+                                </div>\
+                                <div class='col-xs-12'> \
+                                <h4>"+responsejson.err_msg+"</h4></div>"
+                            );
+
+                            $('#notificacion-general-body').css('text-align','justify');
+
+                            $('#notificacion-general-footer').html(
+                                '<div class="col-xs-6" data-dismiss="modal">\
+                                    <a href="#" class="btn btn-danger btn-flat col-xs-12 btn-cancelar-cambio-version">Cancelar</a>\
+                                </div>\
+                                <div class="col-xs-6" data-dismiss="modal">\
+                                    <a href="#" class="btn btn-primary btn-flat col-xs-12">Aceptar</a>\
+                                </div>');
+
+                            $('#notificacion-general').modal( 'show' );
+                        }catch(e){
+                            console.log(xhr);
+                            console.log(status);
+                            console.log(error);
+                        }                        
+                    }
+                });                
+            };
+
+            en_chequeo = function(){
+                $(".tabulador_sustituto").remove();
+                if ($('#id_version_actual').attr('flag') != 'true' ||
+                    $('#id_version_actual').attr('flag') === undefined)
+                {
+                    control_version(1, {{id}}, $('#id_tipo_pst').val())
+                }else{                    
+                    $('#id_version_actual').removeAttr('flag');
+                }
+            }
+
+            en_deschequeo = function(){
+                if ($('#id_version_actual').attr('flag') != 'true' || 
+                    $('#id_version_actual').attr('flag') === undefined)
+                {
+                    control_version(0, {{id}}, $('#id_tipo_pst').val())
+                }else{                    
+                    $('#id_version_actual').removeAttr('flag');
+                }
+            }
+
+            $(document).on('click', '.btn-cancelar-cambio-version', function(){                            
+                $('#id_version_actual').attr('flag','true');
+                $('#id_version_actual').iCheck('check');
+                $(".tabulador_sustituto").remove();
+            });
+
+            $(document).on('ifToggled','.radio_sustituto',function(){
+                
+                console.log($(".btn-aceptar-cambio-version"));
+
+                $(".btn-aceptar-cambio-version").removeAttr("disabled");
+
+                $(document).on('click', '.btn-aceptar-cambio-version', function(){
+                    $("#notificacion-general").modal('hide');
+                    // Se selecciona la version del tabulador que sustituira la version
+                    // actual
+                    var radio_version = $('input[type=radio][name=version_sustituta]:checked').val();
+                    var ts = $(".tabulador_sustituto");
+
+                    if(ts.length === 0){
+                        $(".formulario-editar").append(
+                            "<input class = 'tabulador_sustituto' type='text' value = '"+radio_version+"'  name='tabulador_sustituto' style = 'display:none;' />"
+                        );
+                    }else if(ts.length > 0){
+                        $(".tabulador_sustituto").val(radio_version);
+                    }                        
+                });                    
+            });
+
+            $('#id_version_actual').on('ifChecked', en_chequeo );
+            $('#id_version_actual').on('ifUnchecked', en_deschequeo );
+
+            {% if modelo == "Funcionario" %}
+                var parent_clone = $("#id_habilitado").parent().parent();
+                var clone = $("#id_habilitado").clone();
+                $("#id_habilitado").parent().remove();                
+                clone.attr("class", "");
+                clone.prop("disabled", false);
+
+                $(parent_clone).append(clone);
+                $("[name='habilitado']").bootstrapSwitch(
+                    {
+                        'size': 'mini',
+                        'onColor': 'success',
+                        'offColor': 'danger',
+                        'onText': 'Si',
+                        'offText': 'No',
+                        'disabled': true
+                    }
+                );
+
+                $(".bootstrap-switch-handle-on").css("padding-top","5%");
+                $(".bootstrap-switch-handle-off").css("padding-top", "5%");
+
+            {% endif %}
+
+            {% if m == "tipoicono" %}
+              var parent = $("input#id_representacion").parent("div");
+              var iconpreloaded = $("input#id_representacion").val();
+              $("#id_representacion").remove();
+              $(parent).append($("#iconpicker_referencia").html());
+              $('#id_representacion').iconpicker({
+                  arrowClass: 'btn-primary',
+                  arrowPrevIconClass: 'glyphicon glyphicon-chevron-left',
+                  arrowNextIconClass: 'glyphicon glyphicon-chevron-right',
+                  icon: iconpreloaded,
+                  iconset: 'fontawesome',   
+                  labelHeader: '',
+                  labelFooter: '{0} - {1} de {2}',
+                  placement: 'bottom',
+                  cols: 8,
+                  rows: 4,
+                  search: false,
+                  selectedClass: 'btn-warning',
+                  unselectedClass: ''
+              });
+
+              $("body .header").css("z-index", 2048);
+              $("#id_representacion").attr("disabled", "true");
+            {% endif %}
+        });
+    </script>
+
+{% endblock %}

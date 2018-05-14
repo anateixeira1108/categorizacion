@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load filtros_datos %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        <section class="content">
+            HOME {{ pst|get_tipo_usuario_short }}
+        </section>
+    </aside>
+{% endblock %}

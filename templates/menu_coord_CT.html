@@ -1,0 +1,181 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-star-half-o"></i>
+                    <span>Categorizaci&oacute;n</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{%url 'bandeja'%}?ver=todo" class="cargar_recurso" s=""><!-- link a bandeja categorización -->
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Bandeja
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'empleados'%}" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Administraci&oacute;n de Empleados
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Libro</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{%url 'bandeja_libro'%}?ver=todo" class="cargar_recurso" s="">
+                                <div class="row">
+                                    <div class="col-xs-1 text-center">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        Bandeja
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file-text"></i>
+                    <span>Reportes</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{%url 'reportes' reporte='categorizaciones' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Categorizaciones
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='gestiondecasos' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Gesti&oacute;n de Casos
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='historial' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Historial del prestador
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='portallsr' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Portal del libro
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='distribucioneat' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Distribuci&oacute;n de Establecimientos de Alojamiento Tur&iacute;stico
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='distribucionlibros' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Distribuci&oacute;n de Libros de Sugerencias y Reclamos
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='distribucionplacas' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Distribuci&oacute;n de PLacas de Identificaci&oacute;n
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'reportes' reporte='comparativoeat' %}?ver=todo" class="cargar_recurso" s="">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Comparativo entre Establecimientos de Alojamiento Tur&iacute;stico
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+         </ul>
+        <div class="bottom-container">
+            <div class="logo-bottom">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo-blanco.png">
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo_inatur.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sidebar -->
+</aside>

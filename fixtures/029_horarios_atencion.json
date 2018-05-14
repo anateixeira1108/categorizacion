@@ -1,0 +1,102 @@
+[
+{
+    "pk": 1, 
+    "model": "configuracion.horariosatencion", 
+    "fields": {
+        "hasta": "12:00:00", 
+        "horario": 1, 
+        "desde": "08:00:00", 
+        "dia": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "configuracion.horariosatencion", 
+    "fields": {
+        "hasta": "16:00:00", 
+        "horario": 1, 
+        "desde": "13:00:00", 
+        "dia": 1
+    }
+},
+{
+    "pk": 3,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "12:00:00",
+        "horario": 1,
+        "desde": "08:00:00",
+        "dia": 2
+    }
+},
+{
+    "pk": 4,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "16:00:00",
+        "horario": 1,
+        "desde": "13:00:00",
+        "dia": 2
+    }
+},
+{
+    "pk": 5,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "12:00:00",
+        "horario": 1,
+        "desde": "08:00:00",
+        "dia": 3
+    }
+},
+{
+    "pk": 6,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "16:00:00",
+        "horario": 1,
+        "desde": "13:00:00",
+        "dia": 3
+    }
+},
+{
+    "pk": 7,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "12:00:00",
+        "horario": 1,
+        "desde": "08:00:00",
+        "dia": 4
+    }
+},
+{
+    "pk": 8,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "16:00:00",
+        "horario": 1,
+        "desde": "13:00:00",
+        "dia": 4
+    }
+},
+{
+    "pk": 9,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "12:00:00",
+        "horario": 1,
+        "desde": "08:00:00",
+        "dia": 5
+    }
+},
+{
+    "pk": 10,
+    "model": "configuracion.horariosatencion",
+    "fields": {
+        "hasta": "16:00:00",
+        "horario": 1,
+        "desde": "13:00:00",
+        "dia": 5
+    }
+}
+]

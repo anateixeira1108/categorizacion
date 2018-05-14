@@ -1,0 +1,46 @@
+[ 
+  { 
+    "model": "registro.Circunscripcion" , 
+    "pk": 1 , 
+    "fields": { 
+      "nombre": "Simplemente el texto de relleno de las imprentas y archivos de texto" 
+    } 
+  },
+    { 
+    "model": "registro.Circunscripcion" , 
+    "pk": 2 , 
+    "fields": { 
+      "nombre": "Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde  el año 1500" 
+    } 
+  },
+    { 
+    "model": "registro.Circunscripcion" , 
+    "pk": 3 , 
+    "fields": { 
+      "nombre": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium" 
+    } 
+  },
+  
+    { 
+    "model": "registro.RegistroMercantil" , 
+    "pk": 1 , 
+    "fields": { 
+      "nombre": "Simplemente el texto de relleno de las imprentas y archivos de texto" 
+    } 
+  },
+    { 
+    "model": "registro.RegistroMercantil" , 
+    "pk": 2 , 
+    "fields": { 
+      "nombre": "Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde  el año 1500" 
+    } 
+  },
+    { 
+    "model": "registro.RegistroMercantil" , 
+    "pk": 3 , 
+    "fields": { 
+      "nombre": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium  doloremque laudantium" 
+    } 
+  } 
+
+]

@@ -1,0 +1,130 @@
+ Listado de tareas pendientes:
+✔ Numeración de elementos dentro de tabuladores @done (15-05-18 12:13)
+✔ Agregar soporte para valores punto flotante dentro de inputs number del tabulador @done (15-05-17 23:33)
+ ✔ Re-numeración automática en caso de eliminación de elementos dentro del tabulador @done (15-05-25 11:37)
+
+Punto de actualización y a considerar:
+✔ Configuracion Respuesta @done (15-05-17 23:31)
+✔ Configuracion Aspectos Fundamentales  @done (15-05-17 23:31)
+✔ Configuracion Secciones @done (15-05-17 23:31)
+✔ Configuracion Subsecciones @done (15-05-17 23:31)
+✔ Posibles valores respuesta @done (15-05-17 23:36)
+✔ Relacion entre preguntas y respuestas @done (15-05-25 10:36)
+☐  @high Revisar en representacion grafica, el uso del nombre, si se planea usar en los oficios, pendiente con los plurales y singulares. No tenemos regla exacta para pluralizar (si es que aplica), casos como cuando es una, tenemos 1 estrella, 2 se agrega s lo cual quedaria como 2 estrellas, pero para las clases es el mismo 1era clase, 2da clase.
+☐ @high Asociacion de numero de repeticion con valor ingresado por el PST, ejemplo numero de habitaciones con el porcentaje de muestreo [Validar antes de comenzar, sino se puede resolver de otra forma, pero cumpliendo lo esperado por el cliente]
+
+Fixtures:
+✔ Actualizar Fixtures involucrados @done (15-05-18 09:04)
+✔ Posibles valores respuestas, eliminar valores no necesarios. @done (15-05-18 09:04)
+✔ Valores de Categorias, incluirlas para todos los tipos de PST. @done (15-05-18 12:15)
+  Se crearan solo para los siguientes tipos de alojamiento turistico manejados por licencias
+    x Hotel de Turísmo
+    x Hotel-Residencia de Turismo
+    x Motel de Turismo
+    x Hospedaje o Pensión de Turista
+    x Estancia de Turismo
+    x Campamento de Turismo
+    x Posada de Turismo
+    x Hato
+    x Finca
+    x Hacienda de Turismo
+    x Albergue Turístico
+✘ Representacion por categoria. @cancelled (15-05-18 12:19)
+✘ Seccion repetitiva @cancelled (15-05-18 12:19)
+
+Manual:
+✔ Actualizar manual para el administrador @done (15-05-18 12:15)
+✘ Incluir ejemplo para el uso de las formulas. @cancelled (15-05-22 11:15)
+
+Acentos / palabras a corregir:
+✔ Aun a Aún, message de cada tab al crear el tabulador. @done (15-05-18 12:15)
+✔ S adicional en Agregar elementoS, message al crear tabulador. @done (15-05-18 12:15)
+✔ S faltante en titulo modal, agregar elemento - Agregar  requisitos BasicoS @done (15-05-18 12:15)
+✘ Subseccion respuesta condicional, titulo modal, falta acento en la O @cancelled (15-05-18 12:37)
+✔ Acento en formula en elemento de tipo formula @done (15-05-18 12:15)
+
+Posibles Bugs:
+    ✔ Creando AF en  Req Esp. Seleccioanr porcentaje mayor a 100, se inhabilita el boton para  guardar @done (15-05-18 16:57)
+    ✔ Al crear un AF colocando una cantidad mayor  a la que queda disponible apra el porcentaje, se mantiene el mismo mensaje de porcentaje invalido, es posible indicar cuanto resta? ej. si ya gaste 90, indicar para los casos que coloque una cifra mayor a 10, que el porcenjate es invalido, solo quedan 10. @done (15-05-22 11:02)
+    ✔  REVISAR-DUDA, los porcentajes son compartidos para cualquier tipo de AF ? sea de tipo especifico y de mantenimiento? la validacion que se tiene toma que el total del 100 % es compartido, no recuerdo si esto es asi, o bien lo puedo estar confundiendo con la parte de la guia de buenas practicas (la parte ambiental), duda 02, donde puedo configurar la parte ambiental? y segun el porcenjae que de le afecta de manera + o - al resultado final? @done (15-05-18 17:02)
+    ✔ Si consumo el 100 % , y pretendendo editar, no me permite, me lanza mensaje de que ya gaste el 100, debo poder editar sea para disminuir el procentaje y crear otro AF o ediatr nombre o tipo. @done (15-05-22 11:02)
+    ✔ Si se seleccionan dos secciones del mismo tipo (marcados los dos checks) y agrego un elemento solo se agrega al ultimo seleccionado. Revsiar si es valido permitir seleccionar multiples elementos, en caso afirmativo se debe duplicar el contenido? @done (15-05-22 11:02)
+      Adicional, la selccion multiple es por tipo de AF ? se hizo lo sgte
+      Se creo AF1 de tipo Basico se creo AF2 de tipo Mantimiento (se ve de color azul), se cambia AF2 a tipo basico (se mantiene el color azul), se crea AF3 basico (gris) solo se leccionan los grises, para seleccioanr el azul solo se lecciona el a la vez.
+      Nota adiconal 2, cuando se mantenia seleccionado varios elementos, para el caso de elemento repetitivo si se agregoe en los seleccionados.
+      Nota adicional 3, al aprecer con secciones funciona normal. lo descrito solo afecta a AF
+  ✔  bug (mejora, pero por la cert es bug): si es posibledeshalitar los inputs o evitar que el usuario pueda pensar que no se comporntan de la manera esperada, ej, se agrego pregunta dual, y el saurii podra marca tanto si como no,  creyendo que esta mal. PD: revise la hoja de patricia y esta reportado, asi que se revisara en la certificacion. @done (15-05-22 11:04)
+  ✔  resp tipo rango, revisar colocando limite inferior mayor al limite superior. no se muestra mensaje de error, permite continuar. @done (15-05-25 11:22)
+  ✔  Cuando se guardan valores negativos, en resp tipo rango, al editarlo no se recuperan. se mantiene el check de que fueron seleccioandos , pero no se ve el valor. @done (15-05-25 11:30)
+  ✔ Si el enunciado se edita no se ve reflejado en la interfaz, se mantiene el enucniado con el que se creo inicialmente, pasa con cualqueir tipo de pregunta., para los AF y secciones el titulo si se actualiza. de igual forma pasa con el place holder para el caso de valoes de tipo forumala, qeuda la formula inicial. @done (15-05-22 11:05)
+   ✔ Se admite repeticion por categoria con valores negativos. @done (15-05-25 11:47)
+  ✔ Se pierde el valor seleccionado en valor respuesta, luego de ir crear una cond positiva o negativa, se debe seleccionr de nuevo. @done (15-05-22 11:05)
+  ✔  LA vista previa es solo de los valores especificos ? como veo la parte de los basicos? recuerdo que se habilito como la vista que ve el funcionario interno q es la de espci (inspector) pero creo qeu deberia ver su trabajo completo. @done (15-05-22 11:05)
+  ✔ @critical luego de guardar , ver vista previa y volver al panel del tabulador y editar, no retorna lo configurado para asp basicos, ni especificos, al parecer permnecen en db, porq en la vista previa se ven los valroes esp. @done (15-05-22 11:06)
+  ✘  Al editar una formula, @cancelled (15-05-25 14:51)
+      0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:440 0
+ add-tabulator.js:441 0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:920 Object
+ add-tabulator.js:860 id 30
+ add-tabulator.js:860 id 3
+ add-tabulator.js:196 53
+ add-tabulator.js:197 {"type":"AF","pid":53,"nid":54}
+ add-tabulator.js:199 name = af
+ add-tabulator.js:200 nid = 54
+ add-tabulator.js:201 pid = 53
+ add-tabulator.js:202 old_ids[f].type = AF
+ add-tabulator.js:196 136
+ add-tabulator.js:197 {"type":"S","pid":136,"nid":137}
+ add-tabulator.js:199 name = sec
+ add-tabulator.js:200 nid = 137
+ add-tabulator.js:201 pid = 136
+ add-tabulator.js:202 old_ids[f].type = S
+ 2add-tabulator.js:860 id 30
+ add-tabulator.js:440 0
+ add-tabulator.js:441 0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:440 0
+ add-tabulator.js:441 0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:440 0
+ add-tabulator.js:441 0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:2133 x.fn.x.init[0]
+ add-tabulator.js:2134 true
+ add-tabulator.js:2133 x.fn.x.init[0]
+ add-tabulator.js:2134 true
+ add-tabulator.js:2133 x.fn.x.init[0]
+ add-tabulator.js:2134 true
+ add-tabulator.js:2163 Formula Valida: true
+ add-tabulator.js:920 Object
+ add-tabulator.js:860 id 30
+ add-tabulator.js:196 188
+ add-tabulator.js:197 {"type":"SS","pid":188,"nid":189}
+ add-tabulator.js:199 name = tet
+ add-tabulator.js:200 nid = 189
+ add-tabulator.js:201 pid = 188
+ add-tabulator.js:202 old_ids[f].type = SS
+ 2add-tabulator.js:860 id 30
+ 4add-tabulator.js:3140 Uncaught TypeError: Cannot read property 'extra' of undefined
+ add-tabulator.js:440 0
+ add-tabulator.js:441 0
+ add-tabulator.js:442 0
+ add-tabulator.js:443 0
+ add-tabulator.js:3140 Uncaught TypeError: Cannot read property 'extra' of undefined
+ bootstrap-select.js.map:1 GET http://cat.dev.mintur.cgtscorp.com/static/js/bootstrap-select.js.map 404 (Not Found)
+
+ nota: se creo otra de tipo formula y al editarlo se editaba , la que no se podia ver en la seccion anterior.
+
+  ✘  en lo anteior al tartar de seguir editando , guarar bandeja y editar se obtuvo @cancelled (15-05-25 14:51)
+    {"error": "get() returned more than one ValorIndicador -- it returned 2!"}
+
+    Y no se visualizo nada.
+  ✔  valor especifico duplicado, revisar . se creo formula que hace referenci al mismo valor dos veces, luego de gaurdar, editar la formla, , guardar, y volver a la bandeja y seguir editando el valor espcifico estaba dos veces. @done (15-05-25 12:30)

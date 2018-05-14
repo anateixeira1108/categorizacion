@@ -1,0 +1,42 @@
+[
+    {
+        "model": "factibilidad.ServicioBasico",
+        "pk": 1,
+        "fields": {
+            
+            "nombre": "Electricidad"
+        }
+    },
+    {
+        "model": "factibilidad.ServicioBasico",
+        "pk": 2,
+        "fields": {
+            
+            "nombre": "Cloacas"
+        }
+    },
+    {
+        "model": "factibilidad.ServicioBasico",
+        "pk": 3,
+        "fields": {
+            
+            "nombre": "Acueducto"
+        }
+    },
+    {
+        "model": "factibilidad.ServicioBasico",
+        "pk": 4,
+        "fields": {
+            
+            "nombre": "Teléfono"
+        }
+    },
+    {
+        "model": "factibilidad.ServicioBasico",
+        "pk": 5,
+        "fields": {
+            
+            "nombre": "Gas"
+        }
+    }
+]

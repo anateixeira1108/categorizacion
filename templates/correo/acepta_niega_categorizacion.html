@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<style type="text/css">
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+				font-size: 8px;
+				text-align:center;
+			}
+			.titulo {
+				text-align:center;
+				font-size: 14px;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			.bold{
+				font-weight:bold;
+			}
+
+		 </style>
+
+	</head>
+
+	<body class="pg">
+
+	 	<div class="titulo">
+			<h4>MINISTERIO DEL PODER POPULAR PARA EL TURISMO</h4>
+		</div>
+			<br>
+
+		<div style="margin-right:5cm;text-align:justify;">
+			<span>Se&ntilde;ores: </span>
+			<span>{{razon_social}}</span>
+			<span>Direccion : {{direccion}}<span>
+		</div>
+			<br>
+		{% if contacto %}
+			<div style="text-align:right;"> 
+				<span> Atenci&oacute;n: </span>
+				<span>{{contacto.nombres}}} {{contacto.apellidos}}</span>
+	            <span>Cargo: {{contacto.cargo_empresa}}}</span>
+			</div>
+		{% endif %}
+
+		<div class="parrafo" style="text-align:justify;
+		font-size:12px;">
+			Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de informarle que el proceso de categorizaci&oacute;n iniciado por usted en fecha {{solicitud.fecha_apertura}}, para el establecimiento de turismo que usted representa, ha culminado.
+
+			
+		</div><br><br>
+		
+		<div class="parrafo" style="text-align:justify;
+		font-size:12px;">
+			En tal sentido, adjunto al presente correo encontrar&aacute; un documento oficial que muestra el resultado del proceso de categorizaci&oacute;n.
+		</div><br><br> 
+
+		<div id="footerContent" style="font-size: 8px;
+		text-align:center;">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+
+	</body>
+
+</html>

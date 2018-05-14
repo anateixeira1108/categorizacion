@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load filtros_factibilidad %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <section class="content-header">
+          <h1>Factibilidad
+            <small>Panel de Control</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+            <li class="active">Factibilidad</li>
+          </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content" ng-controller="FactibilidadCtrl">
+            <div ng-init="tipo_solicitud = {{tipo_solicitud}}"></div>
+            <div ng-init="tipo_actividad = {{tipo_actividad}}"></div>
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="title"> Declaraciones
+                          <div class="col-xs-3 pull-right">
+                            <a href="#" class="btn btn-flat btn-block btn-info btn-add" data-toggle="modal" data-target="#nueva-factibilidad">
+                            Nueva declaración</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <table class="table table-bordered table-striped table-condensed text-center">
+                          <thead>
+                            <tr>
+                                <th>Tipo de solicitud</th>
+                                <th>Fecha de solicitud</th>
+                                <th>Estatus</th>
+                                <th colspan="3">Opciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for proyecto in proyectos %}
+                              <tr>
+                                <td>{{ proyecto.tipo_solicitud|tipo_solicitud }}</td>
+                                <td>{{ proyecto.creado_el }}</td>
+                                <td>
+                                    <small class="estatus badge {{proyecto.estado|get_class}}">{{proyecto.estado|nombre_estado}}</small>
+                                </td>
+                                <td>{% if proyecto.estado == solicitud_activa %}<a class="fa fa-search" href="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}"></a>{%endif%}</td>
+                                <td><a class="fa fa-download" href="#"></a></td>
+                                <td><a class="fa fa-trash-o anular-button" href="#" data-toggle="modal" ng-click="modal_anulacion({{ proyecto.id }})"></a></td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div><br>
+                    <div class="row">
+                      <div class="col-xs-12 text-center">
+                        <span class="step-links">
+                            <a class="fa fa-arrow-left" href="#"></a>
+                            <span class="current" style="padding: 0.8em;"></span>
+                            <a class="fa fa-arrow-right" href="#"></a>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="anular-factibilidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <form action="{% url 'anular_factibilidad' %}" method="POST" name="formAnularDeclaracion" id="anular-declaracion-form" novalidate>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Anular Declaraci&oacute;n</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title"> Justificaci&oacute;n de la anulaci&oacute;n de la declaraci&oacute;n.</div>
+                                        <div class="error" data-ng-show="submitted && formAnularDeclaracion.justificacion.$error.required" ng-cloak>
+                                            <ul><li>Este campo es requerido</li></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                            <textarea class="form-control" name="justificacion" ng-model="justificacion" rows="5" placeholder="Describa la razon por la cual desea anular la declaraci&oacute;n." required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></br>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <input type="hidden" name="declaracion-id" value="" id="declaracion-id">
+                                        <button type="button" class="btn btn-primary btn-flat btn-block" ng-click="eliminar_factibilidad($event, formAnularDeclaracion)">Solicitar Anulaci&oacute;n</button>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button type="button" class="btn btn-danger btn-flat btn-block" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal fade" id="nueva-factibilidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Factibilidad sociotécnica</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="">
+                                <div class="text-center" ng-show="alerta.mostrar" ng-cloak>
+                                    <div class="alert-small [[alerta.htmlclass]] alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        [[alerta.texto]]
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="{% url 'pst_crear_factibilidad' %}" method="POST" name="formCrearFactibilidad" novalidate>
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <label>Tipo de actividad turística</label>
+                                        <select class="select" name="actividad" ng-model="actividad" ng-options="ta.nombre for ta in tipo_actividad track by ta.id" required>
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        <div class="error" data-ng-show="submitted && formCrearFactibilidad.actividad.$error.required">
+                                            <ul><li>Este campo es requerido</li></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="tipo_solicitud">
+                                    <div class="col-xs-12">
+                                        <label>Tipo de solicitud</label>
+                                        <select class="select" name="solicitud" ng-model="solicitud" ng-options="ta.nombre for ta in tipo_solicitud track by ta.id" required>
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                        <div class="error" data-ng-show="submitted && formCrearFactibilidad.solicitud.$error.required">
+                                            <ul><li>Este campo es requerido</li></ul></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                     <button type="button" class="btn btn-primary btn-block btn-flat" ng-click="nueva_factibilidad($event, formCrearFactibilidad)">Aceptar</button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-danger btn-block btn-flat" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </aside>
+{% endblock %}

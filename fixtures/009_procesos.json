@@ -1,0 +1,24 @@
+[
+    {
+        "pk": 1,
+        "model": "procesos.Proceso",
+        "fields": {
+            "nombre": "Prueba",
+			"descripcion": "esta es una prueba de un proceso",
+			"activo": true,
+            "fecha_creacion": "2014-05-23 13:00:00.00",
+			"fecha_desactivacion": null
+        }
+    },
+    {
+        "pk": 2,
+        "model": "procesos.Proceso",
+        "fields": {
+            "nombre": "Prueba 2",
+            "descripcion": "esta es una prueba de un proceso",
+            "activo": true,
+            "fecha_creacion": "2014-05-23 13:00:00.00",
+            "fecha_desactivacion": null
+        }
+    }
+]

@@ -1,0 +1,101 @@
+<html>
+{% load obtener_valor %}
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter landscape;
+				top:4cm;
+                bottom: 3cm;
+				margin-left: 1cm;
+				margin-right: 1cm;			
+
+				@frame header{
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					
+				}
+
+                @frame header {
+                    -pdf-frame-content: headerTextContent;
+                    top: 2cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                }
+
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+			}
+			@page imPage{
+				top:0cm;
+				margin-left: 1cm;
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+
+		<div id="headerLogoContent">
+			<img height="100" width="200" alt="image" src="static/img/informes/logo.jpg"/>
+		</div> 
+        <div id="headerTextContent" style="text-align:center;font-size:23px;">
+            Distribuci&oacute;n de Establecimientos de Alojamiento Tur&iacute;stico.
+        </div>
+
+		<div class="pg">
+			<div class="parrafo">
+				<table style="border-collapse:collapse;border:black 1px solid;text-align:center;padding:2pt">
+                                <thead>
+                                    <tr>
+                                        <th>Entidad Federal / Clasificaci&oacute;n</th>
+                                        {% for t in data.tipos %}
+                                            <th><div>{{t.nombre}}</div></th>
+                                        {% endfor %}
+                                        <th><div >Total</div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for c in data.consulta %}
+                                    <tr>
+                                        <td><div >{{c|keyvalue:'show_name'}}</div></td>
+                                        {% for d in c|keyvalue:'datos' %}
+                                            <td><div >{{d|keyvalue:'cantidad'}}</div></td>
+                                        {% endfor %}
+                                        <td><div >{{c|keyvalue:'total'}}</div></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+			</div>
+		</div>
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Tur&iacute;smo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div> 
+	</body>
+</html> 

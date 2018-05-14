@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block main_content %}
+<aside class="right-side">
+  <section class="content-header">
+    <h1>
+      Estado de cuenta
+      <small></small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-check-square"></i>Pagos</a></li>
+      <li class="active">Estado de Cuenta</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="box box-danger">
+      <div class="box-body">
+        <div id="conceptos">
+          {% csrf_token %}
+
+          <table class="table table-bordered table-striped table condensed text-center">
+            <thead>
+              <th></th>
+              <th>Tipo de Pago</th>
+              <th>Fecha de Generación</th>
+              <th>Periodo</th>
+              <th>Estatus</th>
+              <th>Nº de Planilla</th>
+              <th colspan="2">Opciones</th>
+            </thead>
+
+            <tbody>
+              {% for concepto in conceptos %}
+                <tr>
+                  <td><input type="checkbox" name="concepto" data-pk="{{ concepto.id }}" {% if concepto.estatus != 'Pendiente' %} disabled {% endif %}></td>
+                  <td>{{ concepto.concepto_tipo.nombre }}</td>
+                  <td>{{ concepto.fecha_generacion }}</td>
+                  <td>
+                    {% if concepto.declaracion_set.first %}
+                      {{ concepto.declaracion_set.first.periodo|date:"F-Y" }}
+                    {% elif concepto.interesmoratorio_set.first %}
+                      {{ concepto.interesmoratorio_set.first.declaracion.periodo|date:"F-Y" }}
+                    {% else %}
+                      No aplica
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if concepto.estatus == 'Pendiente' %} <span class="estatus badge bg-red"> {% endif %}
+                    {% if concepto.estatus == 'Declaración por anular' %} <span class="estatus badge bg-orange"> {% endif %}
+                    {% if concepto.estatus == 'Declaración anulada' %} <span class="estatus badge bg-black"> {% endif %}
+                    {% if concepto.estatus == 'Pagado' %} <span class="estatus badge bg-blue"> {% endif %}
+                      {{ concepto.estatus }}</span>
+                  </td>
+                  <td class="pago-nro">{{ concepto.pago.numero_documento|default:"No disponible" }}</td>
+                  <td><a class="fa fa-search" href="#" data-id="{{ concepto.id }}"></a></td>
+                  <td>
+                    <a class="fa fa-download pago-url"  target="_blank"
+                      {% if concepto.pago != None %}
+                        href="{% url "pst_compromisos_pago_pdf" concepto.pago.id %}"
+                      {% else %}
+                        href="#" style="display: none;"
+                      {% endif %}>
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <br>
+
+        <div class="row text-center">
+          <div class="col-xs-6 col-xs-offset-3">
+            <button id="generar-compromiso-pago" class="btn btn-primary">Generar Planilla de Pago</button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <span class="step-links">
+              {% if conceptos.has_previous %}
+                <a class="fa fa-arrow-left" href="?page={{ conceptos.previous_page_number }}"></a>
+              {% endif %}
+
+              <span class="current" style="padding: 0.8em;">
+                Página {{ conceptos.number }} de {{ conceptos.paginator.num_pages }}
+              </span>
+
+              {% if conceptos.has_next %}
+                <a class="fa fa-arrow-right" href="?page={{ conceptos.next_page_number }}"></a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
+
+<div id="conceptos-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Concepto de Pago</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-4" style="font-weight: bold; text-align: right;">Tipo de pago:</div>
+          <div id="tipo" class="col-xs-8"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4" style="font-weight: bold; text-align: right;">Fecha de generación:</div>
+          <div id="fecha-generacion"class="col-xs-8"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4" style="font-weight: bold; text-align: right;">Monto:</div>
+          <div id="monto" class="col-xs-8"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4" style="font-weight: bold; text-align: right;">Pago asociado:</div>
+          <div class="col-xs-8"><span id="pago"></span> <a id="pago-url" class="fa fa-search" href="#" target="_blank"></a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4" style="font-weight: bold; text-align: right;">Estatus:</div>
+          <div id="estatus" class="col-xs-8"></div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}

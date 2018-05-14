@@ -1,0 +1,11 @@
+Django==1.6.4
+South==0.8.4
+django-braces==1.4.0
+django-extensions==1.3.6
+django-venezuela==0.4.1
+django-widget-tweaks==1.3
+ipython==2.0.0
+psycopg2==2.5.1
+python-dateutil==2.2
+six==1.6.1
+wsgiref==0.1.2

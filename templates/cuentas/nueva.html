@@ -1,0 +1,173 @@
+{% extends "base_cuentas.html" %}
+{% load widget_tweaks %}
+
+{% block form_box %}
+    <div class="form-box" id="register-box">
+        <div class="header">Registro de usuario</div>
+        <form action="{% url 'cuentas_nueva' %}" method="post">
+            {% csrf_token %}
+
+            <div class="body bg-gray" id="persona-natural">
+                <div class="title">
+                    Prestador de Servicios Turisticos
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 error">
+                        {{ form.non_field_errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ form.tipo_pst.label_tag }}<br>
+                        {% render_field form.tipo_pst required="" %}
+                        <div class="error">
+                            {{ form.tipo_pst.errors }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="title">
+                    Datos del usuario
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.rif.label_tag }}<br>
+                        {% render_field form.rif class="form-control rif-strict-mask" required="" placeholder="V-12345678-0" %}
+                        <div class="error" >
+                            {{ form.rif.errors }}
+                        </div>
+
+                        {{ form.nombres.label_tag }}<br>
+                        {% render_field form.nombres class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.nombres.errors }}
+                        </div>
+
+                        {{ form.apellidos.label_tag }}<br>
+                        {% render_field form.apellidos class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.apellidos.errors }}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        {{ form.password1.label_tag }}<br>
+                        {% render_field form.password1 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.password1.errors }}
+                        </div>
+
+                        {{ form.password2.label_tag }}<br>
+                        {% render_field form.password2 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.password2.errors }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.correo_electronico.label_tag }}<br>
+                        {% render_field form.correo_electronico class="form-control" required="" placeholder="nombre@dominio.com" %}
+                        <div class="error">
+                            {{ form.correo_electronico.errors }}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.correo_electronico2.label_tag }}<br>
+                        {% render_field form.correo_electronico2 class="form-control" required="" placeholder="nombre@dominio.com" %}
+                        <div class="error">
+                            {{ form.correo_electronico2.errors }}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="title">
+                    Preguntas de seguridad
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.pregunta_1.label_tag }}<br>
+                        {% render_field form.pregunta_1 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.pregunta_1.errors }}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        {{ form.pregunta_3.label_tag }}<br>
+                        {% render_field form.pregunta_3 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.pregunta_3.errors }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.respuesta_1.label_tag }}<br>
+                        {% render_field form.respuesta_1 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.respuesta_1.errors }}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        {{ form.respuesta_3.label_tag }}<br>
+                        {% render_field form.respuesta_3 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.respuesta_3.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.pregunta_2.label_tag }}<br>
+                        {% render_field form.pregunta_2 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.pregunta_2.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ form.respuesta_2.label_tag }}<br>
+                        {% render_field form.respuesta_2 class="form-control" required="" %}
+                        <div class="error">
+                            {{ form.respuesta_2.errors }}
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-info btn-flat btn-block"> Regístrese <i class="fa fa-edit btn-icon"></i></button>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <a href="{% url 'cuentas_login' %}" class="btn btn-danger btn-flat btn-block">
+                            Salir
+                            <i class="fa fa-sign-out btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

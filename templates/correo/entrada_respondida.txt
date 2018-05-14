@@ -1,0 +1,15 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+Ciudadano:
+{{nombre_turista}}
+Presente.-
+
+Con un saludo bolivariano y revolucionario me dirijo a usted para notificarle que el Prestador de Servicio Turístico {{razon_social}} ha respondido la entrada de {{tipo_entrada}} ingresada en el Libro de Sugerencias y Reclamos Digital  perteneciente a este establecimiento, indicando lo siguiente: "{{respuesta}}"
+
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

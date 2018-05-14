@@ -1,0 +1,541 @@
+{% extends "base_funcionario.html" %}
+{% load filtros_datos %}
+{% block main_content %}
+    {% load tipo_persona_juridica %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+    <section class="content-header">
+        <h1>
+            Detalle de registro de PST
+            <small>(No verificado)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Registro</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="box box-danger">
+    <div class="box-body">
+    <div class="body" id="funcionario">
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>RIF:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.rif }}</span>
+            <a href="{{ MEDIA_URL }}{{ archivo_rif }}" target="_blank">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+        <div class="col-xs-2 text-right">
+            <label>Fecha de registro:</label>
+        </div>
+        <div class="col-xs-2">
+            <span>{{ pst.creado_el | date:"SHORT_DATE_FORMAT" }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de persona juridica:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.get_tipo_juridica_display }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Razón social:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.razon_social }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Denominación comercial:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.denominacion_comercial }}</span>
+        </div>
+        {% if not pst.numero_contribuyente %}
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                    <a class="btn btn-info btn-block btn-flat" data-toggle="modal"
+                       data-target="#registrar_conclusiones">
+                        Confirmar asignación de RIFTUR
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                    <a class="btn btn-info btn-block btn-flat" href="{% url "registro_funcionario_certificar_documentos_juridica" pst.id %}">
+                        Certificar
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title"> Ubicación</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Estado:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.estado }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Municipio:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.municipio }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Parroquia:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.parroquia }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Urbanización/sector:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.urbanizacion }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Avenida/calle/carretera:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.avenida_calle }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Edificio/casa:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.edificio }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Oficio/Apto./No.:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.oficina_apartamento }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Código postal:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.codigo_postal }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Punto de referencia:</label>
+        </div>
+        <div class="col-xs-8"> {{ direccion.punto_referencia }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title"> Datos de contacto</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono fijo:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.telefono_fijo }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono celular:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.telefono_celular }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Correo electrónico:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.correo_electronico }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">Representante legal</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Nombres:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.nombres }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Apellidos:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.apellidos }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Cédula:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ representante.cedula }}
+            <a href="{{ MEDIA_URL }}{{ archivo_cedula_representante_pst }}" target="_blank">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>RIF:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ representante.rif }}
+            <a href="{{ MEDIA_URL }}{{ archivo_rif_representante_pst }}" target="_blank">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Cargo en la empresa:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.cargo_empresa }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono fijo:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.telefono_fijo }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono celular:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.telefono_celular }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Correo electrónico:</label>
+        </div>
+        <div class="col-xs-8"> {{ representante.correo_electronico }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title"> Tipo de prestador de servicios turísticos</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de PST:</label>
+        </div>
+        <div class="col-xs-8"> {{ pst.tipo_pst }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Detalles del acta constitutiva
+                <a href="{{ MEDIA_URL }}{{ acta.archivo_acta_constitutiva }}" target="_blank">
+                    <i class="fa fa-search"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Circuito/circunscripción:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.circuito_circunscripcion }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Registro mercantil:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.registro_mercantil }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tomo:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.tomo }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>No.:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.numero_tomo }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Fecha de registro:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.fecha_registro }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Duración de la empresa:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.duracion }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Fecha de la última asamblea:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.fecha_ultima_asamblea }} </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Capital suscrito:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.capital_suscrito }} Bs</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Capital pagado:</label>
+        </div>
+        <div class="col-xs-8"> {{ acta.capital_pagado }} Bs</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title"> Modificaciones del acta</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-5"> Fecha de modificación</th>
+                    <th class="col-xs-5"> Tipo de modificación</th>
+                    <th class="col-xs-2 text-center"> Documento</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for modificacion in modificaciones_actas %}
+                    <tr>
+                        <td class="col-xs-5">{{ modificacion.fecha_registro }}</td>
+                        <td class="col-xs-5">{{ modificacion.objetivo_modificacion|text_acta }}</td>
+                        <td class="text-center col-xs-2">
+                            {% if modificacion.archivo_acta_constitutiva %}
+                                <a href="{{ MEDIA_URL }}{{ modificacion.archivo_acta_constitutiva }}" target="_blank">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <label>Accionistas/socios/asociados</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-2">Cédula</th>
+                    <th class="col-xs-2">RIF</th>
+                    <th class="col-xs-2">Nombres</th>
+                    <th class="col-xs-2">Apellidos</th>
+                    <th class="col-xs-2">Número de acciones</th>
+                    <th class="col-xs-1">Fecha de incorporación</th>
+                    <th class="col-xs-1">Director</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for accionista in accionistas %}
+                    <tr>
+                        <td class="col-xs-2">{{ accionista.cedula }}
+                            {% if accionista.archivo_cedula %}
+                                <a href="{{ MEDIA_URL }}{{ accionista.archivo_cedula }}" target="_blank">
+                                    <i class="fa fa-search steelblue-search"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td class="col-xs-2">{{ accionista.rif }}
+                            {% if accionista.archivo_rif %}
+                                <a href="{{ MEDIA_URL }}{{ accionista.archivo_rif }}" target="_blank">
+                                    <i class="fa fa-search steelblue-search"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td class="col-xs-2">{{ accionista.nombres }}</td>
+                        <td class="col-xs-2">{{ accionista.apellidos }}</td>
+                        <td class="col-xs-2">{{ accionista.numero_acciones }}</td>
+                        <td class="col-xs-1 text-center">{{ accionista.fecha_incorporacion }}</td>
+                        <td class="col-xs-1 text-center">{{ accionista.director|boolean_to_text }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+
+    {% if not pst.numero_contribuyente %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" data-toggle="modal"
+                   data-target="#registrar_conclusiones">
+                    Confirmar asignación de RIFTUR
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" href="{% url "registro_funcionario_certificar_documentos_juridica" pst.id %}">
+                    Certificar
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
+    </aside>
+
+
+    <div class="modal fade" id="registrar_conclusiones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" ng-controller="registroConclusionesCtrl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Registro de conclusiones</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="opciones">El registro del PST cumple con la condición de:</label>
+                    <select name="opciones"
+                            id="opciones"
+                            class="form-control"
+                            ng-model="optionA"
+                            ng-change="verificar_opcion(optionA)"
+                            ng-init="optionA='pst'">
+                        <option value="pst">
+                            Prestador de Servicios Turísticos (P.S.T)
+                        </option>
+                        <option value="zit">
+                            Ejerce actividad comercial en una Zona de Interés Turísticas (Z.I.T)
+                        </option>
+                        <option value="otros">
+                            Otros
+                        </option>
+                    </select>
+
+                    <div id="riftur_option">
+                        <label for="riftur">Se genera RIFTUR para este contribuyente:</label>
+                        <select name="riftur"
+                                id="riftur"
+                                class="form-control"
+                                ng-model="optionB"
+                                ng-change="actualizar_respuesta(optionB)"
+                                ng-init="optionB='si'">
+                            <option value="si">
+                                Si
+                            </option>
+                            <option value="no">
+                                No
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a href="{% url 'registro_funcionario_certificar_documentos_juridica' pst.id %}"
+                               class="btn btn-info btn-block btn-flat">
+                                Aceptar
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="button"
+                                    class="btn btn-danger btn-block btn-block"
+                                    ng-click="ingresar_conclusiones()">
+                                No procede
+                            </button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="button"
+                                    class="btn btn-danger btn-block btn-flat"
+                                    data-dismiss="modal">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ingresar_conclusiones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class="form-horizontal"
+                      role="form"
+                      action="{% url 'registro_funcionario_certificar_registrar_rechazo_registro' pst.id %}"
+                      method="post">{% csrf_token %}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Ingresar conclusiones</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row text-center">
+                            <div class="text-center col-xs-12">
+                                <label for="rechazar_registro_conclusiones">Conclusiones del análisis</label>
+                                <br/>
+                                <textarea name="rechazar_registro_conclusiones" id="rechazar_registro_conclusiones" class="col-xs-12" cols="15" rows="5"></textarea>
+                            </div>
+                            <div class="text-center col-xs-12">
+                                <label for="rechazar_registro_observaciones">Observaciones para el PST</label>
+                                <br/>
+                                <textarea name="rechazar_registro_observaciones" id="rechazar_registro_observaciones" class="col-xs-12" cols="15" rows="5"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <button type="submit"
+                                            class="btn btn-info btn-block btn-flat">
+                                        Guardar
+                                    </button>
+                                </div>
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="btn btn-danger btn-block btn-flat"
+                                            data-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/helpers.js" type="text/javascript"></script>
+{% endblock javascripts %}

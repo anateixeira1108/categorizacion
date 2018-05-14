@@ -1,0 +1,226 @@
+{% extends "base_funcionario.html" %}
+
+{% load filtros_datos %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+        <section class="content-header">
+            <h1>
+                Prestador de servicios turísticos
+                <small>(Sin certificar)</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-edit"></i> Registro</a></li>
+                <li class="active">PST</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="body" id="persona-juridica">
+                        <div class="row">
+                            <form method="get" action="{% url 'registro_funcionario_busqueda_por_rif' %}">
+                                <div class="col-xs-6">
+                                  <label>Tipo de Solicitud</label><br>
+                                  <select id="tipo-solicitudes-select" class="select"
+                                      onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                                      <option data-url="{% url 'registro_funcionario_solicitudes' %}"></option>
+                                      <option data-url="{% url 'registro_funcionario_solicitudes' %}?tipo=1">Nuevo registro</option>
+                                      <option data-url="{% url 'registro_funcionario_solicitudes' %}?tipo=2">Cambio de perfil</option>
+                                      <option data-url="{% url 'registro_funcionario_solicitudes' %}">Todas las solicitudes</option>
+                                  </select>
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <label>RIF</label><br>
+
+                                    <div class="input-group">
+                                        <input type="text"
+                                               name="query"
+                                               class="form-control rif-mask"/>
+
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default"
+                                                    type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        {% if solicitudes %}
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <table class="table table-striped table-partner table-hover text-center">
+                                        <thead>
+                                        <tr>
+                                            <th>RIF</th>
+                                            <th>Razón social</th>
+                                            <th>Tipo de PST</th>
+                                            <th>Estatus</th>
+                                            <th>Tipo de solicitud</th>
+                                            <th>Fecha de registro/solicitud</th>
+                                            <th colspan="2">Opciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody ng-controller="FuncionarioCambioPerfilUsuarioCtrl">
+                                        {% for solicitud in solicitudes %}
+                                            <tr>
+                                                {% if solicitud.className  == 'Pst' %}
+                                                    <td>{{ solicitud.rif }}</td>
+                                                    {% if solicitud.razon_social %}
+                                                        <td>{{ solicitud.razon_social }}</td>
+                                                    {% else %}
+                                                        <td>No aplica</td>
+                                                    {% endif %}
+                                                    <td>{{ solicitud|get_tipo_pst }}</td>
+                                                    {% if solicitud.estatus == 1 %}
+                                                        <td>
+                                                            <small class="badge bg-green">Registro Completado</small>
+                                                        </td>
+                                                    {% elif solicitud.estatus == 2 %}
+                                                        <td>
+                                                            <small class="badge bg-green">Registro completado</small>
+                                                        </td>
+                                                    {% elif solicitud.estatus == 3 %}
+                                                        <td>
+                                                            <small class="badge bg-green">Primera certificación</small>
+                                                        </td>
+                                                    {% elif solicitud.estatus == 4 %}
+                                                        <td>
+                                                            <small class="badge bg-green">Segunda certificación</small>
+                                                        </td>
+                                                    {% endif %}
+                                                    <td>
+                                                        {% if solicitud.creado_el == solicitud.modificado_el %}
+                                                            <small class="badge bg-red">Nuevo registro</small>
+                                                        {% else %}
+                                                            <small class="badge bg-blue">Actualización</small>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td>{{ solicitud.modificado_el|date:"d/m/Y - h:i A" }}</td>
+                                                    <td colspan="2">
+                                                        <!--Si es persona juridica muestra su url correspondiente.
+                                                            Si es persona natural muestra su url correspondiente.
+                                                        -->
+                                                        <a
+                                                                {% if solicitud.tipo_figura == 1 %}
+                                                                    href="{% url 'registro_funcionario_detalle_persona_juridica_solicitud' solicitud.id %}"
+                                                                {% else %}
+                                                                    href="{% url 'registro_funcionario_detalle_persona_natural_solicitud' solicitud.id %}"
+                                                                {% endif %}
+                                                                    class="btn btn-block btn-info btn-flat">
+                                                            Ver solicitud
+                                                            <i class="fa fa-search icon-white"></i>
+                                                        </a>
+                                                    </td>
+                                                {% else %}
+                                                    <td>
+                                                        {{ solicitud.pst.rif }}
+                                                    </td>
+                                                    <td>
+                                                        {{ solicitud.pst.razon_social }}
+                                                    </td>
+                                                    <td>
+                                                        {{ solicitud.pst|get_tipo_pst }}
+                                                    </td>
+                                                    <td>
+                                                        <small class="badge bg-green">Pendiente</small>
+                                                    </td>
+                                                    <td>
+                                                        <small class="badge bg-black">Cambio de Perfil</small>
+                                                    </td>
+                                                    <td>
+                                                        {{ solicitud.fecha_generacion|date:"d/m/Y - h:i A" }}
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-flat btn-block btn-info fa fa-check-square" ng-click="aprobar_solicitud({{ solicitud.pk }})">
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-flat btn-block btn-danger fa fa-trash-o" ng-click="rechazar_solicitud({{ solicitud.pk }})">
+                                                        </button>
+                                                    </td>
+                                                {% endif %}
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                              <div class="col-xs-12 text-center">
+                                <span class="step-links">
+                                  {% if solicitudes.has_previous %}
+                                      <a class="fa fa-arrow-left" href="?page={{ solicitudes.previous_page_number }}"></a>
+                                  {% endif %}
+
+                                  <span class="current" style="padding: 0.8em;">
+                                      Página {{ solicitudes.number }} de {{ solicitudes.paginator.num_pages }}
+                                  </span>
+
+                                  {% if solicitudes.has_next %}
+                                      <a class="fa fa-arrow-right" href="?page={{ solicitudes.next_page_number }}"></a>
+                                  {% endif %}
+                                </span>
+                              </div>
+                            </div>
+                        {% else %}
+                            {% if error %}
+                                <div class="text-center">
+                                    <label>
+                                        <h3>
+                                            No se ha encontrado la solicitud de busqueda
+                                        </h3>
+                                    </label>
+                                    <br>
+                                </div>
+                            {% else %}
+                                <div class="text-center">
+                                    <label>
+                                        <h3>
+                                            No hay solicitudes a verificar
+                                        </h3>
+                                    </label>
+                                    <br>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+
+<div id="cambio-perfil-observaciones-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #E74F4C; color: white;">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">
+                    Solicitud no procede
+                </h4>
+            </div>
+            <div class="modal-body">
+                Esta solicitud será rechazada. Ingrese las razones por las que desea rechazar esta solicitud:
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" class="form-control" name="observacioenes" cols="30" rows="5"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}

@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top : 6cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 3cm;
+					margin-right: 1cm;
+					height: 11cm;
+				}
+				@frame header {
+					-pdf-frame-content: headerTextContent;
+					top: 4cm;
+					margin-left: 1.5cm;
+					margin-right: 1cm;
+					height: 5cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			#headerLogoContent{
+				
+				width:100;
+				height: 100;
+			}
+			#parrafo{
+				text-align:justify;
+				font-size: 12px;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img width="100" height="100" src="">
+			<!-- Imagen de MINTUR roja, en el src-->
+		</div>
+		<div class=".bold" style="text-align:center;font-size: 12px">
+			INFORME T&Eacute;CNICO DEL ESTABLECIMIENTO DE ALOJAMIENTO TUR&Iacute;STICO
+			<br> {{data.tipo.nombre|upper}} {{data.nombre_establecimiento|upper}}
+		</div>
+
+		<br>
+		<div id="parrafo">
+			Iniciado el procedimiento de categorizaci&oacute;n al Establecimiento de Alojamiento Tur&iacute;stico denominado {{ data.tipo.nombre }} {{data.nombre_establecimiento}} por parte del Ministerio del Poder Popular para el Turismo, se procedi&oacute; al an&aacute;lisis del Informe de Inspecci&oacute;n de Categorizaci&oacute;n y la Planilla de Inspecci&oacute;n de Categorizaci&oacute;n para Posada de Turismo, efectuada por los inspectores {{data.inspector1}}, {{data.inspector2}}  dando cumplimiento a el art&iacute;culo 13  del Reglamento Parcial de la Ley Org&aacute;nica de Turismo sobre Establecimientos de Alojamiento Tur&iacute;stico, publicado en la Gaceta Oficial N&deg; 36.607 de fecha 21 de diciembre de 1998. En tal sentido, se se&ntilde;ala lo siguiente:
+		</div>
+		<br><br>
+		<div id="parrafo">
+			Con base al art&iacute;culo 13 del precitado Reglamento, se procedi&oacute; a la revisi&oacute;n de los documentos elaborados por los inspectores, con el fin de identificar los servicios que presta {{ data.tipo.nombre }} {{data.nombre_establecimiento}}  y a la vez, verificar la conformidad de los mismos seg&uacute;n lo establecido en el Tabulador de Servicios para las Categor&iacute;as de los Establecimientos de Alojamiento Tur&iacute;stico: Tipo {{data.tipo}} (Resoluci&oacute;n {{data.resolucion.numero}}) de fecha {{data.resolucion.fecha|date}}, publicado en Gaceta Oficial N&deg; {{data.gaceta.numero}} {% if data.gaceta.identificador_legal %} {{data.gaceta.identificador_legal}} {% endif %} de fecha {{data.gaceta.fecha|date}}.  
+			<br>
+			En tal sentido, se encontr&oacute; lo siguiente:
+		</div>
+		<br><br>
+		<div id="parrafo">
+			Con base a la Resoluci&oacute;n N&deg; 030 de fecha 21 de febrero de 2011, publicada en la Gaceta Oficial N&deg; 39.627 de fecha 02 de marzo de 2011, emanada del Ministerio del Poder Popular para la Salud, en la cual se establece la prohibici&oacute;n de fumar o mantener encendidos productos de tabaco en los interiores de los espacios p&uacute;blicos, se ha procedido a suprimir como requisito m&iacute;nimo de cumplimiento para optar a una de las categor&iacute;as el indicador N&deg; 43 "Ceniceros" de las habitaciones, sin que esto influya positiva o negativamente en la evaluaci&oacute;n del Establecimiento.
+		</div>
+		<br><br>
+		<div id="parrafo">
+			En cuanto a los requisitos de mantenimiento y funcionalidad, independientemente de la categor&iacute;a que aspire asumir {{ data.tipo.nombre }} {{data.nombre_establecimiento}},  el establecimiento debe corregir las siguientes deficiencias:
+		</div>
+		<pdf:nextpage />
+		CUADRO #1
+		<pdf:nextpage />
+		<div id="parrafo">
+			Con base a lo anterior, el resultado de la evaluaci&oacute;n para el establecimiento de alojamiento tur&iacute;stico denominado {{ data.tipo.nombre }} {{data.nombre_establecimiento}},  es el siguiente:
+		</div>
+		<pdf:nextpage />
+		CUADRO #2
+		<pdf:nextpage />
+		<div id="parrafo">
+			Los requisitos faltantes son factor importante para el otorgamiento de dicha categor&iacute;a, seg&uacute;n lo citado en el tabulador antes mencionado, el cual establece en el art&iacute;culo {{data.articulo.0.numero}}{% for a in data.articulo|slice:"1:" %} o {{a.numero}}{% endfor %},{% if data.tipo.abreviacion == 'LIC_ALO_T_H_6' %} seg&uacute;n sea el caso de campamento m&oacute;vil o fijo,{% endif %} lo siguiente:
+		</div>
+		{% for a in data.articulo %}
+		<br><br>
+		<div id="parrafo">
+			"{{a.contenido}}".
+		</div>
+		{% endfor %}
+		<div id="parrafo">
+			</br></br>
+			Sin m&aacute;s a que hacer referencia, queda de usted.
+		</div>
+		<br><br><br>
+		<div style="text-align:center;font-size: 12px">
+			Atentamente,
+			<br>
+			{{data.funcionario}}
+		</div>
+
+
+		<div id="footerContent">
+  		</div>
+
+	</body>
+</html> 

@@ -1,0 +1,182 @@
+[
+  {
+    "model": "registro.TipoPst" ,
+    "pk": 1 ,
+    "fields": {
+      "nombre": "Establecimiento de alojamiento turístico" ,
+      "tipo_persona": 1,
+      "descripcion": " test"
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 2 ,
+    "fields": {
+      "nombre": "Agencia de turismo" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model":  "registro.TipoPst" ,
+    "pk": 3 ,
+    "fields": {
+      "nombre": " Operadora de multipropiedad y tiempo compartido" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 4 ,
+    "fields": {
+      "nombre": "Representante de transporte turístico acuático nacional" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 5 ,
+    "fields": {
+      "nombre": "Transporte turístico terrestre" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 6 ,
+    "fields": {
+      "nombre": "Establecimiento turístico de alimentos y bebidas" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 7 ,
+    "fields": {
+      "nombre": "Representante de transporte turístico acuático internacional" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 8 ,
+    "fields": {
+      "nombre": "Transporte turístico acuático" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 9 ,
+    "fields": {
+      "nombre": "Servicios turísticos de recreación" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+  {
+    "model": "registro.TipoPst" ,
+    "pk": 10 ,
+    "fields": {
+      "nombre": "Empresa de información, promoción, publicidad y propaganda turística " ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+   {
+    "model": "registro.TipoPst" ,
+    "pk": 11 ,
+    "fields": {
+      "nombre": "Representante de transporte turístico aéreo" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 12 ,
+    "fields": {
+      "nombre": "Transporte turístico aéreo" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 13 ,
+    "fields": {
+      "nombre": "Administradora de empresas turísticas" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst" ,
+    "pk": 14 ,
+    "fields": {
+      "nombre": "Representante de transporte turístico terrestre" ,
+      "tipo_persona": 1,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk": 15,
+    "fields": {
+      "nombre": "Agente Turístico",
+      "tipo_persona": 2,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk": 16,
+    "fields": {
+      "nombre": "Conductor Turístico",
+      "tipo_persona": 2,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk": 17,
+    "fields": {
+      "nombre": "Guía Turístico",
+      "tipo_persona": 2,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk": 18,
+    "fields": {
+      "nombre": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "tipo_persona": 3,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk": 19,
+    "fields": {
+      "nombre": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "tipo_persona": 3,
+      "descripcion": " "
+    }
+  },
+    {
+    "model": "registro.TipoPst",
+    "pk":20,
+    "fields": {
+      "nombre": "Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+      "tipo_persona": 3,
+      "descripcion": " "
+    }
+  }
+]

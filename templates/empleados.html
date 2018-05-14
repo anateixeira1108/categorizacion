@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+<aside class="right-side">
+	<section class="content-header">
+	    <h1>Categorizaci&oacute;n<small>Administraci&oacute;n de Empleados</small></h1>
+	    <ol class="breadcrumb">
+	        <li><a href="/"> Inicio</a></li>
+	    	<li><a href="/categorizacion/funcionario/bandeja">Categorizaci&oacute;n</a></li>
+	    	<li class="active"><i class="fa fa-star-half-o"></i>Empleados</li>
+		</ol>
+	</section>
+	<section class="content">
+		{% csrf_token %}
+	    <div class="box box-danger">
+	        <div class="box-body">
+	        	<div class="col-lg-12 col-md-12">
+                    <h4>Empleados</h4><br>
+                </div>
+                <br>
+            </div>
+	       	<div class="row">
+               <div class="col-xs-12">
+                <table class="table table-striped table-partner table-hover text-center table_empleados" id="{{funcionario.tiporol.nombre}}">
+                 
+            		<thead>
+	            		<tr>                    
+		                    <th>Nombre</th> 
+		                    <th>Cargo</th>
+		                    <th>Habilitado</th>
+	                    </tr>
+	                </thead>
+                   	<tbody>
+                   		{% for f in funcionarios %}
+	                   		<tr class="empleado_{{f.id}}" id="{{f.id}}">
+	                   			<td>{{f.nombre}} {{f.apellido}}</td>
+	                   			<td>{{f.tiporol.nombre}}</td>
+	                   			<td class="checkbox-td">
+	                   				<input type="checkbox" 
+	                   				{%if f.habilitado == True %}
+	                   					inicial="True"
+	                   					checked
+	                   				{% else %}
+	                   					inicial="False"
+	                   				{% endif %}
+	                   				>
+		                   		</td>
+		                   	</tr>
+                   		{% endfor %}
+                   	</tbody>
+                </table>
+	        </div>
+            <!--///////////////////Paginador\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div class="row root_paginator" p="{{p}}">        
+                <a href="{% url 'empleados' %}?p={{p}}&s=-" class="col-xs-2 col-xs-offset-2 btn btn-flat btn-primary paginar fa fa-chevron-left" id="prev" s="-"style="
+                {% if p == 0 %}
+                    visibility:hidden
+                {% endif %}"               
+                 ></a>
+                <a href="{%url 'empleados' %}?p={{p}}&s=%2B" class="col-xs-2 col-xs-offset-2 btn  btn-flat btn-primary paginar fa fa-chevron-right" id="next" s="+" style="
+                {% if mas == False %}
+                    visibility:hidden
+                {% endif %}"
+                ></a>
+            </div>
+            <!--////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+	    </div>
+	</div>
+	    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+        	<a class="btn btn-flat btn-danger col-lg-12 col-md-12" href="/categorizacion/funcionario/bandeja">
+                <i class="fa fa-arrow-left "></i> &nbsp;&nbsp;Anterior
+         	</a>
+       	</div>
+            </a>
+       	</div>
+	</div>
+	</section>
+</aside>
+
+
+<div class="modal fade" id="asignar-analista-modal" solicitudid="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Asignar Analista</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <table id="tabla_analistas" class="table table-modal text-center">
+                        <thead>
+                            <tr class="label-info">
+                                <th>Analistas</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body-analista">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer contenido-centrado">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="asignar-empleado-analista" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="asignar-inspector-modal" solicitudid="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Asignar Inspectores</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <table id="tabla_inspector" class="table table-modal text-center">
+                        <thead>
+                            <tr class="label-info">
+                                <th>Inspectores</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body_inspector">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer contenido-centrado">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="asignar-empleado-inspector" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ block.super }}
+	
+ 	<script type="application/javascript">
+
+        $(function(){
+
+            $('input').on('ifChecked', function(event){
+                if($('#boton-cancelar-unchecked-empleados').hasClass('clicked') || $('.notificacion-unchecked-cerrar').hasClass('clicked')){
+
+                }else{
+                    var tables = $('.table_empleados').attr('id');
+                    $('#notificacion-general-Label').html('Notificacion');
+                    $('.notificacion-general-cerrar').addClass('notificacion-checked-cerrar');
+                    $('#notificacion-general-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>¿Desea proseguir con la operaci&oacute;n? </h4>\
+                        </div>'
+                    );
+                    $('#notificacion-general-footer').html(
+                        '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-cancelar-empleados" class="btn btn-danger col-xs-12">Cancelar</a>\
+                        </div>\
+                        <div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-habilitar-empleados" coordinador="'+tables+'" class="btn btn-primary col-xs-12">Aceptar</a>\
+                        </div>');
+
+                         //Id del empleado 
+                        var ids = $(this).parent().parent().parent().attr('id');
+                        // Boton para habilitar empleado 
+                    $('#boton-habilitar-empleados').attr('funcionarioid',ids);
+                    $('#notificacion-general').modal({
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                };
+                $('#boton-cancelar-unchecked-empleados').removeClass('clicked');
+                $('.notificacion-unchecked-cerrar').removeClass('clicked');
+            });
+
+            $(document).on('click', '#boton-cancelar-empleados', function(){
+                $(this).removeClass('clicked');      
+                var empleadoid = $('#boton-habilitar-empleados').attr('funcionarioid');
+                var checkbox = $('.empleado_'+empleadoid).children('.checkbox-td').children('div');
+                $(this).addClass('clicked');
+                $(checkbox).iCheck('uncheck');
+            });
+
+            $(document).on('click', '.notificacion-checked-cerrar', function(){
+                $(this).removeClass('clicked');      
+                var empleadoid = $('#boton-habilitar-empleados').attr('funcionarioid');
+                var checkbox = $('.empleado_'+empleadoid).children('.checkbox-td').children('div');
+                $(this).addClass('clicked');
+                $(checkbox).iCheck('uncheck');
+            });
+
+            $(document).on('click', '.notificacion-unchecked-cerrar', function(){
+                $(this).removeClass('clicked');
+                if($('#boton-inspector-empleados').length!=0){
+                    var empleadoid = $('#boton-inspector-empleados').attr('funcionarioid');
+                }else{
+                    var empleadoid = $('#boton-aceptar-empleados').attr('funcionarioid');
+                };
+                var checkbox = $('.empleado_'+empleadoid).children('.checkbox-td').children('div');
+                $(this).addClass('clicked');
+                $(checkbox).iCheck('check');
+            });
+
+            $(document).on('click', '#boton-cancelar-unchecked-empleados', function(){
+                $(this).removeClass('clicked');
+                if($('#boton-inspector-empleados').length!=0){
+                    var empleadoid = $('#boton-inspector-empleados').attr('funcionarioid');
+                }else{
+                    var empleadoid = $('#boton-aceptar-empleados').attr('funcionarioid');
+                };
+                var checkbox = $('.empleado_'+empleadoid).children('.checkbox-td').children('div');
+                $(this).addClass('clicked');
+                $(checkbox).iCheck('check');
+            });
+
+            $('input').on('ifUnchecked', function(event){
+                if($('#boton-cancelar-empleados').hasClass('clicked') || $('.notificacion-checked-cerrar').hasClass('clicked')){
+                    
+                }else{
+                    var tables = $('.table_empleados').attr('id');
+                    console.log('ifUnchecked');
+                    $('#notificacion-general-Label').html('Notificacion');
+                    $('.notificacion-general-cerrar').addClass('notificacion-unchecked-cerrar');
+                    $('#notificacion-general-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>¿Desea proseguir con la operaci&oacute;n? </h4>\
+                        </div>'
+                    );
+                     if(tables=='coordinador_dif'){
+                        $('#notificacion-general-footer').html(
+                            '<div class="col-xs-6" data-dismiss="modal">\
+                                <a href="#" id="boton-cancelar-unchecked-empleados" class="btn btn-danger col-xs-12">Cancelar</a>\
+                                </div>\
+                                <div class="col-xs-6" data-dismiss="modal">\
+                                <a href="#" id="boton-inspector-empleados" class="btn btn-primary col-xs-12">Aceptar</a>\
+                            </div>');
+                            var ids = $(this).parent().parent().parent().attr('id');
+                            $('#boton-inspector-empleados').attr('funcionarioid',ids);
+                            $('#notificacion-general').modal({
+                                keyboard: false,
+                                backdrop: 'static'
+                            });
+                    }else{
+                        if(tables=='coordinador_ct'){
+                            $('body').removeClass('modal-open');
+                            $('.modal-backdrop').remove();
+                            
+                            $('#notificacion-general-footer').html(
+                               '<div class="col-xs-6" data-dismiss="modal">\
+                                    <a href="#" id="boton-cancelar-unchecked-empleados" class="btn btn-danger col-xs-12">Cancelar</a>\
+                                    </div>\
+                                    <div class="col-xs-6" data-dismiss="modal">\
+                                    <a href="#" id="boton-aceptar-empleados" class="btn btn-primary col-xs-12">Aceptar</a>\
+                                </div>');
+                            var ids = $(this).parent().parent().parent().attr('id');
+                            $('#boton-aceptar-empleados').attr('funcionarioid',ids);
+                            $('#notificacion-general').modal({
+                                keyboard: false,
+                                backdrop: 'static'
+                            });
+                        };
+                    };
+                };
+                $('#boton-cancelar-empleados').removeClass('clicked');
+                $('.notificacion-checked-cerrar').removeClass('clicked');
+        });
+
+        
+
+                
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+[
+    {
+        "model": "resoluciones.TipoSancion",
+        "fields": {
+            "nombre": "CÓDIGO ORGÁNICO TRIBUTARIO"
+        }
+    },
+    {
+        "model": "resoluciones.TipoSancion",
+        "fields": {
+            "nombre": "REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)"
+        }
+    }
+]

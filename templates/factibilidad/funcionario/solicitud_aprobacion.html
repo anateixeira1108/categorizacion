@@ -1,0 +1,550 @@
+{% extends "base_funcionario.html" %}
+
+{% load filtros_factibilidad %}
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+    <section class="content-header">
+        <h1>
+            Detalle de factibilidad
+            <small>(No verificado)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Factibilidad</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+    <div class="box box-danger">
+    <div class="box-body">
+
+    <div class="body" id="funcionario">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="title">
+                    Datos de Pst
+                </div>
+            </div>
+        </div>
+        <div id="datos_pst">
+
+            {% if is_pst_figura_natural %}
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>RIF:</label>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <p>{{ factibilidad.pst.rif }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Credencial:</label>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <p>{{ factibilidad.pst.rtn|default_if_none:"No posee credencial" }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Nombres:</label>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <p>{{ factibilidad.pst.nombres }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Apellidos:</label>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <p>{{ factibilidad.pst.apellidos }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-xs-4 text-right">
+                    <label>RIF:</label>
+                </div>
+                <div class="col-xs-4">
+                    <span>{{ factibilidad.pst.rif }}</span>
+                </div>
+                <div class="col-xs-2 text-right">
+                    <label>Fecha de registro:</label>
+                </div>
+                <div class="col-xs-2">
+                    <span>{{ factibilidad.pst.creado_el | date:"SHORT_DATE_FORMAT" }}</span>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Tipo de persona juridica:</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <span>{{ factibilidad.pst.get_tipo_juridica_display }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Razón social:</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <span>{{ factibilidad.pst.razon_social }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 text-right">
+                        <label>Denominación comercial:</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <span>{{ factibilidad.pst.denominacion_comercial }}</span>
+                    </div>
+                    <div class="col-xs-4 col-lg-3 col-lg-offset-1">
+                        <a href="{% url 'funcionario_factibilidad_certificar_documentos' factibilidad.id %}"
+                           class="btn btn-info btn-flat btn-block">
+                            Ir a certificación de documentos
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a href="{% url "funcionario_factibilidad_certificar_documentos" factibilidad.id %}"
+                   class="btn btn-info btn-block btn-flat">
+                    Ir a certificación de documentos
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Datos del proyecto
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Fecha de registro:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.creado_el }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Nombre:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.nombre }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Monta:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.monto }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de proyecto:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.tipo_proyecto | tipo_proyecto }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de actividad:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.tipo_actividad | tipo_actividad }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de solicitud:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.tipo_solicitud | tipo_solicitud }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Empleos directos:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.empleos_directos }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Empleos indirectos:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.empleos_indirectos }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Otra indole:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.otra_indole }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Otro aspecto:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.otro_aspecto }}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Direccion de proyecto
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Estado:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.estado }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Municipio:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.municipio }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Parroquia:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.parroquia }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Dirección:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.direccion }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Zona urbana:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.zona_urbana }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Zona rural:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.zona_rural }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Zit MinTur:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.zit_mintur }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Parque Nacional:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.parque_nacional }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Superficie:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.superficie }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Características topográficas:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.caracteristicas_topograficas }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Otras Características:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.otra_caracteristicas }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Tipo de vialidad:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.tipo_vialidad }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Otra vialidad:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.direccion.otra_vialidad }}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Unidades de alojamiento
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Número de habitaciones:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.alojamiento.numero_habitaciones }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Número de apartamentos:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.alojamiento.numero_apartamentos }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Número de suites:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.alojamiento.numero_suites }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Número de cabañas:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.alojamiento.numero_cabanias }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">Categoría</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Hotel:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.hotel }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Hotel de residencia:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.hotel_residencia }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Posada:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.posada }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Posada familiar:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.posada_familiar }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Parador turistico:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.parador_turistico }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Balneario:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.balneario }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Campamentos:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ factibilidad.categoria.campamentos_estancias }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Indole
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-12">
+                        Tipo
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for indole in indoles %}
+
+                    <tr>
+                        <td class="col-xs-12">
+                            {{ indole.tipo | tipo_indole }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Aspecto social
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-12">
+                        Tipo
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for aspecto in aspecto_sociales %}
+
+                    <tr>
+                        <td class="col-xs-12">
+                            {{ aspecto.tipo | tipo_aspecto }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Unidades de transporte
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-12">
+                        Tipo
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for unidad in unidades_transporte %}
+
+                    <tr>
+                        <td class="col-xs-12">
+                            {{ unidad.tipo | tipo_unidad_transporte }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+            <a href="{% url "funcionario_factibilidad_certificar_documentos" factibilidad.id %}"
+               class="btn btn-info btn-block btn-flat">
+                Ir a certificación de documentos
+            </a>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
+    </aside><!-- /.right-side -->
+
+
+
+{% endblock %}
+

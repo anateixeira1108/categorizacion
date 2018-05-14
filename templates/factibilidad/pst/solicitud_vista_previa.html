@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% block main_content %}
+{% load filtros_factibilidad %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <section class="content-header">
+            <h1> Prestador de servicios turísticos
+                <small>Registro</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-edit"></i> PST</a></li>
+                <li class="active">Registro</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="body">
+                    	<div class="row">
+	                    	<div class="col-xs-6"> 
+						    	<h3>Solicitud No. {{proyecto.id}}</h3>
+						    </div>
+							<div class="row">
+                                <div class="col-xs-6">
+                                    <label>Proceso de solicitud</label><br>
+                                    <select class="select" 
+                                        onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                                        <option data-url="{% url 'pst_solicitudes_factibilidad_paso_uno' proyecto.id %}">Paso 1: Datos del proyecto</option>
+                                        <option data-url="{% url 'pst_solicitudes_factibilidad_paso_dos' proyecto.id %}">Paso 2: Datos del terreno</option>
+                                        <option data-url="{% url 'pst_solicitudes_factibilidad_paso_tres' proyecto.id %}">Paso 3: Tipo y categoría</option>
+                                        <option data-url="{% url 'pst_solicitudes_factibilidad_paso_cuatro' proyecto.id %}">Paso 4: Datos Socio-Tecnicos</option>
+                                        <option data-url="{% url 'pst_factibilidad_vista_previa' proyecto.id %}" selected>Paso 5: Vista previa</option>
+                                    </select>
+                                </div>
+                            </div>
+						</div>
+                        <div class="title">Datos del proyecto</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="body" id="funcionario">
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Nombre de proyecto:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.nombre|none_to_text }}</span>
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <label>Fecha de registro:</label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span>{{ proyecto.creado_el|slice:":10" }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Monto de inversión estimado:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.monto|none_to_text }} Bs.</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Tipo de proyecto:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.tipo_proyecto|tipo_proyecto }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Adquisición de unidades de transporte:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ unidad_transporte|listar_unidades }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Numero de empleos directos:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.empleos_directos }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Numero de empleos indirectos:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.empleos_indirectos }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Aspecto social</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Alianzas:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        {% for a in alianzas%}
+                                            <span>{{ a.tipo|tipo_aspecto }},</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otra Alianza:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.otro_aspecto }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Índole del proyecto</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>tipo:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        {%for i in indole %}
+                                            <span> {{ i.tipo|tipo_indole }}, </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otra Indole:</label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>{{ proyecto.otra_indole }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Unidades de alojamiento</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Habitaciones:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ unidades.numero_habitaciones }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Apartamentos:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ unidades.numero_apartamentos }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Suites:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ unidades.numero_suites }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Cabañas:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ unidades.numero_cabanias }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otros:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ unidades.otro_alojamiento }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Ubicación</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Estado:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.estado.estado }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Municipio:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.municipio.municipio }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Parroquia:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.parroquia.parroquia }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Direccion:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.direccion }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Zona Urbana:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.zona_urbana }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Zona Rural:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.zona_rural }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Z.I.T - MINTUR:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.zit_mintur }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Parque nacional:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.parque_nacional }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Superficie según titulo de propiedad (Mts.2 ó Ha):</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.superficie }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Características topograficas</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Caracteristica:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.tipografia|caracteristica_topografica }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otra:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.otra_topografia }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Vialidad </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Tipo:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.vialidad|vialidad }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otra vialidad:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.otra_vialidad }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Servicios básicos</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Tipos:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for s in servicios %}
+                                        {{ s.servicio_basico.nombre }},
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Otro servicio:</label>
+                                    </div>
+                                    <div class="col-xs-8">{{ direccion.otro_servicio }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="title">Tipo y categoria</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Hotel:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.hotel|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Hotel Residencia:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.hotel_residencia|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Posada:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.posada|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Campamentos, estancias, hatos, fincas o haciendas:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.campamentos_estancias|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Parador turístico:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.parador_turistico|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Balneario:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.balneario|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 text-right">
+                                        <label>Posada familiar:</label>
+                                    </div>
+                                    <div class="col-xs-8">
+                                    {% for x in categoria.posada_familiar|range %}
+                                        <span class="fa fa-star"></span>
+                                    {% endfor %}
+                                    </div>
+                                </div>                        
+                            </div><br>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-5 col-lg-5 col-lg-offset-3">
+                                <a href="{% url 'pst_solicitudes_factibilidad' %}" class="btn btn-info btn-flat btn-block">
+                                    Aceptar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{% endblock %}

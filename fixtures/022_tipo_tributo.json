@@ -1,0 +1,42 @@
+[
+    {
+        "model": "resoluciones.TipoTributo",
+        "fields": {
+            "codigo": "1",
+            "descripcion": "CONTRIBUCIÓN ESPECIAL DE TURISMO",
+            "siglas": "CET"
+        }
+    },
+    {
+        "model": "resoluciones.TipoTributo",
+        "fields": {
+            "codigo": "2",
+            "descripcion": "TASAS ESPECIALES DE TURISMO",
+            "siglas": "TET"
+        }
+    },
+    {
+        "model": "resoluciones.TipoTributo",
+        "fields": {
+            "codigo": "3",
+            "descripcion": "TASAS ESPECIALES POR EL DISFRUTE DE BIENES TURÍSTICOS",
+            "siglas": "TEDBT"
+        }
+    },
+    {
+        "model": "resoluciones.TipoTributo",
+        "fields": {
+            "codigo": "4",
+            "descripcion": "CONTRIBUCIÓN ESPECIAL ADICIONAL",
+            "siglas": "CEA"
+        }
+    },
+    {
+        "model": "resoluciones.TipoTributo",
+        "fields": {
+            "codigo": "5",
+            "descripcion": "CONTRIBUCIÓN ESPECIAL APLICABLE A LA ACTIVIDAD COMERCIAL TURÍSTICA",
+            "siglas": "CEACT"
+        }
+    }
+]

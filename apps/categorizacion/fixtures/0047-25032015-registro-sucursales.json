@@ -1,0 +1,682 @@
+[
+   {
+      "pk":1,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":null,
+         "oficina_apartamento":"Of",
+         "punto_referencia":"Punto de Referencia",
+         "avenida_calle":"Av/Calle",
+         "edificio":"Edif",
+         "pst":1,
+         "urbanizacion":"Urb",
+         "nombre":"Sucursal principal",
+         "estado":1,
+         "parroquia":1,
+         "municipio":1
+      }
+   },
+   {
+      "pk":2,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 0",
+         "punto_referencia":"Punto de Referencia 0",
+         "avenida_calle":"Avenida 0",
+         "edificio":"Edificio 0",
+         "pst":1,
+         "urbanizacion":"Urbanizacion 0",
+         "nombre":"Sucursal 0",
+         "estado":9,
+         "parroquia":310,
+         "municipio":102
+      }
+   },
+   {
+      "pk":3,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 1",
+         "punto_referencia":"Punto de Referencia 1",
+         "avenida_calle":"Avenida 1",
+         "edificio":"Edificio 1",
+         "pst":1,
+         "urbanizacion":"Urbanizacion 1",
+         "nombre":"Sucursal 1",
+         "estado":9,
+         "parroquia":315,
+         "municipio":103
+      }
+   },
+   {
+      "pk":4,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 2",
+         "punto_referencia":"Punto de Referencia 2",
+         "avenida_calle":"Avenida 2",
+         "edificio":"Edificio 2",
+         "pst":1,
+         "urbanizacion":"Urbanizacion 2",
+         "nombre":"Sucursal 2",
+         "estado":11,
+         "parroquia":420,
+         "municipio":130
+      }
+   },
+   {
+      "pk":5,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 3",
+         "punto_referencia":"Punto de Referencia 3",
+         "avenida_calle":"Avenida 3",
+         "edificio":"Edificio 3",
+         "pst":1,
+         "urbanizacion":"Urbanizacion 3",
+         "nombre":"Sucursal 3",
+         "estado":20,
+         "parroquia":905,
+         "municipio":381
+      }
+   },
+   {
+      "pk":6,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 4",
+         "punto_referencia":"Punto de Referencia 4",
+         "avenida_calle":"Avenida 4",
+         "edificio":"Edificio 4",
+         "pst":1,
+         "urbanizacion":"Urbanizacion 4",
+         "nombre":"Sucursal 4",
+         "estado":22,
+         "parroquia":995,
+         "municipio":415
+      }
+   },
+   {
+      "pk":7,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 5",
+         "punto_referencia":"Punto de Referencia 5",
+         "avenida_calle":"Avenida 5",
+         "edificio":"Edificio 5",
+         "pst":2,
+         "urbanizacion":"Urbanizacion 5",
+         "nombre":"Sucursal 5",
+         "estado":1,
+         "parroquia":11,
+         "municipio":2
+      }
+   },
+   {
+      "pk":8,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 6",
+         "punto_referencia":"Punto de Referencia 6",
+         "avenida_calle":"Avenida 6",
+         "edificio":"Edificio 6",
+         "pst":2,
+         "urbanizacion":"Urbanizacion 6",
+         "nombre":"Sucursal 6",
+         "estado":23,
+         "parroquia":1071,
+         "municipio":460
+      }
+   },
+   {
+      "pk":9,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 7",
+         "punto_referencia":"Punto de Referencia 7",
+         "avenida_calle":"Avenida 7",
+         "edificio":"Edificio 7",
+         "pst":2,
+         "urbanizacion":"Urbanizacion 7",
+         "nombre":"Sucursal 7",
+         "estado":5,
+         "parroquia":166,
+         "municipio":59
+      }
+   },
+   {
+      "pk":10,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 8",
+         "punto_referencia":"Punto de Referencia 8",
+         "avenida_calle":"Avenida 8",
+         "edificio":"Edificio 8",
+         "pst":2,
+         "urbanizacion":"Urbanizacion 8",
+         "nombre":"Sucursal 8",
+         "estado":20,
+         "parroquia":914,
+         "municipio":374
+      }
+   },
+   {
+      "pk":11,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 9",
+         "punto_referencia":"Punto de Referencia 9",
+         "avenida_calle":"Avenida 9",
+         "edificio":"Edificio 9",
+         "pst":2,
+         "urbanizacion":"Urbanizacion 9",
+         "nombre":"Sucursal 9",
+         "estado":18,
+         "parroquia":783,
+         "municipio":297
+      }
+   },
+   {
+      "pk":12,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 10",
+         "punto_referencia":"Punto de Referencia 10",
+         "avenida_calle":"Avenida 10",
+         "edificio":"Edificio 10",
+         "pst":3,
+         "urbanizacion":"Urbanizacion 10",
+         "nombre":"Sucursal 10",
+         "estado":22,
+         "parroquia":989,
+         "municipio":412
+      }
+   },
+   {
+      "pk":13,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 11",
+         "punto_referencia":"Punto de Referencia 11",
+         "avenida_calle":"Avenida 11",
+         "edificio":"Edificio 11",
+         "pst":3,
+         "urbanizacion":"Urbanizacion 11",
+         "nombre":"Sucursal 11",
+         "estado":22,
+         "parroquia":1008,
+         "municipio":418
+      }
+   },
+   {
+      "pk":14,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 12",
+         "punto_referencia":"Punto de Referencia 12",
+         "avenida_calle":"Avenida 12",
+         "edificio":"Edificio 12",
+         "pst":3,
+         "urbanizacion":"Urbanizacion 12",
+         "nombre":"Sucursal 12",
+         "estado":3,
+         "parroquia":99,
+         "municipio":35
+      }
+   },
+   {
+      "pk":15,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 13",
+         "punto_referencia":"Punto de Referencia 13",
+         "avenida_calle":"Avenida 13",
+         "edificio":"Edificio 13",
+         "pst":3,
+         "urbanizacion":"Urbanizacion 13",
+         "nombre":"Sucursal 13",
+         "estado":6,
+         "parroquia":242,
+         "municipio":70
+      }
+   },
+   {
+      "pk":16,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 14",
+         "punto_referencia":"Punto de Referencia 14",
+         "avenida_calle":"Avenida 14",
+         "edificio":"Edificio 14",
+         "pst":3,
+         "urbanizacion":"Urbanizacion 14",
+         "nombre":"Sucursal 14",
+         "estado":23,
+         "parroquia":1116,
+         "municipio":442
+      }
+   },
+   {
+      "pk":17,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 15",
+         "punto_referencia":"Punto de Referencia 15",
+         "avenida_calle":"Avenida 15",
+         "edificio":"Edificio 15",
+         "pst":4,
+         "urbanizacion":"Urbanizacion 15",
+         "nombre":"Sucursal 15",
+         "estado":8,
+         "parroquia":296,
+         "municipio":95
+      }
+   },
+   {
+      "pk":18,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 16",
+         "punto_referencia":"Punto de Referencia 16",
+         "avenida_calle":"Avenida 16",
+         "edificio":"Edificio 16",
+         "pst":4,
+         "urbanizacion":"Urbanizacion 16",
+         "nombre":"Sucursal 16",
+         "estado":5,
+         "parroquia":163,
+         "municipio":62
+      }
+   },
+   {
+      "pk":19,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 17",
+         "punto_referencia":"Punto de Referencia 17",
+         "avenida_calle":"Avenida 17",
+         "edificio":"Edificio 17",
+         "pst":4,
+         "urbanizacion":"Urbanizacion 17",
+         "nombre":"Sucursal 17",
+         "estado":6,
+         "parroquia":236,
+         "municipio":68
+      }
+   },
+   {
+      "pk":20,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 18",
+         "punto_referencia":"Punto de Referencia 18",
+         "avenida_calle":"Avenida 18",
+         "edificio":"Edificio 18",
+         "pst":4,
+         "urbanizacion":"Urbanizacion 18",
+         "nombre":"Sucursal 18",
+         "estado":7,
+         "parroquia":260,
+         "municipio":81
+      }
+   },
+   {
+      "pk":21,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 19",
+         "punto_referencia":"Punto de Referencia 19",
+         "avenida_calle":"Avenida 19",
+         "edificio":"Edificio 19",
+         "pst":5,
+         "urbanizacion":"Urbanizacion 19",
+         "nombre":"Sucursal 19",
+         "estado":5,
+         "parroquia":162,
+         "municipio":62
+      }
+   },
+   {
+      "pk":22,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 20",
+         "punto_referencia":"Punto de Referencia 20",
+         "avenida_calle":"Avenida 20",
+         "edificio":"Edificio 20",
+         "pst":5,
+         "urbanizacion":"Urbanizacion 20",
+         "nombre":"Sucursal 20",
+         "estado":24,
+         "parroquia":1126,
+         "municipio":462
+      }
+   },
+   {
+      "pk":23,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 21",
+         "punto_referencia":"Punto de Referencia 21",
+         "avenida_calle":"Avenida 21",
+         "edificio":"Edificio 21",
+         "pst":5,
+         "urbanizacion":"Urbanizacion 21",
+         "nombre":"Sucursal 21",
+         "estado":21,
+         "parroquia":983,
+         "municipio":390
+      }
+   },
+   {
+      "pk":24,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 22",
+         "punto_referencia":"Punto de Referencia 22",
+         "avenida_calle":"Avenida 22",
+         "edificio":"Edificio 22",
+         "pst":5,
+         "urbanizacion":"Urbanizacion 22",
+         "nombre":"Sucursal 22",
+         "estado":14,
+         "parroquia":649,
+         "municipio":241
+      }
+   },
+   {
+      "pk":25,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 23",
+         "punto_referencia":"Punto de Referencia 23",
+         "avenida_calle":"Avenida 23",
+         "edificio":"Edificio 23",
+         "pst":5,
+         "urbanizacion":"Urbanizacion 23",
+         "nombre":"Sucursal 23",
+         "estado":5,
+         "parroquia":194,
+         "municipio":57
+      }
+   },
+   {
+      "pk":26,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 24",
+         "punto_referencia":"Punto de Referencia 24",
+         "avenida_calle":"Avenida 24",
+         "edificio":"Edificio 24",
+         "pst":6,
+         "urbanizacion":"Urbanizacion 24",
+         "nombre":"Sucursal 24",
+         "estado":17,
+         "parroquia":736,
+         "municipio":285
+      }
+   },
+   {
+      "pk":27,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 25",
+         "punto_referencia":"Punto de Referencia 25",
+         "avenida_calle":"Avenida 25",
+         "edificio":"Edificio 25",
+         "pst":6,
+         "urbanizacion":"Urbanizacion 25",
+         "nombre":"Sucursal 25",
+         "estado":23,
+         "parroquia":1010,
+         "municipio":457
+      }
+   },
+   {
+      "pk":28,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 26",
+         "punto_referencia":"Punto de Referencia 26",
+         "avenida_calle":"Avenida 26",
+         "edificio":"Edificio 26",
+         "pst":6,
+         "urbanizacion":"Urbanizacion 26",
+         "nombre":"Sucursal 26",
+         "estado":14,
+         "parroquia":641,
+         "municipio":225
+      }
+   },
+   {
+      "pk":29,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 27",
+         "punto_referencia":"Punto de Referencia 27",
+         "avenida_calle":"Avenida 27",
+         "edificio":"Edificio 27",
+         "pst":6,
+         "urbanizacion":"Urbanizacion 27",
+         "nombre":"Sucursal 27",
+         "estado":2,
+         "parroquia":79,
+         "municipio":22
+      }
+   },
+   {
+      "pk":30,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 28",
+         "punto_referencia":"Punto de Referencia 28",
+         "avenida_calle":"Avenida 28",
+         "edificio":"Edificio 28",
+         "pst":6,
+         "urbanizacion":"Urbanizacion 28",
+         "nombre":"Sucursal 28",
+         "estado":23,
+         "parroquia":1103,
+         "municipio":461
+      }
+   },
+   {
+      "pk":31,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 29",
+         "punto_referencia":"Punto de Referencia 29",
+         "avenida_calle":"Avenida 29",
+         "edificio":"Edificio 29",
+         "pst":7,
+         "urbanizacion":"Urbanizacion 29",
+         "nombre":"Sucursal 29",
+         "estado":11,
+         "parroquia":451,
+         "municipio":141
+      }
+   },
+   {
+      "pk":32,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 30",
+         "punto_referencia":"Punto de Referencia 30",
+         "avenida_calle":"Avenida 30",
+         "edificio":"Edificio 30",
+         "pst":7,
+         "urbanizacion":"Urbanizacion 30",
+         "nombre":"Sucursal 30",
+         "estado":13,
+         "parroquia":520,
+         "municipio":194
+      }
+   },
+   {
+      "pk":33,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 31",
+         "punto_referencia":"Punto de Referencia 31",
+         "avenida_calle":"Avenida 31",
+         "edificio":"Edificio 31",
+         "pst":7,
+         "urbanizacion":"Urbanizacion 31",
+         "nombre":"Sucursal 31",
+         "estado":24,
+         "parroquia":1126,
+         "municipio":462
+      }
+   },
+   {
+      "pk":34,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 32",
+         "punto_referencia":"Punto de Referencia 32",
+         "avenida_calle":"Avenida 32",
+         "edificio":"Edificio 32",
+         "pst":7,
+         "urbanizacion":"Urbanizacion 32",
+         "nombre":"Sucursal 32",
+         "estado":15,
+         "parroquia":664,
+         "municipio":260
+      }
+   },
+   {
+      "pk":35,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 33",
+         "punto_referencia":"Punto de Referencia 33",
+         "avenida_calle":"Avenida 33",
+         "edificio":"Edificio 33",
+         "pst":7,
+         "urbanizacion":"Urbanizacion 33",
+         "nombre":"Sucursal 33",
+         "estado":10,
+         "parroquia":379,
+         "municipio":107
+      }
+   },
+   {
+      "pk":36,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 34",
+         "punto_referencia":"Punto de Referencia 34",
+         "avenida_calle":"Avenida 34",
+         "edificio":"Edificio 34",
+         "pst":8,
+         "urbanizacion":"Urbanizacion 34",
+         "nombre":"Sucursal 34",
+         "estado":5,
+         "parroquia":166,
+         "municipio":65
+      }
+   },
+   {
+      "pk":37,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 35",
+         "punto_referencia":"Punto de Referencia 35",
+         "avenida_calle":"Avenida 35",
+         "edificio":"Edificio 35",
+         "pst":8,
+         "urbanizacion":"Urbanizacion 35",
+         "nombre":"Sucursal 35",
+         "estado":2,
+         "parroquia":50,
+         "municipio":10
+      }
+   },
+   {
+      "pk":38,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 36",
+         "punto_referencia":"Punto de Referencia 36",
+         "avenida_calle":"Avenida 36",
+         "edificio":"Edificio 36",
+         "pst":8,
+         "urbanizacion":"Urbanizacion 36",
+         "nombre":"Sucursal 36",
+         "estado":1,
+         "parroquia":12,
+         "municipio":7
+      }
+   },
+   {
+      "pk":39,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 37",
+         "punto_referencia":"Punto de Referencia 37",
+         "avenida_calle":"Avenida 37",
+         "edificio":"Edificio 37",
+         "pst":8,
+         "urbanizacion":"Urbanizacion 37",
+         "nombre":"Sucursal 37",
+         "estado":5,
+         "parroquia":202,
+         "municipio":62
+      }
+   },
+   {
+      "pk":40,
+      "model":"registro.sucursales",
+      "fields":{
+         "codigo_postal":1234,
+         "oficina_apartamento":"Oficina Apartamento 38",
+         "punto_referencia":"Punto de Referencia 38",
+         "avenida_calle":"Avenida 38",
+         "edificio":"Edificio 38",
+         "pst":8,
+         "urbanizacion":"Urbanizacion 38",
+         "nombre":"Sucursal 38",
+         "estado":9,
+         "parroquia":312,
+         "municipio":103
+      }
+   }
+]

@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% load filtros_datos %}
+
+{% block main_content %}
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            {{ pst|get_tipo_usuario }}
+        </h1>
+
+        <ol class="breadcrumb">
+            <li><a href="#"><span class="fa fa-edit"></span>{{ pst|get_tipo_usuario_short }}</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-body">
+                <div class="body" id="persona-natural">
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-6">
+                            <label>Proceso de registro</label><br>
+                            <select class="select"
+                                onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                                <option data-url="{% url 'cuentas_natural_1' %}">Paso 1: Datos b&aacute;sicos</option>
+                                <option data-url="{% url 'cuentas_natural_2' %}">Paso 2: Domicilio fiscal</option>
+                                <option data-url="{% url 'cuentas_natural_3' %}">Paso 3: Firma personal</option>
+                                <option data-url="{% url 'cuentas_natural_4' %}">Paso 4: Información específica</option>
+                                <option data-url="#" selected>Paso 5: Vista previa</option>
+                                <option data-url="{% url 'cuentas_natural_6' %}">Paso 6: Confirmar registro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="title">
+                        Datos B&aacute;sicos
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">RIF:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>
+                                {{ pst.rif }}
+                                <a href="{{ MEDIA_URL }}{{ pst.archivo_rif }}" target="_blank">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">C&eacute;dula:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>
+                                {{ pst.cedula }}
+                                <a href="{{ MEDIA_URL }}{{ pst.archivo_cedula }}" target="_blank">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">RTN:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ pst.rtn|default_if_none:"No posee RTN" }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Nombres:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ pst.nombres }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Apellidos:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ pst.apellidos }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Copia del recibo de servicio público:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>
+                                {{ pst.archivo_servicio|basename }}
+                                <a href="{{ MEDIA_URL }}{{ pst.archivo_servicio }}" target="_blank">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Foto tipo pasaporte:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>
+                                {{ pst.archivo_pasaporte|basename }}
+                                <a href="{{ MEDIA_URL }}{{ pst.archivo_pasaporte  }}" target="_blank">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="title">
+                        Datos de Contacto
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Tel&eacute;fono fijo:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ pst.telefono_fijo }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Tel&eacute;fono móvil:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ pst.telefono_celular }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Correo electr&oacute;nico:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ user.correo_electronico }}</p>
+                        </div>
+                    </div>
+
+                    <div class="title">
+                        Domicilio Fiscal
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Estado:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.estado }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Municipio:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.municipio }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Parroquia:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.parroquia }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Urbanizaci&oacute;n:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.urbanizacion }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Avenida/Calle/Carretera:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.avenida_calle }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Edificio/Casa:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.edificio }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Oficina/Apto./No.:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.oficina_apartamento }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">C&oacute;digo postal:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.codigo_postal }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            <p class="bold">Punto de referencia:</p>
+                        </div>
+
+                        <div class="col-xs-4">
+                            <p>{{ direccion.punto_referencia }}</p>
+                        </div>
+                    </div>
+
+                    <div class="title">
+                        Actividad Comercial Principal
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 text-right">
+                            Tipo de {{ pst|get_tipo_usuario_short }}:
+                        </div>
+
+                        <div class="col-xs-8">
+                            <p>{{ actividad_principal.actividad.nombre }}</p>
+                        </div>
+
+                        {% for field, value in datos_especificos.iteritems %}
+                            <div class="col-xs-4 text-right">
+                                <p class="bold">{{ field }}:</p>
+                            </div>
+
+                            <div class="col-xs-8">
+                                {% if value.path %}
+                                    <p>
+                                        {{ value|basename }}
+                                        <a href="{{ MEDIA_URL }}{{ value }}" target="_blank">
+                                            <span class="fa fa-search"></span>
+                                        </a>
+                                    </p>
+
+                                {% else %}
+                                    <p>{{ value }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    {% if actividades_secundarias %}
+                        <div class="title">
+                            Actividad Comercial Secundaria
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Actividad</th>
+                                            <th>Licencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for actividad in actividades_secundarias %}
+                                            <tr>
+                                                <td>{{ actividad.actividad.nombre }}</td>
+                                                <td>{{ actividad.licencia }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <br>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-5 col-lg-offset-1">
+                            <a href="{% url 'cuentas_natural_4' %}"class="btn btn-info btn-flat btn-block">
+                                <span class="fa fa-arrow-circle-o-left btn-icon-back"></span> Volver al paso 4
+                            </a>
+                        </div>
+
+                        <div class="col-xs-6 col-lg-5">
+                            <a href="{% url 'cuentas_natural_6' %}"class="btn btn-primary btn-flat btn-block">
+                                 Continuar al paso 6: Confirmar registro <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+{% endblock %}

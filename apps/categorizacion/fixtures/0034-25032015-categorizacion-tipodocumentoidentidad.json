@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "categorizacion.tipodocumentoidentidad", "fields": {"nombre": "Cedula"}}, {"pk": 2, "model": "categorizacion.tipodocumentoidentidad", "fields": {"nombre": "Pasaporte"}}]

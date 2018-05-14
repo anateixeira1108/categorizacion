@@ -1,0 +1,329 @@
+[
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 1,
+        "fields": {
+            "nombre": "Inmueble ubicado en la Costa del Golfo de Venezuela, Estado Zulia",
+            "categoria": 1,
+            "decreto": "1.579 (23-01-1974)",
+            "gaceta_oficial": "30.313 (25-01-1974)",
+            "ubicacion": "Norte del Estado Zulia. (Costa Occidental) Municipio Páez",
+            "superficie": "15.294",
+            "ordenamiento_legal": "Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 2,
+        "fields": {
+            "nombre": "Isla La Tortugay",
+            "categoria": 2,
+            "decreto": "1.675 (7-3-1974)",
+            "gaceta_oficial": "30.348 (9-3-1974)",
+            "ubicacion": "Mar Caribe Al norte de los Estados Miranda y Anzoátegui Dependencias Federales",
+            "superficie": "15.565",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto N° Decreto N° 3.448 del 31-01-2005. G.O. N° 38.179 del 04-05-2005"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 3,
+        "fields": {
+            "nombre": "Las Tortuguillas",
+            "categoria": 2,
+            "decreto": "1.675 (7-3-1974)",
+            "gaceta_oficial": "30.348 (9-3-1974)",
+            "ubicacion": "Mar Caribe Al norte de los Estados Miranda y Anzoátegui Dependencias Federales",
+            "superficie": "15.565",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto N° Decreto N° 3.448 del 31-01-2005. G.O. N° 38.179 del 04-05-2005"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 4,
+        "fields": {
+            "nombre": "Cayo Herradura",
+            "categoria": 2,
+            "decreto": "1.675 (7-3-1974)",
+            "gaceta_oficial": "30.348 (9-3-1974)",
+            "ubicacion": "Mar Caribe Al norte de los Estados Miranda y Anzoátegui Dependencias Federales",
+            "superficie": "15.565",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto N° Decreto N° 3.448 del 31-01-2005. G.O. N° 38.179 del 04-05-2005"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 5,
+        "fields": {
+            "nombre": "Los Palanquines",
+            "categoria": 2,
+            "decreto": "1.675 (7-3-1974)",
+            "gaceta_oficial": "30.348 (9-3-1974)",
+            "ubicacion": "Mar Caribe Al norte de los Estados Miranda y Anzoátegui Dependencias Federales",
+            "superficie": "15.565",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto N° Decreto N° 3.448 del 31-01-2005. G.O. N° 38.179 del 04-05-2005"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 6,
+        "fields": {
+            "nombre": "Sectores Punta El Escarpado",
+            "categoria": 3,
+            "decreto": "144 (4-6-1974)",
+            "gaceta_oficial": "30.416 (5-6-1974)",
+            "ubicacion": "Sectores Costeros, Municipios Sucre, Mejía, Cruz Salmerón Acosta, Bermúdez y Valdéz Estado Sucre",
+            "superficie": "40.487",
+            "ordenamiento_legal": "Esquema de Ordenamiento para el sector Punta El Escarpado Playa San Luis. 1985, no aprobado. Por revisar y actualizar. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 7,
+        "fields": {
+            "nombre": "Playa San Luis, alrededor de San Antonio del Golfo Distrito Mejía.",
+            "categoria": 3,
+            "decreto": "144 (4-6-1974)",
+            "gaceta_oficial": "30.416 (5-6-1974)",
+            "ubicacion": "Sectores Costeros, Municipios Sucre, Mejía, Cruz Salmerón Acosta, Bermúdez y Valdéz Estado Sucre",
+            "superficie": "40.487",
+            "ordenamiento_legal": "Esquema de Ordenamiento para el sector Punta El Escarpado Playa San Luis. 1985, no aprobado. Por revisar y actualizar. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 8,
+        "fields": {
+            "nombre": "Orilla de Laguna Grande en la Península de Araya, La Esmeralda-Carúpano.",
+            "categoria": 3,
+            "decreto": "144 (4-6-1974)",
+            "gaceta_oficial": "30.416 (5-6-1974)",
+            "ubicacion": "Sectores Costeros, Municipios Sucre, Mejía, Cruz Salmerón Acosta, Bermúdez y Valdéz Estado Sucre",
+            "superficie": "40.487",
+            "ordenamiento_legal": "Esquema de Ordenamiento para el sector Punta El Escarpado Playa San Luis. 1985, no aprobado. Por revisar y actualizar. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 9,
+        "fields": {
+            "nombre": "El Castillo de Araya- Playa La Tutush Güiria, Distrito Valdéz, Estado Sucre.",
+            "categoria": 3,
+            "decreto": "144 (4-6-1974)",
+            "gaceta_oficial": "30.416 (5-6-1974)",
+            "ubicacion": "Sectores Costeros, Municipios Sucre, Mejía, Cruz Salmerón Acosta, Bermúdez y Valdéz Estado Sucre",
+            "superficie": "40.487",
+            "ordenamiento_legal": "Esquema de Ordenamiento para el sector Punta El Escarpado Playa San Luis. 1985, no aprobado. Por revisar y actualizar. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 10,
+        "fields": {
+            "nombre": "Terreno ubicado en el Distrito Páez (Puerto Tuy-Caño Copey)",
+            "categoria": 4,
+            "decreto": "251 (16-7-1974)",
+            "gaceta_oficial": "30.461 (31-7-1974)",
+            "ubicacion": "Sub-Región de Barlovento Municipio Páez Estado Miranda",
+            "superficie": "18,2",
+            "ordenamiento_legal": "Esquema de Ordenamiento para el sector Punta El Escarpado Playa San Luis. 1985, no aprobado. Por revisar y actualizar. Declaratoria por revisarDeclaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 11,
+        "fields": {
+            "nombre": "El Litoral de la Región Capital (Estado Vargas-Estado Miranda)",
+            "categoria": 3,
+            "decreto": "455 (1-10-1974)",
+            "gaceta_oficial": "30.516 (3-10-1974)",
+            "ubicacion": "Sectores Costeros de los Municipios Vargas del Estado Vargas y Brión, Páez y Pedro Gual del Estado Miranda",
+            "superficie": "15.900",
+            "ordenamiento_legal": "Esquema de Ordenamiento del Litoral Central. MARN. 1978. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 12,
+        "fields": {
+            "nombre": "La Península de Paraguaná",
+            "categoria": 3,
+            "decreto": "456 (1-10-1974)",
+            "gaceta_oficial": "30.516 (3-10-1974)",
+            "ubicacion": "Península de Paraguaná, Municipios Carirubana, Los Taques y Falcón Estado Falcón",
+            "superficie": "289.434",
+            "ordenamiento_legal": "Decreto Nº 990 G.O. Nº 40.422 del 29 de mayo de 2014"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 13,
+        "fields": {
+            "nombre": "Distrito Jáuregui",
+            "categoria": 5,
+            "decreto": "1.710 (5-8-1976)",
+            "gaceta_oficial": "31.039 (5-8-1976)",
+            "ubicacion": "Municipio Jáuregui Estado Táchira",
+            "superficie": "117.108",
+            "ordenamiento_legal": "Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 14,
+        "fields": {
+            "nombre": "Balneario Chururú",
+            "categoria": 3,
+            "decreto": "1.711 (5-8-1976)",
+            "gaceta_oficial": "31.039 (5-8-1976)",
+            "ubicacion": "Municipio Libertador Estado Táchira",
+            "superficie": "147,74",
+            "ordenamiento_legal": "Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 15,
+        "fields": {
+            "nombre": "Municipio San Pedro del Río",
+            "categoria": 6,
+            "decreto": "3.091 (20-2-1979)",
+            "gaceta_oficial": "31.685 (27-2-1979)",
+            "ubicacion": "Municipio Ayacucho Estado Táchira",
+            "superficie": "9.504",
+            "ordenamiento_legal": "Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 16,
+        "fields": {
+            "nombre": "Laguna El Paraíso (Laguna del Maguey)",
+            "categoria": 3,
+            "decreto": "2.636 (14-12-1988)",
+            "gaceta_oficial": "34.148 (31-1-1989)",
+            "ubicacion": "Municipio Sotillo Estado Anzoátegui",
+            "superficie": "2.773,25",
+            "ordenamiento_legal": "Declaratoria por revisar."
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 17,
+        "fields": {
+            "nombre": "Punta Cabo Blanco - Punta Cazonero (Playa El Agua)",
+            "categoria": 2,
+            "decreto": "2.238 (30-4-1992)",
+            "gaceta_oficial": "34.978 (4-6-1992)",
+            "ubicacion": "Municipio Antolín del Campo Estado Nueva Esparta",
+            "superficie": "480,82",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto Nº 989 G.O. Nº 40.422 del 29 de mayo de 2014"
+        }
+    }
+    ,
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 18,
+        "fields": {
+            "nombre": "Sector El Yaque",
+            "categoria": 7,
+            "decreto": "1.226 (21-02-1996)",
+            "gaceta_oficial": "35.951 (3-5-1996)",
+            "ubicacion": "Municipio Díaz, Estado Nueva Esparta",
+            "superficie": "396,22",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso Decreto Nº 1.935. G.O. Nº 5.163 del 13-8-1997. En revisión y actualización."
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 19,
+        "fields": {
+            "nombre": "Las porciones de territorio comprendidas entre los centros poblados de San Juan  de los Cayos",
+            "categoria": 7,
+            "decreto": "1.040 (24-1-1996)",
+            "gaceta_oficial": "35.951 (3-5-1996)",
+            "ubicacion": "Municipios Acosta, Monseñor Iturriza y Silva, Estado Falcón",
+            "superficie": "17.526",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso no aprobado"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 20,
+        "fields": {
+            "nombre": "Chichiriviche y El Cruce",
+            "categoria": 7,
+            "decreto": "1.040 (24-1-1996)",
+            "gaceta_oficial": "35.951 (3-5-1996)",
+            "ubicacion": "Municipios Acosta, Monseñor Iturriza y Silva, Estado Falcón",
+            "superficie": "17.526",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso no aprobado"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 21,
+        "fields": {
+            "nombre": "Tucacas",
+            "categoria": 7,
+            "decreto": "1.040 (24-1-1996)",
+            "gaceta_oficial": "35.951 (3-5-1996)",
+            "ubicacion": "Municipios Acosta, Monseñor Iturriza y Silva, Estado Falcón",
+            "superficie": "17.526",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso no aprobado"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 22,
+        "fields": {
+            "nombre": "Boca de Yaracuy",
+            "categoria": 7,
+            "decreto": "1.040 (24-1-1996)",
+            "gaceta_oficial": "35.951 (3-5-1996)",
+            "ubicacion": "Municipios Acosta, Monseñor Iturriza y Silva, Estado Falcón",
+            "superficie": "17.526",
+            "ordenamiento_legal": "Plan de Ordenamiento y Reglamento de Uso no aprobado"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 23,
+        "fields": {
+            "nombre": "El inmueble que comprende las edificaciones del Hotel Ávila y terrenos anexos",
+            "categoria": 7,
+            "decreto": "807 (16-10-80)",
+            "gaceta_oficial": "35.095 (22-10-80)",
+            "ubicacion": "Municipio Libertador Distrito Federal",
+            "superficie": "5,4",
+            "ordenamiento_legal": "Ordenanza del Municipio Libertador,  1983. Variables Urbanas  fijadas por la Comisión de Urbanismo de la Cámara Municipal. 1984. Declaratoria por revisar"
+        }
+    },
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 24,
+        "fields": {
+            "nombre": "La sede del inmueble donde funciona el Museo de Arte Colonial de la ciudad de Mérida",
+            "categoria": 7,
+            "decreto": "3.141 (06-03-79)",
+            "gaceta_oficial": "31.693 (09-03-79)",
+            "ubicacion": "Casco urbano de la ciudad de Mérida",
+            "superficie": "",
+            "ordenamiento_legal": "Declaratoria por revisar"
+        }
+    }
+    ,
+    {
+        "model": "registro.ZonasInteresTuristico",
+        "pk": 25,
+        "fields": {
+            "nombre": "Casco central de la ciudad de Maracaibo",
+            "categoria": 8,
+            "decreto": "373 (09-09-2013)",
+            "gaceta_oficial": "40.385 (02-04-2014)",
+            "ubicacion": "Municipio Maracaibo. Estado Zulia",
+            "superficie": "",
+            "ordenamiento_legal": "Plan de desarrollo urbano Local de Maracaibo vigente"
+        }
+    }
+]

@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "categorizacion.tiporequisitopago", "fields": {"nombre": "Voucher", "abreviacion": "V"}}, {"pk": 2, "model": "categorizacion.tiporequisitopago", "fields": {"nombre": "Cheque", "abreviacion": "C"}}]

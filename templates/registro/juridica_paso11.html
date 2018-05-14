@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load filtros_datos %}
+{% block main_content %}
+    <aside class="right-side">
+        <section class="content-header">
+            <h1>
+                {{ pst|get_tipo_usuario }}
+                <small>Registro</small>
+            </h1>
+
+            <ol class="breadcrumb">
+                <li><a href="#"><span class="fa fa-edit"></span>{{ pst|get_tipo_usuario_short }}</a></li>
+                <li class="active">Registro</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="title">
+                        Registro de {{ pst|get_tipo_usuario }}
+                    </div>
+
+                    {% if not emprendedor %}
+                        <div class="row">
+                            <div class="col-xs-offset-3 col-xs-6">
+                                <a href="{% url 'print_registro_juridica_pdf' %}" class="btn btn-info btn-flat btn-block">
+                                    Imprimir carpeta de registro
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12" style="margin-top: 3em;">
+                                <p>
+                                    Para volver a la página de inicio por favor haga click en el siguiente
+                                    <a href="{% url "cuentas_detectar_usuario" %}">enlace</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="btn btn-flat btn-block btn-danger" style="font-size: 1.4em; text-weigth:bold; text-align:center;">
+                                    ¡Sus datos como Emprendedor han sido registrados correctamente!
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </aside>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ block.super }}
+
+    <script>
+        $(function () {
+            setInterval(function () {
+                if ("{{ emprendedor }}" === "True") {
+                    window.location = window.location.origin;
+                }
+            }, 2500);
+        });
+    </script>
+{% endblock %}

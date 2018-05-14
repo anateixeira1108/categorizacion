@@ -1,0 +1,19 @@
+Formas de correr el proyecto en diferentes entornos, esto es para los servidores:
+
+- Para correr el entorno de desarrollo:
+    python manage.py runserver --settings=settings.dev
+
+    o:
+
+    python manage.py runserver
+
+
+- Para correr el entorno de QA (pruebas):
+    python manage.py runserver --settings=settings.qa
+
+
+- Para correr el entorno de Stage (Casi Produccion):
+    python manage.py runserver --settings=settings.stage
+
+- Para correr el entorno Master (Produccion):
+    python manage.py runserver --settings=settings.master

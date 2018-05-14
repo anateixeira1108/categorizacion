@@ -1,0 +1,35 @@
+{% extends "base_cuentas.html" %}
+{% load widget_tweaks %}
+
+{% block form_box %}
+    <div class="form-box" id="login-box">
+        <div class="header">Iniciar sesi&oacute;n</div>
+        <form action="{% url 'cuentas_login' %}" method="post">
+            {% csrf_token %}
+
+            <div class="body bg-gray">
+                <div class="error">
+                   {{ form.non_field_errors }}
+                </div>
+                <p>
+                    {{ form.correo_electronico.label_tag }}<br>
+                    {% render_field form.correo_electronico class="form-control" required="" %}
+                    {{ form.correo_electronico.errors }}
+                </p>
+                <p>
+                    {{ form.password.label_tag }}<br>
+                    {% render_field form.password class="form-control" required="" %}
+                    {{ form.password.errors }}
+                </p>
+                <!-- <p>
+                    <input type="checkbox" name="remember_me"> Recuerdame
+                </p> -->
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn bg-blue btn-block"> Iniciar sesión </button>
+                <p class="text-right"><a href="{% url 'cuentas_necesita_ayuda' %}">¿Necesita ayuda?</a></p>
+                <p class="text-right"><a href="{% url 'cuentas_nueva' %}">Regístrese</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

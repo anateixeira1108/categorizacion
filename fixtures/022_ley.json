@@ -1,0 +1,26 @@
+[
+    {
+        "model": "resoluciones.Ley",
+        "fields": {
+            "codigo": "10",
+            "descripcion": "DECRETO CON RANGO, VALOR Y FUERZA DE LEY ORGÁNICA DE TURISMO",
+            "siglas": "LOT"
+        }
+    },
+    {
+        "model": "resoluciones.Ley",
+        "fields": {
+            "codigo": "20",
+            "descripcion": "DECRETO CON RANGO, VALOR Y FUERZA DE LEY DE ZONAS, MONUMENTOS Y BIENES DE INTERÉS TURÍSTICO",
+            "siglas": "TET"
+        }
+    },
+    {
+        "model": "resoluciones.Ley",
+        "fields": {
+            "codigo": "44",
+            "descripcion": "CÓDIGO ORGÁNICO TRIBUTARIO",
+            "siglas": "COT"
+        }
+    }
+]

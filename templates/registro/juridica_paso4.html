@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load filtros_datos %}
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <section class="content-header">
+            <h1>
+                {{ pst|get_tipo_usuario }}
+                <small>Registro</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-edit"></i>{{ pst|get_tipo_usuario_short }}</a></li>
+                <li class="active">Registro</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content" ng-controller="RegistroContactoCtrl">
+            <div class="box box-danger">
+                <div class="box-body">
+
+                    <form action="{% url 'cuentas_juridica_4' %}" method="POST" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="body" id="persona-juridica">
+                            <div class="row">
+                                <div class="col-xs-6 col-xs-offset-6">
+                                    <label>Proceso de registro</label><br>
+                                    <select class="select" onchange="location = this.options[this.selectedIndex].value;">
+                                        <option value="{% url 'cuentas_juridica_1' %}">Paso 1: Datos básicos</option>
+                                        <option value="{% url 'cuentas_juridica_2' %}">Paso 2: Domicilio Fiscal</option>
+                                        <option value="{% url 'cuentas_juridica_3' %}">Paso 3: Representante legal</option>
+                                        <option selected>Paso 4: Persona de contacto</option>
+                                        <option value="{% url 'cuentas_juridica_5' %}">Paso 5: Información específica</option>
+                                        <option value="{% url 'cuentas_juridica_6' %}">Paso 6: Detalles del acta constitutiva</option>
+                                        <option value="{% url 'cuentas_juridica_7' %}">Paso 7: Accionistas/Socios/Asociados</option>
+                                        <option value="{% url 'cuentas_juridica_8' %}">Paso 8: Otros documentos</option>
+                                        <option value="{% url 'cuentas_juridica_9' %}?next={% url 'cuentas_juridica_4' %}">Paso 9: Vista previa</option>
+                                        <option value="{% url 'cuentas_juridica_10' %}?next={% url 'cuentas_juridica_4' %}">Paso 10: Confirmar registro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="title"> Persona de contacto </div>
+
+                            <div class="row">
+                                <div class="col-xs-8 col-lg-3">
+                                    <p>¿La persona de contacto es el representante legal? </p>
+                                </div>
+                                <div class="col-xs-2 col-lg-1" id="option_si" >
+                                    <input type="radio" name="optionsRadios" value="Si" ng-click="option_select('Si')" {% if representante_es_contacto %}checked{% endif %}> SI
+                                </div>
+                                <div class="col-xs-2 col-lg-1" id="option_no" >
+                                    <input type="radio" name="optionsRadios" value="No" ng-click="option_select('No')" {% if not representante_es_contacto %}checked{% endif %}> No
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-6">
+                                    <label>Nombres</label><br>
+                                    {% render_field form.nombres class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.nombres.errors %} {{ form.nombres.errors }} {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Apellidos</label><br>
+                                    {% render_field form.apellidos class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.apellidos.errors %} {{ form.apellidos.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-6">
+                                    <label>C&eacute;dula</label><br>
+                                    <div {% if form.cedula.value %} ng-init="cedula={{form.cedula.value|unicode_to_txt}}" {% endif %}></div>
+                                    {% render_field form.cedula ng-model+="cedula" class+="form-control iddoc-mask" placeholder+="V-12768002" %}
+                                    <div class="error">
+                                        {% if form.cedula.errors %} {{ form.cedula.errors }} {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>RIF</label><br>
+                                    <div {% if form.rif.value %} ng-init="rif={{form.rif.value|unicode_to_txt}}" {% endif %}></div>
+                                    {% render_field form.rif ng-model+="rif" class+="form-control rif-strict-mask" placeholder+="J-12345678-0" %}
+                                    <div class="error">
+                                        {% if form.rif.errors %} {{ form.rif.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-12">
+                                    <label>Copia de la cédula de identidad (Archivo digitalizado en formato PDF)</label>
+                                    <div class="row">
+                                        <div class="col-xs-9">
+                                            {% render_field form.archivo_cedula class+="form-control" %}
+                                            <div class="error">
+                                                {% if form.archivo_cedula.errors %} {{ form.archivo_cedula.errors }} {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-12">
+                                    <label>Copia del RIF (Archivo digitalizado en formato PDF)</label>
+                                    <div class="row">
+                                        <div class="col-xs-9">
+                                            {% render_field form.archivo_rif class+="form-control" %}
+                                            <div class="error">
+                                                {% if form.archivo_rif.errors %} {{ form.archivo_rif.errors }} {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-6">
+                                    <label>Cargo en la empresa</label><br>
+                                    {% render_field form.cargo_empresa class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.cargo_empresa.errors %} {{ form.cargo_empresa.errors }} {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Tel&eacute;fono fijo</label><br>
+                                    <div {% if form.telefono_fijo.value %} ng-init="telefono_fijo={{form.telefono_fijo.value|unicode_to_txt}}" {% endif %}></div>
+                                    {% render_field form.telefono_fijo|attr:"tel-mask" ng-model+="telefono_fijo" class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.telefono_fijo.errors %} {{ form.telefono_fijo.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form_contacto">
+                                <div class="col-xs-6">
+                                    <label>Tel&eacute;fono móvil</label><br>
+                                    <div {% if form.telefono_celular.value %} ng-init="telefono_celular={{form.telefono_celular.value|unicode_to_txt}}" {% endif %}></div>
+                                    {% render_field form.telefono_celular|attr:"tel-mask" ng-model+="telefono_celular" class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.telefono_celular.errors %} {{ form.telefono_celular.errors }} {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label>Correo electr&oacute;nico</label><br>
+                                    {% render_field form.correo_electronico class+="form-control" %}
+                                    <div class="error">
+                                        {% if form.correo_electronico.errors %} {{ form.correo_electronico.errors }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="footer">
+                            <div class="row">
+                                <div class="col-xs-6 col-lg-5 col-lg-offset-1" >
+                                    <a href="{% url 'cuentas_juridica_3' %}" class="btn btn-info btn-flat btn-block">
+                                        <i class="fa fa-arrow-circle-o-left btn-icon-back"></i>
+                                        Volver al paso 3
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-lg-5 " id="content-box">
+                                    <button type="submit" class="btn btn-primary btn-flat btn-block" id="submit">
+                                        Guardar y continuar al paso 5: Información específica
+                                        <i class="fa fa-arrow-circle-o-right btn-icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{% endblock %}
+
+

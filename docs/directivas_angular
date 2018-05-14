@@ -1,0 +1,8 @@
+- Usar el datepicker
+	- Como usarlo con render_field 
+		{% render_field form.fecha_ultima_asamblea|attr:"bs-datepicker"|attr:"data-date-format:dd-MM-yyyy" ng-model+="TuVariable" %}
+	
+	- Utilización para una etiqueta HTML
+		<input type="text" class="form-control" ng-model="fecha_registro" data-date-format="dd-MM-yyyy" bs-datepicker>
+
+	Nota: se debe inicializar el scope obligatoriamente  ng-model="MyVar"

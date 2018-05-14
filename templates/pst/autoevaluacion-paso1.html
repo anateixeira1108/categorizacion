@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+
+        <section class="content-header">
+          <h1>Categorizaci&oacute;n<small>Evaluaci&oacute;n</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li><a href=""><i class="fa fa-star-half-o"></i>Categorizaci&oacute;n</a></li> 
+                <li><a href=""><i class="fa fa-file-text-o"></i>Requitos Funcionales</a></li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="box box-danger">
+                
+                <div class="box-body">
+                    <div class="body">
+                    <form class="formulario-requisitos-funcionales" action="" method="POST">
+
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <h3>{{pst.nombre}}<small>{{pst.tipo_pst}}</small></h3>
+                            </div>
+                        </div>
+                        
+                        <div class="seccion-actual">
+                            Localizaci&oacute;n
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Accesibilidad                           
+                        </div>
+                        <div class="row item-autoevaluacion">
+                            
+                                <div class="col-lg-9 col-md-9 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Vialidad</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select name="accesibilidad" class="item-select">
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-2 col-sm-4">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div> -->
+                                <div id="accesibilidad" class="col-lg-1 col-md-1 col-sm-0 contenido-centrado icono-control">
+                                    <i class="fa fa-minus fa-2x icono-accion"></i>
+                                </div>
+                            
+                        </div>
+
+                        <div id="accesibilidad_subitem" class="sub-item">
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado activar-modal">
+                                    <i class="fa fa-camera fa-lg icono-accion"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Pavimentada</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="limpias"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="limpias"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="limpias"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin huecos</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="sin-huecos-aceras"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="sin-huecos-aceras"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="sin-huecos-aceras"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row item-autoevaluacion">
+                            
+                                <div class="col-lg-9 col-md-9 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Aceras o accesos peatonales</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select name="aceras" class="item-select">
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-2 col-sm-4">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div> -->
+                                <div id="aceras" class="col-lg-1 col-md-1 col-sm-0 contenido-centrado icono-control">
+                                    <i class="fa fa-minus fa-2x icono-accion"></i>
+                                </div>
+                            
+                        </div>
+
+                        <div id="aceras_subitem" class="sub-item">
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado activar-modal">
+                                    <i class="fa fa-camera fa-lg icono-accion"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Normativa legal</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select>
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Ancho de 1,60 mt</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select>
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Libre de obst&aacute;culos</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select>
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Rampa de acceso</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select>
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Limpias</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="aceras-limpias"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="aceras-limpias"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="aceras-limpias"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin huecos</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="aceras-sin-huecos-aceras"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="aceras-sin-huecos-aceras"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="aceras-sin-huecos-aceras"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row item-autoevaluacion">
+                            
+                                <div class="col-lg-9 col-md-9 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Servicio de transporte</label>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-4">
+                                    <select name="transporte" class="item-select">
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-2 col-sm-4">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div> -->
+                                <div id="transporte" class="col-lg-1 col-md-1 contenido-centrado icono-control">
+                                    <i class="fa fa-minus fa-2x icono-accion"></i>
+                                </div>
+                            
+                        </div>
+
+                        <div id="transporte_subitem" class="sub-item" >
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado activar-modal">
+                                    <i class="fa fa-camera fa-lg icono-accion"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Carrocer&iacute;a</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="transporte-carroceria"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-carroceria"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-carroceria"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Parte interna</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="transporte-parte-interna"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-parte-interna"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-parte-interna"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Caucho</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="transporte-caucho"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-caucho"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="transporte-caucho"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-bar col-lg-12 col-md-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">                    
+                    <a class="btn btn-primary col-lg-12 col-md-12" href="{% url 'despachador_raiz' 'pst' 'requisitos.html' %}">
+                        <i class="fa fa-arrow-left "></i> &nbsp;&nbsp;Anterior
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">                    
+                    <a class="btn btn-info col-lg-12 col-md-12 guardar" href="#">
+                        <i class="fa fa-save"></i> &nbsp;&nbsp;Guardar
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="btn btn-primary col-lg-12 col-md-12" href="{% url 'despachador_raiz' 'pst' 'autoevaluacion-paso2.html' %}">
+                        <i class="fa fa-arrow-right "></i> &nbsp;&nbsp;Siguiente
+                    </a>
+                </div>
+            </div>
+
+            </section>
+        
+    </aside>
+    
+<!-- ~~~~~~~~ Modales utilizadas ~~~~~~~~ -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Cargar im&aacute;genes</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Vialidad" class="col-lg-12">Vialidad</p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Aceras o accesos peatonales" class="col-lg-12">Aceras o accesos peatonales</p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Servicio de transporte" class="col-lg-12">Servicio de transporte</p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-xs-6" data-dismiss="modal">
+                        <a href="#" data-dismiss="modal" class="btn btn-danger col-xs-12">Cancelar</a>
+                    </div>
+                    <div class="col-xs-6" data-dismiss="modal">
+                        <a href="#" data-dismiss="modal" class="btn btn-primary col-xs-12">Aceptar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% include '_modales_categorizacion.html' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {            
+           
+
+            $(".guardar").each(function(){                
+                $(this).click(function(){
+                   $('#notificacion-guardado').modal();
+                });
+            }); 
+
+      
+        });
+    </script>
+{% endblock %}

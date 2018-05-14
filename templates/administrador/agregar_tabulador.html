@@ -1,0 +1,1521 @@
+{% extends "base.html" %}
+
+{% block main_content %}       
+  <aside 
+    class="right-side ng-scope"    
+  >
+  	<section class="content-header">            
+        <h1>Categorizaci&oacute;n
+          <small>Panel Administrativo        
+            <label class="fixed-spinner label label-primary" style="display:inline-block; margin-top:0px; margin-bottom:0px;">
+                <i class="fa fa-spinner fa-spin"></i>&nbsp;Guardando
+            </label>
+          </small>
+        </h1>        
+        
+        <ol class="breadcrumb">
+            <li><a href="/categorizacion/administrador/"> Inicio</a></li>
+            <li><a href="{% url 'home_panel_administrativo' modelo %}">
+            <i class="fa fa-th-large"></i>Tabulador</a></li>
+            
+            {% if not tabulador %}
+            <li class="active"><i class="fa fa-plus"></i>&nbsp;Agregar Tabulador</li>
+            {% else %}
+            <li class="active"><i class="fa fa-pencil-square-o"></i>&nbsp;Editar Tabulador</li>
+            {% endif %}
+        </ol>
+    </section>
+
+  <section class="content" ng-controller="GlobalController" >
+    
+    <div class="box box-danger">
+
+      <div class="box-body">
+
+        <form class="heaven-form">
+          {% csrf_token %}
+        <!-- BEGIN Menu de opciones sobre el tabulador -->
+        <div class="btn-group menu-opciones-principal pull-right">
+          <button 
+            type="button"
+            class="btn btn-flat btn-primary dropdown-toggle menu-opciones-secundario" 
+            data-toggle="dropdown" 
+            aria-expanded="false"
+          >            
+            <i class="fa fa-bars fa-2x"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation" ng-show="showAdd">
+              <a 
+                ng-click = "agregarElemento()"
+                role="menuitem" 
+                tabindex="-1" 
+                class = "boton-agregar-elementos" 
+                href
+              >
+                  <i class="fa fa-plus"></i>&nbsp;Agregar Elementos
+              </a>
+            </li>
+            <li role="presentation">
+              <a 
+                ng-controller = "PreviewController"
+                ng-click = "vistaPrevia();"
+                role="menuitem" 
+                tabindex="-1" 
+                class = "boton-vista-previa"
+                href
+                >
+                  <i class="fa fa-eye"></i>&nbsp;Vista Previa
+              </a>
+            </li>
+            <li role="presentation">
+              <a 
+                ng-click = "guardarEstructura()"
+                role="menuitem" 
+                tabindex="-1" 
+                class = "boton-guardar-todo"                
+                href
+                >
+                  <i class="fa fa-save"></i>&nbsp;Guardar todo
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- END Menu de opciones sobre el tabulador -->                    
+
+        <!-- BEGIN Tabs contenedora de elementos -->
+
+        <ul 
+          class="nav nav-tabs" 
+          role="tablist"           
+          id="tabcontainer">
+          <li role="presentation" class="tab active">
+            <a 
+              id = "basic-config-starter"
+              href="#basic-config" 
+              role="tap"               
+              data-toggle="tab"               
+              ng-click="tabChanger('basic-config')"
+              >
+              Configuraci&oacute;n B&aacute;sica
+            </a>
+          </li>          
+
+          <li role="presentation" class="tab hiden-tab" 
+          {% if not tabulador %}
+          ng-show="showAllTabs" style="display:none;"
+          {%endif%}
+          >
+            <a 
+              href="#documental-req" 
+              role="tap"               
+              data-toggle="tab" 
+              ng-click="tabChanger('documental-req')">
+              Requisitos Documentales
+            </a>
+          </li>
+          <li role="presentation" class="tab hiden-tab" 
+          {% if not tabulador %}
+          ng-show="showAllTabs" 
+          style="display:none;"
+          {%endif%}
+          >
+            <a 
+              href="#basic-data" 
+              role="tap"               
+              data-toggle="tab"
+              ng-click="tabChanger('specific-values-cookie')">
+              Valores Espec&iacute;ficos
+            </a>
+          </li>
+          <li role="presentation" class="tab hiden-tab" 
+          {%if not tabulador%}
+          ng-show="showAllTabs" 
+          style="display:none;"
+          {%endif%}
+          >
+            <a 
+              href="#basic-req" 
+              role="tap"               
+              data-toggle="tab"
+              ng-click="tabChanger('basic-req')">
+              Requisitos B&aacute;sicos
+            </a>
+          </li>
+          <li role="presentation" class="tab hiden-tab" 
+          {%if not tabulador%}
+          ng-show="showAllTabs" 
+          style="display:none;"
+          {%endif%}
+          >
+            <a 
+              href="#specific-req" 
+              role="tap"               
+              data-toggle="tab"
+              ng-click="tabChanger('specific-req')">
+              Requisitos Espec&iacute;ficos
+            </a>
+          </li>
+        </ul>
+        <!-- END Tabs contenedora de elementos -->
+          <div class="tab-content">
+            <!-- BEGIN Tab configuracion basica -->
+            <div 
+              role="tabpanel" 
+              class="tab-pane active" 
+              id="basic-config" 
+              added-elements="{{maximos_ids.0}}" 
+              data-cookie-ids='{"ss":{{maximos_ids.1}}, "s":{{maximos_ids.2}}, "a": {{maximos_ids.3}}, "i": {{maximos_ids.4}} }'
+              data-aspects-ids = ''
+              >
+              <div class="row item-autoevaluacion">                                    
+                <div class="col-lg-10 col-md-9 col-sm-4">
+                    <label id="1" class="etiqueta-autoevaluacion">Configuraci&oacute;n B&aacute;sica</label>
+                </div>
+              </div>
+  
+              <div 
+                class="col-xs-offset-3 col-xs-6 {%if tabulador%}formulario-editar{%endif%}" 
+                id="form_tab"
+              >
+                <div class="row">
+                  <!-- BEGIN nombre del tabulador -->
+                  <label for="nombre-tabulador">Nombre del Tabulador</label>
+                  <input id="nombre-tabulador" class="form-control funcion-tabulador" required="true">
+                  </input>
+                  <!-- END nombre del tabulador -->
+                </div>          
+
+                <div class="row">            
+                  <!-- BEGIN Tipo de prestador-->
+                  <label for="tipo-prestador">Tipo de Prestador asociado</label>
+                  <select id="tipo-prestador" class="form-control funcion-tabulador" required>
+                    <option  class = "tipo-prestador-opcion" name="default" value = "-1" selected="selected">- Seleccione -</option>
+                    {% for e in tiposprestador %}
+                      <option  class = "tipo-prestador-opcion" name="{{e.tipo_pst.codigo}}"  value = "{{e.tipo_pst.id}}" pstcategorie="{{e.count}}" icon="{{e.icon}}">
+                      {{e.tipo_pst.nombre}}
+                      </option>
+                    {%endfor%}
+                  </select>          
+                  <!-- END Tipo de prestador -->
+                </div>
+
+                <!--BEGIN Boton de guardado de configuracion basica-->
+                <div class="row pull-right" style="margin-top:5%;">
+                  <a 
+                    ng-click = "guardarEstructura()"
+                    tabindex="-1" 
+                    class = "boton-guardar-todo btn btn-flat btn-primary"                
+                    href
+                    >
+                      <i class="fa fa-save"></i>&nbsp;Guardar todo
+                  </a>
+                </div>
+                <!--END Boton de guardado de configuracion basica-->
+
+              </div>
+            </div>
+          
+          <!-- END Tab configuracion basica -->
+
+          <!-- BEGIN Tab datos basicos -->
+          <div role="tabpanel" class="tab-pane" id="basic-data">
+            <div class="col-xs-12" style="margin-top:5%;">
+              <div class="alert alert-warning alert-initial" role="alert" style="margin-left:0px;">
+                  <p>
+                    <i class="fa fa-exclamation-triangle"></i>&nbsp;No existen Valores Espec&iacute;ficos cargados dentro de este tabulador,
+                    para realizar la carga seleccione la opción "Agregar elementos"
+                    del menu de opciones (&nbsp;<i class="fa fa-bars"></i>&nbsp;)
+                  </p>
+                </div>
+              <table 
+                class="table table-striped table-partner table-hover text-center table-basic-data" 
+                added-elements = "{{maximos_ids.1}}" 
+                style="display:none;" 
+              >
+                <thead>
+                    <tr>
+                        <th>Nombre del Valor Espec&iacute;fico</th>
+                        <th>Suministrado</th>
+                        <th>Valor</th>                      
+                        <th>Opciones</th>
+                    </tr>
+                </thead>                           
+                <tbody class="basic-data-body">
+                </tbody>    
+              </table>
+            </div>
+          </div>
+          <!-- END Tab datos basicos -->
+          
+          <!-- BEGIN Tab requisitos basicos -->          
+          <div role="tabpanel" class="tab-pane" id="basic-req">
+            <div class="col-xs-12 basic-req-body" style="margin-top:5%;">
+              <div class="alert alert-warning alert-initial basic-req-alert" role="alert" style="margin-left:0px;">
+                <p>
+                  <i class="fa fa-exclamation-triangle"></i>&nbsp;No existen Requisitos B&aacute;sicos cargados dentro de este tabulador, para realizar la carga seleccione la opción "Agregar elementos" del menu de opciones (&nbsp;<i class="fa fa-bars"></i>&nbsp;)
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- END Tab requisitos basicos -->
+          
+          <!-- BEGIN Tab requisitos especificos -->          
+          <div role="tabpanel" class="tab-pane" id="specific-req">
+            <div class="col-xs-12 specific-req-body" style="margin-top:5%;">
+              <div class="alert alert-warning alert-initial specific-req-alert" role="alert" style="margin-left:0px;">
+                <p>
+                  <i class="fa fa-exclamation-triangle"></i>&nbsp;No existen Requisitos Espec&iacute;ficos cargados dentro de este tabulador, para realizar la carga seleccione la opción "Agregar elementos" del menu de opciones (&nbsp;<i class="fa fa-bars"></i>&nbsp;)
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- END Tab requisitos especificos -->
+          
+          <!-- BEGIN Tab requisitos documentales -->          
+          <div role="tabpanel" class="tab-pane" id="documental-req">            
+            <div class="col-xs-12" style="margin-top:5%;">
+              <div class="alert alert-warning alert-initial" role="alert" style="margin-left:0px;">
+                  <p>
+                    <i class="fa fa-exclamation-triangle"></i>&nbsp;No existen Requisitos Documentales cargados dentro de este tabulador, para realizar la carga seleccione la opción "Agregar elementos" del menu de opciones (&nbsp;<i class="fa fa-bars"></i>&nbsp;)
+                  </p>
+              </div>
+              <table 
+                class="table table-striped table-partner table-hover text-center table-documental-req" 
+                added-elements="{{maximos_ids.1}}"
+                style="display:none;"
+              >
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo de Requisito</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>                           
+                <tbody class="documental-req-body">
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+          <!-- END Tab requisitos documentales -->
+        </div>                  
+          
+        </form>  
+      </div>
+  </section>
+
+</aside>
+
+<!-- BEGIN Zona de modales -->
+<div 
+  class="modal fade" 
+  id="modal-agregar-elemento" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="modal-agregar-elemento-label" 
+  aria-hidden="true"
+>  
+  <div 
+    class="modal-dialog"
+  >
+      <div 
+        class="modal-content"
+      >
+      <div 
+        class="modal-header" 
+        style="background-color: #CE4744; color: white;"
+      >
+        <button 
+            type="button" 
+            class="close modal-agregar-elemento-close" 
+            data-dismiss="modal" 
+            aria-hidden="true">&times;</button
+        >
+          <h4 
+            class="modal-title" 
+            id="modal-agregar-elemento-title"
+          >
+            <i class="fa fa-plus"></i>
+            &nbsp;Agregar Elemento
+          </h4>
+      </div>
+
+      <div class="modal-body modal-spinner-container-add-elment row"> 
+        <div id="mutable-form-container" class="col-xs-12">          
+        </div>
+        <div 
+          class="row" 
+          id="modal-agregar-elemento-body"></div>
+      </div>    
+      <div 
+        class="modal-footer contenido-centrado" 
+        id="modal-agregar-contenido-footer" 
+        data-dismiss="modal">
+        <a 
+          class="col-xs-12 btn btn-danger btn-flat">
+          Cancelar
+        </a>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade" 
+  id="modal-valores-por-categoria" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="modal-valores-por-categoria-label" 
+  aria-hidden="true"
+>  
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button 
+            type="button" 
+            class="close modal-valores-por-categoria-close" 
+            data-dismiss="modal" 
+            aria-hidden="true">&times;</button
+        >
+          <h4 
+            class="modal-title" 
+            id="modal-agregar-elemento-title"
+          >
+            <i class="fa fa-star"></i>
+            &nbsp;Valores por categoria
+          </h4>
+      </div>
+
+      <div class="modal-body row">
+        <div class="row" id="modal-valores-por-categoria-body">
+        </div>
+      </div> 
+
+      <div class="row modal-footer contenido-centrado" id="modal-valores-por-categoria-footer">
+        <div class="col-xs-6">
+          <a 
+            class="btn btn-danger btn-flat col-xs-12" 
+            data-dismiss="modal"
+          >
+            Cancelar
+          </a>    
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-primary btn-flat col-xs-12 modal-valores-por-categoria-ok">
+            Aceptar
+          </a>          
+        </div>
+     </div>
+
+    </div>
+  </div>
+</div>
+
+<div 
+  class="modal fade" 
+  id="modal-create-choose" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-labelledby="modal-create-choose-label" 
+  aria-hidden="true"
+>  
+  <div 
+    class="modal-dialog"
+  >
+      <div 
+        class="modal-content"
+      >
+      <div 
+        class="modal-header" 
+        style="background-color: #CE4744; color: white;"
+      >
+         <h4 
+            class="modal-title" 
+            id="modal-agregar-elemento-title"
+          >
+            <i class="fa fa-plus"></i>
+            &nbsp;Creaci&oacute;n de tabulador
+          </h4>
+      </div>
+
+      <div class="modal-body row"> 
+          
+          <div id="tabs_display_zone" style="display:none;"> 
+            <table class="table table-hover text-center">
+              <thead id="table_choose_head">
+              </thead>
+              <tbody id="cuerpo_tabla_choose">
+                
+              </tbody>
+            </table>
+
+            <div id="pager_elements_container" class="row">
+              <button 
+                id="next" 
+                class="col-xs-3 col-xs-offset-2 btn btn-flat btn-primary fa fa-chevron-left btn-prev-tabulador" 
+                style="visibility: hidden;" s="-">
+              </button>
+              <button 
+                id="prev" 
+                class="col-xs-3 col-xs-offset-2 btn btn-flat btn-primary fa fa-chevron-right btn-next-tabulador" 
+                style="visibility: visible;" s="+">
+              </button>
+            </div>
+          </div> 
+
+          <div id="tabulator_alternatives_panel">
+            <div 
+              class="row" 
+              id="modal-create-choose-body">
+
+              <div class="col-lg-5 col-md-5 col-xs-5 contenido-centrado contenedor-escogencia" id="all_new_pick">
+                <div class = "row">
+                  <div class="col-xs-12">
+                      <i class="fa fa-file-text-o fa-2x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                  <p class="col-lg-12">Tabulador totalmente nuevo</p>
+                </div>
+              </div>
+
+              <div class="col-lg-5 col-md-5 col-xs-5 contenido-centrado contenedor-escogencia" id="based_on_pick">
+                <div class = "row">
+                  <div class="col-xs-12">
+                      <i class="fa fa-files-o fa-2x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                  <p class="col-lg-12">Tabulador basado en una versi&oacute;n existente</p>
+                </div>
+              </div>
+            </div>
+          </div>          
+      </div>
+
+       <div class="row modal-footer contenido-centrado" id="">
+         <div class="col-xs-12">
+           <a 
+              class="btn btn-danger btn-flat col-xs-12 volver_choose_button" 
+              href="{% url 'home_panel_administrativo' modelo %}"
+              preventhref = "false"
+           >
+           <i class="fa fa-arrow-left "></i>&nbsp;Anterior
+           </a>    
+         </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- END Zona de modales -->
+{% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+  {% block javascripts %}
+  
+  {{ block.super }}  
+  <script src="{{ STATIC_URL }}js/jquery.validate.min.js" type="application/javascript"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap-select.min.js" type="application/javascript"></script>
+  
+  {% if tabulador %}
+  <script 
+    src="{{ STATIC_URL }}js/constructor.js" 
+    type="application/javascript"
+    data-tabulador = "{{tabulador.id}}"
+    id="constructor_core"
+    {% if clonado %}
+    data-clone = "run"
+    {% endif %}
+  ></script>
+ {% endif %}
+  
+  <script type="text/javascript">
+    $(function(){
+
+      $(".fixed-spinner").hide();
+
+      $('.cargador_recursos').click(function(){
+        url = ($(this).attr('url')).split('/');
+        location.href = "/categorizacion/administrador/"+ url[4];
+      });
+
+      $('input,textarea,select').addClass('input-ajustado');
+
+      $('input,textarea,select').each(function(){
+        if(!$(this).is(":hidden")){
+          $(this).addClass('form-control');
+        }
+      });
+
+      $('#guardar').click(function(){
+        $('#agregar_form').validate();
+        if($('#agregar_form').valid()){
+          $('#guardar').addClass('disabled');
+          $('#agregar_form').trigger('submit')
+        }
+      });
+
+      {% if tabulador and tabulador.version_actual %}
+      
+      // Manejo de control de versiones de un tabulador en estado de edición
+
+      control_version = function(state, tabuladorid, tipo_pst){
+          var token = document.getElementsByName('csrfmiddlewaretoken')[0] != undefined ? document.getElementsByName('csrfmiddlewaretoken')[0].value : undefined ;           
+
+          $('#notificacion-general-Label').html("Cambio de versi&oacute;n detectado");
+
+          $.ajax({
+              type: 'POST',
+              url: "{% url 'cargar_version_tabulador' %}",
+              data: {
+                  tabulador: tabuladorid,
+                  estado : state,
+                  tipo_pst: tipo_pst,
+                  csrfmiddlewaretoken: token
+              },
+              success: function(server_data) {      
+                  var data = JSON.parse(server_data.data);
+                  console.log(data);
+                  var msg = server_data.success_msg;
+
+                  $('#notificacion-general-body').css('text-align','justify');
+                  $('#notificacion-general-body').html(
+                      "<div class = 'row'><h4>"+msg+".</h4></div>\
+                      <table class = 'table-tabuladores table table-striped table-partner table-hover'> \
+                      </table>");
+
+                  $.each(data, function(k,v){                            
+                      $(".table-tabuladores").append(
+                      "<tr id = '"+ v.pk +"'> \
+                          <td>"+ v.fields.nombre +"</td> \
+                          <td><label class='label label-default etiqueta-estatus'>v."+v.fields.version+"</td> \
+                          <td> \
+                          <input \
+                          type='radio' \
+                          name='version_sustituta' \
+                          value = '"+v.pk+"' class = 'radio_sustituto' /></td> \
+                      </tr>");
+                  });
+
+                  $('#notificacion-general-footer').html(
+                      '<div class="col-xs-6" data-dismiss="modal">\
+                          <a href="#" class="btn btn-danger btn-flat col-xs-12 btn-cancelar-cambio-version">Cancelar</a>\
+                      </div>\
+                      <div class="col-xs-6">\
+                          <a href="#" class="btn btn-primary btn-flat col-xs-12 btn-aceptar-cambio-version" disabled="disabled">Aceptar</a>\
+                      </div>');
+
+                  $('input').iCheck({
+                      checkboxClass: 'icheckbox_minimal',
+                      radioClass: 'iradio_minimal',
+                      increaseArea: '20%'
+                  });
+                  
+                  $('#notificacion-general').css('overflow-y','visible');
+
+                  $('#notificacion-general').modal({
+                      keyboard: false,
+                      backdrop: 'static'
+                  });
+              },
+              error: function(xhr, status, error) {
+                  
+                  try{
+                      var responsejson = JSON.parse(xhr.responseText);
+                      $('#notificacion-general-body').html(
+                          "<div class='row'> \
+                          <div class='col-xs-offset-4 col-xs-4 warning-icon'> \
+                          <i class = 'fa fa-exclamation-triangle fa-4x' style = 'color:#FF8000;'></i> \
+                          </div>\
+                          <div class='col-xs-12'> \
+                          <h4>"+responsejson.err_msg+"</h4></div>"
+                      );
+
+                      $('#notificacion-general-body').css('text-align','justify');
+
+                      $('#notificacion-general-footer').html(
+                          '<div class="col-xs-6" data-dismiss="modal">\
+                              <a href="#" class="btn btn-danger btn-flat col-xs-12 btn-cancelar-cambio-version">Cancelar</a>\
+                          </div>\
+                          <div class="col-xs-6" data-dismiss="modal">\
+                              <a href="#" class="btn btn-primary btn-flat col-xs-12">Aceptar</a>\
+                          </div>');
+
+                      $('#notificacion-general').modal( 'show' );
+                  }catch(e){
+                      console.log(xhr);
+                      console.log(status);
+                      console.log(error);
+                  }                        
+              }
+          });                
+      };
+
+      en_chequeo = function(){
+          $(".tabulador_sustituto").remove();
+          $('#id_version_actual').removeAttr('flag');
+      }
+
+      en_deschequeo = function(){
+          if ($('#id_version_actual').attr('flag') != 'true' || 
+              $('#id_version_actual').attr('flag') === undefined)
+          {
+              control_version(0, {{tabulador.id}}, {{tabulador.tipo_pst.id}})
+          }else{                    
+              $('#id_version_actual').removeAttr('flag');
+          }
+      }
+
+      $(document).on('click', '.btn-cancelar-cambio-version', function(){                            
+          $('#id_version_actual').attr('flag','true');
+          $('#id_version_actual').iCheck('check');
+          $(".tabulador_sustituto").remove();
+      });
+
+      $(document).on('ifToggled','.radio_sustituto',function(){
+          
+          $(".btn-aceptar-cambio-version").removeAttr("disabled");
+
+          $(document).on('click', '.btn-aceptar-cambio-version', function(){
+              $("#notificacion-general").modal('hide');
+              // Se selecciona la version del tabulador que sustituira la version
+              // actual
+              var radio_version = $('input[type=radio][name=version_sustituta]:checked').val();
+              var ts = $(".tabulador_sustituto");
+
+              if(ts.length === 0){
+                  $(".formulario-editar").append(
+                      "<input class = 'tabulador_sustituto' type='text' value = '"+radio_version+"'  name='tabulador_sustituto' style = 'display:none;' />"
+                  );
+              }else if(ts.length > 0){
+                  $(".tabulador_sustituto").val(radio_version);
+              }                        
+          });                    
+      });
+
+      $(document).on('ifChecked', '#id_version_actual', en_chequeo);
+      $(document).on('ifUnchecked', '#id_version_actual', en_deschequeo );
+
+      {% endif %}
+
+    });
+  </script>
+
+  <script type="text/template" id="checkbox_version">
+    <div class="row">
+    <label for="id_version_actual" class="">Versión Actual:</label>                                        
+    <input type="checkbox" name="version_actual" id="id_version_actual" class="form-control input-ajustado" 
+    {% if tabulador and tabulador.version_actual %}checked="checked"{%endif%}>
+    </div>
+  </script>
+
+  <script type="text/template" id="row_tabulador_template">
+    <tr class="row_alternative_clone" href="/categorizacion/administrador/tabulador/<%=id%>/clonar/">
+      <td id="nombre"><%=nombre%></td>
+      <td id="tipo_prestador"><%=tipo_pst%></td>
+      <td id="fecha_creacion"><%=fecha%></td>
+      <td id="version">
+      <label class="label label-<%=label_class%> etiqueta-estatus">v.<%=numero_version%></label>
+      </td>
+    </tr>
+  </script>
+
+  <script type='text/template' id = 'fundamental-aspect-template'>
+    <div 
+      class='panel panel-default panel_af' 
+      id="<%= id %>" 
+      type="AF" 
+      typeaf="<%=tipo_aspecto%>"
+      element_fisical_idenfitier = "<%=counter%>"
+    >
+        <div class='panel-heading' style='line-height:inherit; background-color:<%=color%> ;'>
+          <div class="row">
+            <div class="col-xs-6">
+              <b><span type="AF" class="element_fisical_idenfitier"><%=counter%>.</span>&nbsp;Aspecto Fundamental: <span id="<%= id %>" type="AF"  class="element_name"><%=name%></span></b>
+            </div>
+            <div class="col-xs-6">
+              <div class = "pull-right">
+                <%  if(percent !== undefined) {%>
+                  <span class='label label-primary'>Porcentaje asignado:&nbsp;
+                    <span id="<%= id %>" type="AF" class="percent"><%=percent%>
+                    </span>%
+                  </span>
+                <%}%>
+                &nbsp;
+                <a 
+                  id = "<%= id %>" 
+                  data-toggle="tooltip" 
+                  title = "Eliminar Aspecto"
+                  type_delete = "AF"
+                  type = "AF"
+                  state = "normal" 
+                  sufix = "del-aspecto-fundamental"
+                  class="btn btn-flat btn-danger del-global-button delete-element"
+                  data-original-title="Eliminar Aspecto">
+                  <i class="fa fa-trash-o icon-white"></i>
+                </a>  
+                &nbsp;
+                <a 
+                  id = "<%= id %>" 
+                  state = "normal" 
+                  type_edit = "AF"
+                  type = "AF"
+                  data-toggle="tooltip" 
+                  title = "Editar Aspecto"
+                  sufix = "edit-aspecto-fundamental"
+                  class="btn btn-flat btn-info edit-global-button"
+                  data-original-title="Editar Aspecto">
+                  <i class="fa fa-pencil-square-o icon-white"></i>
+                </a> 
+                &nbsp;
+                <a class="btn btn-flat btn-primary button-shrink minus">
+                  <i class="fa fa-minus"></i>
+                </a>                            
+                &nbsp;
+                <input type='checkbox' class='form-control zone-selector id-aspecto-fundamental' id=''/>
+              </div>
+            </div>          
+          </div>
+        </div>
+        <div class='panel-body panel_body_af' id=''>
+        </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'section-template'>
+    <div 
+      class="panel panel-default panel_sec" 
+      id="<%= id %>" 
+      type="S" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>"
+    >
+        <div class="panel-heading" style="background-color: #efefef;">
+          <b><span type="S" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="S" class="element_fisical_idenfitier"><%=counter%>.</span>&nbsp;Secci&oacute;n: <span id="<%= id %>" type="S"  class="element_name"><%= name %></span></b>
+            <div class="pull-right">  
+                <a 
+                  data-toggle="tooltip" 
+                  title="Eliminar Secci&oacute;n" 
+                  type_delete="S"  
+                  type = "S"
+                  id="<%= id %>" 
+                  class="btn btn-danger btn-flat delete-element" 
+                  data-original-title="Eliminar Secci&oacute;n">
+                  <i class="fa fa-trash-o icon-white"></i>
+                </a>
+                &nbsp;
+                <a 
+                  title="Editar Secci&oacute;n"
+                  type_edit="S" 
+                  type = "S" 
+                  id="<%= id %>" 
+                  data-toggle="tooltip" 
+                  class="btn btn-info btn-flat edit-global-button" 
+                  data-original-title="Editar Secci&oacute;n">
+                  <i class="fa fa-pencil-square-o icon-white"></i>
+                </a>
+                &nbsp;
+                <a class="btn btn-flat btn-primary button-shrink minus">
+                  <i class="fa fa-minus"></i>
+                </a> 
+                &nbsp;
+                <input type="checkbox" class="form-control zone-selector id-sec" id=''/>
+            </div>
+        </div>
+        <div class="panel-body panel_body_sec">
+        </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'subseccion-template'>
+    <div 
+      class="panel panel-default panel_subsec" 
+      id="<%= id %>" 
+      type="SS" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>"
+    >
+        <div class="panel-heading">
+          <b><span type="SS" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="SS" class="element_fisical_idenfitier"><%=counter%>.</span>&nbsp;<%= condicion%> Subsecci&oacute;n</b>
+            <div class="pull-right">  
+                <a 
+                  data-toggle="tooltip" 
+                  title="Eliminar Subsecci&oacute;n" 
+                  data-original-title="Eliminar Subsecci&oacute;n"
+                  type_delete="SS" 
+                  type = "SS"
+                  id="<%= id %>" 
+                  class="btn btn-flat btn-danger delete-element" 
+                >
+                  <i class="fa fa-trash-o icon-white"></i>
+                </a>
+                &nbsp;
+                <a 
+                  data-toggle="tooltip" 
+                  title="Editar Subsecci&oacute;n" 
+                  data-original-title="Editar Subsecci&oacute;n"
+                  type_edit="SS" 
+                  type = "SS"
+                  id="<%= id %>" 
+                  class="btn btn-flat btn-info edit-global-button" 
+                >
+                  <i class="fa fa-pencil-square-o icon-white"></i>
+                </a>
+                &nbsp;
+                <a class="btn btn-flat btn-primary button-shrink minus">
+                  <i class="fa fa-minus"></i>
+                </a> 
+            </div>
+        </div>
+        <div class="panel-body panel_body_subsec">
+          <div class="col-xs-6">
+            <p><span class="dual-name"><%= name %></span></p>
+          </div>
+          <% for (var e=0; e<body.length; e+=2){ %>
+            <div class="col-xs-2">
+              <span class="dual-radio-text"><%= body[e+1] %></span>
+              &nbsp;
+              <input 
+                class ="form-control" 
+                type="radio" 
+                value="<%= body[e] %>" name ="<%=identifier%>"/>
+            </div>
+          <% } %>
+        </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'subseccion-rango-template'>
+    <div 
+      class="panel panel-default panel_subsec" 
+      id="<%= id %>" 
+      type="SS" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>"
+    >
+        <div class="panel-heading">
+          <b><span type="SS" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="SS" class="element_fisical_idenfitier"><%=counter%>.</span>&nbsp;<%= condicion%> Subsecci&oacute;n</b>
+            <div class="pull-right">  
+              <a 
+                data-toggle="tooltip" 
+                title="Eliminar Subsecci&oacute;n" 
+                data-original-title="Eliminar Subsecci&oacute;n"
+                type_delete="SS" 
+                type = "SS"
+                id="<%= id %>" 
+                class="btn btn-flat btn-danger delete-element" 
+              >
+                <i class="fa fa-trash-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a 
+                data-toggle="tooltip" 
+                title="Editar Subsecci&oacute;n" 
+                data-original-title="Editar Subsecci&oacute;n"
+                type_edit="SS" 
+                type = "SS"
+                id="<%= id %>" 
+                class="btn btn-flat btn-info edit-global-button" 
+              >
+                <i class="fa fa-pencil-square-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a class="btn btn-flat btn-primary button-shrink minus">
+                <i class="fa fa-minus"></i>
+              </a> 
+            </div>
+        </div>
+        <div class="panel-body panel_body_subsec">
+          <div class="col-xs-6">
+            <p><span class="scale-name"><%= name %></span></p>
+          </div>
+            <div class="col-xs-5">
+              <input class="form-control scale-input" type="number" placeholder="<%= placeholder %>" />
+            </div>
+        </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="repetitive-relevance-ul">
+    <% for (var e in categorias){ %>
+      <% if(e%2==0){ %>
+        <li role="presentation" class="drop-categorias"> 
+        <%=categorias[e]%>&nbsp;
+      <% }else{ %>
+        <% if(e%2==1){ %>
+          <%= categorias[e] %>
+          </li>
+        <% } %>
+      <% } %>  
+    <% } %>
+  </script>
+
+  <script type='text/template' id = 'subseccion-repetitive-template'>
+    <div 
+      class="panel panel-default panel_subsec" 
+      id="<%= id %>" 
+      type="SS" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>"
+    >
+        <div class="panel-heading">
+          <b><span type="SS" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="SS" class="element_fisical_idenfitier"><%=counter%>.</span><%= condicion%> Subsecci&oacute;n:&nbsp;<span id="<%= id %>" type="S"  class="element_name"><%=name%></span></b>          
+            <div class="pull-right row">
+
+              <div class="btn-group">
+                <button type="button"class="btn btn-flat btn-primary dropdown-toggle menu-opciones-secundario" data-toggle="dropdown" aria-expanded="false" id="dropdown-categorias"> 
+                  Repetici&oacute;n por Categor&iacute;a
+                </button>
+                <ul class="dropdown-menu relevance_body" role="menu" aria-labelledby="dropdown-categorias">
+                  <%= ul_body %>
+                </ul>
+              </div>
+              &nbsp;
+              <a 
+                data-toggle="tooltip" 
+                title="Eliminar Subsecci&oacute;n" 
+                type_delete="SS"
+                type = "SS" 
+                id="<%= id %>" 
+                class="btn btn-flat btn-danger delete-element" 
+                data-original-title="Eliminar Subsecci&oacute;n">
+                <i class="fa fa-trash-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a 
+                data-toggle="tooltip" 
+                title="Editar Subsecci&oacute;n" 
+                data-original-title="Editar Subsecci&oacute;n"
+                type_edit="SS" 
+                type = "SS"
+                id="<%= id %>" 
+                class="btn btn-flat btn-info edit-global-button" 
+              >
+                <i class="fa fa-pencil-square-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a class="btn btn-flat btn-primary button-shrink minus">
+               <i class="fa fa-minus"></i>
+              </a>     
+              &nbsp;              
+              <input type="checkbox" class="form-control zone-selector id-subsec" id=''/>
+            </div>
+        </div>
+        <div class="panel-body panel_body_subsec"></div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'subseccion-conditional-template'>
+    <div 
+      class="panel panel-default panel_subsec" 
+      id="<%= id %>" 
+      type="SS" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>" 
+    >
+        <div class="panel-heading">
+          <b><span type="SS" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="SS" class="element_fisical_idenfitier"><%=counter%>.</span><%= condicion %> Subsecci&oacute;n:&nbsp;<span id="<%= id %>" type="SS"  class="element_name"><%=name%></span></b>
+            <div class="pull-right row">
+              <a 
+                data-toggle="tooltip" 
+                title="Eliminar Subsecci&oacute;n" 
+                type = "SS"
+                type_delete="SS" 
+                id="<%= id %>" 
+                class="btn btn-danger btn-flat delete-element" 
+                data-original-title="Eliminar">
+                <i class="fa fa-trash-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a 
+                data-toggle="tooltip" 
+                title="Editar Subsecci&oacute;n" 
+                data-original-title="Editar Subsecci&oacute;n"
+                type_edit="SS" 
+                type = "SS"
+                id="<%= id %>" 
+                class="btn btn-flat btn-info edit-global-button" 
+              >
+                <i class="fa fa-pencil-square-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a class="btn btn-flat btn-primary button-shrink minus">
+                <i class="fa fa-minus"></i>
+              </a>
+            </div>
+        </div>
+
+        <div class="panel-body panel_conditional">        
+        </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'subseccion-formula-template'>
+    <div 
+      class="panel panel-default panel_subsec" 
+      id="<%= id %>" 
+      type="SS" 
+      style="margin-left:1.5%; margin-right:1.5%"
+      element_fisical_idenfitier = "<%=parent_counter%>.<%=counter%>"     
+    >
+        <div class="panel-heading">
+            <b><span type="SS" class="element_fisical_idenfitier_super"><%=parent_counter%></span>.<span type="SS" class="element_fisical_idenfitier"><%=counter%>.</span>&nbsp;<%= condicion %> Subsecci&oacute;n:&nbsp;F&oacute;rmula</b>
+            <div class="pull-right row">              
+              <a 
+                data-toggle="tooltip" 
+                title="Eliminar Subsecci&oacute;n" 
+                type_delete="SS" 
+                type="SS" 
+                id="<%= id %>" 
+                class="btn btn-danger btn-flat delete-element" 
+                data-original-title="Eliminar Subsecci&oacute;n">
+                <i class="fa fa-trash-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a 
+                data-toggle="tooltip" 
+                title="Editar Subsecci&oacute;n" 
+                data-original-title="Editar Subsecci&oacute;n"
+                type_edit="SS"
+                type="SS" 
+                id="<%= id %>" 
+                class="btn btn-flat btn-info edit-global-button" 
+              >
+                <i class="fa fa-pencil-square-o icon-white"></i>
+              </a>
+              &nbsp;
+              <a class="btn btn-flat btn-primary button-shrink minus">
+                <i class="fa fa-minus"></i>
+              </a> 
+            </div>
+        </div>
+        <div class="panel-body panel_formula">
+          <div class="col-xs-6">
+              <p><span class="formula-name"><%= enunciado %></span></p>
+          </div>
+          <div class="col-xs-6">
+              <div class="pull-left col-xs-12">
+              <input type="number" class="form-control col-xs-12 formula-input" placeholder="Valor de evaluaci&oacute;n <%= strformula %>"/>
+              </div>
+          </div>
+        </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'element-template'>
+    <div class="col-lg-5 col-md-5 col-xs-5 contenido-centrado contenedor-opcion" id="<%= id %>">
+      <div class = "row">
+        <div class="col-xs-12">
+            <i class="fa fa-<%= code %> fa-2x"></i>
+          </div>
+      </div>
+      <div class="row">
+        <p class="col-lg-12"><%= name %></p>
+      </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'percent-zone'>
+    <div class="col-xs-8 col-xs-offset-2 contenido-centrado">      
+      <input type="number" id="percent-number" value="<%= percent %>" class = "form-control"/>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'plus-button-template'>
+    &nbsp;&nbsp;
+    <span class="col-xs-1" style="padding-top: 3.9%;">
+      <a        
+        class="btn btn-info btn-flat add-element-button" 
+        target = ".formula-container"
+        title="Agregar" 
+        id = "<%= id %>"
+        data-toggle="tooltip">
+          <i class="fa fa-plus icon-white"></i>
+      </a>
+    </span>
+  </script>
+
+  <script type='text/template' id = 'elemento-formula'>    
+    <div class="col-xs-<%= space %> componente-formula" type="<%= type %>" id="<%= id %>" 
+    value = "<%=value %>" style="padding:0%; width: auto; color:<%=color%>; padding-left:5px; padding-right:5px;">
+      <b><%= representacion %></b>
+    </div>
+  </script> 
+
+  <script type='text/template' id = 'formula-zone'>    
+    <div class="row" style="margin-top:5%;">
+      <div class="col-xs-12" id ="preview-label">
+        <label>Vista Previa:</label>
+      </div>
+    </div>
+    <div class="row" >
+      <div 
+        class="row formula-container" 
+        style="background-color:#fff; color:#000; font-size:1em; height:100px; max-height: 100%; max-width:100%; border: 1px solid #000; text-align: center;vertical-align: middle; padding: 5%;"
+        data-formula="{}"
+        >
+      </div>
+    </div>
+  </script>
+
+  <script type='text/template' id = 'notification-zone'>
+    <div class="alert alert-warning alert-initial alert-dismissible fade in alert-elemento" role="alert" style="margin-left:0px;">
+      <% if (close == true){ %>
+      <button 
+        aria-label="Close" 
+        data-dismiss="alert" 
+        class="close" 
+        type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+      <% } %>
+        <p>
+          <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;<%= msg %>
+        </p>
+    </div>
+  </script>  
+
+  <script type='text/template' id = 'formula-edition-ready'>
+    <a        
+      class="btn btn-info btn-flat add-element-button pull-right" 
+      target = ".formula-container"
+      title="Edicion Terminada" 
+      style = "margin-top: 2%;"
+      id = "<%= id %>"
+      data-toggle="tooltip">
+        <i class="fa fa-check icon-white"></i>
+    </a>
+  </script>  
+
+  <script type='text/template' id = 'input-edicion'>
+    <input id='<%= id %>' name = '<%= id %>-input' value = '<%= val %>' class='form-control' />
+  </script>
+
+  <script type='text/template' id = 'select-edicion'>    
+    <select 
+      name="suministrado-select" 
+      class="form-control suministrado-select" 
+      id='<%= id %>' name = '<%= id %>-input'
+    >
+      <option value="Si"
+      <% if( val == 'Si' ){ %>
+        selected="selected"
+      <% } %>
+      >Si</option>
+
+      <option value="No"
+      <% if( val == 'No' ){ %>
+        selected="selected"
+      <% } %>
+      >No</option>
+
+    </select>
+  </script>
+
+  <script type="text/template" id="valor-por-categoria">
+    <div class='col-xs-12 valor-dbasic-container'>
+    <label>Valor por Categoria: </label>
+    <table class = "col-xs-12" style="border-collapse: none;">
+      <tbody class="col-xs-offset-1">
+        <% for ( var i = 1; i <= categories; ++i) { %>
+          <tr>
+            <td style = "padding-top: 0; vertical-align: bottom;" >
+            <% for ( var j = 1; j <= i; ++j) { %>
+              <i class="fa <%= icon %> text-red"></i>            
+            <% } %>
+            </td>
+            <td>
+              &nbsp;&nbsp;
+              <input 
+                class="form-control valor-categoria<%= extra_class %>"                 
+                <% if (values.length){ %>
+                  value = <%= values[i-1] %>
+                <%}else{%>
+                  value = "0" 
+                <%}%>
+                <% if (!editable) {%>
+                  disabled="disabled" 
+                <%}%>
+                type="number" 
+              />
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    </div>
+  </script>
+
+  <script type="text/template" id="valores-especificos-categoria">
+    <tr class="dato-especifico-row">
+      <td id="name">
+        <%= name %>
+      </td>
+      <td id="suministrado" value="<% suministrado_bool %>">
+        <%= suministrado %>
+      </td>
+      <td id="valor">
+        <% if( valor != "N/A" && valor.length ){ %>
+          <a 
+            data-original-title="Valores_por_categoria" 
+            class="btn btn-info btn-flat valore-button" 
+            sufix="dato-especifico" 
+            title="Editar" 
+            data-toggle="tooltip" id="valor-especifico-categoria-eye"
+            data-value-per-categorie = "<%= valor %>"
+          >
+            <i class="fa fa-eye icon-white"></i>
+          </a>
+        <%}else{%>
+          N/A
+        <%}%>
+      </td>
+      <td id="opts" >
+        <a 
+        id = "<%= id %>" 
+        data-toggle="tooltip" 
+        title = "Editar"
+        state = "normal" 
+        sufix = "dato-especifico" 
+        class="btn btn-info btn-flat editar-button" 
+        data-original-title="Editar">
+          <i class="fa fa-pencil-square-o icon-white"></i>
+        </a>
+        <a 
+        id = "<%= id %>" 
+        data-toggle="tooltip"
+        title="Eliminar" 
+        state = "normal" 
+        sufix = "dato-especifico" 
+        class="btn btn-info btn-flat delete-button" 
+        data-original-title="Eliminar">
+          <i class="fa fa-trash-o icon-white"></i> 
+        </a>
+      </td>
+    </tr>
+    </script>
+
+  <script type="text/template" id="spinner-zone">    
+    <div class="row spinner-zone-realm">
+      <div class="col-xs-12 col-lg-12 col-md-12" style="text-align:center;">
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+      </div>
+      <div class="col-xs-12 col-lg-12 col-md-12" style="text-align:center;">
+        <h5>Cargando</h5>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="documentals-section-template">
+    <form id='form_id' method='POST' action=''>
+      <div class = 'row'>
+        <div class='col-xs-12'>
+          <label>Nombre:</label>
+          <input 
+            name = 'nombre-documental-req' 
+            type='text' 
+            minlength='1' 
+            id='nombre-documental-req' 
+            required='true' 
+            class='form-control'
+          >
+        </div>
+        <div class='col-xs-12'>
+          <label>Tipo de Documento:</label>
+          <select 
+            id="id_tipo_documento" 
+            class="form-control" 
+            required="required" >
+            <option  
+              class="tipo-documento-opcion" 
+              name="default" 
+              value="-1" 
+              selected="selected"
+            >- Seleccione -</option>
+            {% for e in tiposdocumento %}
+              <option  
+                class = "tipo-documento-opcion" 
+                name="{{e.abreviacion}}"  value = "{{e.id}}">
+                {{e.nombre}}
+              </option>
+            {%endfor%}
+          </select>  
+        </div>
+      </div>
+    </form>
+  </script>
+
+  <script type="text/template" id="add_valor_respuesta_template">    
+    <div class="row">
+      <div class="col-xs-11" style = "padding-left:0px;">
+        <label><%=label_text%></label>
+      </div>
+      <div class="col-xs-1 add_otro_valor_cond_container" style="margin-top:2%; padding-right: 0; text-align: right;">
+          <a
+            data-toggle="tooltip" 
+            title="Agregar Valor"
+            sub="C" 
+            class="btn btn-info btn-flat otro_valor_cond"
+            data-original-title="Agregar Valor"
+          >
+            <i class="fa fa-plus icon-white"></i>
+          </a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="add_conjunto_de_condiciones_positiva_template">
+      <div class="row">
+        <div class="col-xs-10" style = "padding-left:0px;">
+          <label><%=label_text%></label>
+        </div>
+        <div class="col-xs-1 col-xs-offset-1" style="margin-top:2%; padding-right: 0; text-align: right;">
+          <a 
+            data-toggle="tooltip" 
+            title="Agregar Valor"
+            sub="C+" 
+            class="btn btn-info btn-flat otro_valor" 
+            data-original-title="Agregar Valor">
+              <i class="fa fa-plus icon-white"></i>
+          </a>          
+        </div>
+      </div>
+  </script>
+
+  <script type="text/template" id="add_conjunto_de_condiciones_negativa_template">
+    <div class="row">
+      <div class="col-xs-10" style = "padding-left:0px;">
+        <label><%=label_text%></label>
+      </div>
+      <div class="col-xs-1 col-xs-offset-1" style="margin-top:2%; padding-right: 0; text-align: right;">
+        <a 
+          data-toggle="tooltip" 
+          title="Agregar Valor"
+          sub="C-" 
+          class="btn btn-info btn-flat otro_valor" 
+          data-original-title="Agregar Valor">
+            <i class="fa fa-plus icon-white"></i>
+        </a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="removable_div_container_template">
+    <div class = "row removable_div_container_<%=tipo_condicion%> remove_container" style="padding-right:0px; padding-left:0px;">
+      <div class="col-xs-10" style="padding-right:0px; padding-left:0px;">
+        <%= elemento_comportamiento %>
+      </div>
+      <div 
+        <%if(remove_hidden){%>
+          class="col-xs-1 col-xs-offset-1"
+        <%}else{%>
+          class="col-xs-2"
+        <%}%>
+        style="padding-right:0px; padding-left:0px;">
+        <a 
+          data-toggle="tooltip" 
+          title="Crear Subsecci&oacute;n"
+          sub="+" 
+          id="id_conjunto_de_condiciones_<%=tipo_condicion%><%=id%>"
+          class="btn btn-primary btn-flat otro_sub pull-right" 
+          data-original-title="Crear Subsecci&oacute;n">
+            <i class="fa fa-cog icon-white"></i>
+        </a>
+
+        <% if(!remove_hidden){ %>
+          <a 
+            data-toggle="tooltip" 
+            title="Eliminar Subsecci&oacute;n"
+            class="btn btn-danger btn-flat removable_trigger pull-right"
+            data-original-title="Eliminar Elemento">
+              <i class="fa fa-times icon-white"></i>
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="alert_empty_panel_template">
+    <div class="alert alert-warning alert-initial" role="alert" style="margin-left:0px;">
+      <p>
+        <i class="fa fa-exclamation-triangle"></i>&nbsp;No existen <%=element_name%> cargados dentro de este tabulador, para realizar la carga seleccione la opción "Agregar elemento" del menu de opciones (&nbsp;<i class="fa fa-bars"></i>&nbsp;)
+      </p>
+    </div>
+  </script>
+
+  <script type="text/template" id="specific_values_template">
+    <div class = 'row'>
+      <div class='col-xs-12'>
+        <label>Nombre:</label>
+        <input 
+          name = 'nombre-dbasic' 
+          type='text' 
+          required='true' 
+          minlength='1' 
+          id='nombre-dbasic' 
+          class='form-control'/>
+      </div>
+      <div class='col-xs-12'>
+        <label>¿Es suministrado por el prestador?</label>
+        <input 
+          name = 'suministrado-dbasic' 
+          type='checkbox'
+          minlength='255' 
+          id='suministrado-dbasic'
+          class='form-control'/>
+      </div>
+      <%= extra_content %>
+    </div>
+  </script>
+
+  <script type="text/template" id="specific_values_footer_template">
+    <div class='col-xs-6'>
+      <a
+        class='col-xs-12 btn btn-danger btn-flat' 
+        data-dismiss='modal'
+      >
+        Cancelar
+      </a>
+    </div>
+    <div class='col-xs-6'>
+      <a 
+        class='col-xs-12 btn btn-primary btn-flat add-basic-data' 
+      >
+        Agregar
+      </a>
+    </div>
+  </script>
+
+  <script type="text/template" id="add_more_scale_dual_response_template">
+    <div class="row">
+      <div class="col-xs-11" style = "padding-left:0px;">
+        <label><%=label_text%></label>
+      </div>
+      <div class="col-xs-1 add_otro_valor_cond_container" style="margin-top:2%; padding-right: 0; text-align: right;">
+          <a 
+            data-toggle="tooltip" 
+            sub="<%= sub %>" 
+            class="btn btn-info btn-flat otro_valor" 
+            <%if(num == 1){%>
+              title="Agregar Valor"
+              data-original-title="Agregar Valor"            
+            <%}else{%>
+              title="Eliminar Valor"
+              data-original-title="Eliminar Valor" 
+            <%}%>
+          >
+            <%if(num == 1){%>
+            <i class="fa fa-plus icon-white"></i>
+            <%}else{%>
+            <i class="fa fa-minus icon-white"></i>
+            <%}%>
+          </a>
+      </div>
+    </div>
+  </script>
+
+{% endblock %} 

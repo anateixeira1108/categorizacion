@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top:6cm;
+				margin-left: 2cm;
+				margin-right: 1cm; 
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 2cm;
+					margin-left: 2cm;
+					margin-right: 1cm;
+					height: 10cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 1.5cm;
+				}
+
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="100" width="200" src="static/img/informes/logo.jpg"/>
+		</div>
+		<div class="pg">
+			<div style="text-align:center;font-size:14px;">
+				INFORME T&Eacute;CNICO DEL ESTABLECIMIENTO DE ALOJAMIENTO TUR&Iacute;STICO POSADA {{ data.nombre_establecimiento }}
+			</div>
+			<br>
+			<div class="parrafo">
+				Iniciado el procedimiento de  categorizaci&oacute;n al Establecimiento de Alojamiento Tur&iacute;stico denominado Posada  de Turismo {{ data.nombre_establecimiento }} por parte del Ministerio del Poder Popular para el Turismo, se procedi&oacute; al an&aacute;lisis del Informe de Inspecci&oacute;n de Categorizaci&oacute;n y la Planilla de Inspecci&oacute;n de Categorizaci&oacute;n para Estancia de Turismo, efectuada por los inspectores {{ data.nombre_inspector1 }}, {{ data.nombre_inspector2 }} dando cumplimiento a el art&iacute;culo 13  del Reglamento Parcial de la Ley Org&aacute;nica de Turismo sobre Establecimientos de Alojamiento Tur&iacute;stico, publicado en la Gaceta Oficial Nro 36.607 de fecha 21 de diciembre de 1998. En tal sentido, se se&ntilde;ala lo siguiente:
+			</div>
+			<br>
+			<div class="parrafo">
+				Con base al art&iacute;culo 13 del precitado Reglamento, se procedi&oacute; a la revisi&oacute;n de los documentos elaborados por los inspectores, con el fin de identificar los servicios que presta el Posada  de Turismo {{ data.nombre_establecimiento }} y a la vez, verificar la conformidad de los mismos seg&uacute;n lo establecido en el Tabulador de Servicios para las Categor&iacute;as de los Establecimientos de Alojamiento Tur&iacute;stico: Tipo Hotel de Turismo (Resoluci&oacute;n 074) de fecha 07 de agosto del 2013, publicado en Gaceta Oficial Nro 40.224 de fecha 07-08-2013.
+			</div>
+			<br>
+			<div class="parrafo">
+				En tal sentido, se encontr&oacute; lo siguiente:
+				<br>{{ data.analisis_tecnico }}
+			</div>
+			<br>
+			<div class="parrafo">
+				Con base a la Resoluci&oacute;n Nro 030 de fecha 21 de febrero de 2011, publicada en la Gaceta Oficial Nro 39.627 de fecha 02 de marzo de 2011, emanada del Ministerio del Poder Popular para la Salud, en la cual se establece la prohibici&oacute;n de fumar o mantener encendidos productos de tabaco en los interiores de los espacios p&uacute;blicos, se ha procedido a suprimir como requisito m&iacute;nimo de cumplimiento para optar a una de las categor&iacute;as el indicador Nro 43 "Ceniceros" de las habitaciones, sin que esto influya positiva o negativamente en la evaluaci&oacute;n del Establecimiento.
+			</div>
+
+		</div>
+		<div>
+			<pdf:nextpage/>
+		</div>
+		<div class="pg">
+			<div class="parrafo">
+				En cuanto a los requisitos de mantenimiento y funcionalidad, independientemente de la categor&iacute;a que aspire asumir el Posada  de Turismo {{ data.nombre_establecimiento }}, el establecimiento debe corregir las siguientes deficiencias:
+				<br>{{ data.mantenimiento_funcionalidad }}
+			</div>
+			<br>
+			<div class="parrafo">
+				Con base a lo anterior, el resultado de la evaluaci&oacute;n para el establecimiento de alojamiento tur&iacute;stico denominado Posada  de Turismo {{ data.nombre_establecimiento }}, es el siguiente:
+				<br>{{ data.resultado_evaluacion }}
+			</div>
+			<div class="parrafo">
+				Los requisitos faltantes son factor importante para el otorgamiento de dicha categor&iacute;a, seg&uacute;n lo citado en el tabulador antes mencionado, el cual establece en el art&iacute;culo 17, lo siguiente:
+				<h3>
+					"A los fines de verifica el cumplimiento de los requisitos m&iacute;nimos en el presente tabulador, el establecimiento debe cumplir con todos los requisitos donde aparezca el símbolo de estrellas (*) o bien alguna especificaci&oacute;n en la categor&iacute;a que desee optar, y en los requisitos donde aparezca el s&iacute;mbolo de gui&oacute;n (-) no es obligatorio dicho cumplimiento".
+				</h3>
+				En virtud del an&aacute;lisis precedente, el funcionario {{ data.nombre_coordinador }}, adscrito a la Direcci&oacute;n General de Calidad Tur&iacute;stica, recomienda comunicarle al establecimiento Posada  de Turismo {{ data.nombre_establecimiento }}, las deficiencias observadas para que de esta manera procedan a subsanar los requisitos faltantes y poder optar a la categor&iacute;a deseada.
+			</div>
+		</div>
+		<div>
+			<pdf:nextpage/>
+		</div>
+		<div class="pg">
+			<div class="parrafo" style="text-align:center;">
+				Sin m&aacute;s a que hacer referencia, queda de usted.
+				<br>Atentamente:
+				<br><br>{{ data.nombre_coordinador }}
+				<br>Profesional de turismo
+			</div>
+			<br><br>
+			<table class="parrafo" style="width:100%">
+				<tr>
+					<td colspan="2" style="text-align:center;font-weight:bold;">REVISADO POR:</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2"><span style="font-weight:bold;">Nombre:</span> {{ data.nombre_coordinador }} </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="2"><span style="font-weight:bold;">Cargo: </span>Director General
+						<br>Seg&uacute;n Resoluci&oacute;n Nro 029 de fecha 16-05-2012,
+						<br>Publicado en Gaceta Oficial 39.930 de fecha 25-05-2012.
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><span style="font-weight:bold;">C.I:</span> {{ data.ci_coordinador }}</td>
+					<td><span style="font-weight:bold;">Fecha:</span> {{ data.fecha }}</td>
+				</tr>
+				<tr>
+					<td colspan="2"><span style="font-weight:bold;">Firma:</span></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="footerContent">
+    		VICEMINISTERIO DE TURISMO NACIONAL
+			<br>DIRECCI&aacute;N GENERAL DE CALIDAD TUR&Iacute;STICA
+			<br>P&aacute;g. <pdf:pagenumber>
+  		</div>
+	</body>
+</html> 

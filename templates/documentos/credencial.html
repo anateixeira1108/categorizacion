@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top : 6cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 3cm;
+					margin-right: 1cm;
+					height: 11cm;
+				}
+				@frame header {
+					-pdf-frame-content: headerTextContent;
+					top: 4cm;
+					margin-left: 1.5cm;
+					margin-right: 1cm;
+					height: 5cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			#headerLogoContent{
+				
+				width:100;
+				height: 100;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			#lhs{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img width="100" height="100" src="static/img/credenciales/Escudo-Venezuela.jpg">
+		</div>
+		<div id="headerTextContent">
+			REPUBLICA BOLIVARIANA DE VENEZUELA
+			<br>MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+			<br>DESPACHO DEL VICEMINISTERIO DE TURISMO NACIONAL
+			<br>Nro. {{ data.n_despacho }}
+		</div>
+
+		<div>
+			<div style="font-style:italic;font-size:14px;">Se&ntilde;ores:</div>
+			<span class=".bold">{{ data.nombre_establecimiento }}</span>
+			<br>Direcci&oacute;n: {{ data.direccion }}<br>
+			<div style="font-style:italic;font-size:14px;">Presente.-</div>
+			Con un saludo me dirijo a ustedes en la oportunidad de notificarles que los ciudadanos:<br><br>
+			<div style="text-align:center;">{{ data.nombre_inspector1 }} {{ data.cedula_inspector1 }}
+			<br>{{ data.nombre_inspector2 }} {{ data.cedula_inspector2 }}
+			</div><br>Funcionarios adscritos a este Despacho, han sido designados y autorizados para realizar inspecci&oacute;n en su establecimiento, acompa&ntilde;ada de registro fotogr&aacute;fico de todas las instalaciones, pudiendo actuar de manera conjunta o separadamente, a los fines de dar cumplimiento a las disposiciones contenidas en los Art&iacute;culos 8 y 9, numerales 5 y 19 y Art&iacute;culos 116, 117 y 118 del Decreto con Rango, Valor y Fuerza de la Ley Org&aacute;nica de Turismo vigente, en concordancia con el articulo 17 del  Reglamento Parcial de La Ley Org&aacute;nica de Turismo Sobre Agencias de Viajes y Turismo.<br>
+			<br>En este sentido, agradezco se sirvan facilitarles, al momento de la inspecci&oacute;n, copia simple de los documentos que se  mencionan a continuaci&oacute;n:
+			<br>- Registro de Informaci&oacute;n Fiscal (RIF).
+			<br>- Oficio de inscripci&oacute;n en el Registro Tur&iacute;stico Nacional (RTN).
+			<br>- Oficio de otorgamiento de Licencia de Funcionamiento (VT) o solicitud de renovaci&oacute;n.
+			<br>- Material publicitario.
+			<br><br>Adicionalmente, de no presentar Licencia actualizada ni R.T.N.:<br>
+			<br>- Registro Mercantil y publicaci&oacute;n de las actas de asamblea.
+			<br>- Asambleas de designaciones de representantes legales.<br>
+			<br>Sin otro particular, agradeciendo su colaboraci&oacute;n y receptividad, se suscribe de usted
+			<br><div style="text-align:center;">Atentamente</div>
+			<div class=".bold" style="text-align:center;">{{ data.nombre_coordinador_dif }}</div>
+			<div class=".bold" style="text-align:center;">{{ data.nombre_coordinador_dif }}</div>
+		</div>
+
+		<!--<div>
+		  <pdf:nextpage />
+		</div>
+		<h1>Soy la otra linea</h1>
+		-->
+
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top : 6cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 3cm;
+					margin-right: 1cm;
+					height: 11cm;
+				}
+				@frame header {
+					-pdf-frame-content: headerTextContent;
+					top: 4cm;
+					margin-left: 1.5cm;
+					margin-right: 1cm;
+					height: 5cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			@page noHeader{
+				size: letter portrait;
+				top : 2cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			#headerLogoContent{
+				
+				width:100;
+				height: 100;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img width="100" height="100" src="static/img/credenciales/Escudo-Venezuela.jpg">
+		</div>
+		<div id="headerTextContent">
+			REPUBLICA BOLIVARIANA DE VENEZUELA
+			<br>MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+			<br>DESPACHO DEL VICEMINISTERIO DE TURISMO NACIONAL
+			<br>Nro. {{ data.n_despacho }}
+		</div>
+
+		<div>
+			<div style="font-style:italic;font-size:14px;">Se&ntilde;or(es):</div>
+			<span class="bold">{{ data.nombre_pst }}</span>
+			<div style="font-style:italic;">Representante(s) de:</div>
+			<span class="bold">{{ data.nombre_establecimiento }}</span>
+			<br>Direcci&oacute;n: {{ data.direccion }}<br>
+			<div style="font-style:italic;font-size:14px;">Presente.-</div>
+			<br>
+			<div class="parrafo">
+				Con un saludo me dirijo a usted, en la oportunidad de informar el resultado del procedimiento de renovaci&oacute;n de categorizaci&oacute;n iniciado (de oficio o a instancia de parte), en fecha {{ data.fecha_inicio.day }} del {{ data.fecha_inicio.month }} del {{ data.fecha_inicio.year }}, al  Establecimiento  de  Alojamiento  Tur&iacute;stico, {{ data.nombre_establecimiento }}, inscrito  en el  Registro  Tur&iacute;stico  Nacional  (RTN)  con  el Nro {{ data.rtn }} y con Licencia de Turismo Nro {{ data.nro_licencia }}, todo ello a tenor de lo previsto en el art&iacute;culo 4to del Reglamento Parcial de la Ley Org&aacute;nica de Turismo sobre Establecimientos de Alojamiento Tur&iacute;stico, publicado en la Gaceta Oficial de la Rep&uacute;blica de Venezuela Nro 36.607 de fecha 21 de diciembre de 1998, en concordancia con lo dispuesto en el art&iacute;culo 1ro de la Resoluci&oacute;n Nro 020 de fecha 09 de  abril de 2012, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.912 del 30 de abril de 2012.
+			</div>
+			<div class="parrafo">
+				Al respecto cumplo con informarle que, una vez analizado el informe de inspecci&oacute;n de categorizaci&oacute;n y de conformidad con lo establecido en la Resoluci&oacute;n Nro {{ data.nro_tabulador }} "Tabulador de Servicios para las Categor&iacute;as de los Establecimientos de Alojamiento Tur&oacute;stico: Tipo {{ data.tipo_establecimiento }}", publicado en la Gaceta Oficial Nro {{ data.nro_gaceta }} de fecha {{ data.dia_gaceta }} del {{ data.mes_gaceta }} del {{ data.a_gaceta }}, se pudo constatar los siguientes incumplimientos con respecto a los requisitos m&iacute;nimos se&ntilde;alados en el referido tabulador:
+				<br>{{ data.incumplimientos }}
+			</div>
+			<br>
+			<div class="parrafo">
+				En cuanto al mantenimiento y funcionalidad, se evidenciaron las siguientes deficiencias:
+				<br>{{ data.deficiencias }}
+			</div>
+			<div class="parrafo">
+				Con base a lo anterior, el resultado de la evaluaci&oacute;n para el establecimiento de alojamiento tur&iacute;stico que usted representa, es el siguiente:
+				<br>{{ data.resultado }}
+			</div>
+			<div class="parrafo">
+				En virtud de los resultados obtenidos de la inspecci&oacute;n y evaluaci&oacute;n efectuada, conforme con lo previsto en la normativa legal y sublegal vigente, aplicable en materia tur&iacute;stica, este Ministerio del Poder Popular para el Turismo, en su condici&oacute;n de &oacute;rgano rector y en ejercicio de las atribuciones conferidas en el art&iacute;culo 9no, numerales 12 y 18 del Decreto con Rango, Valor y Fuerza de Ley Org&aacute;nica de Turismo (LOT) antes citado, decide otorgar al prestador de servicios tur&iacute;sticos denominado {{ data.nombre_establecimiento }}, la Categor&iacute;a de "{{ data.nro_estrellas }} ESTRELLAS", atendiendo a los art&iacute;culos 10, 11,13,16 y 17 del reglamento parcial, antes referido.
+			</div>
+			<div>
+				<pdf:nexttemplate name="noHeader"/>
+			</div>
+			<div>
+				<pdf:nextpage/>
+			</div>
+			<div class="parrafo">
+				As&iacute; mismo, se hace de su conocimiento que la presente renovaci&oacute;n de  categor&iacute;a tendr&aacute; una vigencia de cuatro (04) a&ntilde;os contados a partir de su emisi&oacute;n, debiendo renovarla noventa (90) d&iacute;as antes de su vencimiento, de conformidad con el art&iacute;culo 16 de la Resoluci&oacute;n 020 de fecha 09 de abril de 2012, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.912 de fecha 30 de  abril de 2012, anteriormente citada.
+			</div>
+			<div class="parrafo">
+				Por otra parte, mediante la presente se le autoriza el uso de la Placa renovada y se le suministra en forma digital, el dise&ntilde;o de la misma con las especificaciones que all&iacute; se se&ntilde;alan para su elaboraci&oacute;n, todo de conformidad con lo dispuesto en el art&nacute;culo 10 de la Resoluci&oacute;n Nro 020 de fecha 09 de abril de 2012, publicada en la Gaceta Oficial de  la  Rep&uacute;blica  Bolivariana  de  Venezuela Nro 39.912 del 30 de abril de 2012, en concordancia con lo dispuesto en el art&iacute;culo 3ro de la Resoluci&oacute;n Nro 002 de fecha 04 de enero de 2012, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.387 de fecha 6 de enero de 2012.
+			</div>
+			<div class="parrafo">
+				Por &uacute;ltimo, se le informa que contra la presente decisi&oacute;n podr&aacute; ejercer, dentro de un lapso de quince (15) d&iacute;as h&aacute;biles contados a partir del d&iacute;a siguiente a su notificaci&oacute;n, el Recurso de Reconsideraci&oacute;n contemplado en el art&iacute;culo 94 de la Ley Org&aacute;nica de  Procedimientos Administrativos, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 36.607 de fecha 21 de diciembre de 1998, de conformidad con lo dispuesto en el art&iacute;culo 73.
+			</div>
+			<div class="parrafo">
+				Prestador de Servicios Tur&iacute;sticos, denuncia cualquier irregularidad a trav&eacute;s del correo <a href="denuncia@mintur.gob.ve">denuncia@mintur.gob.ve</a>; los Mensajes de Datos estar&aacute;n sometidos a las disposiciones constitucionales y legales que garantizan los derechos a la privacidad de las comunicaciones y de acceso a la informaci&oacute;n personal, seg&uacute;n lo dispuesto en el Art&iacute;culo 5 del Decreto Nro 1204 con Fuerza de Ley sobre Mensajes de Datos y Firmas Electr&oacute;nicas, publicado en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 37.148 de fecha 10 de febrero de 2001.
+			</div>
+			<br><div style="text-align:center;">Atentamente</div>
+			<div class=".bold" style="text-align:center;">{{ data.nombre_funcionario }}</div>
+		</div>
+
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

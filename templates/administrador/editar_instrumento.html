@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<aside class="right-side">
+    <!-- Main content -->
+    <section class="content-header">
+        <h1>Categorizaci&oacute;n<small>Panel Administrativo</small></h1>
+            <ol class="breadcrumb">
+            <li><a href="/"> Inicio</a></li>
+            <li><a href="{% url 'home_panel_administrativo' modelo %}">{{modelo|capfirst}}</a></li>
+            <li class="active"><i class="fa fa-edit"></i>&nbsp;Editar {{modelo|capfirst}}</li> 
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-body">
+
+                <div class="row title">
+                    <div class="col-xs-3">
+                        <h4>Datos del Instrumento</h4>
+                    </div>
+
+                    {% if  es_editable %}
+                    <div class="col-xs-2 col-xs-offset-7 contenido-centrado">
+                        <button editable="true" class="activar-campos btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Desactivar Edici&oacute;n</button>
+                    </div>
+                    {% else %}
+                    <div class="col-xs-2 col-xs-offset-7 contenido-centrado">
+                        <button editable="false" class="activar-campos btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Activar Edici&oacute;n</button>
+                    </div>
+                    {% endif%}
+                </div>                
+
+                <div class="row">
+            	    <div class="col-xs-offset-3 col-xs-6">
+            	    	<form method="post" action="{% url 'editar_recurso_form' modelo id %}"
+                         role="form" id="form-editar" class="formulario-editar">
+            	    	    {% csrf_token %}
+                            <input hidden name="modelo" value="{{ modelo }}"/>
+                                {% for field in form%}
+                                <div class="row">
+                                <div class="col-xs-12">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {{ field.errors }}
+                                </div>
+                                </div>
+                                {% endfor %}
+            	    	</form>
+            	    </div>	   
+            	</div>                
+                <div class="row">
+                        
+                </div>
+        	</div>
+        </div>	
+    </section>
+</aside>
+
+
+{% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+	
+	{{ block.super }}
+	
+    <script src="{{ STATIC_URL }}js/edit_form.js" type="application/javascript" ng-autobind></script>
+
+    <script type="application/javascript">
+        $(function(){
+
+            $(".formulario-editar").submit(function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                
+                $('#notificacion-general-Label').html('Confirmar edici&oacute;n');                
+                $('#notificacion-general-body').html('¿Est&aacute; seguro que desea editar este recurso?');                
+                $('#notificacion-general-footer').html(
+                   '<div class="col-xs-6" data-dismiss="modal">\
+                    <a href="#" class="btn btn-danger col-xs-12">Cancelar</a>\
+                </div>\
+                <div class="col-xs-6" data-dismiss="modal">\
+                    <a href="#" id="boton-aceptar" class="btn btn-primary col-xs-12">Aceptar</a>\
+                </div>'
+                );
+                $('#notificacion-general').modal();
+                
+            });
+            $(document).on('click','#boton-aceptar',function(){
+                $(".formulario-editar").unbind('submit').submit();
+
+            });
+
+            $('.cargador_recursos').click(function(){
+              url = ($(this).attr('url')).split('/');
+              //console.log("{% url 'home_panel_administrativo' %}/"+ url[4]);
+              location.href = "{% url 'home_panel_administrativo' %}"+ url[4];
+            });
+            
+        });
+    </script>
+
+{% endblock %}

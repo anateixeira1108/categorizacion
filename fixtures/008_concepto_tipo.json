@@ -1,0 +1,30 @@
+[
+    {
+        "model": "pagos.ConceptoTipo",
+        "fields": {
+            "codigo": "64070",
+            "nombre": "Declaración"
+        }
+    },
+    {
+        "model": "pagos.conceptotipo",
+        "fields": {
+            "codigo": "74545",
+            "nombre": "Multa"
+        }
+    },
+    {
+        "model": "pagos.conceptotipo",
+        "fields": {
+            "codigo": "15819",
+            "nombre": "Intereses moratorios por pago extemporáneo (Art. 66 del COT)"
+        }
+    },
+    {
+        "model": "pagos.conceptotipo",
+        "fields": {
+            "codigo": "51799",
+            "nombre": "Costas Procesales"
+        }
+    }
+]

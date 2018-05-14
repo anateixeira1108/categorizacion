@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        <section class="content-header">
+            <h1>Categorizaci&oacute;n<small>Bandeja de trabajo</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li class="active"><i class="fa fa-star-half-o"></i>Categorización</li> <!--Editar icono -->
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body">
+
+                    <div class="row title">
+                        <div class="col-xs-2 col-xs-offset-10">
+                            <a id="activar_buscar_modal" href="#" class="btn btn-primary btn-flat pull-right col-xs-12">
+                                Buscar &nbsp;&nbsp;<i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-striped table-partner table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>RIF</th>
+                                        <th>RTN</th>
+                                        <th>Raz&oacute;n social</th>
+                                        <th>Analista</th>
+                                        <th>Coordinador</th>
+                                        <th>Director</th>
+                                        <th>Inspector(es)</th>
+                                        <th>Categorizaci&oacute;n</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>                           
+                                <tbody>        
+                                    <tr id="0">
+                                        <td>11-12-2014</td>
+                                        <td>J-123456</td>
+                                        <td>123456</td>
+                                        <td>Hotel XYZ</td>
+                                        <td>Federico Rojas</td>
+                                        <td>Manuel Rodr&iacute;guez</td>
+                                        <td>Leticia Blanco</td>
+                                        <td>Pedro Abreu</td>
+                                       	<td>
+                                            <span class="text-red">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="text-gray">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>    
+                                            </span>                                        
+                                        <td>
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" title="Ver requisitos" href="{% url 'despachador_raiz' 'ministro' 'ver_requisitos.html' %}" class="btn btn-info dropdown-toggle" >
+                                                    <i class="fa fa-eye icon-white"></i>
+                                                </a>
+                                                <ul class="dropdown-menu  pull-right" role="menu">
+                                                    <li><a href="{% url 'despachador_raiz' 'ministro' 'ver_requisitos.html' %}">Requisitos</a></li>
+                                                    <li><a href="#">Evaluaci&oacute;n</a></li>
+                                                </ul> 
+                                            </div>
+                                            <div class="btn-group">                                                  
+                                                <a href="#" id="btn_0" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-bars icon-white"></i>
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu  pull-right" role="menu">
+                                                    <li><a data-row="0" class ="solicitar-aprobacion"href="#">Aprobar</a></li>
+                                                    <li><a data-row="0" class="devolver-observaciones" href="#">Devolver con observaciones</a></li>
+                                                    <li><a data-row="0" class="no-procede" href="#">No procede</a></li>
+                                                </ul>
+                                            </div>  
+                                        </td>
+                                    </tr>                                    
+                                    <tr id="1">
+                                        <td>11-12-2014</td>
+                                        <td>J-345267</td>
+                                        <td>5623456</td>
+                                        <td>Posada Turpial</td>
+                                        <td>&Uacute;rsula Iguar&aacute;n</td>
+                                        <td>Manuel Rodr&iacute;guez</td>
+                                        <td>Leticia Blanco</td>
+                                        <td>Maria Rengifo</td>
+                                        <td>
+                                            <span class="text-red">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>                                            
+                                            </span>
+                                            <span class="text-gray">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>    
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                            <a data-toggle="tooltip" title="Ver requisitos" href="{% url 'despachador_raiz' 'ministro' 'ver_requisitos.html' %}" class="btn btn-info dropdown-toggle" >
+                                                <i class="fa fa-eye icon-white"></i>
+                                            </a>
+                                            </div>  
+                                            <div class="btn-group">                                                  
+                                                <a href="#" id="btn_1" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-bars icon-white"></i>
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu  pull-right" role="menu">
+                                                    <li><a data-row="1" class ="solicitar-aprobacion"href="#">Aprobar</a></li>
+                                                    <li><a data-row="1" class="devolver-observaciones" href="#">Devolver con observaciones</a></li>
+                                                    <li><a data-row="1" class="no-procede" href="#">No procede</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>                                    
+                                    <tr id="2">
+                                        <td>11-12-2014</td>
+                                        <td>J-963277</td>
+                                        <td>45423456</td>
+                                        <td>Hotel ABC</td>
+                                        <td>Federico Rojas</td>
+                                        <td>Sara Reyes</td>
+                                        <td>Manuel Rodr&iacute;guez</td>
+                                        <td>Patricia Moreno</td>
+                                        <td>
+                                            <span class="text-red">
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="text-gray">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>    
+                                            </span>                                            
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" title="Ver requisitos" href="{% url 'despachador_raiz' 'ministro' 'ver_requisitos.html' %}" class="btn btn-info">
+                                                    <i class="fa fa-eye icon-white"></i>
+                                                </a>
+                                            </div>
+                                            <div class="btn-group">                                                  
+                                                <a href="#" id="btn_2" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-bars icon-white"></i>
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li><a data-row="2" class ="solicitar-aprobacion"href="#">Aprobar</a></li>
+                                                    <li><a data-row="2" class="devolver-observaciones" href="#">Devolver con observaciones</a></li>
+                                                    <li><a data-row="2" class="no-procede" href="#">No procede</a></li>
+                                                </ul>
+                                            </div>  
+                                        </td>
+                                    </tr>
+                                </tbody>    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    {% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {
+
+            var fila_tabla;
+            var fila_seleccionada;
+            
+            $('.activar-modal-rechazo').click(function(){
+                fila_tabla = $(this).parent().parent().attr('id');
+                $('#ingresar-observaciones').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('.solicitar-aprobacion').click(function(){
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere aprobar esta solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                            <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                        </div>\
+                        <div class="col-xs-6" data-dismiss="modal">\
+                            <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12">Aceptar</a>\
+                        </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+
+            $('.devolver-observaciones').click(function(){
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de desea devolver la solicitud al Prestador de Servicios Turístico?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea> \
+                    </div></div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('.no-procede').click(function(){
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar no procedencia');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que esta solicitud no procede?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea> \
+                    </div></div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                            <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                        </div>\
+                        <div class="col-xs-6" data-dismiss="modal">\
+                            <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12">Aceptar</a>\
+                        </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click', '.confirmar', function(){
+                $('#notificacion-general').modal('hide');
+                $('#ingresar-observaciones').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('#boton-enviar-observacion').click(function(){
+                $('#btn_'+fila_seleccionada).addClass('disabled');
+                $('#ingresar-observaciones').modal('hide');
+            });
+
+            $('#activar_buscar_modal').click(function(){
+                $('#buscar_col_2').html('');
+                $('#buscar_col_2').append(
+                    '<div class="row">\
+                        <div class="col-xs-12">\
+                            <label class="labelmodal">Analista</label>\
+                            <select name="analista" class="select">\
+                                <option value="">Seleccione</option>\
+                            </select>\
+                        </div>\
+                    </div>\
+                    <div class="row">\
+                        <div class="col-xs-12">\
+                            <label class="labelmodal">Coordinador</label>\
+                            <select name="coordinador" class="select">\
+                                <option value="">Seleccione</option>\
+                            </select>\
+                        </div>\
+                    </div>\
+                    <div class="row">\
+                        <div class="col-xs-12">\
+                            <label class="labelmodal">Director</label>\
+                            <select name="director" class="select">\
+                                <option value="">Seleccione</option>\
+                            </select>\
+                        </div>\
+                    </div>\
+                    <div class="row">\
+                        <div class="col-xs-12">\
+                            <label class="labelmodal">Inspector</label>\
+                            <select name="inspector" class="select">\
+                                <option value="">Seleccione</option>\
+                            </select>\
+                        </div>\
+                    </div>'
+                );
+                $('#buscar_modal').modal();
+            });
+           
+        });
+    </script>
+{% endblock %}

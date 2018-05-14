@@ -1,0 +1,65 @@
+[
+  {
+    "model": "resoluciones.Resolucion",
+    "fields": {
+      "tipo_resolucion": 2,
+      "funcionario": 9,
+      "pst": 1,
+      "verificacion": 1,
+      "numero_documento": "INATUR/DE/GRF/VDFERS14000001",
+      "fecha_expedicion": "2014-01-01",
+      "estatus": "Aprobada",
+      "valor_ut": 127
+    }
+  },
+  {
+    "model": "resoluciones.Resolucion",
+    "fields": {
+      "tipo_resolucion": 2,
+      "funcionario": 9,
+      "pst": 1,
+      "verificacion": 1,
+      "numero_documento": "INATUR/DE/GRF/VDFERS14000002",
+      "fecha_expedicion": "2014-01-01",
+      "estatus": "Aprobada",
+      "valor_ut": 127
+    }
+  },
+  {
+    "model": "resoluciones.Resolucion",
+    "fields": {
+      "tipo_resolucion": 2,
+      "funcionario": 9,
+      "pst": 1,
+      "verificacion": 1,
+      "numero_documento": "INATUR/DE/GRF/VDFERS14000003",
+      "fecha_expedicion": "2014-01-01",
+      "estatus": "Aprobada",
+      "valor_ut": 127
+    }
+  },
+  {
+    "model": "resoluciones.Compensacion",
+    "fields": {
+      "resolucion": 1,
+      "monto_reconocido": 2000,
+      "monto_disponible": 2000
+    }
+  },
+  {
+    "model": "resoluciones.Compensacion",
+    "fields": {
+      "resolucion": 2,
+      "monto_reconocido": 5000,
+      "monto_disponible": 5000
+    }
+  },
+  {
+    "model": "resoluciones.Compensacion",
+    "fields": {
+      "resolucion": 3,
+      "monto_reconocido": 8000,
+      "monto_disponible": 8000
+    }
+  }
+]

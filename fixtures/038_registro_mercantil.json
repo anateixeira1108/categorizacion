@@ -1,0 +1,3051 @@
+[ 
+  { 
+    "model": "registro.RegistroMercantil", 
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 1
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO",
+      "estado": 1
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 1
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL DE AMAZONAS",
+      "estado": 1
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "AMAZONAS",
+      "estado": 1
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DISTRITO ANACO",
+      "estado": 2
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DISTRITO ARAGUA",
+      "estado": 2
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO BOLIVAR",
+      "estado": 2
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DISTRITO BRUZUAL",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO  DIEGO B. URBANEJA",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DEL REGISTRO PUBLICO DEL MUNICIPIO SIMON RODRIGUEZ DEL ESTADO ANZOATEGUI-EL TIGRE",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DE REGISTRO PUBLICO DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO DE LA CIRCUNSCRIPCION JUDICIAL DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIA DEL MUNICIPIO GUANIPA DEL ESTADO ANZOATEGUI SAN JOSE DE GUANIPA",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DEL REGISTRO PUBLICO SIN PERSONALIDAD JURIDICA DEL MUNICIPIO FRANCISCO DE MIRANDA DEL ESTADO ANZOATEGUI-PARIAGUAN",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO INDEPENDENCIA DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL DISTRITO ANACO DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AUTONOMO JOSE GREGORIO MONAGAS-MAPIRE ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DE REGISTRO PUBLICO DEL DISTRITO ANACO DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO MUNICIPIO FREITES DE ANZOATEGUI-CANTAURA",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OREGISTRO INMOBILIARIO DEL MUNICIPIO FREITES DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DE REGISTRO PUBLICO DEL MUNICIPIO LIBERTAD DEL ESTADO ANZOATEGUI-SAN MATEO",
+      "estado": 2
+    } 
+  },
+  { 
+  "model": "registro.RegistroMercantil",
+  "fields": { 
+    "nombre": "REGISTRO MERCANTIL SEGUNDO",
+    "estado": 2
+  } 
+},
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO ANACO DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS PIRITU. SAN JUAN DE CAPISTRANO DEL EDO. ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO SOTILLO DEL ESTADO ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DE REGISTRO PUBLICO DEL MUNICIPIO FERNANDO  PEÑALVER",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO CON FUNCION NOTARIAL DE LOS MUNICIPIOS AUTONOMOS PIRITU Y SAN JUAN DE CAPISTRANO",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "ANZOATEGUI",
+      "estado": 2
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MUÑOZ",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO PEDRO CAMEJO",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO SAN FERNANDO",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "APURE",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA DE SAN FERNANDO",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ACHAGUAS",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO PAEZ",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ROMULO GALLEGOS",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL",
+      "estado": 3
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC.INMOB. DE REGISTRO PUBLICO DEL MUNICIPIO SAN FERNANDO",
+      "estado": 3
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO PAEZ",
+      "estado": 3
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO MARIÑO",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO RICAURTE",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO SAN CASIMIRO",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO SAN SEBASTIAN",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO SUCRE",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO URDANETA",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO ZAMORA",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 1ro CIRCUITO DEL DISTRITO GIRARDOT",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 2do CIRCUITO DEL DISTRITO GIRARDOT",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRIMERO MERCANTIL",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL SEGUNDO CIRCUITO MUNICIPIO GIRARDOT MARIO BRICEÑO IRAGORRY Y COSTA DE ORO",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DEL REGISTRO DEL PRIMER CIRCUITO",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DEL REGISTRO DEL MUNICIPIO SANTIAGO MARIÑO Y LIBERTADOR",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "ARAGUA",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "RPM JFRIBAS,JRREVENGA,SANTOS M.,BOLIVAR Y TOVAR",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DE LOS MUNICIPIOS SANTIAGO MARIÑO LIBERTADOR Y LINARES ALCANTARA",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DE LOS MUNICIPIOS SUCRE Y JOSE ANGEL LAMAS",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICPIO ZAMORA",
+      "estado": 4
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DE  MUNICIPIOS ALBERTO ARVELO TORREALBA",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DEL MUNICIPIO ARIEMENDI",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO  DEL MUNICIPIO BARINAS",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTO PUBLICO INMOBILIARIIO DEL MUNICIPIO BOLIVAR",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DE LOS MUNICIPIOS EZEQUIEL ZAMORA Y ANDRES ELOY BLANCO",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DE LOS  MUNICIPIOS PEDRAZA Y SUCRE",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTO PUBLICO INMOBILIARIO DE LOS MUNICIPIOS OBISPOS Y CRUZ PAREDES",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTO PUBLICO INMOBILIARIO DEL MUNICIPIO ROJAS",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTO PUBLICO INMOBILIARIO DEL MUNICIPIO SOSA",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DEL MUNICIPIO BARINAS",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "BARINAS",
+      "estado": 5
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO SUBALTERNO DEL MUNICIPIO ROSCIO DEL ESTADO BOLIVAR",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO HERES DEL ESTADO BOLIVAR",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE CARONI",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO PIAR",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "BOLIVAR",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO INMOBILIARIO DE CAICARA DEL ORINOCO",
+      "estado": 6
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DEL MUNICIPIO GUACARA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOBILIARIA DE REGISTRO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "MUNICIPIO AUTONOMO NAGUANAGUA Y SAN DIEGO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "DISTRITO GUACARA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "DISTRITO SAN CARLOS",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "JUEZ SEGUNDO DE PRIMERA INSTANCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "JUEZ PRIMERO DE PRIMERA INSTANCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "JUEZ TERCERA DE PRIMERA INSTANCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "PRIMER CIRCUITO DE VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "SEGUNDO CIRCUITO DE VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO DE GUACARA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO CON FUNCIONES NOTARIALES MUNICIPIO CARLOS ARVELO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DISTRITO VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. DE REG INMOBILIARIO 1ER CIRCUITO MCPIO. VALENCIA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO 1ER CIRCUITO EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUBALTERNA DE REGISTRO MUNIC. CARLOS ARVELO DEL EDO CARABOBO GUIGUE",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUBALT  DE REG  PUBLICO DEL DISTRITO GUACARA DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. DE REG PUB  MCPIO. GUACARA, SAN JOAQUIN Y DIEGO IBARRA DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUBALT DEL 1ER CIRCUITO DE REGISTRO DEL MCPIO.  VALENCIA DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC.  PUBLICA DEL 2DO CIRCUITO DE REG.  DEL MCPIO. VALENCIA DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC.  INMOB DEL 2DO CIRCUITO DE REG. DEL MCPIO.  VALENCIA DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. DE REG. PUB MCPIO NAGUANAGUA Y SAN DIEGO DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC.  DE REG.  INMOBILIARIO DE LOS MCPIO.  NAGUANAGUA Y SAN DIEGO DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. PUB  2  CIR  REG. DE LOS MCPS.  VALENCIA, LOS GUAYOS Y LIBERT  DEL EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL DEL EDO. CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DEL MUNICIPIO BEJUMA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DEL MUNICIPIO MIRANDA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DEL MUNICIPIO MONTALBAN",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. INMOB. DE REG DE LOS MCPIOS GUACARA, SAN JOAQUIN Y DIEGO IBARRA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. INMOBILIARIA DEL PRIMER CIRCUITO DEL MCPIO VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. DE REG. PUB. DEL PRIMER CIRCUITO DEL MCPIO VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. DE REG. PUB. DEL MCPIO NAGUANAGUA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. REG. PUB. DEL 2DO CIRCUITO DEL MCPIO VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG INMOB 2DO CIRCUITO DE VALENCIA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC SUBALT 2DO CIRCUITO DEL REGISTRO DISTRITO VALENCIA",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG PUB DEL SEG CIRCUITO DEL MUNICIPIO VALENCIA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC  SUBALT DEL SEG CIRCUITO DEL REG DEL MUNICIPIO VALENCIA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG PUBLICO DEL MUNICIPIO NAGUANAGUA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG PUB DEL PRIMER CIRCUITO DEL MUNICIPIO VALENCIA EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFC. SUB DE REG PUB DE LOS MCPIO NAGUANAGUA Y SAN DIEGO EDO CARABOBO",
+      "estado": 7
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL DEL ESTADO COJEDES",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO ANZOATEGUI",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO FALCON",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO GIRARDOT",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO EL PAO",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO SAN CARLOS",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO TINACO",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO RICAURTE",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "COJEDES",
+      "estado": 8
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO (REGISTRO PUBLICO) DE  LA CIRCUNSCRIPCION JUDICIAL DEL ESTADO DELTA AMACURO",
+      "estado": 9
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL ",
+      "estado": 9
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "DELTA AMACURO",
+      "estado": 9
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ACOSTA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO BUCHIVACOA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO COLINA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO FALCON",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MAUROA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO PETIT",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ZAMORA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO BOLIVAR",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO CARIRUBANA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO DEMOCRACIA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO FEDERACION",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MIRANDA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO SILVA",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "FALCON",
+      "estado": 10
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA DE SAN JUAN DE LOS MORROS",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA DE VALLE DE LA PASCUA",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA DE CALABOZO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALETRNO DEL MUNICIPIO MIRANDA",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO RIBAS",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ZARAZA",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MELLADO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MONAGAS",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ROSCIO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO INFANTE",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MONAGAS",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS ROSCIO Y ORTIZ",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO LEONARDO INFANTE",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO MIRANDA",
+      "estado": 11
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "GUARICO",
+      "estado": 11
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SUGUNDO DE LA CIRCUNSCRIPCION JUDICIAL DEL ESTADO LARA",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO CRESPO",
+      "estado": 12
+    } 
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MORAN",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO TORRES",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL PRIMER CIRCUITO DEL MUNICIPIO IRIBARREN",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO JIMENEZ Y ANDRES ELOY BLANCO",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO PALAVECINO",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO URDANETA",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL SEGUNDO CIRCUITO DEL MUNICIPIO IRIBARREN",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SEGUNDO MERCANTIL",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "LARA",
+      "estado": 12
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO ALBERTO ADRIANNI",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO ANDRES BELLO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO ANTONIO PINTO SALINAS",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO ARZOBISPO CHACON",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO CAMPO ELIAS",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO CARACIOLO PARRA Y OLMEDO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO CARDENAL QUINTERO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO GUARAQUE",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO JUSTO BRICEÑO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO LIBERTADOR",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO MIRANDA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO PUEBLO LLANO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO RANGEL",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO RIVAS DAVILA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO SANTOS MARQUINA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO SUCRE",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO TOVAR",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO TULIO FEBRES CORDERO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO JULIO CESAR SALAS",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO JULIO CESAR SALAS",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO OBISPO RAMOS DE LORA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG. PUB. DEL MUNICIPIO LIBERTADOR  DEL  EDO.MERIDA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "MERIDA",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 13
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO ACEVEDO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO BRION",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO GUAICAIPURO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO INDEPENDENCIA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO LANDER",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO LOS SALIAS",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO PAEZ",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO PAZ CASTILLO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO PLAZA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO URDANETA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO ZAMORA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 1ro CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 2do CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO CHACAO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 1ro CIRCUITO DEL MUNICIPIO BARUTA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 2do CIRCUITO DEL MUNICIPIO BARUTA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO EL HATILLO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL  3er CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 4to CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 5to CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 6to CIRCUITO DEL MUNICIPIO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 3er CIRCUITO DEL MUNICIPIO CHACAO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 5to CIRCUITO DEL MUNICIPIO HATILLO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO CHACAO",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DISTRITO SUCRE",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "MIRANDA",
+      "estado": 14
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL",
+      "estado": 15
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA REGISTRO PUBLICO DE LOS MUNICIPIO BOLIVAR Y PUNCERES",
+      "estado": 15
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO ACOSTA",
+      "estado": 15
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO CEDEÑO",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO CARIPE",
+      "estado": 15
+    } 
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL PRIMER CIRCUITO DEL MUNICIPIO MATURIN",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL SEGUNDO CIRCUITO DEL MUNICIPIO MATURIN",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO PIAR",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO SOTILLO",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO CON FUNCIONES NOTARIALES DE LOS MUNICIPIOS BOLIVAR Y PUNCERES",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO EZEQUIEL ZAMORA",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "MONAGAS",
+      "estado": 15
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO CIVIL DEL ESTADO NUEVA ESPARTA",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ARISMENDI",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO DIAZ",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO GOMEZ",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MANEIRO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MARCANO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO MARIÑO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO NAVAL",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA PAMPATAR",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA JUANGRIEGO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA LA ASUNCION",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA I PORLAMAR",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA II PORLAMAR",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NUEVA ESPARTA",
+      "estado": 16
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ARAURE",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO GUANARE",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO OSPINO",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO SUCRE",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO ESTELLER",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO GUANARITO",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO PAEZ",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO TUREN",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "PORTUGUESA",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "JUZGADO SEGUNDO DE PRIMERA INSTANCIA EN LO CIVIL Y MERCANTIL DE LA CIRCUNSCRIPCION JUDICIAL DEL ESTADO PORTUGUESA",
+      "estado": 17
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO CIVIL",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO ARISMENDI",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO BENITEZ",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO BERMUDEZ",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO CAJIGAL",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO MARIÑO",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO MEJIA",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO RIBERO",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO SUCRE",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL DISTRITO VALDEZ",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "SUCRE",
+      "estado": 18
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DEL REGISTRO PUBLICO DEL MUNICIPIO JAUREGUI",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS JAUREGUI, SEBORUCO, ANTONIO ROMULO COSTA,JOSE MARIA VARGAS Y  FRANCISCO DE MIRANDA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS PANAMERICANO, SAMUEL DARIO MALDONADO,SIMON RODRIGUEZ Y SAN JUDAS TADEO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AYACUCHO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO GARCIA DE HEVIA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO LOBATERA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO MICHELENA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO SUCRE",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO URIBANTE",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL MUNICIPIO AYACUCHO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO SUBALTERNO DE SAN JUAN DE COLON",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO AYACUCHO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA CON FUNCIONES NOTARIALES DE LOS MUNICIPIOS AUTONOMOS LIBERTADOR Y FERNANDEZ FEO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS AUTONOMOS LIBERTADOR Y FERNANDEZ FEO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. REGISTRO INMOBILIARIO DE LOS MUNIC. CARDENAS, GUASIMOS Y ANDRES BELLO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS INDEPENDENCIA Y LIBERTAD",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS JAUREGUI, SEBORUCO, ANTONIO ROMULO COSTA,  JOSE MARIA VARGAS Y  FRANCISCO DE MIRANDA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS JUNIN Y RAFAEL URDANETA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS LIBERTAD E INDEPENDENCIA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE REGISTRO PUBLICO CON FUNCIONES NOTARIALES DEL MUNICIPIO CORDOBA SANTA ANA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DEL MUNICIPIO LOBATERA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DEL MUNICIPIO MICHELENA",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DEL MUNICIPIO SUCRE",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO MUNICIPIO AYACUCHO",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. REG.  INMOB. 1ER CIRC.  MUNIC  SAN CRISTOBAL Y TORBES  DEL EDO. TACHIRA",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO SEGUNDO CIRCUITO MUNICIPIO SAN CRISTOBAL",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PRINCIPAL",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DE LOS MUNICIPIOS CARDENAS, GUASIMOS Y ANDRES BELLO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DE LOS MUNICIPIOS LIBERTAD E INDEPENDENCIA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO PUBLICO DEL DISTRITO CARDENAS",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC.  REG.  PUB. 1ER CIRCUITO DE LOS MCPIOS SAN CRISTOBAL Y TORBES",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. REG. PUB. SEGUNDO CIRCUITO MCPIO SAN CRISTOBAL ESTADO TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO SUBALTERNO DE LOS MUNICIPIOS CARDENAS, GUASIMOS Y ANDRES BELLO DEL ESTADO TACHIRA",
+      "estado": 19
+    }
+  },  
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DEL SEGUNDO CIRCUITO DE REGISTRO INMOBILIARIO DEL MUNICIPIO SAN CRISTOBAL",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA INMOB. REG. PUB. CON FUNCIONES NOTARIALES DEL MUN. CORDOBA STA ANA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE LOS MUNICIPIOS LIBERTAD E INDEPENDENCIA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO DE LOS MUNICIPIOS JUNIN Y RAFAEL URDANETA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO DEL DISTRITO JUNIN",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB.  REG. PUB. DEL DISTRITO SAN CRISTOBAL",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO INMOBILIARIO DEL PRIMER CIRCUITO DE LOS MUNICIPIOS SAN CRISTOBAL Y TORBES",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICI. SUB. REGISTRO INMOBILIARIO DEL SEGUNDO CIRCUITO DEL MUNIC. SAN CRISTOBAL",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB. DE REGISTRO PUBLICO DE LOS MUNIC. CARDENAS, GUASIMOS Y ANDRES BELLO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DE LOS MUNICIPIOS JAUREGUI, SEBORUCO, ANTONIO ROMULO COSTA, JOSE MARIA VARGAS Y FRANCISCO DE MIRANDA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DE LOS MUNICIPIOS LIBERTAD E INDEPENDENCIA",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DE LOS MUNICIPIOS SAN CRISTOBAL Y TORBES",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL DISTRITO CARDENAS",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL DISTRITO JUNIN DEL ESTADO TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB. DE REGISTRO PUBLICO DEL DISTRITO SAN CRISTOBAL DEL ESTADO TACHIRA",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL DISTRITO URIBANTE",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL MUNICIPIO AUTONOMO CORDOBA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL MUNICIPIO AYACUCHO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL MUNICIPIO SAN CRISTOBAL",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB. DEL 1ER CIRCUITO DE REG. PUB. DE LOS MCIPIOS. SAN CRISTOBAL Y TORBES",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB. DEL 1ER CIRCUITO DE REG. PUB. DEL MCIPIO. SAN CRISTOBAL",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUB. 2DO CIRC. DE REG. PUB.DEL MCPIO. SAN CRISTOBAL",
+      "estado": 19
+    }
+  }, 
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO DEL  MUNICIPIO PEDRO MARIA UREÑA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO INMOBILIARIO DEL MUNICIPIO BOLIVAR",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO INMOBILIARIO DEL MUNICIPIO BOLIVAR",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DE LOS MUNICIPIOS JUNIN Y RAFAEL URDANETA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DE LOS MUNICIPIOS JUNIN Y RAFAEL URDANETA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO DE LOS MUNICIPIOS JUNIN Y RAFAEL URDANETA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO INMOBILIARIO DEL MUNICIPIO PEDRO MARIA UREÑA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL DISTRITO BOLIVAR",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO BOLIVAR",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "JUZGADO DEL MUNICIPIO DELICIAS DE LA CIRCUNSCRIPCION JUDICIAL",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DEL REGISTRO PUBLICO DEL MUNICIPIO JAUREGUI",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA SUBALTERNA DE REGISTRO PUBLICO DEL MUNICIPIO MICHELENA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS JAUREGUI, SEBORUCO, ANTONIO ROMULO COSTA, JOSE MARIA VARGAS Y FRANCISCO DE MIRANDA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO CIVIL PARROQUIA  EL PALOTAL  MUNIC.BOLIVAR  EDO.TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFICINA DE REGISTRO CIVIL DEl MUNIC. SAN CRISTOBAL, EDO.TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "OFIC. SUBALTERNA DE REG. PUB. CON FUNCIONES NOTARIALES DEL MCPIO. CORDOBA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REG. PUB. DEL 1ER  CIRCUITO DEL MCPIO SAN CRISTOBAL EDO. TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "TACHIRA",
+      "estado": 19
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO PUBLICO DEL MUNICIPIO BOCONO",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO CARACHE",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS ESCUQUE Y MONTE CARMELO",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO RAFAEL RANGEL",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS PAMPAN, PAMPANITO Y TRUJILLO",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS VALERA, MOTATAN Y SAN RAFAEL DE CARVAJAL",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO URDANETA",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "TRUJILLO",
+      "estado": 20
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEXTO",
+      "estado": 21
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL PRIMER CIRCUITO",
+      "estado": 21
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL SEGUNDO CIRCUITO",
+      "estado": 21
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "VARGAS",
+      "estado": 21
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO BOLIVAR Y MANUEL MONGE DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AUTONOMO BRUZUAL DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AUTONOMO NIRGUA",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AUTONOMO URACHICHE DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DEL MUNICIPIO AUTONOMO PEÑA DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO INMOBILIARIO DE LOS MUNICIPIOS INDEPENDENCIA, SAN FELIPE, COCOROTE Y VEROES DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL DE LA CIRCUNSCRIPCION JUDICIAL DEL ESTADO YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NOTARIA PUBLICA DE SAN FELIPE",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "YARACUY",
+      "estado": 22
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO BARALT",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO BOLIVAR",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO COLON",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO LAGUNILLAS",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO MARA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO MIRANDA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO PAEZ",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO PERIJA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO SUCRE",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO JESUS ENRIQUE LOSSADA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL DISTRITO URDANETA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 1ro CIRCUITO DEL DISTRITO MARACAIBO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 2do CIRCUITO DEL DISTRITO MARACAIBO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 3ro CIRCUITO DEL DISTRITO MARACAIBO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL MUNICIPIO SAN FRANCISCO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL CUARTO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL QUINTO",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "ZULIA",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DE LOS MUNICIPIOS LAGUNILLAS Y VALMORE RODRIGUEZ",
+      "estado": 23
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PRINCIPAL",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 1ro CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 2do CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 3ro CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 4to CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 5to CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO SUBALTERNO DEL 6to CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL PRIMERO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEGUNDO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL TERCERO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL CUARTO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL QUINTO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEPTIMO",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO MERCANTIL SEXTO DISTRITO CAPITAL",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "NO APLICA",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO DEL 3er CIRCUITO DEL MUNICIPIO LIBERTADOR",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "DISTRITO CAPITAL",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "REGISTRO PUBLICO 1er CIRCUITO, MUNICIPIO LIBERTADORr, DISTRITO CAPITAL",
+      "estado": 24
+    }
+  },
+  { 
+    "model": "registro.RegistroMercantil",
+    "fields": { 
+      "nombre": "MINISTERIO DEL PODER POPULAR PARA LAS COMUNAS Y PROTECCION SOCIAL",
+      "estado": 24
+    }
+  }
+]
+
+
+
+
+
+
+
+
+
+
+

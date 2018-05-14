@@ -1,0 +1,23 @@
+[
+    {
+        "pk": 1,
+        "model": "declaraciones.TipoDeclaracion",
+        "fields": {
+            "nombre": "Declaración Definitiva"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "declaraciones.TipoDeclaracion",
+        "fields": {
+            "nombre": "Declaración Sustitutiva"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "declaraciones.TipoDeclaracion",
+        "fields": {
+            "nombre": "Declaración por Resolución Notificada"
+        }
+    }
+]

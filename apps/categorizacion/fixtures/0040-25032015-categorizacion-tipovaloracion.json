@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "categorizacion.tipovaloracion", "fields": {"nombre": "Escala", "abreviacion": "E"}}, {"pk": 2, "model": "categorizacion.tipovaloracion", "fields": {"nombre": "Dual", "abreviacion": "D"}}]

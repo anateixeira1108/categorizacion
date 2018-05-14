@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block main_content %}   
+  <aside class="right-side">
+  	<section class="content-header">
+        <h1>Categorizaci&oacute;n<small>Panel Administrativo</small></h1>
+        <ol class="breadcrumb">
+            <li><a href="/categorizacion/administrador/"> Inicio</a></li>
+            <li><a href="{% url 'home_panel_administrativo' modelo %}"><i class="fa fa-th-large"></i> {{show_name}}</a></li>
+            <li class="active"><i class="fa fa-plus"></i>&nbsp;Agregar recurso</li> 
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-body">
+                <div class="row title">
+                    <div class="col-xs-6">
+                        <h4>Formulario <small>{{show_name}}</small></h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-offset-3 col-xs-6">
+				                <form id="agregar_form" method="post" action="{% url 'agregar_recurso' modelo %}">
+                          {% csrf_token %}
+                          <input hidden name="modelo" value="{{ modelo }}"/>
+					                 {% for field in form%}
+                            
+                            <div class="row">
+                              <div class="col-xs-12">
+                                {{ field.label_tag }}
+                                {{ field }}
+                              </div>                              
+                            </div>
+
+                            {% if field.errors  %}
+                            <div class="col-xs-12 col-lg-12">
+                            <div class="alert alert-ajustado alert-warning alert-dismissible" role="alert">
+                              <button type="button" class="close" data-dismiss="alert">
+                              <span aria-hidden="true">&times;</span>
+                              <span class="sr-only">Close</span>
+                              </button>
+                              {{ field.errors }}                                
+                            </div>
+                            </div>                              
+                            {% endif %}                            
+                          {% endfor %}
+
+                          <div class="row">
+                            <div class="col-xs-12">
+  
+                              </div>          
+                          </div>
+
+				                </form>  
+                    </div>
+                </div>  
+
+			     </div>
+		    </div>
+	</section>
+
+  <div class="save-bar col-lg-12 col-md-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+          <a class="btn btn-flat btn-danger col-lg-12 col-md-12" href="{%url 'home_panel_administrativo' modelo%}">
+              <i class="fa fa-arrow-left "></i> &nbsp;&nbsp;Anterior
+          </a>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+           <a class="col-xs-12 btn btn-flat btn-primary submit-form-guardar" id="guardar" href="#" >
+            Guardar&nbsp;&nbsp;<i class="fa fa-save"></i>
+           </a>
+      </div>
+  </div>
+
+  </aside>
+  {% endblock %}
+
+  {% block javascripts %}
+  
+  {{ block.super }}
+  <script src="{{ STATIC_URL }}js/jquery.validate.min.js" type="application/javascript"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap-switch.min.js" type="application/javascript"></script>
+
+  <script 
+    src="{{ STATIC_URL }}js/iconset/iconset-fontawesome-4.0.0.min.js" 
+    type="application/javascript">
+  </script>
+
+  <script 
+    src="{{ STATIC_URL }}js/bootstrap-iconpicker.min.js" 
+    type="application/javascript">
+  </script>
+
+  <script type="text/template" id="iconpicker_referencia">
+    <button 
+      id = "id_representacion"
+      class="btn btn-flat btn-default iconpicker form-control" 
+      role="iconpicker"
+      name="representacion"
+      style="background-color: white;border-color: #ddd;color: #333;"
+      >
+    </button>
+  </script>
+
+  <script type="text/javascript">
+      $(function(){
+
+        $('#id_fecha').attr('type', 'date');
+
+        $('.cargador_recursos').click(function(){
+          url = ($(this).attr('url')).split('/');          
+          location.href = "{% url 'home_panel_administrativo' %}"+ url[4];
+        });
+
+        $('input,textarea,select').addClass('input-ajustado');        
+        $('input,textarea,select').each(function(){
+          if(!$(this).is(":hidden")){
+            $(this).addClass('form-control');
+          }
+        });
+
+        $('#guardar').click(function(){         
+
+          $('#agregar_form').validate()
+          if($('#agregar_form').valid()){
+            $('#guardar').addClass('disabled');
+            $('#agregar_form').trigger('submit')
+          }
+        });
+
+        {% if modelo == "funcionario" %}
+            var parent_clone = $("#id_habilitado").parent().parent();
+            var clone = $("#id_habilitado").clone();
+            $("#id_habilitado").parent().remove();                
+            clone.attr("class", "");
+            clone.prop("disabled", false);
+
+            $(parent_clone).append(clone);
+            $("[name='habilitado']").bootstrapSwitch(
+                {
+                    'size': 'mini',
+                    'onColor': 'success',
+                    'offColor': 'danger',
+                    'onText': 'Si',
+                    'offText': 'No',
+                    'disabled': false,
+                    'state': true
+                }
+            );
+
+            $(".bootstrap-switch-handle-on").css("padding-top","5%");
+            $(".bootstrap-switch-handle-off").css("padding-top", "5%");
+        {% endif %}
+
+        console.log("{{modelo}}");
+
+        {% if modelo == "especificacionlegal" %}
+          $("#id_fecha").attr("data-provide","datepicker");
+          $('.datepicker').datepicker({
+              format: 'mm/dd/yyyy',
+              startDate: '-3d'
+          })
+        {% endif %}
+
+        {% if modelo == "tipoicono" %}
+          var parent = $("input#id_representacion").parent("div");
+          var iconpreloaded = $("input#id_representacion").val();
+          $("#id_representacion").remove();
+          $(parent).append($("#iconpicker_referencia").html());
+          $('#id_representacion').iconpicker({
+              arrowClass: 'btn-primary',
+              arrowPrevIconClass: 'glyphicon glyphicon-chevron-left',
+              arrowNextIconClass: 'glyphicon glyphicon-chevron-right',
+              icon: iconpreloaded,
+              iconset: 'fontawesome',   
+              labelHeader: '',
+              labelFooter: '{0} - {1} de {2}',
+              placement: 'bottom',
+              cols: 8,
+              rows: 4,
+              search: false,
+              selectedClass: 'btn-warning',
+              unselectedClass: ''
+          });
+
+          $("body .header").css("z-index", 2048);
+        {% endif %}
+      });
+
+  </script>
+  
+{% endblock %}

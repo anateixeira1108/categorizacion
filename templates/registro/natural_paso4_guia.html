@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% load filtros_datos %}
+
+{% block css %}
+    {{ block.super }}
+    <!-- FIXME Provicional -->
+    <style type="text/css">
+        .idiomas ul {
+            list-style: none;
+        }
+        .idiomas ul li ul li {
+            display: inline-block;
+            margin-left: 1em;
+        }
+    </style>
+{% endblock %}
+
+{% block main_content %}
+<aside class="right-side">
+    <section class="content-header">
+        <h1>
+            {{ pst|get_tipo_usuario }}
+        </h1>
+
+        <ol class="breadcrumb">
+            <li><a href="#"><span class="fa fa-edit"></span>{{ pst|get_tipo_usuario_short }}</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-body">
+                <form action="{% url 'cuentas_natural_4_guia' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="body" id="persona-natural">
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-offset-6">
+                                <label>Proceso de registro</label><br>
+                                <select class="select"
+                                    onchange="location = this.options[this.selectedIndex].getAttribute('data-url')">
+                                    <option data-url="{% url 'cuentas_natural_1' %}">Paso 1: Datos b&aacute;sicos</option>
+                                    <option data-url="{% url 'cuentas_natural_2' %}">Paso 2: Domicilio fiscal</option>
+                                    <option data-url="{% url 'cuentas_natural_3' %}">Paso 3: Firma personal</option>
+                                    <option data-url="#" selected>Paso 4: Información específica</option>
+                                    <option data-url="{% url 'cuentas_natural_5' %}?next={% url 'cuentas_natural_4' %}">Paso 5: Vista previa</option>
+                                    <option data-url="{% url 'cuentas_natural_6' %}?next={% url 'cuentas_natural_4' %}">Paso 6: Confirmar registro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="title">
+                           Información específica del Gu&iacute;a de Tur&iacute;smo
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>En caso de ser un gu&iacute;a especializado, indique el nivel</label><br>
+                                {% render_field form.guia_especializado class+="form-control" %}
+                                <div class="error">
+                                    {% if form.guia_especializado.errors %} {{ form.guia_especializado.errors }} {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <label>Certificado de guía especializado (Archivo digitalizado en formato PDF)</label><br>
+                                {% render_field form.archivo_certificado_guia_especializado %}
+                                <div class="error">
+                                    {% if form.archivo_certificado_guia_especializado.errors %}
+                                      {{ form.archivo_certificado_guia_especializado.errors }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>En caso de ser egresado de un instituto, ind&iacute;quelo a continuaci&oacute;n</label><br>
+                                {% render_field form.egresado_instituto class+="form-control" %}
+                                <div class="error">
+                                    {% if form.egresado_instituto.errors %} {{ form.egresado_instituto.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>Nombre del curso</label><br>
+                                {% render_field form.nombre_curso class+="form-control" %}
+                                <div class="error">
+                                    {% if form.nombre_curso.errors %} {{ form.nombre_curso.errors }} {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 input-append date">
+                                <label>Fecha del curso</label><br>
+                                <div class="input-group input-append date" data-date-format="dd/mm/yyyy" data-date-end-date="today">
+                                    {% render_field form.fecha_curso class+="form-control date-mask" %}
+                                    <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <div class="error">
+                                    {% if form.fecha_curso.errors %} {{ form.fecha_curso.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>Si presta su servicio en una empresa tur&iacute;stica, indique cual</label><br>
+                                {% render_field form.presta_servicio class+="form-control" %}
+                                <div class="error">
+                                    {% if form.presta_servicio.errors %} {{ form.presta_servicio.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>Nombre del instituto donde realiz&oacute; el curso de primeros auxilios</label><br>
+                                {% render_field form.primeros_auxilios class+="form-control" %}
+                                <div class="error">
+                                    {% if form.primeros_auxilios.errors %} {{ form.primeros_auxilios.errors }} {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <label>Constancia del curso de primeros auxilios (Archivo digitalizado en formato PDF)</label><br>
+                                {% render_field form.archivo_constancia_curso_primeros_auxilios %}
+                                <div class="error">
+                                    {% if form.archivo_constancia_curso_primeros_auxilios.errors %}
+                                      {{ form.archivo_constancia_curso_primeros_auxilios.errors }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>Ciudad donde realiz&oacute; el curso de primeros auxilios</label><br>
+                                {% render_field form.ciudad_primeros_auxilios class+="form-control" %}
+                                <div class="error">
+                                    {% if form.ciudad_primeros_auxilios.errors %} {{ form.ciudad_primeros_auxilios.errors }} {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 input-append date">
+                                <label>Fecha en la cual realiz&oacute; el curso de primeros auxilios</label><br>
+                                <div class="input-group input-append date" data-date-format="dd/mm/yyyy" data-date-end-date="today">
+                                    {% render_field form.fecha_primeros_auxilios class+="form-control date-mask" %}
+                                    <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <div class="error">
+                                    {% if form.fecha_primeros_auxilios.errors %} {{ form.fecha_primeros_auxilios.errors }} {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row title">
+                            <div class="col-xs-11" style="padding-left: 0;">
+                              Dominio de idiomas extranjeros
+                            </div>
+
+                            <div class="col-xs-1">
+                              <button class="btn btn-info btn-flat" type="button" data-toggle="modal" data-target="#idiomas-modal">Agregar</button>
+                            </div>
+                        </div>
+
+                        <table class="table table-condensed table-striped text-center">
+                            <thead>
+                              <th>Idioma</th>
+                              <th>Lee</th>
+                              <th>Habla</th>
+                              <th>Escribe</th>
+                              <th><span class="fa fa-trash-o"></span></th>
+                            </thead>
+
+                            <tbody id="idiomas-body"></tbody>
+                        </table>
+                    </div>
+
+                    <br>
+
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-6 col-lg-5 col-lg-offset-1">
+                                <a href="{% url 'cuentas_natural_3' %}"class="btn btn-info btn-flat btn-block">
+                                    <span class="fa fa-arrow-circle-o-left btn-icon-back"></span> Volver al paso 3
+                                </a>
+                            </div>
+
+                            <div class="col-xs-6 col-lg-5">
+                                <button type="submit" class="btn btn-primary btn-flat btn-block">
+                                    Guardar y continuar al paso 5: Vista previa
+                                    <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<!-- Idiomas-Modal -->
+<div id="idiomas-modal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" ng-controller="IdiomasModalCtrl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Idiomas</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <select id="idiomas_select" class="select" name="idiomas_select" ng-model="idiomas_select" ng-options="opt.fields.nombre for opt in idiomas track by opt.pk"></select>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row text-center">
+          <div class="col-xs-4">
+            <input type="checkbox" name="destreza" value="lee"> Lee
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" name="destreza" value="habla"> Habla
+          </div>
+          <div class="col-xs-4">
+            <input type="checkbox" name="destreza" value="escribe"> Escribe
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="onClick()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

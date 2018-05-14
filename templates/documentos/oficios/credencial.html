@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				top:4cm;
+                bottom: 3cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					
+				}
+                @frame header {
+                    -pdf-frame-content: headerTextContent;
+                    top: 2cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                }
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+            .pg{
+                font-size:12px;
+            }
+            .cortar{
+                margin-right: 5cm;
+                text-align:justify;
+            }
+            .parrafo-centrado{
+                font-size:12px;
+                text-align:center;
+            }
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="50" width="300" alt="image" src="static/img/placas/logo.jpg"/>
+		</div> 
+        <span>{{data.nomenclatura_oficios}}/{{data.fecha.year}}/{{data.oficio.id}}</span>
+		<div class="pg">
+            <div style="text-align:right;"> Caracas, {{data.fecha}}</div>
+            <div>Se&ntilde;ores:</div>
+            <span>{{ data.razon_social }}</span>
+            <div class="cortar">Direcci&oacute;n: 
+                <span>{{ data.direccion }}</span>
+            </div>
+            <div>Tel&eacute;fonos:
+                <span> {{ data.telefonos }}</span>
+            </div>
+            <br>
+            <div style="font-style:underline;">Presente.-</div>
+            <br>
+            <div class="parrafo">
+                &Tab;Con un saludo bolivariano y revolucionario, me dirijo a ustedes, en la oportunidad de notificarles que los ciudadanos:
+            </div>
+            <br>
+            <div class="parrafo-centrado">
+                {{data.inspector1.nombre}} {{data.inspector1.apellido}} {{data.inspector1.cedula}}
+                <br>
+                {{data.inspector2.nombre}} {{data.inspector2.apellido}} {{data.inspector2.cedula}}
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;Funcionarios adscritos a este Despacho, han sido designados y autorizados para realizar inspecci&oacute;n de categorizaci&oacute;n en su establecimiento, acompañada de registro fotogr&aacute;fico de todas las instalaciones, pudiendo actuar de manera conjunta o separadamente, a los fines de dar cumplimiento a las disposiciones contenidas en los art&iacute;culos 8 y 9 numerales 5 y 14 , y art&iacute;culos 100, 101 y 102 del Decreto con Rango, Valor y Fuerza de la Ley Org&aacute;nica de Turismo vigente, en concordancia con el Cap&iacute;tulo III titulado “De la Categorizaci&oacute;n” contenido en el Reglamento Parcial de la Ley Org&aacute;nica de Turismo sobre Establecimientos de Alojamiento Tur&iacute;stico.
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;En este sentido le informo que todos los servicios e instalaciones del establecimiento se deben verificar durante la inspecci&oacute;n, a fin de certificar su existencia y cumplimiento con los requerimientos de evaluaci&oacute;n de la categor&iacute;a, por lo que es necesario que se facilite a los funcionarios el acceso a los mismos.
+            </div>
+            <br>
+            <div class="parrafo-centrado">
+                <div>Atentamente,</div>
+                <br>
+                <br>
+                <span>Viceministro</span>
+            </div>
+		</div>
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div> 
+	</body>
+</html> 

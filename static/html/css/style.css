@@ -1,0 +1,272 @@
+.skin-red  .logo {
+	padding: 0 !important;
+	background-color: #fff;
+	width: auto !important;
+}
+
+.logo img {
+	max-width: 100%;
+	height: auto;
+	max-height: 50px;
+	vertical-align: top;
+}
+
+.skin-red .navbar {
+	background-color: #fff;
+}
+
+.skin-red .sidebar {
+	border-bottom: none;
+	position: fixed;
+	left: 0;
+	top: 50px;
+	width: 226px;
+}
+
+.skin-red .sidebar-form {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #CE4744;
+	margin: 10px 10px;
+}
+
+.skin-red .sidebar > .sidebar-menu > li:first-of-type {
+	border-top: none;
+}
+
+.skin-red .sidebar > .sidebar-menu > li {
+	border-top: 1px solid #E74F4C !important;
+	border-bottom: 1px solid #AF3C3A;
+}
+
+.skin-red .left-side {
+	background: #CE4744;
+	-webkit-box-shadow: inset -3px 0px 8px -4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset -3px 0px 8px -4px rgba(0, 0, 0, 0.1);
+	box-shadow: inset -3px 0px 8px -4px rgba(0, 0, 0, 0.07);
+	border-right: 1px solid #CE4744;
+}
+
+.sidebar .sidebar-menu > li > a {
+	color: #fff;
+}
+
+.sidebar .sidebar-menu > li > a:hover {
+	background: #E74F4C;
+}
+
+.user-panel > .info p, .user-panel > .info a {
+	color: #fff;
+}
+
+.sidebar .sidebar-menu .treeview-menu > li {
+	background-color: #AF3C3A;
+}
+
+.sidebar .sidebar-menu .treeview-menu > li > a {
+	color: #fff;
+}
+
+.sidebar .sidebar-menu {
+	overflow-y: auto;
+	max-height: 420px;
+}
+
+.sidebar .sidebar-menu::-webkit-scrollbar {
+	background-color: #AF3C3A;
+	width: 10px;
+}
+
+.sidebar .sidebar-menu::-webkit-scrollbar-button {
+	/*background-color: #fff;*/
+}
+
+.sidebar .sidebar-menu::-webkit-scrollbar-track-piece {
+	background-color: #942F2D;
+}
+
+.sidebar .sidebar-menu::-webkit-scrollbar-thumb {
+	background-color: #E74F4C;
+}
+
+body > .header .navbar .sidebar-toggle {
+	border: 1px solid #CE4744;
+	border-radius: 3px !important;
+	-webkit-border-radius: 3px !important;
+	-moz-border-radius: 3px !important;
+}
+
+body > .header .navbar .sidebar-toggle .icon-bar {
+	background-color: #CE4744;
+}
+
+body > .header .navbar .sidebar-toggle:hover .icon-bar {
+	background-color: #CE4744;
+}
+
+body {
+	padding-top: 50px;
+}
+
+body > .header {
+	position: fixed;
+	top: 0;
+	border-bottom: 1px solid #CE4744;
+	background-color: #fff;
+	height: 51px;
+}
+
+.nav > li > a {
+	color: #CE4744;
+}
+
+.no-print {
+	display: none;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+	background: #CE4744 !important;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: #CE4744;
+	color: #fff;	
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color: #CE4744;
+	color: #fff;	
+}
+
+/*Login*/
+
+.form-box {
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+
+.form-box .header {
+	background-color: #CE4744;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.form-box .footer {
+	padding: 15px 20px;
+}
+
+.mintur {
+	padding: 5px 15px;
+	position: relative;
+}
+
+.mintur img {
+	max-width: 100%;
+	height: auto;
+	max-height: 40px;
+}
+
+/*need-help*/
+
+.iradio_minimal {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	background-position: -120px 0;
+}
+
+.select {
+	width: 100%;
+	height: 33px;
+	background: #fff;
+	padding-left: 5px;
+	color: #555;
+	border-color: #ccc;
+}
+
+.select:focus {
+	border-color: #3c8dbc !important;
+	outline: 0;
+}
+
+/*Registro*/
+
+.form-box .title {
+	font-weight: bold;
+	width: 100%;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+	margin: 10px 0;
+}
+
+#register-box {
+	width: 800px;
+}
+
+.question {
+	background: #0073b7;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	padding: 1px 5px;
+	color: #fff;
+}
+
+.btn-add {
+	margin-top: 2px;
+	margin-left: 15px;
+}
+
+.modal {
+	overflow: hidden;
+}
+
+.table-partner th {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	vertical-align: top !important;
+}
+
+.table-partner td {
+	background-color: #ccc;
+}
+
+.table-partner td a i {
+	font-size: 18px;
+	color: #444;
+}
+
+/*Botones e inputs con menor altura*/
+
+input, select {
+	height: 24px !important;
+}
+
+.btn {
+	padding: 1px 5px;
+}
+
+.content .form-box {
+	margin: 0 auto 0;
+}
+
+.input-group-addon {
+	padding: 4px 10px;
+}
+
+.left-side {
+	width: 226px;
+}
+
+.btn-icon {
+	float: right;
+	font-size: 20px;
+}
+
+.btn-icon-back {
+	float: left;
+	font-size: 20px;
+}

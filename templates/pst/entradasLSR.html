@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        <section class="content-header">
+            <h1>Libro de Sugerencias y Reclamos<small>Entradas</small></h1>
+                <ol class="breadcrumb">
+                    <li><a href="/"> Inicio</a></li>
+                    <li class="active"><i class="fa fa-book"></i>Libro</li> <!--Editar icono -->
+                </ol>
+        </section>
+        <section class="content entrada_portal">
+            <div class="box box-danger">
+                <div class="box-body">
+                        <div class="row title" id="row-buscar">
+                            <div class="col-xs-2 col-xs-offset-10">
+                                <a href="#" class="btn btn-primary btn-flat col-xs-12 {% if not entradas and not busqueda %} disabled {% endif %}" id="activar_buscar_modal">Buscar&nbsp;&nbsp;<i class="fa fa-search"></i></a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-12">
+                            {% if busqueda and not entradas %}
+                                <div class="alert alert-warning alert-dismissible contenido-centrado" role="alert">
+                                    <div class="row">
+                                        <div class="col-xs-2 col-xs-offset-5">
+                                            <i class="fa fa-frown-o fa-2x"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         Su b&uacute;squeda no arroj&oacute; resultados
+                                    </div>
+                                </div>  
+
+                            {% else %}
+                                <table class="table table-partner table-hover tabla-lsr text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Autor</th>
+                                            <th>Sede</th>
+                                            <th>Tipo</th>
+                                            <th>Severidad</th>
+                                            <th>Estatus</th>
+                                        </tr>
+                                    </thead>                           
+                                    <tbody>
+                                    {% for e in entradas %}
+                                        <tr id="{{e.id}}" url="/categorizacion/portallsr/verentrada?entrada={{e.id}}" class="icono-accion ver_entrada_pst">
+                                            <td>{{e.fecha_entrada|date}}</td>
+                                            <td>{% if e.es_anonimo %}
+                                            An&oacute;nimo
+                                            {% else %}
+                                            {{e.turista.nombre|capfirst}} {{e.turista.apellido|capfirst}}
+                                            {% endif %}
+                                            </td>
+                                            <td>{{e.lsr.sucursal.nombre|capfirst}}</td>
+                                            <td>{{e.tipo_comentario}}</td>
+                                            <td>
+                                            {% if e.severidad.abreviacion == 'A' %}
+                                                <label class="label label-danger etiqueta-estatus">{{e.severidad}}</label>
+                                            {% elif e.severidad.abreviacion == 'I' %}
+                                                <label class="label label-warning etiqueta-estatus">{{e.severidad}}</label>
+                                            {% elif e.severidad.abreviacion == 'B' %}
+                                                <label class="label label-success etiqueta-estatus">{{e.severidad}}</label>
+                                            {% else %}
+                                                <b> --- </b>
+                                            {% endif %}
+                                            
+                                            </td>
+                                            <td>{{e.estatus.nombre}}</td>
+                                        </tr>
+                                    {% endfor %}                            
+                                    </tbody>    
+                                </table>
+                                {% endif %}
+                            </div>
+                        </div>
+                    <!--
+                        <div class="alert alert-warning alert-dismissible contenido-centrado" role="alert">
+                            <div class="row">
+                                <div class="col-xs-2 col-xs-offset-5">
+                                    <i class="fa fa-ban fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 Debe poseer categorización de alguna sucursal para poder optar por libros de sugerencias y reclamos físicos
+                            </div>
+                    </div> 
+                    -->
+                    <!--///////////////////Paginador\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+                    <div class="row root_paginator" p="{{p}}">        
+                        <a href="
+                        {% if busqueda == True %}
+                            {% url 'portallsr' operacion='entradas' %}?p={{p}}&s=-&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {% url 'portallsr' operacion='entradas' %}?p={{p}}&s=-
+                        {% endif %}
+                        " class="col-xs-2 col-xs-offset-2 btn btn-flat btn-primary paginar fa fa-chevron-left" id="prev" s="-"style="
+                        {% if p == 0 %}
+                            visibility:hidden
+                        {% endif %}"                
+                         ></a>
+                        <a href="
+                        {% if busqueda == True %}
+                            {%url 'portallsr' operacion='entradas' %}?p={{p}}&s=%2B&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {%url 'portallsr' operacion='entradas' %}?p={{p}}&s=%2B
+                        {% endif %}
+                        " class="col-xs-2 col-xs-offset-2 btn  btn-flat btn-primary paginar fa fa-chevron-right" id="next" s="+" style="
+                        {% if mas == False %}
+                            visibility:hidden
+                        {% endif %}"
+                        ></a>
+                    </div>
+                    <!--////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\--> 
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    {% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {
+            
+            $('.ver_entrada_pst').click(function(){
+                window.location.href = $(this).attr('url');
+            });
+           
+        });
+    </script>
+{% endblock %}

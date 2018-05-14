@@ -1,0 +1,40 @@
+[
+    {
+        "model": "pagos.concepto",
+        "fields": {
+            "concepto_tipo": 1,
+            "fecha_generacion": "2014-01-18",
+            "monto": 1000,
+            "pst": 1,
+            "pago": 1,
+            "estatus": "Pagado"
+        }
+    },
+    {
+        "model": "pagos.concepto",
+        "fields": {
+            "concepto_tipo": 3,
+            "fecha_generacion": "2014-03-19",
+            "monto": 2000,
+            "pst": 1
+        }
+    },
+    {
+        "model": "pagos.concepto",
+        "fields": {
+            "concepto_tipo": 2,
+            "fecha_generacion": "2014-04-01",
+            "monto": 3000,
+            "pst": 1
+        }
+    },
+    {
+        "model": "pagos.concepto",
+        "fields": {
+            "concepto_tipo": 4,
+            "fecha_generacion": "2014-01-18",
+            "monto": 4000,
+            "pst": 1
+        }
+    }
+]

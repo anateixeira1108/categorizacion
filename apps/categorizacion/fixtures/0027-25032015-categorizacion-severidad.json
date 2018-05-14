@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "categorizacion.severidad", "fields": {"nombre": "Alta", "abreviacion": "A", "valor": 1}}, {"pk": 2, "model": "categorizacion.severidad", "fields": {"nombre": "Intermedia", "abreviacion": "I", "valor": 2}}, {"pk": 3, "model": "categorizacion.severidad", "fields": {"nombre": "Baja", "abreviacion": "B", "valor": 3}}]

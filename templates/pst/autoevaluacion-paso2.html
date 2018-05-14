@@ -1,0 +1,690 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+
+        <section class="content-header">
+          <h1>Categorizaci&oacute;n<small>Autoevaluaci&oacute;n</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li><a href="{% url 'despachador_raiz' 'pst' 'bandeja.html' %}"><i class="fa fa-star-half-o"></i>Categorizaci&oacute;n</a></li> 
+                <li><a href="{% url 'despachador_raiz' 'pst' 'requisitos.html' %}"><i class="fa fa-file-text-o"></i>Requitos PST</a></li> 
+                <li class="active"><i class="fa fa-file-text-o"></i> Evaluaci&oacute;n PST</li>
+            </ol>        
+        </section>
+
+        <section class="content">
+            <div class="box box-danger">
+              <div class="box-body">
+                    <div class="body">
+                    
+                    <!-- BEGIN FORM -->    
+                    <form class="formulario-paso2" action="#">
+                        <div class="row">
+                            <div class="col-xs-7">
+                               <h3>Hotel XYZ&nbsp;<small>Hotel Turismo</small></h3>
+                            </div>
+                            <div class="col-xs-1 margin-combo"> Proceso </div>
+                            <div class="col-xs-4 margin-combo">
+                              <select class="select" onchange="location = this.options[this.selectedIndex].value;">
+                                <option class="en-option" value="{% url 'despachador_raiz' 'pst' 'autoevaluacion-paso1.html' %}">Paso 1:Entorno F&iacute;sico</option>
+                                <option disabled="disabled" class="en-option" selected>Paso 2: Edificaci&oacute;n</option>
+                                <option disabled="disabled" class="dis-option" value="#">Paso 3: Administrativo</option>
+                                <option disabled="disabled" class="dis-option" value="#">Paso 4: Servicios Complementarios</option>
+                                <option disabled="disabled" class="dis-option" value="#">Paso 5: Gesti&oacute;n Ambiental</option>
+                              </select>
+                            </div>                         
+                        </div>
+
+                        <div class="seccion-actual">
+                            Edificaci&oacute;n
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Contrucci&oacute;n                         
+                        </div>
+                        
+                        <!-- BEGIN Seccion de Fachada -->
+                        <div class="row item-autoevaluacion">                                                 
+                            <div class="col-lg-10 col-md-9">
+                                <label class="etiqueta-autoevaluacion">Fachada</label>
+                            </div>
+
+                            <div class="col-lg-1 col-md-2 contenido-centrado">
+                                    <select name="ponderacion-1" class="item-select">
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                            </div>
+                            <div id="ponderacion-1" class="col-lg-1 col-md-1 contenido-centrado icono-control icono-accion">
+                                <i class="fa fa-minus fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div class="sub-item" id="ponderacion-1_subitem">
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado icono-accion activar-modal">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div>
+                            </div>   
+                            <div class="row">             
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin decoloraci&oacute;n</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-1"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-1"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-1"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin &oacute;xido</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-2"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-2"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-2"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Limpias </label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-3"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-3"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-3"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin huecos</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-4"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-4"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-4"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin grietas</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-5"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-5"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-5"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Sin telarañas</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3"><input type="radio" name="1-6"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-6"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3"><input type="radio" name="1-6"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                        </div>                    
+                        <!-- END Seccion de Fachada -->
+
+                        <div class="seccion-actual">
+                            Edificaci&oacute;n
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Equipamiento                           
+                        </div>
+
+                        <!-- BEGIN Seccion de Sistema Iluminacion -->
+                        <div class="row item-autoevaluacion">                                                 
+                                <div class="col-lg-10 col-md-9">
+                                    <label class="etiqueta-autoevaluacion">Sistema de Iluminaci&oacute;n</label>
+                                </div>
+
+                                <div class="col-lg-1 col-md-2 contenido-centrado">                                    
+                                        <select name="ponderacion-2" class="item-select">
+                                            <option value="0">Sí</option>
+                                            <option value="1">No</option>
+                                            <option value="2">No aplica</option>
+                                        </select>
+                                </div>
+                                <div id="ponderacion-2" class="col-lg-1 col-md-1 contenido-centrado icono-control icono-accion">
+                                <i class="fa fa-minus fa-2x"></i>
+                                </div>
+                        </div>
+
+                        <div class="sub-item" id="ponderacion-2_subitem">
+
+                            <!-- BEGIN Cam Ico-->
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado icono-accion activar-modal">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div>
+                            </div>
+                            <!-- END Cam Ico-->
+
+                            <div class="row">
+                                 <div class="col-lg-5 col-md-5 col-sm-4">
+                                     <label class="etiqueta-autoevaluacion">Tiempo de Iluminaci&oacute;n en Fachadas</label>
+                                 </div>
+                                 <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                       <div class="col-lg-2 col-md-2">
+                                       <select id="2-1" name="ponderacion-2-1" class="hide-input-onselect">
+                                           <option value="0">Sí</option>
+                                           <option value="1">No</option>
+                                           <option value="2">No aplica</option>
+                                       </select>
+                                       </div>
+                                       <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1"><input type="text" name="2-1"/></div>    
+                                 </div>
+                             </div>
+
+                            <div class="row">
+                                 <div class="col-lg-5 col-md-5 col-sm-4">
+                                     <label class="etiqueta-autoevaluacion">Tiempo de Iluminaci&oacute;n en Jardines</label>
+                                 </div>
+                                 <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                       <div class="col-lg-2 col-md-2">
+                                       <select id="2-2" name="ponderacion-2-2" class="hide-input-onselect">
+                                           <option value="0">Sí</option>
+                                           <option value="1">No</option>
+                                           <option value="2">No aplica</option>
+                                       </select>
+                                       </div>
+                                       <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1"><input type="text" name="2-2"/></div>    
+                                 </div>
+                             </div>
+
+                            <div class="row">
+                                 <div class="col-lg-5 col-md-5 col-sm-4">
+                                     <label class="etiqueta-autoevaluacion">Tiempo de Iluminaci&oacute;n en Caminerias</label>
+                                 </div>
+                                 <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                       <div class="col-lg-2 col-md-2">
+                                       <select id="2-3" name="ponderacion-2-3" class="hide-input-onselect">
+                                           <option value="0">Sí</option>
+                                           <option value="1">No</option>
+                                           <option value="2">No aplica</option>
+                                       </select>
+                                       </div>
+                                       <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1"><input type="text" name="2-3"/></div>    
+                                 </div>
+                             </div>
+
+                             <div class="row">
+                                  <div class="col-lg-5 col-md-5 col-sm-4">
+                                      <label class="etiqueta-autoevaluacion">Tiempo de Iluminaci&oacute;n en Accesos</label>
+                                  </div>
+                                  <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                        <div class="col-lg-2 col-md-2">
+                                        <select id="2-4" name="ponderacion-2-4"  class="hide-input-onselect">
+                                            <option value="0">Sí</option>
+                                            <option value="1">No</option>
+                                            <option value="2">No aplica</option>
+                                        </select>
+                                        </div>
+                                        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1"><input type="text" name="2-4"/></div>    
+                                  </div>
+                              </div>         
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Las partes para fijar, protejer y conectar al circuito deben estar en buen estado</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-5"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-5"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-5"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">La iluminaci&oacute;n debe permitir observar los objetos (&eacute;statico o moviles) y a las personas</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" style="padding-top:1px;">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-6"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-6"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-6"/>&nbsp; No aplica</div>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Las l&aacute;mparas deben estar limpias.   </label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" style="padding-top:1px;">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-7"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-7"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-7"/>&nbsp; No aplica</div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Cada l&aacute;mpara debe estar adherida o fijada a cualquier superficie.</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" style="padding-top:1px;">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-8"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-8"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-8"/>&nbsp; No aplica</div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Cada l&aacute;mpara debe tener iluminaci&oacute;n.</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" style="padding-top:1px;">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-9"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-9"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-9"/>&nbsp; No aplica</div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">La iluminancia podr&iacute;a oscilar entre 20 a 50 lux.</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" style="padding-top:1px;">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-10"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-10"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="2-10"/>&nbsp; No aplica</div>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- END Seccion de Sistema Iluminacion -->
+
+
+                        <!-- BEGIN Seccion de Identificacion -->
+
+                        <div class="row item-autoevaluacion">                                                 
+                                <div class="col-lg-10 col-md-9">
+                                    <label class="etiqueta-autoevaluacion">Identificaci&oacute;n comercial del establecimiento</label>
+                                </div>
+
+                                <div class="col-lg-1 col-md-2 contenido-centrado">                                    
+                                        <select name="ponderacion-3" class="item-select">
+                                            <option value="0">Sí</option>
+                                            <option value="1">No</option>
+                                            <option value="2">No aplica</option>
+                                        </select>
+                                </div>
+                                <div id="ponderacion-3" class="col-lg-1 col-md-1 contenido-centrado icono-control icono-accion">
+                                <i class="fa fa-minus fa-2x"></i>
+                                </div>
+                        </div>
+
+                        <div class="sub-item" id="ponderacion-3_subitem">
+
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado icono-accion activar-modal">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div>
+                            </div>                           
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">El tamaño debe ser proporcional a la estructura física o edificación</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-1"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-1"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-1"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Iluminado
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-2"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-2"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-2"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Limpio
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-3"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-3"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-3"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Lugar facil de leer o localizar</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-4"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-4"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-4"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">En concordancia con el diseño arquitectónico</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-5"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-5"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-5"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-4">
+                                    <label class="etiqueta-autoevaluacion">Con todas las letras inherentes al nombre comercial del establecimiento</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 radio-item">
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-6"/>&nbsp; Bueno</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-6"/>&nbsp; Deficiente</div>
+                                    <div class="col-lg-3 col-md-4"><input type="radio" name="3-6"/>&nbsp; No aplica</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- END Seccion de  Identificacion -->
+
+
+                        <!-- BEGIN Seccion de  Entrada Principal/Recepción/Lobby -->
+                        <div class="seccion-actual">
+                            Edificaci&oacute;n
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Entrada Principal/Recepción/Lobby            
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Sanitarios
+                            &nbsp;<i class="fa fa-angle-right"></i>&nbsp;
+                            Construcci&oacute;n                                                    
+                        </div>
+
+                        <div class="row item-autoevaluacion">                                                 
+                            <div class="col-lg-5 col-md-5">
+                                <label class="etiqueta-autoevaluacion">Sanitarios P&uacute;blicos </label>
+                            </div>
+
+                            <div class="col-lg-5 col-md-4">
+                                <div class="col-lg-4 col-md-5 dama-checkbox-fixture">
+                                    <input type="checkbox" id="ponderacion-4-dama"/>&nbsp; Damas
+                                </div>
+                                <div class="col-lg-8 col-md-7 caballero-checkbox-fixture">
+                                        <input type="checkbox" id="ponderacion-4-caballero"/>&nbsp; Caballeros
+                                </div>
+                            </div>                            
+
+                            <div class="col-lg-1 col-md-2 contenido-centrado">                                    
+                                    <select name="ponderacion-4" class="item-select">
+                                        <option value="0">Sí</option>
+                                        <option value="1">No</option>
+                                        <option value="2">No aplica</option>
+                                    </select>
+                            </div>
+
+                            <div id="ponderacion-4" class="col-lg-1 col-md-1 contenido-centrado icono-control icono-accion">
+                                <i class="fa fa-minus fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div class="sub-item" id="ponderacion-4_subitem">
+
+                            <!-- BEGIN Cam Ico -->
+                            <div class="row">
+                                <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 contenido-centrado icono-accion activar-modal">
+                                    <i class="fa fa-camera fa-lg"></i>
+                                </div>
+                            </div>
+                            <!-- END Cam Ico -->
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Las dimensiones del baño permite su cómodo uso: lavamanos, WC</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" >                                    
+                                    <div class="col-lg-3 col-md-3">
+                                        <select id="ponderacion-4-dama_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>                                  
+                                    </div>
+                                    <div class="col-lg-3 col-md-3" >
+                                        <select id="ponderacion-4-caballero_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>  
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">La iluminancia podr&iacute;a oscilar entre 20 a 50 lux.</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" >                                    
+                                    <div class="col-lg-3 col-md-3">
+                                        <select id="ponderacion-4-dama_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>                                  
+                                    </div>
+                                    <div class="col-lg-3 col-md-3" >
+                                        <select id="ponderacion-4-caballero_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>  
+                                    </div>
+                                </div> 
+                            </div>                            
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">La limpieza de las piezas sanitarias se realiza de manera c&oacute;moda</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" >                                    
+                                    <div class="col-lg-3 col-md-3">
+                                        <select id="ponderacion-4-dama_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>                                  
+                                    </div>
+                                    <div class="col-lg-3 col-md-3" >
+                                        <select id="ponderacion-4-caballero_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>  
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Sala o cub&iacute;culo para personas con discapacidad</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" >                                    
+                                    <div class="col-lg-3 col-md-3">
+                                        <select id="ponderacion-4-dama_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>                                  
+                                    </div>
+                                    <div class="col-lg-3 col-md-3" >
+                                        <select id="ponderacion-4-caballero_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>  
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5">
+                                    <label class="etiqueta-autoevaluacion">Las dimensiones de las salas permiten un f&aacute;cil trabajo de reparaci&oacute;n e inspecci&oacute;n</label>
+                                </div>
+                                <div class="col-lg-7 col-md-7 radio-item" >                                    
+                                    <div class="col-lg-3 col-md-3">
+                                        <select id="ponderacion-4-dama_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>                                  
+                                    </div>
+                                    <div class="col-lg-3 col-md-3" >
+                                        <select id="ponderacion-4-caballero_select" class="elemento-oculto" disabled>
+                                                <option value="0">Bueno</option>
+                                                <option value="1">Deficiente</option>
+                                                <option value="2">No aplica</option>
+                                        </select>  
+                                    </div>
+                                </div> 
+                            </div>                          
+                        </div>
+                        <!-- END Seccion de  Entrada Principal/Recepción/Lobby -->
+
+                    </form>                    
+                    <!-- END FORM -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-bar col-lg-12 col-md-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">                    
+                    <a class="btn btn-primary col-lg-12 col-md-12" href="{% url 'despachador_raiz' 'pst' 'autoevaluacion-paso1.html' %}">
+                        <i class="fa fa-arrow-left "></i> &nbsp;&nbsp;Anterior
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">                    
+                    <a class="btn btn-info col-lg-12 col-md-12 guardar" href="#">
+                        <i class="fa fa-save"></i> &nbsp;&nbsp;Guardar
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="btn btn-primary col-lg-12 col-md-12 boton-finalizar" href="#">
+                        <i class="fa fa-arrow-right "></i> &nbsp;&nbsp;Finalizar
+                    </a>
+                </div>
+            </div>
+
+        </section>
+  </aside>
+
+<!-- ~~~~~~~~ Modales utilizadas ~~~~~~~~ -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Cargar im&aacute;genes</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Fachada" class="col-lg-12">Fachada</p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Sistema de iluminaci&oacute;n" class="col-lg-12">Sistema de ilumicaci&oacute;n </p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Identificaci&oacute;n comercial del establecimiento" class="col-lg-12">Identificaci&oacute;n comercial del establecimiento</p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-4 col-md-4 col-xs-6 thumb image-container">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="{{STATIC_URL}}img/img-400x300.gif" alt="test">
+                        </div>
+                        <div class="caption text-center center-block">
+                            <p id="Dimg" data-toggle="tooltip" title="Sanitarios p&uacute;blicos" class="col-lg-12">Sanitarios p&uacute;blicos </p>
+                            <div class="col-lg-12">
+                                <a href="#" class="btn btn-primary">Subir</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-xs-6" data-dismiss="modal">
+                        <a href="#" data-dismiss="modal" class="btn btn-danger col-xs-12">Cancelar</a>
+                    </div>
+                    <div class="col-xs-6" data-dismiss="modal">
+                        <a href="#" data-dismiss="modal" class="btn btn-primary col-xs-12">Aceptar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+{% include '_modales_categorizacion.html' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {            
+           
+
+            $(".guardar").each(function(){                
+                $(this).click(function(){
+                   $('#notificacion-guardado').modal();
+                });
+            }); 
+
+            $(".boton-finalizar").click(function(){
+              $("#notificacion-general #notificacion-general-Label").html("Finalizar carga de requisitos");
+              $("#notificacion-general #notificacion-general-body").html("<h4>¿Desea usted realizar el envio de sus datos para su evaluaci&oacute;n?</h4>");
+              $("#notificacion-general #notificacion-general-footer").html(
+                  "<div class='col-xs-6' data-dismiss='modal'>\
+                      <a href='#' class='btn btn-danger col-xs-12'>Cancelar</a>\
+                  </div>\
+                  <div class='col-xs-6' >\
+                      <a href='{% url 'despachador_raiz' 'pst' 'bandeja.html' %}' class='btn btn-primary col-xs-12'>Aceptar</a>\
+                  </div>"
+                  );
+              $("#notificacion-general").modal();
+            });
+
+      
+        });
+    </script>
+{% endblock %}

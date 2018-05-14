@@ -1,0 +1,30 @@
+{
+    "cambio_de_perfil_aprobada": {
+        "filename": "cambio_de_perfil_aprobada.html",
+        "args": ["razon_social"]
+    },
+    "cambio_de_perfil_rechazada": {
+        "filename": "cambio_de_perfil_rechazada.html",
+        "args": ["razon_social", "observaciones"]
+    },
+    "verificacion_concluida": {
+        "filename": "verificacion_concluida.html",
+        "args": ["razon_social", "periodo_desde", "periodo_hasta", "observaciones"]
+    },
+    "declaracion_nueva": {
+        "filename": "declaracion_nueva.html",
+        "args": ["razon_social", "periodo"]
+    },
+    "declaracion_anulacion_aprobada": {
+        "filename": "declaracion_anulacion_aprobada.html",
+        "args": ["razon_social", "periodo"]
+    },
+    "declaracion_anulacion_rechazada": {
+        "filename": "declaracion_anulacion_rechazada.html",
+        "args": ["razon_social", "periodo"]
+    },
+    "registro_usuario_rechazado": {
+        "filename": "registro_usuario_rechazado.html",
+        "args": ["razon_social", "observaciones"]
+    }
+}

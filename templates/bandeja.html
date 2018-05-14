@@ -1,0 +1,2396 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        {% csrf_token %}
+        <section class="content-header">
+            <h1>Categorizaci&oacute;n<small>Bandeja de trabajo</small></h1>
+                <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li class="active"><i class="fa fa-star-half-o"></i>Categorizaci&oacute;n</li> <!--Editar icono -->
+            </ol>
+        </section>
+        <section class="content categorizacion_bandeja" tiporol="{{tiporol}}">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="row title" id="row-buscar">
+                        <div class="col-xs-2 col-xs-offset-10">
+                            <a id="activar_buscar_modal" href="#" class="btn btn-primary btn-flat pull-right col-xs-12 {% if not solicitudes and not busqueda %} disabled {% endif %}">
+                                Buscar &nbsp;&nbsp;<i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                    <div class="col-xs-12">
+                    {% if busqueda and not solicitudes %}
+                        <div class="alert alert-warning alert-dismissible contenido-centrado" role="alert">
+                            <div class="row">
+                                <div class="col-xs-2 col-xs-offset-5">
+                                    <i class="fa fa-frown-o fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 Su b&uacute;squeda no arroj&oacute; resultados
+                            </div>
+                        </div>  
+
+                    {% else %}
+
+                    <table class="table table-striped table-partner table-hover text-center" id="table_bandeja">
+                    
+                    <thead>
+                    <tr>                    
+                    <th>Fecha</th>                   
+                    {% if not pst %}
+                    <th>RIF</th>
+                    <th>RTN</th>
+                    <th>Raz&oacute;n social</th>
+                    {% if inspector or coordinador_dif %}
+                    <th>Inspectores</th>
+                    {% elif not analista %}
+                            <th>Analista</th>
+                            {% if not coordinador_ct %}
+                                <th>Coordinador</th>
+                                {% if not director_ct %}
+                                    <th>Director</th>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    <th>Categorizaci&oacute;n</th>
+                    <th>Estatus</th>
+                    <th>Opciones</th>                                        
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for s,n in solicitudes %}
+                    <tr>                    
+                        <td>{{s.fecha_apertura|date}}</td>                 
+                        {% if not pst %}
+                         <td>{{s.pst.rif}}</td>
+                        <td>{{s.pst.rtn|default_if_none:"-"}}</td>
+                        <td>{{s.pst.razon_social|capfirst}}</td>
+                        {% if inspector or coordinador_dif %}
+                            <td>
+                                <div class="inspector_{{s.id}}" id="{{s.id}}">
+                                {% if inspectorx %}  
+                                    {% for e in inspectorx|keyvalue:s.id %}
+                                        <div class="quitar-inspector_{{e.0}}" id="{{e.0}}">
+                                            <span>{{e.1}}</span>
+                                            {% if coordinador_dif and s.estatus.abreviacion == 'PAI' %}
+                                                <a class="quitar-inspector icono-accion">
+                                                    <span>
+                                                        <i class="fa fa-times"></i>
+                                                    </span>
+                                                </a> 
+                                            {% endif %}
+                                                <!--<a class="
+                                                    {% if s.estatus.abreviacion == 'PAI' %}
+                                                        quitar-inspector
+                                                    {% else %}
+                                                        {% if cantidad|keyvalue:s.id == 1 %}
+                                                            quitar-inspector-get
+                                                        {% else %}
+                                                            quitar-inspector
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    icono-accion">
+                                                    <span>
+                                                        <i class="fa fa-times"></i>
+                                                    </span>
+                                                    </a> -->
+                                                <br>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                </div>
+                            </td>
+                        {% elif not analista %}
+                            <td><div class="analista_{{s.id}}" id="{{s.id}}">
+                            {%if analistax|keyvalue:s.id %}
+                                {% for e in analistax|keyvalue:s.id %}
+                                    <div class="quitar-analista_{{e.0}}" id="{{e.0}}">
+                                        <span>{{e.1}}</span>
+                                        {% if coordinador_ct and s.estatus.abreviacion == 'PAA' %}
+                                            <a class="quitar-analista-get icono-accion">
+
+                                                <span>
+                                                    <i class="fa fa-times"></i>
+                                                </span>
+                                            </a> 
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            </div> 
+                            </td>
+                            {% if not coordinador_ct %}
+                                <td>{{coordinadorx|keyvalue:s.id}} </td>
+                                {% if not director_ct %}
+                                    <td>{{directorx|keyvalue:s.id}} </td>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        {% endif %}
+                        <td>
+
+                            {% for t in n.0|ranges %}
+                                <span class="text-red">
+                                    <i class="fa {{n.2}}"></i>
+                                </span>
+                            {% endfor %}
+
+                            {% for t in n.1|ranges %}
+                                <span class="text-gray">
+                                    <i class="fa {{n.2}}"></i>
+                                </span>                                            
+                            {% endfor %}
+
+                        </td>
+                        <td>
+                            <div id="estatus_{{s.id}}" tipo="{{s.estatus.abreviacion}}">
+                                {% if s.estatus.abreviacion == 'NPI' or s.estatus.abreviacion == 'SN' %}
+                                <label data-toggle="tooltip" title="{{s.estatus.descripcion}}" class="label label-danger etiqueta-estatus">{{s.estatus.nombre}}</label>
+                                {% elif s.estatus.abreviacion == 'A' %}
+                                <label data-toggle="tooltip" title="{{s.estatus.descripcion}}" class="label label-success etiqueta-estatus">{{s.estatus.nombre}}</label>
+                                {% elif s.estatus.abreviacion == 'EI' and s.fecha_clausura %}
+                                <label data-toggle="tooltip" title="Reconsiderando solicitud" class="label label-warning etiqueta-estatus">Revisi&oacute;n</label>
+                                {% else %}
+                                <label data-toggle="tooltip" title="{{s.estatus.descripcion}}" class="label label-warning etiqueta-estatus">{{s.estatus.nombre}}</label>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-eye icon-white"></i>
+                                        <span class="caret"></span>                                            
+                                </a>&nbsp;
+                                <ul class="dropdown-menu  pull-right"  role="menu">
+                                    <li> 
+                                        <a href="{%url 'cargar_requisitos' solicitud=s.id%}">
+                                            Ver Requisitos
+                                        </a>
+                                    </li>
+                                    {% if s|inspeccion %}
+                                        <li> 
+                                            <a href="{% url 'requisitos_principales' solicitud=s.id tipo='RE'%}">
+                                                Ver Inspecci&oacute;n
+                                            </a>
+                                        </li>
+                                    {% elif s.funcionario.id == funcionario_id and s.funcionario.tiporol.nombre == 'inspector' or s.funcionario_extra.id == funcionario_id %}
+                                        <li> 
+                                        <a href="{% url 'requisitos_principales' solicitud=s.id tipo='RE'%}">
+                                                Realizar Inspecci&oacute;n
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if documentos|keyvalue:s.id %}
+                                        {% for d in documentos|keyvalue:s.id %}
+                                            <li> 
+                                                <a href="#" ruta="{{d|keyvalue:'ruta'}}" class="ver_documento_pdf"> Ver {{d|keyvalue:'nombre'}} </a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                    
+                                    {% if s.funcionario.id == funcionario_id or s.funcionario_extra.id == funcionario_id %}
+                                        {% for e in notificacion|keyvalue:s.id %}
+                                            <li><a id="notificacion_{{s.id}}" href="#" class="mostrar_observaciones" observacion="{{e|keyvalue:'observacion'}}" extension="{{e|keyvalue:'extension'}}" src="{{e|keyvalue:'src'}}"> Notificaci&oacute;n </a></li>
+                                        {% endfor %}
+                                    {% endif %}
+                                        <!--
+                                        {#% if s.estatus.abreviacion == 'EI' or s.estatus.abreviacion == 'CI' %#}
+                                        <li> 
+                                            <a href="{% url 'requisitos_principales' solicitud=s.id tipo='RB'%}">
+                                                Realizar evaluaci&oacute;n
+                                            </a>
+                                        </li> 
+                                        {#% endif %#}
+                                    
+                                    {#% if s.estatus.abreviacion == 'RS' and viceministro %#}
+                                        <li> <a href="#"> Ver Formulario </a></li>
+                                    {#% endif %#}-->
+
+                                    
+                                </ul>
+                            </div>
+                            {% if coordinador_ct %}
+                                <div class="btn-group">  
+                                    <a data-toggle="tooltip" title="Agregar analista" solicitudid="{{s.id}}" id="2_boton_{{s.id}}" href="" class="btn btn-info 
+                                    {% if analistax|keyvalue:s.id or s.estatus.abreviacion != 'PAA' %}
+                                        disabled
+                                    {%endif%} 
+                                    activar-modal-analistas">
+                                        <i class="fa fa-plus-square icon-white"></i>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% if coordinador_dif %}
+                                <div class="btn-group">  
+                                    <a data-toggle="tooltip" title="Agregar Inspectores" solicitudid="{{s.id}}" id="2_boton_{{s.id}}" href="" class="btn btn-info
+                                    {% if inspectorx|keyvalue:s.id %}
+                                        {%if s.funcionario.id != funcionario_id %}
+                                            disabled
+                                        {% else %}
+                                            {% if cantidad|keyvalue:s.id == 2 or s.estatus.abreviacion != 'PAI' %}
+                                                disabled
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %} 
+                                    activar-modal-inspectores">
+                                        <i class="fa fa-plus-square icon-white"></i>
+                                    </a>&nbsp;
+                                </div>    
+                                <!--                            
+                                {#% if s.estatus.abreviacion != 'PAI' %#}
+                                    <div class="btn-group credenciales_{{s.id}}">
+                                        <a data-toggle="tooltip" title="" id="{{s.id}}" href="" class="btn btn-info activar-modal-credenciales ver-credencial
+                                        {% if cantidad|keyvalue:s.id < 1 %}
+                                            disabled
+                                        {% endif %}" tiporol="coordinador_dif" data-original-title="Ver credencial">
+                                            <i class="fa fa-certificate icon-white"></i>
+                                        </a>&nbsp;
+                                    </div>
+                                
+                                {#% if s.estatus.abreviacion == 'PAI' %#}
+                                    <div class="btn-group credenciales_{{s.id}}">
+                                        <a data-toggle="tooltip" title="" id="{{s.id}}" href="" class="btn btn-info  cred_{{s.id}} otorgar-credenciales {% if s.estatus.abreviacion != 'PAI' %}
+                                            disabled
+                                        {% endif %}" tiporol="coordinador_dif" data-original-title="Otorgar credencial">
+                                            <i class="fa fa-cogs icon-white"></i>
+                                        </a>&nbsp;
+                                    </div>
+                                {#% endif %#} 
+                                -->                               
+                            {% endif %}
+                            {#% if inspector %#}
+                                <!--
+                                <a data-toggle="tooltip" title="" id="{{s.id}}" tiporol="inspector" href="#" class="btn btn-info activar-modal-credenciales ver-credencial 
+                                {% if s.estatus.abreviacion == 'PAI' %}
+                                     disabled 
+                                {% endif %}" data-original-title="Ver credencial">
+                                    <i class="fa fa-certificate icon-white"></i>
+                                </a>&nbsp;
+                                
+                                {% if s.fecha_clausura %}
+                                    <a data-toggle="tooltip" title="Modificar formulario" href="" tiporol="inspector" id="{{s.id}}" class="btn btn-info cargar_{{s.id}} modificar-formulario
+                                    {% if s.funcionario.id != funcionario_id and s.funcionario_extra.id != funcionario_id %}
+                                    disabled
+                                    {% endif %}">
+                                        <i class="fa fa-upload icon-white"></i> 
+                                    </a>   
+                                    <a data-toggle="tooltip" title="Enviar formulario" tiporol="inspector" href="" id="{{s.id}}" class="btn btn-info enviar_{{s.id}} enviar_inspeccion
+                                    {% if s.funcionario.id != funcionario_id and s.funcionario_extra.id != funcionario_id %}
+                                    disabled
+                                    {% endif %}">
+                                        <i class="fa fa-check-square icon-white"></i> 
+                                    </a>
+
+                                {% else %}
+                                    <a data-toggle="tooltip" title="Cargar informe t&eacute;cnico" href="" tiporol="inspector" id="{{s.id}}" class="btn btn-info cargar_{{s.id}} cargar-elemento
+                                    {% if s.funcionario.id != funcionario_id and s.funcionario_extra.id != funcionario_id or True %}
+                                    disabled
+                                    {% endif %}">
+                                        <i class="fa fa-upload icon-white"></i> 
+                                    </a> 
+                                    <a data-toggle="tooltip" title="Enviar informe t&eacute;cnico" tiporol="inspector" href="" id="{{s.id}}" class="btn btn-info enviar_{{s.id}} enviar_inspeccion
+                                    {% if s.funcionario.id != funcionario_id and s.funcionario_extra.id != funcionario_id %}
+                                    disabled
+                                    {% endif %}">
+                                        <i class="fa fa-check-square icon-white"></i> 
+                                    </a>
+                                {% endif %}
+                                -->
+                            {#% endif %#}
+                                {% if viceministro %}
+                                    <div class="btn-group"> 
+                                    <a id="btn_0" href="#" class="btn btn-info dropdown-toggle menu_{{s.id}}
+                                        {% if not opciones|keyvalue:s.id or s.funcionario.id != funcionario_id %}
+                                            disabled
+                                        {% endif %}" data-toggle="dropdown">
+                                            <i class="fa fa-bars icon-white"></i>&nbsp;
+                                            <span class="caret"></span>
+                                        </a>&nbsp;
+                                        <ul class="dropdown-menu  pull-right"  role="menu">
+                                            {% if opciones|keyvalue:s.id or s.funcionario.id == funcionario_id %}
+                                                <li><a data-row="0" tiporol="{{tiporol}}" href="" class ="devolver_con_observaciones" id="{{s.id}}">Devolver con Observaciones</a></li>
+                                                {% if s.estatus.abreviacion == 'EA' %}
+                                                    {% if documentos|verificacion_R:s.id %}
+                                                        <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="aprobar_cumplimiento" id="{{s.id}}">Aprobar</a></li>
+                                                    {% else %}
+                                                        <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="aprobar" id="{{s.id}}">Aprobar</a></li>
+                                                    {% endif %}
+                                                {% elif s.estatus.abreviacion == 'EANP' %}
+                                                <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="negar" id="{{s.id}}">No Procede</a></li>
+                                                {% elif s.estatus.abreviacion == 'EN' %}
+                                                <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="negar_incumplimiento" id="{{s.id}}">Negar por Incumplimiento</a></li>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if s.estatus.abreviacion == 'DMG' or s.estatus.abreviacion == 'RPG' or s.estatus.abreviacion == 'CG' %}
+                                                {% if firmas %}
+                                                    <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="firmar" id="{{s.id}}">Firmar</a></li>
+                                                {% endif %}
+                                            {% endif %}   
+                                        </ul>
+                                    </div>
+                                {% else %}
+                                    <div class="btn-group"> 
+                                    <a id="btn_0" href="#" class="btn btn-info dropdown-toggle menu_{{s.id}}
+                                        {% if not opciones|keyvalue:s.id or s.funcionario.id != funcionario_id and s.funcionario_extra.id != funcionario_id %}
+                                            disabled
+                                        {% endif %}" data-toggle="dropdown">
+                                            <i class="fa fa-bars icon-white"></i>&nbsp;
+                                            <span class="caret"></span>
+                                        </a>&nbsp;
+                                        <!--
+                                        {#% if s.fecha_clausura and coordinador_dif and s.estatus.abreviacion == 'RI' %#}
+                                            <ul class="dropdown-menu  pull-right"  role="menu">
+                                                <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="devolver_con_observaciones" id="{{s.id}}">Devolver con Observaciones</a></li>
+                                                <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="aprobar_formulario" id="{{s.id}}">Aprobar Formulario</a></li>
+                                            </ul>
+                                        {#% elif s.estatus.abreviacion == 'RS' and not coordinador_ct and not viceministro %#}
+                                            <ul class="dropdown-menu  pull-right"  role="menu">
+                                                <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="proponer_aprobación_de_reconsideración" id="{{s.id}}">Proponer Aprobaci&oacute;n de Reconsideraci&oacute;n</a></li>
+                                            </ul>
+                                        -->
+                                        <!--{#% else %#}-->
+                                        <ul class="dropdown-menu  pull-right"  role="menu">
+                                            {% if opciones|keyvalue:s.id and s.funcionario.id == funcionario_id or s.funcionario_extra.id == funcionario_id %}
+                                                {% for e in opciones|keyvalue:s.id %}
+                                                   <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="{{e|convert_to_underscore_case}}" id="{{s.id}}">{{e}}</a></li>
+                                                {% endfor %}
+                                                {% if s.estatus.abreviacion == 'ITG' %}
+                                                    {% if s.pst_categoria_doc.categoria.valor > 0 %}
+                                                    <!--
+                                                        {#% if s.estatus.abreviacion == 'SAI' %#}
+                                                            <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="aprobar_inspección" id="{{s.id}}">Aprobar Inspecci&oacute;n</a></li>
+                                                        {#% elif s.estatus.abreviacion == 'VI' %#} -->
+                                                        <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="proponer_aprobación" id="{{s.id}}">Proponer Aprobación</a></li>
+                                                      
+                                                    {% elif not documentos|verificacion_R:s.id %}
+                                                        <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="solicitar_reparaciones" id="{{s.id}}">Solicitar Reparaciones</a></li>  
+
+                                                    {% elif documentos|verificacion_R:s.id  %}
+                                                        <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="proponer_incumplimiento" id="{{s.id}}">Incumplimiento de Disposiciones de mejora</a></li>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if s.estatus.abreviacion == 'DMG' or s.estatus.abreviacion == 'RPG' or s.estatus.abreviacion == 'CG' %}
+                                                {% if firmas %}
+                                                    <li><a data-row="0" tiporol= "{{tiporol}}" href="" class ="firmar" id="{{s.id}}">Firmar</a></li>
+                                                {% endif %}
+                                            {% endif %}
+                                        </ul>
+                                        <!--{#% endif %#} -->
+                                    </div>
+                                {% endif %}
+                           <!-- {#% endif %#} -->
+                    </td>                                       
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}            
+                    </div>
+                    </div>
+                    <!--///////////////////Paginador\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+                    <div class="row root_paginator" p="{{p}}">        
+                        <a href="
+                        {% if busqueda == True %}
+                            {% url 'bandeja' %}?p={{p}}&s=-&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {% url 'bandeja' %}?p={{p}}&s=-
+                        {% endif %}
+                        " class="col-xs-2 col-xs-offset-2 btn btn-flat btn-primary paginar fa fa-chevron-left" id="prev" s="-"style="
+                        {% if p == 0 %}
+                            visibility:hidden
+                        {% endif %}"                
+                         ></a>
+                        <a href="
+                        {% if busqueda == True %}
+                            {%url 'bandeja' %}?p={{p}}&s=%2B&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {%url 'bandeja' %}?p={{p}}&s=%2B
+                        {% endif %}"
+                         class="col-xs-2 col-xs-offset-2 btn  btn-flat btn-primary paginar fa fa-chevron-right" id="next" s="+" style="
+                        {% if mas == False %}
+                            visibility:hidden
+                        {% endif %}"
+                        ></a>
+                    </div>
+                    <!--////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+                    <!--/////////////////Formulario de Firmas\\\\\\\\\\\\\\\\\\
+                    {#%if firmasx and solicitudes %#}
+                        
+                        <div class = "col-xs-12">
+                            <div id="div-form-firmas" hidden>
+                                <form method="POST" id="form_firmas">
+                                    {{form}}
+                                </form>
+                            </div>
+                            <table class="table table-striped table-partner table-hover text-center" id=
+                            "table_firma">
+                                <thead>
+                                    <tr class="contenido-centrado">
+                                        <th>
+                                            A Firmar
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="firmas_tbody">
+
+                                </tbody>
+                            </table>
+                            <script src="{{ STATIC_URL }}js/firmas/deployJava.js"  type="application/javascript"></script>
+
+                            <br>
+                            <br>
+                            <div align="center">
+                                <script>
+                                    var attributes = {
+                                        code: 'aplication.FirmarPdfSftp',
+                                        archive:'{{ STATIC_URL }}js/firmas/dist/SOFESPCM.jar',
+                                        width: 124, height: 31, mayscript: 'true',
+                                        user: 'user', password: 'password', server: 'server',
+                                        puerto: 'puerto', rutaOrigen: 'rutaOrigen',
+                                        rutaDestino: 'rutaDestino', passwordPdf: 'passwordPdf',
+                                        razon: 'razon', ubicacion: 'ubicacion', mailContacto: 'mailContacto', organizacion:'organizacion',
+                                        pX: 'pX', pY: 'pY', pW: 'pW', pH: 'pH',
+                                        pagina: 'pagina', tipoFirma: 'tipoFirma', metodo: 'metodo',
+                                        email: 'email', serial: 'serial', clave_publica: 'clave_publica',
+                                        cantidad: 'cantidad',
+                                        pdf_firma0: 'pdf_firma0', pdf_firma1: 'pdf_firma1',
+                                        pdf_firma2: 'pdf_firma2', pdf_firma3: 'pdf_firma3',
+                                        pdf_firma4: 'pdf_firma4', pdf_firma5: 'pdf_firma5',
+                                        pdf_firma6: 'pdf_firma6', pdf_firma7: 'pdf_firma7',
+                                        pdf_firma8: 'pdf_firma8', pdf_firma9: 'pdf_firma9',
+                                    };
+                                    var version = '1.7.0';
+                                    deployJava.runApplet(attributes, null, version);
+                                </script>
+                            </div>
+                            <script type="application/javascript">
+                                function insertar(){
+                                    var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+                                    var arr = {};
+                                    $.each($('#firmas_tbody').find('tr'), function(){
+                                        arr[$(this).attr('auxid')] = $(this).attr('archive');
+                                    });
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/categorizacion/funcionario/firmas/firmado',
+                                        data:{
+                                            'json_firmar': JSON.stringify(arr),
+                                            csrfmiddlewaretoken: token,
+                                        },
+                                        success: function(server_data) {
+                                            var est_aux = server_data.data.estados;
+                                            $('#firmas_tbody').removeAttr('tipo');
+                                            $.each($('#firmas_tbody').find('tr'), function(){
+                                                $(this).remove();
+                                            });
+                                            console.log(JSON.stringify(est_aux));
+                                            $.each(est_aux,function(k,v){
+                                                console.log(k);
+                                                console.log(v);
+                                                if($('#table_bandeja').find('#estatus_'+k).length !=0){
+                                                    $('#table_bandeja').find('#estatus_'+k).children().remove();
+                                                    $('#table_bandeja').find('#estatus_'+k).html('<label data-toggle="tooltip" title="'+v[1]+'" class="label label-warning etiqueta-estatus">'+v[0]+'</label>');
+                                                    $('.menu_'+k).attr('disabled','disabled');
+                                                }
+                                            })
+                                            $('#notificacion-guardado-body').html(
+                                                '<div class="col-lg-12 text-center">\
+                                                    <h4>El proceso de firma finaliz&oacute; correctamente.</h4>\
+                                                </div>');
+                                            $('#notificacion-guardado').modal();
+                                        },
+                                        error: function(e){
+                                            console.log(e);
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    {#%endif%#}
+                    ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+                </div>
+            </div>
+        </section>
+    </aside>
+
+<div class="modal fade" id="asignar-analista-modal" solicitudid="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header" style="background-color: #CE4744; color: white;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Asignar Analista</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <table id="tabla_analistas" class="table table-modal text-center">
+                        <thead>
+                            <tr class="label-info">
+                                <th>Analistas</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body-analista">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer contenido-centrado">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="asignar-analista" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="asignar-inspector-modal" solicitudid="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header" style="background-color: #CE4744; color: white;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Asignar Inspectores</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <table id="tabla_inspector" class="table table-modal text-center">
+                        <thead>
+                            <tr class="label-info">
+                                <th>Inspectores</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body_inspector">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer contenido-centrado">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="asignar-inspector" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>    </div>
+
+    {% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">        
+        $(function(){
+
+            var modal_padre;
+            var fila_seleccionada;
+            var id;
+            var analista;
+            var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+            var tiporol;
+            var msg;
+            var observacion;
+            var file;
+
+            tables = function(){
+                var thead_clone = $('#table_bandeja').find('thead').clone();
+                var colspan = $('#table_bandeja').find('thead').find('th').length -1;
+                $('#table_firma').find('thead').find('th').attr('colspan',colspan);
+
+                /*$('.table_firma').prepend(thead_clone);
+                $(thead_clone).children()
+                $.each($('#table_bandeja').find('thead').find('th'),function(){
+                  console.log($(this).text("-"));
+                })*/
+            }
+            tables();
+
+            f1 = function( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga, solicitar_dias){
+                if (checkbox_prorroga){
+                    zonacheckbox="<div class='zona-checkbox-dinamico'> \
+                    <label class='col-xs-10'>¿Permitir nuevas solicitudes de pr&oacute;rroga para esta solicitud?</label> \
+                    <input \
+                    id='checkbox-permitirprorroga' \
+                    value='true' \
+                    type='checkbox' \
+                    checked='checked' /> \
+                    <input value='' id='respuesta_check' name='permitirprorroga' class='input-escondido'/>\
+                    </div>";
+                }else{
+                    zonacheckbox="";
+                }
+                if(solicitar_dias){
+                    zonadias="<div> \
+                    <label class='col-xs-10'>Indique d&iacute;as que desea asignar: </label> \
+                    <input \
+                    id='diasasignados' \
+                    name='diasprorroga'\
+                    type='number' \
+                    min='0' />\
+                    </div>";
+                }else{
+                    zonadias="";
+
+                }
+                $('#notificacion-general-Label').html(""+label+"");
+                $('#notificacion-general-body').html(
+                    "<form id ='form_datos_comp' method='post' enctype='multipart/form-data' name = 'form_datos_comp' action='"+url+"' id_solicitud='"+id_solicitud+"' respuesta='"+respuesta+"' novalidate>\
+                        {% csrf_token %}\
+                        <input value='"+id_solicitud+"' name='solicitud' class='input-escondido'/>\
+                    <div class='col-lg-12 text-center'>\
+                        <h4>"+body+"</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                        <ul class='wysihtml5-toolbar point-ul'>\
+                            <textarea name ='"+comentario_name+"' id='textarea-wysi' placeholder='Ingrese aqu&iacute; sus comentarios' class='form-control campo-comentario' rows='10' style='width:100%; height:100%;' required >"+observaciones+"</textarea>\
+                            "+ zonadias + zonacheckbox +" </ul></div></form>");
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12 btn-ajaxsubmit">Aceptar</a>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal',
+                    increaseArea: '20%'
+                });
+                /* Para quitar toda la toolbar
+                $('.wysihtml5-toolbar').children('ul').children('li').remove()
+                */
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+            }
+
+            $('.aprobar').click(function(){
+                id=$(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/respuesta/aprobar',
+                    data:{
+                        'solicitud':id,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Aprobada" class="label label-success etiqueta-estatus">Aprobada</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido aprobada.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+
+            $('.firmar').click(function(){
+                id=$(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/respuesta/firmar',
+                    data:{
+                        'solicitud':id,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="'+descripcion+'" class="label label-warning etiqueta-estatus">'+estado+'</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>El documento ha sido firmado.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+/*
+            firma_script_agregar = function(id,tr){
+                $.ajax({
+                    type: 'GET',
+                    url: '/categorizacion/funcionario/firmas/script/agregar',
+                    data:{
+                        'id': id,
+                    },
+                    success: function(server_data) {
+                        var tr_clone = $(tr).clone();
+                        var leng = $('#firmas_tbody').find('tr').length;
+                        var dict = server_data.data.coordenadas;
+                        if(leng == 0){
+                            $('#firmas_tbody').attr('tipo',server_data.data.oficio);
+                            $('#pX').attr("value", dict["pX"]);
+                            $('#pY').attr("value", dict["pY"]);
+                            $('#pW').attr("value", dict["pW"]);
+                            $('#pH').attr("value", dict["pH"]);
+                            $('#pagina').attr("value", dict["pagina"]);
+                        }
+                        $('#firmas_tbody').append(tr_clone);
+                        $(tr_clone).attr('auxid',id);
+                        $(tr_clone).attr('id','firma_tr_'+leng);
+                        $(tr_clone).find('#estatus_'+id).parents('td').siblings().last().remove();
+                        $(tr_clone).find('#estatus_'+id).attr('id','estatus_firmas_'+id);
+                        $(tr_clone).find('#estatus_firmas_'+id).parents('td').after('<td>\
+                            <div class="btn-group">\
+                            <a  data-row="0" data-toggle="tooltip" title="No Firmar" solicitudfirmaid="'+id+'" id="delete_firma_'+id+'" href="" class="btn btn-info delete_firma">\
+                            <i class="fa fa-times icon-white"></i>\
+                            </a>\
+                            </div></td>'
+                        );
+                        $(tr_clone).attr('archive',server_data.data.nombre_documento)
+                        var i = 0;
+                        for(i;i<10;i++){
+                            if($('#pdf_firma'+i).val() == ""){
+                                $('#pdf_firma'+i).attr('value',$(tr_clone).attr('archive'));
+                                break;
+                            }
+                        }
+                        var aux_int = parseInt($('#cantidad').attr('value'));
+                        aux_int+=1;
+                        $('#cantidad').attr('value',aux_int.toString());
+                    },
+                    error: function(e){
+                        console.log(e);
+                    }
+                });
+            }
+
+            firma_script_eliminar = function(id){
+                $.ajax({
+                    type: 'GET',
+                    url: '/categorizacion/funcionario/firmas/script/eliminar',
+                    async: false,
+                    data:{
+                        'id': id,
+                    },
+                    success: function(server_data) {
+                        var aux_int = parseInt($('#cantidad').attr('value'));
+                        aux_int= aux_int-1;
+                        $('#cantidad').attr('value',aux_int.toString());
+                        if(parseInt($('#cantidad').attr('value')) == 0){
+                            $('#firmas_tbody').removeAttr('tipo');
+                        }
+                    },
+                    error: function(e){
+                        console.log(e);
+                        return false;
+                    }
+                });
+            }
+
+            $('.firmar').click(function(){
+                tr = $(this).parents('tr');
+                id = $(this).attr('id');
+                tipo = $(tr).find('#estatus_'+id).attr('tipo');
+                if($('[auxid = '+id+']').length ==0 && ($('#firmas_tbody').attr('tipo') == tipo || $('#firmas_tbody').attr('tipo') == undefined)){
+                    firma_script_agregar(id,tr);
+                }else{
+                    console.log("Error: Ya el documento se encuentra para firmar o no concuerda con el tipo de documento que se encuentra ya para firmar");
+                }
+            });
+
+            $(document).on('click', '.delete_firma', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                idsolicitud = $(this).attr("solicitudfirmaid");
+                firma_script_eliminar(idsolicitud);
+
+                var i = 0;
+                var aux = 0;
+                for(i;i<10;i++){
+                    $('#firma_tr_'+i).attr('aux','firma_tr_'+i);
+                    if($('#pdf_firma'+i).val() != ""){
+                        aux +=1;
+                    }
+                }
+                var aux_split =parseInt($(this).parents('tr').attr('id').split("_")[2]);
+                i = aux_split;
+                var cont = 0;
+                for(i;i<aux;i++){
+                    if(i+1<aux){
+                        $('#pdf_firma'+i.toString()).attr('value',$('#pdf_firma'+(i+1).toString()).attr('value'));
+                        $('[aux = firma_tr_'+(i+1).toString()+']').attr('id',$('[aux = firma_tr_'+i.toString()+']').attr('aux'));
+                    }else{
+                        console.log($('#pdf_firma'+i.toString()).val());
+                        $('#pdf_firma'+i.toString()).attr('value','');
+                    }
+                }
+                for(i=0;i<10;i++){
+                    $('#firma_tr_'+i.toString()).removeAttr('aux');
+                }
+                $(this).parents('tr').remove();
+            });
+*/
+            $('.aprobar_cumplimiento').click(function(){
+                id=$(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/respuesta/aprobarcumplimiento',
+                    data:{
+                        'solicitud':id,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    categorizacion=server_data.categorizacion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Aprobada" class="label label-success etiqueta-estatus">Aprobada</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido aprobada.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            
+
+            $(".negar").click(function(){
+                id_solicitud=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/respuesta/negar";
+                body="Motivo por el cual la solicitud no procede";
+                label="Confirmar";
+                comentario_name="comentario-negarnoproc";
+                respuesta="La solicitud ha sido negada.";
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta);
+
+            });                      
+
+            
+            /*
+            $('.negar').click(function(){
+                id=$(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/respuesta/negar',
+                    data:{
+                        'solicitud':id,
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Negada" class="label label-danger etiqueta-estatus">Negada</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido negada.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+            
+            $('.negar_incumplimiento').click(function(){
+                id=$(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/respuesta/negarincumplimiento',
+                    data:{
+                        'solicitud':id,
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Negada por Incumplimiento" class="label label-danger etiqueta-estatus">Negada por Incumplimiento</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido negada por incumplir Disposiciones de mejora.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            
+
+            $('.proponer_aprobación').click(function(){
+                id_solicitud=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/proponeraprobacion";
+                body="¿Est&aacute; seguro que quiere solicitar la aprobaci&oacute;n para esta solicitud?";
+                label="Confirmar";
+                comentario_name="comentario-proponeraprob";
+                respuesta="La solicitud ha sido enviada para su aprobaci&oacute;n.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+
+                /*
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar solicitud de aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere solicitar la aprobaci&oacute;n para esta solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 bt-solicitar-aprobacion">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                */
+            });
+            /*
+            $(document).on('click','.bt-solicitar-aprobacion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/proponeraprobacion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="'+descripcion+'" class="label label-warning etiqueta-estatus">'+estado+'</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido enviada para su aprobaci&oacute;n.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                }
+                });
+            });
+            
+            $('.proponer_aprobación_de_reconsideración').click(function(){
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar solicitud de reconsideraci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere solicitar la aprobaci&oacute;n para esta solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 bt-solicitar-aprobacion-recon">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.bt-solicitar-aprobacion-recon',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/solicitud/'+id+'/reconsideracion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'tiporol':tiporol,
+                        'op':"aprobar",
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido enviada para su reconsideraci&oacute;n.</h4>\
+                        </div>'
+                    );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+            $('.solicitar_análisis').click(function(){
+                id_solicitud=$(this).attr('id');
+                cantidad=$('.analista_'+id_solicitud).children().length;
+                console.log(cantidad);
+                if (cantidad == 1){
+                    $('.quitar-analista-get').remove();
+                    tiporol=$(this).attr('tiporol');
+                    observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                    if (observaciones == "No se han registrado observaciones"){
+                        observaciones="";
+                    }
+                    url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/solicitaranalisis";
+                    body="¿Est&aacute; seguro que quiere solicitar el an&aacute;lisis de esta solicitud?";
+                    label="Confirmar solicitud de an&aacute;lisis";
+                    comentario_name="comentario-solicitarana";
+                    respuesta="Se ha solicitado An&aacute;lisis.";
+                    checkbox_prorroga=false;
+                    f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                }
+                else{
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Debe tener un analista asignado.</h4>\
+                        </div>'
+                    );
+                    $('#notificacion-guardado').modal({
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                }
+            });
+
+
+            $('.otorgar_credenciales').click(function(){
+                id=$(this).attr('id');
+                cantidad=$('.inspector_'+id).children().length;
+                if (cantidad < 2){
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Debe tener dos inspectores asignados para otorgar credenciales.</h4>\
+                        </div>'
+                    );
+                    $('#notificacion-guardado').modal({
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                }
+                else{
+                    tiporol=$(this).attr('tiporol');
+                    observaciones=$('#notificacion_'+id).attr('observacion');
+                    if (observaciones == "No se han registrado observaciones"){
+                        observaciones="";
+                    }
+                    url="/categorizacion/coordinador_dif/solicitud/"+id+"/generarcredenciales";
+                    body="¿Est&aacute; seguro que desea otorgar credenciales para los inspectores seleccionados?";
+                    label="Confirmar";
+                    comentario_name="comentario-otorgarcred";
+                    respuesta="La credenciales han sido generadas.";
+                    checkbox_prorroga=false;
+                    f1( id, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                    $('.quitar-inspector').remove();
+                /* 
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que desea otorgar credenciales para los inspectores seleccionados?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-generar-credenciales">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                */
+                }
+            });
+            /*
+            $(document).on('click','.btn-generar-credenciales',function(){
+                id=$(this).attr('solicitud_id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/coordinador_dif/solicitud/'+id+'/generarcredenciales',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function(){
+                    $('#estatus_'+id).html('');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Credenciales generadas" class="label label-warning etiqueta-estatus">Con credenciales</label>');
+                    $('.credenciales_'+id).html('<a data-toggle="tooltip" title="" id="'+
+                        id+'" href class="btn btn-info activar-modal-credenciales ver-credencial" tiporol="coordinador_dif" data-original-title="Ver credencial">\
+                        <i class="fa fa-certificate icon-white"></i>\
+                        </a>&nbsp;');     
+                    $('.menu_'+id).addClass('disabled');               
+                },error: function(xhr, textStatus, errorThrown) {
+                    console.log("arriba: "+xhr);
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+            /*
+            $(document).on('click','.ver-credencial',function(e){                
+                e.preventDefault();
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $.ajax({
+                    type: 'GET',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/vercredencial',
+                    success:function(server_data){
+
+                        $(".marco-visor-pdf").attr(
+                            'src',
+                            "{% url 'ver_pdf' %}?file="+server_data.ruta_documento
+                        );
+                        $('#ver-documento-pdf .modal-footer').html('');
+                        $('#ver-documento-pdf').modal();
+                    },
+                    error:function(xhr, textStatus, errorThrown){
+                        console.log("abajo: "+xhr);
+                        alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+
+        
+            $('.solicitar_inspección').click(function(){
+                tiporol=$(this).attr('tiporol');
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/solicitarinspeccion";
+                body="¿Est&aacute; seguro que quiere solicitar una inspecci&oacute;n para esta solicitud?";
+                label="Confirmar solicitud de inspecci&oacute;n";
+                comentario_name="comentario-solicitarins";
+                respuesta="Se ha solicitado la Inspecci&oacute;n.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12"><div class="text-center">\
+                        <h4>¿Est&aacute; seguro que quiere solicitar una inspecci&oacute;n para esta solicitud?</h4>\
+                    </div><div>\
+                    <form method="post" action="/categorizacion/'+tiporol+'/solicitud/'+id+'/solicitarinspeccion" role="form" class="lanz-formulario"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />\
+                    <br><p>Observaciones</p>\
+                    <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-solicitarins" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div></div>'
+                );
+
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <input type="submit" id="boton-aceptar-documento" class="btn btn-primary col-xs-12" value="Aceptar">\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+            */
+
+            });
+
+            $('.negar_prórroga').click(function(){
+                tiporol =$(this).attr('tiporol');
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/negarprorroga";
+                body="¿Est&aacute; seguro que desea negar esta solicitud de pr&oacute;rroga?";
+                label="Confirmar negaci&oacute;n de pr&oacute;rroga";
+                comentario_name="comentario-negarprorroga";
+                respuesta="Se ha negado la pr&oacute;rroga con sus observaciones.";
+                checkbox_prorroga=true;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Confirmar negaci&oacute;n de prórroga');
+                
+                $('#notificacion-general-body').html('<div class="col-lg-12"> \
+                <h4>¿Est&aacute; seguro de desea negar esta solicitud de prórroga?</h4> \
+                </div> \
+                <div> \
+                <br> \
+                <p>Observaciones</p> \
+                <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-negarprorroga" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                <div class="zona-checkbox-dinamico"> \
+                <label class="col-xs-10">¿Permitir nuevas solicitudes de prorroga para esta solicitud?</label> \
+                <input \
+                id="checkbox-permitirprorroga" \
+                type="checkbox" \
+                checked="checked" /> \
+                </div> \
+                </div>');
+
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <input \
+                        type=submit \
+                        id="boton-aceptar-documento" \
+                        class="btn btn-primary col-xs-12 btn-negarprorroga" \
+                        value="Aceptar"/>\
+                    </div>'
+                );
+
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal',
+                    increaseArea: '20%'
+                });
+                $('#textarea-wysi').wysihtml5();
+
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+            */
+            });
+            /*
+            $(document).on('click','.btn-negarprorroga',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/negarprorroga',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-negarprorroga':$('.campo-comentario').val(),
+                        'permitirprorroga':$('#checkbox-permitirprorroga').is(':checked'),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    tiporol =$('.devolver_con_observaciones').attr('tiporol');
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Enviar con Observaciones" class="label label-warning etiqueta-estatus">En Reparaciones</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha negado la prórroga con sus observaciones.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+
+            $('.aprobar_prórroga').click(function(){
+                tiporol =$(this).attr('tiporol');
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/aprobarprorroga";
+                body="¿Est&aacute; seguro que desea aprobar esta solicitud de prórroga?";
+                label="Confirmar aprobaci&oacute;n de pr&oacute;rroga";
+                comentario_name="comentario-aprobarprorroga";
+                respuesta="Se ha aprobado la pr&oacute;rroga con sus observaciones.";
+                checkbox_prorroga=true;
+                solicitar_dias=true;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga, solicitar_dias);
+                /*
+                tiporol =$(this).attr('tiporol');
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Confirmar aprobaci&oacute;n de prórroga');
+                $('#notificacion-general-body').html('<div class="col-lg-12"> \
+                    <h4>¿Est&aacute; seguro de desea negar esta solicitud de prórroga?</h4> \
+                    </div> \
+                    <div> \
+                    <br> \
+                    <p>Observaciones</p> \
+                    <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-aprobarprorroga" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    <div class="zona-checkbox-dinamico"> \
+                    <label class="col-xs-10">¿Permitir nuevas solicitudes de prorroga para esta solicitud?</label> \
+                    <input \
+                    id="checkbox-permitirprorroga" \
+                    type="checkbox" \
+                    checked="checked" /> \
+                    </div> \
+                    </div>');
+
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <input type=submit id="boton-aceptar-documento" class="btn btn-primary col-xs-12 btn-aprobarprorroga" value="Aceptar"/>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal',
+                    increaseArea: '20%'
+                });
+                */
+            });
+            /*
+            $(document).on('click','.btn-aprobarprorroga',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/aprobarprorroga',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-aprobarprorroga':$('.campo-comentario').val(),
+                        'permitirprorroga':$('#checkbox-permitirprorroga').is(':checked'),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    tiporol =$('.devolver_con_observaciones').attr('tiporol');
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Enviar con Observaciones" class="label label-warning etiqueta-estatus">En Prórroga</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha aprobado la prórroga con sus observaciones.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+
+            $('.devolver_con_observaciones').click(function(){
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/devolverobservaciones";
+                body="¿Est&aacute; seguro de que desea devolver la solicitud?";
+                label="Confirmar devoluci&oacute;n";
+                comentario_name="comentario-observaciondev";
+                respuesta="Se ha devuelto la solicitud con sus observaciones.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+
+                /*
+                $('#notificacion-general-Label').html('Confirmar devoluci&oacute;n');
+                $('#notificacion-general-body').html(
+                    "<form id ='form_datos_comp' method='post' enctype='multipart/form-data' name = 'form_datos_comp' action='/categorizacion/funcionario/devolverobservaciones' id='"+id+"' novalidate>\
+                        {% csrf_token %}\
+                        <input value='"+id+"' name='solicitud' class='input-escondido'/>\
+                    <div class='col-lg-12 text-center'>\
+                        <h4>¿Est&aacute; seguro de que desea devolver la solicitud?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                        <ul class='wysihtml5-toolbar point-ul'>\
+                            <textarea name ='comentario-observaciondev' id='textarea-wysi' placeholder='Ingrese aqu&iacute; sus comentarios' class='form-control campo-comentario' rows='10' style='width:100%; height:100%;' required >"+observaciones+"</textarea>\
+                        </ul></div></form>");
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12 btn-devolver-obs">Aceptar</a>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+*/
+            });
+            
+            /*$(document).on('wysiwyg','#editor',function(){
+                 <textarea name ="comentario-observaciondev" id="boot-wysiwyg" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required ></textarea>\
+            });*/
+
+            $(document).on('click', '.btn-ajaxsubmit', function(){
+                console.log($('#diasasignados').val());
+                $('#respuesta_check').attr('value', $('#checkbox-permitirprorroga').is(':checked'));
+                $('#form_datos_comp').submit();
+            });
+/*
+            $(document).on('click','.btn-devolver-obs',function(){
+                $('#form_datos_comp').submit();
+                //$('#form_datos_comp').ajaxSubmit({url: '/categorizacion/funcionario/devolverobservaciones', type: 'post'})
+                
+                console.log(file);
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/devolverobservaciones',
+                    data:{
+                        //'formulario': $('#form_datos_comp').serialize(),
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'archivo':file,
+                        'comentario-observaciondev':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="'+descripcion+'" class="label label-warning etiqueta-estatus">'+estado+'</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha devuelto la solicitud con sus observaciones.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+*/
+            $('.aprobar_reconsideración').click(function(){
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de que desea aprobar la reconsideraci&oacute;n de la solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-aprobar-recon">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.btn-aprobar-recon',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/solicitud/'+id+'/reconsideracion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'op':"aprobar",
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    window.location.reload();
+                    /*
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Aprobada" class="label label-success etiqueta-estatus">Aprobada</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha aprobado la reconsideraci&oacute;n.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    */
+                    
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+
+            $('.negar_reconsideración').click(function(){
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar negaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de que desea negar la reconsideraci&oacute;n de la solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-negar-recon">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.btn-negar-recon',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/solicitud/'+id+'/reconsideracion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'op':"negar",
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    /*
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud Aprobada" class="label label-success etiqueta-estatus">Aprobada</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha negado la reconsideraci&oacute;n.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    */
+                    window.location.reload();
+                    
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            /*
+            $('.proponer_reparaciones').click(function(){
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                
+                $('#notificacion-general-body').html('<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de desea proponer la realizaci&oacute;n de reparaciones a este prestador?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-reparacion" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html('<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-proponer-reparacion">Aceptar</a>\
+                    </div></form>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+            });
+            // TODO: Borrar esta opción
+            $(document).on('click','.btn-proponer-reparacion',function(){
+                console.log($('.campo-comentario').val());
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/analista/solicitud/'+id+'/proponerreparacion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-reparacion':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="En Espera de Aprobación de Reparacion" class="label label-warning etiqueta-estatus">Candidata a Reparaciones</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha enviado la solicitud de reparaci&oacute;n.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+
+            $('.solicitar_reparaciones').click(function(){
+                id_solicitud=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/solicitarreparaciones";
+                body="¿Est&aacute; seguro de que desea generar disposiciones de mejora?";
+                label="Confirmar";
+                comentario_name="comentario-solicitarrep";
+                respuesta="Se han generado las disposiciones de mejora.";
+                checkbox_prorroga=false;
+                solicitar_dias=true;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga, solicitar_dias);
+                /*
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar reparaciones');
+                $('#notificacion-general-body').html('<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere aprobar esta solicitud de reparación?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html('<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-aprobarrep">Aceptar</a>\
+                    </div>'
+                );
+                
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_minimal',
+                    radioClass: 'iradio_minimal',
+                    increaseArea: '20%'
+                });
+
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.btn-aprobarrep',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/solicitarreparaciones',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Disposiciones de Mejora generadas" class="label label-warning etiqueta-estatus">Con disposiciones</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud de reparaciones ha sido enviada.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            */
+            });
+
+            $('.proponer_incumplimiento').click(function(){
+                tiporol=$(this).attr('tiporol');
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/incumplimientoreparacion";
+                body="¿Est&aacute; seguro que quiere proponer el cierre de esta solicitud por incumplimiento de disposiciones?";
+                label="Confirmar incumplimiento de disposiciones de mejora";
+                comentario_name="comentario-incumplimiento";
+                respuesta="Se enviado la solicitud con la propuesta de negar por incumplimineto de disposiciones de mejora.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+            });
+
+            /*
+             $('.generar_oficio_de_incumplimiento').click(function(){
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de desea devolver la solicitud al Prestador de Servicios Turístico?</h4>\
+                    </div><div>\
+                    <form method="post" action="/categorizacion/'+tiporol+'/solicitud/'+id+'/generaroficioincumplimiento" role="form" class="lanz-formulario"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />\
+                    <br><p>Observaciones</p>\
+                    <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-oficio" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div></div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <input type=submit id="boton-aceptar-documento" class="btn btn-primary col-xs-12" value="Aceptar"/>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+            });
+            
+
+            $(document).on('click','#boton-aceptar-documento',function(){
+                $(".lanz-formulario").submit();
+
+            });
+            */
+
+            $('.proponer_no_procedencia').click(function(){
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/noprocedencia";
+                body="¿Est&aacute; seguro que esta solicitud no procede?";
+                label="Confirmar solicitud de no procedencia";
+                comentario_name="comentario-noproc";
+                respuesta="Se ha solicitado la no procedencia de la solicitud.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Confirmar solicitud de no procedencia');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que esta solicitud no procede?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <ul class="wysihtml5-toolbar point-ul">\
+                        <textarea name ="comentario-noproc" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                    </ul>\
+                    </div>');
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div> \
+                    <div class="col-xs-6" data-dismiss="modal"> \
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-solicitar-no-procedencia">Aceptar</a> \
+                    </div>');
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+                */
+            });
+            /*
+            $(document).on('click','.btn-solicitar-no-procedencia',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/noprocedencia',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-noproc':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="En Espera de negacion de solicitud" class="label label-warning etiqueta-estatus">Candidata a No Procedencia</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha solicitado la no procedencia de la solicitud.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+            $(document).on('click', '.confirmar', function(){
+                $('#notificacion-general').modal('hide');
+                $('#ingresar-observaciones').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('#boton-enviar-observacion').click(function(){
+                $('#btn_'+fila_seleccionada).addClass('disabled');
+                $('#ingresar-observaciones').modal('hide');
+            });
+
+            $('#activar_buscar_modal').click(function(){
+                $('#buscar_modal').modal();
+            });
+        
+
+            $('.aprobar_inspección').click(function(){
+                id_solicitud=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/aprobarinspeccion";
+                body="¿Est&aacute; seguro que desea aprobar la inspecci&oacute;n?";
+                label="Confirmar aprobaci&oacute;n de insecci&oacute;n";
+                comentario_name="comentario-observacionaprobarins";
+                respuesta="Se ha aprobado la inspecci&oacute;n.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar Aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere aprobar la inspecci&oacute;n?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 bt-aprobar-inspeccion">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.bt-aprobar-inspeccion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/aprobarinspeccion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    $('.menu_'+id).addClass('disabled');
+                    if (tiporol == 'analista'){
+                        $('#estatus_'+id).html('<label data-toggle="tooltip" title="Verificaci&oacute;n de Inspecci&oacute;n" class="label label-warning etiqueta-estatus">Verificaci&oacute;n</label>');
+                        $('#notificacion-guardado-body').html(
+                            '<div class="col-lg-12 text-center">\
+                                <h4>La Inspecci&oacute;n ha sido enviada para su verificaci&oacute;n.</h4>\
+                            </div>'
+                            );
+                    }
+                    else{
+                        $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud en An&aacute;lisis de Inspecci&oacute;n" class="label label-warning etiqueta-estatus">An&aacute;lisis de Inspecci&oacute;n</label>');
+                        $('#notificacion-guardado-body').html(
+                            '<div class="col-lg-12 text-center">\
+                                <h4>La Inspecci&oacute;n ha sido enviada a Calidad Tur&iacute;stica.</h4>\
+                            </div>'
+                            );
+                    }
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+                */
+            });
+            /*
+            $('.aprobar_formulario').click(function(){
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar Aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere aprobar el Formulario?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 bt-aprobar-formulario">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.bt-aprobar-formulario',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/aprobarformulario',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Reconsiderando Solicitud" class="label label-warning etiqueta-estatus">En Revisi&oacute;n</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>El Formulario ha sido enviada a Calidad Tur&iacute;stica.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+
+            $('.enviar_inspección').click(function(){
+                tiporol=$(this).attr('tiporol');
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/"+tiporol+"/solicitud/"+id_solicitud+"/enviarinspeccion";
+                body="¿Est&aacute; seguro que quiere enviar la inspecci&oacute;n?";
+                label="Confirmar";
+                comentario_name="comentario-enviarins";
+                respuesta="Se ha enviado la inspecci&oacute;n.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmar Env&iacute;o');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere enviar la inspecci&oacute;n?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'"  tipo_rol="'+tiporol+'" class="btn btn-primary col-xs-12 bt-enviar-inspeccion">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.bt-enviar-inspeccion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/'+tiporol+'/solicitud/'+id+'/enviarinspeccion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'tiporol':$(this).attr("tipo_rol"),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    $('.cargar_'+id).addClass('disabled');
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Revisi&oacute;n de Inspecci&oacute;n" class="label label-warning etiqueta-estatus">Revisi&oacute;n</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La Inspecci&oacute;n ha sido enviado para su revisi&oacute;n.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>'+xhr.responseText+'</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    }
+                });
+            */
+            });
+
+            $('.ver_documento_pdf').click(function(){
+                ruta=$(this).attr('ruta');
+
+                $(".marco-visor-pdf").attr(
+                    'src',
+                    "{% url 'ver_pdf' %}?file="+ruta
+                );
+                $('#ver-documento-pdf .modal-footer').html('');
+                $('#ver-documento-pdf').modal();
+                    
+            });
+
+            $('.generar_informe_técnico').click(function(){
+                id=$(this).attr('id');
+                tiporol=$(this).attr('tiporol');
+                $('#notificacion-general-Label').html('Confirmaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere generar el Informe T&eacute;cnico?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'"  tipo_rol="'+tiporol+'" class="btn btn-primary col-xs-12 bt-generar-informe">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click','.bt-generar-informe',function(){
+                console.log("..."+id);
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/coordinador_ct/solicitud/'+id+'/generarinformetecnico',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    console.log("Fino!!");
+                    window.location.reload();
+                    /*
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="En espera de Aprobaci&oacute;n" class="label label-warning etiqueta-estatus">Candidata a Aprobaci&oacute;n</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>El Informe T&eacute;cnico ha sido enviado.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    */
+                },error: function(xhr, textStatus, errorThrown) {
+                    console.log(xhr.responseText);
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>'+xhr.responseText+'</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    }
+                });
+            });
+
+            $('.incumplimineto_de_disposiciones').click(function(){
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/funcionario/incumplimientoreparacion'";
+                body="¿Est&aacute; seguro que quiere proponer cierre de la solicitud por incumplimiento de disposiciones de mejora?";
+                label="Confirmar";
+                comentario_name="comentario-incumplimiento";
+                respuesta="Se ha propuesto el cierre de la solicitud por incumplimiento de disposiciones de mejora.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+            });
+            /*
+            $('.incumplimiento_de_reparación').click(function(){
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Confirmar');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere proponer cierre de la solicitud por incumplimineto de la Orden de Reparaciones?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-incumplimiento" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 bt-incumplimiento-reparacion">Aceptar</a>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+            });
+
+            $(document).on('click','.bt-incumplimiento-reparacion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/funcionario/incumplimientoreparacion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-incumplimiento':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="'+descripcion+'" class="label label-warning etiqueta-estatus">'+estado+'</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido enviada.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                }
+                });
+            });
+            */
+
+            
+            $('.cancelar_inspección').click(function(){
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/coordinador_dif/solicitud/"+id_solicitud+"/cancelarinspeccion";
+                body="¿Est&aacute; seguro de que desea cancelar la inspecci&oacute;n?";
+                label="Cancelaci&oacute;n de Inspecci&oacute;n";
+                comentario_name="comentario-observacioncan";
+                respuesta="Se ha devuelto la solicitud con sus observaciones.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Cancelaci&oacute;n de Inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de que desea cancelar la inspecci&oacute;n?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                        <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-observacioncan" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div>');
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-cancelar-ins">Aceptar</a>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+                */
+            });
+
+            /*
+            $(document).on('click','.btn-cancelar-ins',function(){
+                //solicitud=$(this).attr("solicitud_id");
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/coordinador_dif/solicitud/'+id+'/cancelarinspeccion',
+                    data:{
+                        'comentario-observacioncan':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="En Espera de Aprobaci&oacute;n de Inspecci&oacute;n" class="label label-warning etiqueta-estatus">Candidata a Inspecci&oacute;n</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha devuelto la solicitud con sus observaciones.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+            
+            
+            $('.solicitar_edición_de_requisitos').click(function(){
+                id_solicitud=$(this).attr('id');
+                observaciones=$('#notificacion_'+id_solicitud).attr('observacion');
+                if (observaciones == "No se han registrado observaciones"){
+                    observaciones="";
+                }
+                url="/categorizacion/analista/solicitud/"+id_solicitud+"/solicitaredicion";
+                body="¿Est&aacute; seguro solicitar la edici&oacute;n de requisitos al PST?";
+                label="Correcci&oacute;n de requisitos";
+                comentario_name="comentario-observacion-edicion";
+                respuesta="Se ha devuelto la solicitud con sus observaciones.";
+                checkbox_prorroga=false;
+                f1( id_solicitud, observaciones, url, body, comentario_name, label, respuesta, checkbox_prorroga);
+                /*
+                id=$(this).attr('id');
+                observaciones=$('#notificacion_'+id).attr('observacion');
+                $('#notificacion-general-Label').html('Correcci&oacute;n de requisitos');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro solicitar la edici&oacute;n de requisitos al PST?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                        <ul class="wysihtml5-toolbar point-ul">\
+                            <textarea name ="comentario-observacion-edicion" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required >'+observaciones+'</textarea>\
+                        </ul>\
+                    </div>');
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <a href="#" id="boton-aceptar-documento" solicitud_id="'+id+'" class="btn btn-primary col-xs-12 btn-solicitar-edicion">Aceptar</a>\
+                    </div>'
+                );
+                $('#textarea-wysi').wysihtml5();
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                $('.wysihtml5-toolbar').children('ul').append('<li><div class="btn-group">\
+                    <a href="#" class="btn btn-default cargar-elemento" id="imag-devolver">\
+                    <i class="fa fa-upload icon-gray"></i></a>\
+                    <input type="file" name="archivo" class="input-escondido" id="imag-devolver-0" />\
+                    </div></li>');
+                */
+            });
+
+            /*
+            $(document).on('click','.btn-solicitar-edicion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/analista/solicitud/'+id+'/solicitaredicion',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        'comentario-observacion-edicion':$('.campo-comentario').val(),
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    estado=server_data.estado;
+                    descripcion=server_data.descripcion;
+                    $('.menu_'+id).addClass('disabled');
+                    $('#estatus_'+id).html('<label data-toggle="tooltip" title="Solicitud en Correcci&oacute;n" class="label label-warning etiqueta-estatus">En Correcci&oacute;n</label>');
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha devuelto la solicitud con sus observaciones.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal();
+                    
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+            */
+        });
+        /*
+        (function(){
+            $('.credenciales').each(function(){
+                if($(this).children().length ==0){
+                    $(this).append('<a data-toggle="tooltip" title="" id="{{s.id}}" href="" \
+                        class="btn btn-info activar-modal-credenciales otorgar-crendecial\
+                        {% if cantidad|keyvalue:s.id < 2 %}
+                            disabled
+                        {% endif %}"\
+                        tiporol="coordinador_dif" data-original-title="Otorgar credencial">\
+                    <i class="fa fa-cog icon-white"></i>\
+                    </a>&nbsp;');
+                }
+            });
+        })();*/
+    </script>
+{% endblock %}
+
+

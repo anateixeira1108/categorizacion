@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-30 20:22-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Invalid Length (%s)"
+msgstr "La longitud de la contraseña es inválida (%s)"
+
+msgid "Must be %s characters or more"
+msgstr "Debe ser %s caracteres o más."
+
+msgid "Must be %s characters or less"
+msgstr "Debe ser %s caracteres o menos"
+
+msgid "Must be more complex (%s)"
+msgstr "La contraseña debe ser más compleja (%s)"
+
+msgid "Must contain %(UPPER)s or more uppercase characters"
+msgstr "Debe contener %(UPPER)s o más caracteres en mayúsculas"
+
+msgid "Must contain %(LOWER)s or more lowercase characters"
+msgstr "Debe contener %(LOWER)s o más caracteres en minúsculas"
+
+msgid "Must contain %(DIGITS)s or more digits"
+msgstr "Debe contener %(DIGITS)s o más digitos"
+
+msgid "Must contain %(PUNCTUATION)s or more punctuation character"
+msgstr "Debe contener %(PUNTUATION)s o más signos de puntuación"
+
+msgid "Must contain %(NON ASCII)s or more non ascii characters"
+msgstr "Debe contener %(NON ASCII)s o más caracteres no ascii"
+
+msgid "Must contain %(WORDS)s or more unique words"
+msgstr "Debe contener %(WORDS)s o más palabras únicas"
+
+msgid "Too Similar to [%(haystacks)s]"
+msgstr "La contraseña es muy similar a [%(haystacks)s]"
+
+msgid "Based on a dictionary word."
+msgstr "La contraseña esta basada en un palabra de diccionario"
+
+msgid "Based on a common sequence of characters"
+msgstr "La contraseña esta basada en una secuencia común de caracteres"

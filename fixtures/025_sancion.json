@@ -1,0 +1,1045 @@
+[
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1011,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ COMUNICAR LA CESACIÓN DE LA ACTIVIDAD ECONÓMICA HABITUAL",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1013,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ COMUNICAR LA SUSPENSIÓN DE LA ACTIVIDAD ECONÓMICA HABITUAL",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1015,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ COMUNICAR EL CAMBIO DE LA ACTIVIDAD ECONÓMICA HABITUAL",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1017,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ COMUNICAR EL CAMBIO DE DIRECTORES O ADMINISTRADORES DE LA ENTIDAD",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1019,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ COMUNICAR EL CAMBIO DE RAZÓN SOCIAL O DENOMINACIÓN SOCIAL DE LA ENTIDAD",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1012,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE COMUNICÓ LA CESACIÓN DE LA ACTIVIDAD ECONÓMICA HABITUAL, EN FORMA EXTEMPORÁNEA",
+            "graduacion": 1,
+            "ley": 3,
+            "observaciones": "SUSTITUYE A LA N° 876",
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1014,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE COMUNICÓ LA SUSPENSIÓN DE LA ACTIVIDAD ECONÓMICA HABITUAL, EN FORMA EXTEMPORÁNEA",
+            "graduacion": 1,
+            "ley": 3,
+            "observaciones": "SUSTITUYE A LA N° 877",
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1016,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE COMUNICÓ EL CAMBIO DE LA ACTIVIDAD PRINCIPAL EN FORMA EXTEMPORÁNEA",
+            "graduacion": 1,
+            "ley": 3,
+            "observaciones": "SUSTITUYE A LA N° 878",
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1018,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE NOTIFICO EL CAMBIO DE DIRECTORES O ADMINISTRADORES FORMA EXTEMPORÁNEA",
+            "graduacion": 1,
+            "ley": 3,
+            "observaciones": "SUSTITUYE A LA N° 879",
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1020,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE COMUNICÓ EL CAMBIO DE RAZÓN SOCIAL O DENOMINACIÓN SOCIAL DE LA ENTIDAD EN FORMA EXTEMPORÁNEA",
+            "graduacion": 1,
+            "ley": 3,
+            "observaciones": "SUSTITUYE A LA N° 880",
+            "tipo_sancion": 1,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 957,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ NOTIFICAR CAMBIO DE DOMICILIO FISCAL",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 2,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 50
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 850,
+            "cot_articulo": "102#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "A",
+            "deber_formal_numeral": 1,
+            "descripcion": "EL (LA) CONTRIBUYENTE NO LLEVA LOS LIBROS Y REGISTROS CONTABLES EN CASTELLANO O MONEDA NACIONAL",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 3,
+            "tipo_tributo": 1,
+            "ut_max": 100,
+            "ut_min": 25
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 851,
+            "cot_articulo": "102#04A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 3,
+            "descripcion": "EL (LA) CONTRIBUYENTE NO CONSERVA DURANTE EL PLAZO ESTABLECIDO LOS LIBROS, REGISTROS Y OTROS DOCUMENTOS, ASÍ COMO LOS PROGRAMAS COMPUTARIZADOS DE CONTABILIDAD Y SOPORTES MAGNÉTICOS",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 3,
+            "tipo_tributo": 1,
+            "ut_max": 100,
+            "ut_min": 25
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 852,
+            "cot_articulo": "103#06A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "EL (LA) CONTRIBUYENTE PRESENTO LAS DECLARACIONES EN FORMULARIOS, MEDIOS, FORMATOS, O LUGARES NO AUTORIZADOS POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 3,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 875,
+            "cot_articulo": "104#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO EXHIBIÓ LOS LIBROS, REGISTROS U OTROS DOCUMENTOS REQUERIDOS DURANTE LA VERIFICACIÓN O FISCALIZACIÓN Y DETERMINACIÓN",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 4,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 854,
+            "cot_articulo": "104#04A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 4,
+            "descripcion": "EL (LA) CONTRIBUYENTE NO EXHIBIÓ, OCULTÓ O DESTRUYÓ CARTELES, SEÑALES Y DEMÁS MEDIOS UTILIZADOS, EXIGIDOS O DISTRIBUIDOS POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 4,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 855,
+            "cot_articulo": "104#05A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 4,
+            "descripcion": "EL(LA) CONTRIBUYENTE NO FACILITO A LA ADMINISTRACIÓN TRIBUTARIA LOS EQUIPOS TÉCNICOS DE RECUPERACIÓN VISUAL, PANTALLA, VISORES Y ARTEFACTOS SIMILARES PARA LA REVISION DE ORDEN TRIBUTARIO DE LA DOCUMENTACIÓN MICROGRAVADA QUE SE REALICE EN EL LOCAL DEL (LA) CONTRIBUYENTE",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 4,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 955,
+            "cot_articulo": "104#09A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 4,
+            "descripcion": "EL (LA) CONTRIBUYENTE IMPIDIÓ POR SI MISMO O POR INTERPUESTAS PERSONAS EL ACCESO A LOS LOCALES, OFICINAS DONDE DEBAN DESARROLLARSE LAS FACULTADES DE FISCALIZACIÓN",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 4,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 150
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 847,
+            "cot_articulo": "105#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO PROPORCIONÓ LA INFORMACIÓN REQUERIDA POR LA ADMINISTRACIÓN TRIBUTARIA SOBRE SUS ACTIVIDADES, DENTRO DE LOS PLAZOS ESTABLECIDOS",
+            "graduacion": 2,
+            "ley": 3,
+            "observaciones": "SE APLICA CUANDO LA INFORMACIÓN LA ENTREGA EXTEMPORÁNEA",
+            "tipo_sancion": 5,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 853,
+            "cot_articulo": "105#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "EL (LA) CONTRIBUYENTE PROPORCIONÓ INFORMACIÓN FALSA O ERRÓNEA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 5,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 846,
+            "cot_articulo": "105#04A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 7,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO COMPARECIÓ A LA CITACIÓN",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 5,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 848,
+            "cot_articulo": "105#04A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 7,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO COMPARECIÓ ANTE LA ADMINISTRACIÓN TRIBUTARIA CUANDO SU PRESENCIA FUE REQUERIDA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 5,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 864,
+            "cot_articulo": "105#04A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 7,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO COMPARECIÓ ANTE LA ADMINISTRACIÓN TRIBUTARIA CUANDO SU PRESENCIA FUE REQUERIDA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 5,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "tipo_tributo": 1,
+            "tipo_sancion": 5,
+            "codigo": 894,
+            "ley": 3,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO PROPORCIONÓ LA INFORMACIÓN EXIGIDA POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "cot_articulo": "105#01A1",
+            "ut_min": 10,
+            "ut_max": 200,
+            "aplicacion": 14,
+            "graduacion": 2
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 882,
+            "cot_articulo": "105#02A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO NOTIFICÓ A LA ADMINISTRACIÓN TRIBUTARIA LA COMPENSACIÓN DE CRÉDITOS FISCALES EN LOS TÉRMINOS ESTABLECIDOS",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 6,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 883,
+            "cot_articulo": "105#02A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 6,
+            "descripcion": "EL (LA) CONTRIBUYENTE NO NOTIFICÓ A LA ADMINISTRACIÓN TRIBUTARIA LAS CESIONES DE CRÉDITOS FISCALES EN LOS TÉRMINOS ESTABLECIDOS",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 6,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 959,
+            "cot_articulo": "106#01A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "EL (LA) CONTRIBUYENTE REAPERTURÓ EL ESTABLECIMIENTO COMERCIAL O INDUSTRIAL O DE LA SECCIÓN QUE CORRESPONDA, CON VIOLACIÓN DE UNA CLAUSURA IMPUESTA POR LA ADMINISTRACIÓN TRIBUTARIA NO SUSPENDIDA O REVOCADA",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 984,
+            "cot_articulo": "106#01A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE DESACATO LA ORDEN DE SUSPENSIÓN DE ACTIVIDADES IMPUESTA POR LA ADMINISTRACIÓN TRIBUTARIA SIN SER SUSPENDIDA O REVOCADA POR ORDEN ADMINISTRATIVA O JUDICIAL",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 985,
+            "cot_articulo": "106#02A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE ALTERO LOS PRECINTOS SELLOS O CERRADURAS PUESTOS POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 996,
+            "cot_articulo": "106#02A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE DESTRUYO LOS PRECINTOS SELLOS O CERRADURAS PUESTOS POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 997,
+            "cot_articulo": "106#02A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE REALIZO OPERACIÓN DESTINADA A DESVIRTUAR LA COLOCACIÓN DE SELLOS PRECINTOS O CERRADURAS SIN SER SUSPENDIDA O REVOCADA POR ORDEN ADMINISTRATIVA O JUDICIAL",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 960,
+            "cot_articulo": "106#03A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "EL (LA) CONTRIBUYENTE UTILIZO, SUSTRAJO, OCULTO O ENAJENO BIENES O DOCUMENTOS RETENIDOS EN SU PODER POR MEDIDAS CAUTELARES",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 986,
+            "cot_articulo": "106#03A0",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE UTILIZO, SUSTRAJO, OCULTÓ, ENAJENO, DOCUMENTOS Y/O BIENES RETENIDOS PUESTOS EN CALIDAD DE DEPOSITO EN EL DOMICILIO DEL (LA) CONTRIBUYENTE",
+            "graduacion": 1,
+            "ley": 3,
+            "tipo_sancion": 7,
+            "tipo_tributo": 1,
+            "ut_max": 500,
+            "ut_min": 200
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 886,
+            "cot_articulo": "105#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO PROPORCIONÓ LA INFORMACIÓN EXIGIDA POR LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 2,
+            "ley": 3,
+            "observaciones": "APLICA SOLO EN SEDE 7 SOLICITA EL N° DE REQUERIMIENTO",
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 887,
+            "cot_articulo": "105#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO PROPORCIONÓ LA INFORMACIÓN REQUERIDA POR LA ADMINISTRACIÓN TRIBUTARIA SOBRE SUS ACTIVIDADES, DENTRO DEL PLAZO ESTABLECIDO",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 888,
+            "cot_articulo": "105#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO PROPORCIONÓ LA INFORMACIÓN REQUERIDA POR LA ADMINISTRACIÓN TRIBUTARIA SOBRE LAS ACTIVIDADES DE TERCEROS CON LOS QUE GUARDA RELACIÓN, DENTRO DEL PLAZO ESTABLECIDO",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 889,
+            "cot_articulo": "105#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE PROPORCIONÓ A LA ADMINISTRACIÓN TRIBUTARIA INFORMACIÓN FALSA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 890,
+            "cot_articulo": "105#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 5,
+            "descripcion": "LA (EL) CONTRIBUYENTE PROPORCIONÓ A LA ADMINISTRACIÓN TRIBUTARIA INFORMACIÓN ERRÓNEA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 891,
+            "cot_articulo": "105#04A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 7,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO COMPARECIÓ ANTE LA ADMINISTRACIÓN TRIBUTARIA CUANDO SU PRESENCIA FUE REQUERIDA",
+            "graduacion": 2,
+            "ley": 3,
+            "tipo_sancion": 8,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 908,
+            "cot_articulo": "100#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "B",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ INSCRIBIRSE EN EL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)",
+            "graduacion": 2,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 50
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 909,
+            "cot_articulo": "100#02A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "B",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE REALIZO EN FORMA EXTEMPORÁNEA LA INSCRIPCIÓN EN EL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)",
+            "graduacion": 2,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 100,
+            "ut_min": 25
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 910,
+            "cot_articulo": "100#04A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "B",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE NO COMUNICÓ LA(S) MODIFICACION(ES) O CAMBIO(S) EN LOS DATOS DEL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)",
+            "graduacion": 2,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 50
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 911,
+            "cot_articulo": "100#04A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "B",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE NOTIFICO EN FORMA EXTEMPORÁNEA LA(S) MODIFICACION(ES) O CAMBIO(S) EN LOS DATOS DEL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)",
+            "graduacion": 2,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 200,
+            "ut_min": 50
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 912,
+            "cot_articulo": "104#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO EXHIBIÓ EL CERTIFICADO DE INSCRIPCIÓN EN EL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR) REQUERIDO POR EL FUNCIONARIO DE LA ADMINISTRACIÓN TRIBUTARIA",
+            "graduacion": 2,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 14,
+            "codigo": 914,
+            "cot_articulo": "100#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "B",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE COMUNICÓ LA INFORMACIÓN RELATIVA A LA INSCRIPCIÓN O ACTUALIZACIÓN EN EL REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN FORMA PARCIAL, INSUFICIENTE O ERRÓNEA",
+            "graduacion": 2,
+            "observaciones": "SERIE 27",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 100,
+            "ut_min": 25
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1051,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO EXHIBE EN UN LUGAR VISIBLE DE SU OFICINA O ESTABLECIMIENTO COPIA DEL CERTIFICADO DE REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR)",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1052,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA DEL NÚMERO DE SU INSCRIPCIÓN EN EL REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN LOS RECIBOS O CONTRATOS QUE EXPIDEN O SUSCRIBEN",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1053,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA DEL NÚMERO DE INSCRIPCIÓN EN EL REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN LAS SOLICITUDES O DOCUMENTOS QUE DIRIJAN A LOS ORGANISMOS OFICIALES DE LA REPÚBLICA BOLIVARIANA DE VENEZUELA",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1054,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA DEL NÚMERO DEL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN LOS LIBROS DE CONTABILIDAD EXIGIDOS POR LA LEY",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1055,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA DEL NÚMERO DEL REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN LOS LIBROS AUXILIARES EXIGIDOS POR LAS NORMAS TRIBUTARIAS POR LAS NORMAS TRIBUTARIAS",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1056,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA EN LAS ETIQUETAS Y EMPAQUES DEL NÚMERO DE REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR) DEL FABRICANTE O IMPORTADOR",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 1057,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_literal": "C",
+            "deber_formal_numeral": 1,
+            "descripcion": "LA (EL) CONTRIBUYENTE O RESPONSABLE NO DEJA CONSTANCIA DEL NÚMERO DEL REGISTRO DE INFORMACIÓN TURÍSTICA (RIFTUR) EN LOS ANUNCIOS DE PUBLICIDAD EN PERIÓDICOS, REVISTAS, FOLLETOS, VOLANTES O VALLAS",
+            "graduacion": 1,
+            "observaciones": "RIF",
+            "tipo_sancion": 9,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 300,
+            "cot_articulo": "103#01A1",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 1,
+            "deber_formal_literal": "E",
+            "descripcion": "LA (EL) CONTRIBUYENTE OMITIÓ PRESENTAR LA DECLARACIÓN",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 301,
+            "cot_articulo": "103#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 1,
+            "deber_formal_literal": "E",
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO EXTEMPORANEAMENTE LA DECLARACIÓN ",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 302,
+            "cot_articulo": "103#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 1,
+            "deber_formal_literal": "E",
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO EXTEMPORANEAMENTE LA DECLARACIÓN  A REQUERIMIENTO FISCAL",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 303,
+            "cot_articulo": "103#05A2",
+            "deber_formal_articulo": 147,
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO LA DECLARACIÓN SUSTITUTIVA POSTERIOR AL VENCIMIENTO DEL PLAZO DE LA SUSTITUIDA.",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 304,
+            "cot_articulo": "103#05A2",
+            "deber_formal_articulo": 147,
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO MÁS DE UNA DECLARACIÓN SUSTITUTIVA ",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 305,
+            "cot_articulo": "103#03A2",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 1,
+            "deber_formal_literal": "E",
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO LA DECLARACIÓN EN FORMA INCOMPLETA",
+            "graduacion": 2,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 25,
+            "ut_min": 5
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 701,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE  PRESENTO EN FORMA SEPARADA LA DECLARACIÓN POR CADA FONDO DE COMERCIO",
+            "graduacion": 1,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    },
+    {
+        "model": "resoluciones.Sancion",
+        "fields": {
+            "aplicacion": 15,
+            "codigo": 711,
+            "cot_articulo": "107",
+            "deber_formal_articulo": 145,
+            "deber_formal_numeral": 8,
+            "descripcion": "LA (EL) CONTRIBUYENTE PRESENTO EN FORMA SEPARADA LA DECLARACIÓN POR CADA UNO DE SUS ESTABLECIMIENTOS",
+            "graduacion": 1,
+            "ley": 1,
+            "tipo_sancion": 10,
+            "tipo_tributo": 1,
+            "ut_max": 50,
+            "ut_min": 10
+        }
+    }
+]

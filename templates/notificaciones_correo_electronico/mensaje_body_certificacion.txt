@@ -1,0 +1,28 @@
+Estimado Prestador de Servicio Turístico.
+
+{{ user }}, se le informa mediante la siguiente notificación, que fue {{ estado }} su certificación de {{tipo_certificacion}} en el portal de MinTur.
+
+{% if observaciones %}
+    El motivo de su rechazo, fue el siguiente:
+    {{ observaciones }}
+{% endif %}
+
+
+{% if estado == 'Rechazada' %}
+Debe dirigirse a la Oficina Regional con los siguientes recaudos:
+
+{% if user.pst.get_tipo_figura_display == 'Persona Natural' %}
+    - Cédula de Identidad (CI).
+    - Registro de Información Fiscal (RIF).
+    - Recibo de Servicio.
+    - Fotografía fondo blanco tipo carnet.
+{% else %}
+    - Fotocopia de la cédula de identidad de todos los accionistas de la empresa.
+    - Listado de Accionistas.
+    - Fotocopia del Acta Constitutiva y Estatutos Sociales.
+    - Fotocopia del Registro Único de Información Fiscal (RIF).
+{% endif %}
+{% endif %}
+
+Atentamente,
+Gerencia de Gestión Tributaria - INATUR.

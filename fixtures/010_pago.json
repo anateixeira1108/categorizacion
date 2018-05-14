@@ -1,0 +1,12 @@
+[
+    {
+        "model": "pagos.pago",
+        "fields": {
+            "fecha_generacion": "2014-01-20",
+            "fecha_vencimiento": "2014-01-20",
+            "pst": 1,
+            "estatus": "Pagado",
+            "total": 1000
+        }
+    }
+]

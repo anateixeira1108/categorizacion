@@ -1,0 +1,30 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+
+
+Señores:
+{{razon_social}}
+Direccion: 
+{{direccion}}
+
+{% if contacto %}
+Atención:
+{{contacto.nombres}} {{contacto.apellidos}}
+Cargo: {{contacto.cargo_empresa}}
+{% endif %}
+
+
+Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de notificarle que la solicitud de prórroga requerida por usted ante las disposiciones de mejora del proceso de categorización del establecimiento que representa, se encuentra aprobada.
+
+En tal sentido, adjunto al presente correo encontrará un documento oficial relacionado con su requerimiento.
+
+
+
+
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

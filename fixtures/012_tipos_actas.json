@@ -1,0 +1,83 @@
+[
+    {
+        "model": "actas.TipoActa",
+        "pk": 1,
+        "fields": {
+            "nombre": "Providencia",
+            "codigo_documento": "PR"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 2,
+        "fields": {
+            "nombre": "Acta de requerimiento abierta",
+            "codigo_documento": "RQ"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 3,
+        "fields": {
+            "nombre": "Acta de requerimiento cerrada",
+            "codigo_documento": "RQ"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 4,
+        "fields": {
+            "nombre": "Acta de recepción abierta",
+            "codigo_documento": "RC"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 5,
+        "fields": {
+            "nombre": "Acta de recepción cerrada",
+            "codigo_documento": "RC"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 6,
+        "fields": {
+            "nombre": "Acta constancia",
+            "codigo_documento": "CN"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 7,
+        "fields": {
+            "nombre": "Cédula de hallazgo",
+            "codigo_documento": "CH"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 8,
+        "fields": {
+            "nombre": "Informe fiscal",
+            "codigo_documento": "IF"
+        }
+    }
+    ,
+    {
+        "model": "actas.TipoActa",
+        "pk": 9,
+        "fields": {
+            "nombre": "Acta de conformidad",
+            "codigo_documento": "CF"
+        }
+    },
+    {
+        "model": "actas.TipoActa",
+        "pk": 10,
+        "fields": {
+            "nombre": "Acta de reparo",
+            "codigo_documento": "RP"
+        }
+    }
+]

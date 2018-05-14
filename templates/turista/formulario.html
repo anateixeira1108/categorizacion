@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+
+	<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    	<!-- Main content -->
+      <section class="content-header">
+          <h1>Portal LSR<small>Generar Entrada</small></h1>
+          <ol class="breadcrumb">
+            <li><a href="/">Inicio</a></li>
+            <li class="active"><i class="fa fa-file-text-o"></i>&nbsp;Portal LSR</li>
+        	</ol>
+      </section>
+      
+      <section class="content ng-scope" ng-app="ngUploadApp">
+
+    		<div class="box box-danger" style="min-height:400px">
+    		<div class="box-body">
+
+    		<div class="col-lg-12 col-md-12">
+    			<h4>Generar Entrada</h4><br/>
+    		</div>
+
+        <div ng-controller="UploadController" class="ng-scope">
+    		
+        	<form class="form-entrada">
+
+    				{% csrf_token %}
+
+    				<div class="col-lg-12 col-md-12">
+    					<table class="table table-striped table-partner tabla-ancho-fijo">
+    						<tbody>
+              <thead>
+                <th colspan="2">Datos de la entrada:</th>  
+              </thead>
+                <tbody>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">¿An&oacute;nimo?</label></td>
+                  <td ><input id="anonimo" style="margin:0%;" type="checkbox"></input</td>
+                </tr>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Nombre del Turista</label></td>
+                  <td><input id="nombre-turista" style="margin:0%;"></input></td>
+                </tr> 
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Apellido del Turista</label></td>
+                  <td><input id="apellido-turista" style="margin:0%;"></input></td>
+                </tr> 
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Ciudad</label></td>
+                   <td id="value" ><select id="ciudad-turista" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione</option> 
+                      {% for c in ciudad %}
+                      <option value="{{c.id}}">{{c.ciudad}}</option>
+                      {% endfor %}
+                    </select></td>
+                </tr>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Tipo Documento de Identidad</label></td>
+                   <td id="value" ><select id="tipodoc-turista" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione</option> 
+                      {% for d in tipodocumento %}
+                      <option value="{{d.id}}">{{d.nombre}}</option>
+                      {% endfor %}
+                    </select></td>
+                </tr>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">N&uacute;mero de Documento de Identidad</label></td>
+                  <td><input id="docident-turista" style="margin:0%;"></input></td>
+                </tr> 
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Tel&eacute;fono del Turista</label></td>
+                  <td><input id="telefono-turista" style="margin:0%;"></input></td>
+                </tr> 
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Correo Electr&oacute;nico del Turista</label></td>
+                  <td ><input id="correo-turista" style="margin:0%;"></input></td>
+                </tr> 
+                <tr >
+                  <td id="label" ><label style="margin:0%;">Tipo de entrada</label></td>
+                  <td id="value" ><select id="tipo-comentario" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione el Tipo de Comentario</option> 
+                      {% for t in tipo %}
+                      <option value="{{t.abreviacion}}">{{t.nombre}}</option>
+                      {% endfor %}
+                    </select></td>
+                </tr>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Severidad</label></td>
+                   <td id="value" ><select id="severidad-comentario" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione la Severidad</option> 
+                      {% for s in severidad %}
+                      <option value="{{s.id}}">{{s.nombre}}</option>
+                      {% endfor %}
+                    </select></td>
+                </tr>
+                <tr>
+                  <td id="label" ><label style="margin:0%;">Sede</label></td>
+                  <td id="value" disabled><select id="lsr-comentario" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione la Sede</option> 
+                      {% for su in lsr %}
+                        {% if su.sucursal %}
+                          <option value="{{su.id}}">{{su.sucursal.nombre}} - {{su.pst.razon_social}}</option>
+                        {% else %}
+                          <option value="{{su.id}}">Sede Principal - {{su.pst.razon_social}}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select></td>
+                </tr>
+                <tr>
+                  <td id="label" colspan="2">
+                    <label style="margin:0%;">Observaciones del Turista</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td id="value" colspan="2">
+                  <div style="margin:0%;" class="col-xs-12">
+                    <textarea  
+                    class="textarea-presonalizada"
+                    name="observaciones" 
+                    id="observacion-entrada" 
+                    ></textarea>    
+                    </div>               
+                  </td>
+                </tr>
+                <!--
+                <tr>
+                  <td id="label" ><label style="margin:0%;">¿Desea responder una encuesta?</label></td>
+                  <td ><input id="responderencuesta" style="margin:0%;" type="checkbox"></input</td>
+                </tr>
+                -->
+
+              </td>
+              </tr>
+              </tbody>
+    						
+
+    						</tbody>
+    					</table>
+
+    				</div>
+
+    			</form>
+        
+        </div>
+
+    		</div>			
+        </div>
+
+    		<div class="save-bar col-lg-12 col-md-12">
+                  
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 enviar-formulario">
+                      <a 
+                      href="#"
+                      type="button"
+                      class="btn btn-flat btn-info enviar-btn col-lg-12 col-md-12">
+                          Enviar &nbsp;&nbsp;<i class="fa fa-save"></i>
+                      </a>
+                  </div>
+        </div>
+
+        <form 
+            method="post"
+            action="/categorizacion/turista/enviarencuesta"
+            class="valores-encuesta">
+          
+        </form>
+      </section>
+</aside>
+
+
+    {% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    
+    {{ block.super }}
+    
+    <script type="application/javascript">
+        $(function() {
+
+          var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+       		$('.enviar-formulario').click(function(){
+            if ($('#anonimo').is(':checked')){
+              anonimo='si';
+            }
+            else {
+              anonimo='no';
+            }
+            
+              $.ajax({
+                type: 'POST',
+                url: '/categorizacion/turista/enviarformulario',
+                data:{
+                  'anonimo': anonimo,
+                  'nombre': $('#nombre-turista').val(),
+                  'apellido': $('#apellido-turista').val(),
+                  'ciudad': $('#ciudad-turista').val(),
+                  'telefono': $('#telefono-turista').val(),
+                  'correo': $('#correo-turista').val(),
+                  'ciudad': $('#ciudad-turista').val(),
+                  'tipodoc': $('#tipodoc-turista').val(),
+                  'numerodoc': $('#docident-turista').val(),
+                  'tipo': $('#tipo-comentario').val(),
+                  'severidad': $('#severidad-comentario').val(),
+                  'lsr': $('#lsr-comentario').val(),
+                  'observaciones': $('#observacion-entrada').val(),
+                  csrfmiddlewaretoken:  token,
+            },success: function(server_data) {
+              if ($('#responderencuesta').is(':checked')){
+                
+                $('#anonimo').attr('disabled', true)
+                $('#nombre-turista').attr('disabled', true)
+                $('#apellido-turista').attr('disabled', true)
+                $('#ciudad-turista').attr('disabled', true)
+                $('#telefono-turista').attr('disabled', true)
+                $('#correo-turista').attr('disabled', true)
+                $('#tipodoc-turista').attr('disabled', true)
+                $('#docident-turista').attr('disabled', true)
+                $('#tipo-comentario').attr('disabled', true)
+                $('#severidad-comentario').attr('disabled', true)
+                $('#lsr-comentario').attr('disabled', true)
+                $('#observacion-entrada').attr('disabled', true)
+                $('#responderencuesta').attr('disabled', true)
+                $('.enviar-btn').attr('disabled', true)
+                var entradaid=server_data.data.id_entrada;
+                $.ajax({
+                  type: 'GET',
+                  url: '/categorizacion/turista/mostrarencuesta?entrada='+entradaid,
+                  success: function(server_data) {
+                    encuesta = server_data.data.encuesta;
+                    var tam= encuesta.length;
+                    var otro="", j, z, pos;
+                    $('.valores-encuesta').html('');
+                    for (z=0;z<tam;z++){
+                      if (z==0){
+                        //console.log("########");
+                        $('.valores-encuesta').append('<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />\
+                          <input type="hidden" name="identrada" value="'+entradaid+'" />\
+                          <div class="seccion_'+encuesta[z][0].seccion_encuesta_id+'">\
+                          <h3>'+encuesta[z][0].seccion_encuesta__nombre+'</h3>');
+                        //seccion_nombre=encuesta[z][0].seccion_encuesta__nombre;
+                        //seccion_id=encuesta[z][0].seccion_encuesta_id;
+                      }
+                      else{
+                        if(encuesta[z][0].seccion_encuesta__nombre!=encuesta[z-1][0].seccion_encuesta__nombre){
+                            if (otro!=""){
+                              //console.log(otro);
+                              $('.valores-encuesta').append('<h4>'+otro+'</h4><input type="text" name="observacion_'+encuesta[pos][0].seccion_encuesta_id+'_'+encuesta[pos][0].elemento_encuesta_id+'">');
+                              for (j=0; j<encuesta[pos][1].length; j++){
+                                //console.log(encuesta[pos][1][j][1]);
+                                $('.valores-encuesta').append('<input type="radio" name="respuesta_'+encuesta[pos][0].seccion_encuesta_id+'_'+encuesta[pos][0].elemento_encuesta_id+'" value="'+encuesta[pos][1][j][0]+'">'+encuesta[pos][1][j][1]+'');
+                              }
+                              $('.valores-encuesta').append('</div>');
+                              otro="";
+                            }
+                          $('.valores-encuesta').append('</div><div class="seccion_'+encuesta[z][0].seccion_encuesta_id+'">\
+                          <h3>'+encuesta[z][0].seccion_encuesta__nombre+'</h3>');
+
+                          //console.log("#######");
+                          //console.log(encuesta[z][0].seccion_encuesta__nombre);
+
+                        }
+                      }
+                      if(encuesta[z][0].elemento_encuesta__nombre=='Otro'){
+                        otro=encuesta[z][0].elemento_encuesta__nombre;
+                        pos=z;
+                      }
+                      else{
+                        $('.valores-encuesta').append('<div class="elemento_'+encuesta[z][0].elemento_encuesta_id+'"> <h4>'+encuesta[z][0].elemento_encuesta__nombre+'</h4>');
+                        //console.log(encuesta[z][0].elemento_encuesta__nombre);
+                        for (j=0; j<encuesta[z][1].length; j++){
+                          $('.valores-encuesta').append('<input type="radio" name="respuesta_'+encuesta[z][0].seccion_encuesta_id+'_'+encuesta[z][0].elemento_encuesta_id+'" value="'+encuesta[z][1][j][0]+'">'+encuesta[z][1][j][1]+'');
+                          //console.log(encuesta[z][1][j][1]);
+                        }
+                        
+                      }
+                      if (z==tam-1){
+                        //console.log(otro);
+                        $('.valores-encuesta').append('<h4>'+otro+'</h4><input type="text" name="observacion_'+encuesta[pos][0].seccion_encuesta_id+'_'+encuesta[pos][0].elemento_encuesta_id+'">');
+                        for (j=0; j<encuesta[pos][1].length; j++){
+                          //console.log(encuesta[pos][1][j][1]);
+                          $('.valores-encuesta').append('<input type="radio" name="respuesta_'+encuesta[pos][0].seccion_encuesta_id+'_'+encuesta[pos][0].elemento_encuesta_id+'" value="'+encuesta[pos][1][j][0]+'">'+encuesta[pos][1][j][1]+'');
+                        }
+                        $('.valores-encuesta').append('</div>');
+                        $('.valores-encuesta').append('<input type="submit" class="btn btn-primary" value="Enviar"/>');
+                      }
+                    }
+                  },error: function(server_data) {
+                    alert(server_data.responseText);
+                }
+                });
+              }
+              else {
+                alert("La entrada ha sido registrada");
+                $('.form-entrada').trigger("reset");
+              }
+            },error: function(server_data) {
+                alert(server_data.responseText);
+                }
+            });
+
+
+       		});
+        });
+    </script>
+{% endblock %}

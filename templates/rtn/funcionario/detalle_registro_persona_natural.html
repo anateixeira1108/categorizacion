@@ -1,0 +1,370 @@
+{% extends "base_funcionario.html" %}
+
+{% block main_content %}
+
+    {% load tipo_persona_juridica %}
+    {% load filtros_datos %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+    <section class="content-header">
+        <h1>
+            Detalle de registro de PST
+            <small>(No verificado)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Registro</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+    <div class="box box-danger">
+    <div class="box-body">
+
+    <form action="../../index.html" method="post">
+
+    <div class="body" id="funcionario">
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>RIF:</label>
+        </div>
+        <div class="col-xs-4">
+            {{ pst.rif }}
+            <a href="{{ MEDIA_URL }}{{ pst.archivo_rif }}" target="_blank">
+                <span class="fa fa-search"></span>
+            </a>
+        </div>
+        <div class="col-xs-2 text-right">
+            <label>Fecha de registro:</label>
+        </div>
+        <div class="col-xs-2">
+            <span>{{ pst.creado_el | date:"SHORT_DATE_FORMAT" }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Cédula:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ pst.cedula }}
+            <a href="{{ MEDIA_URL }}{{ pst.archivo_cedula }}" target="_blank">
+                <span class="fa fa-search"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Nombres:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.nombres }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Apellidos:</label>
+        </div>
+        <div class="col-xs-4">
+            <span>{{ pst.apellidos }}</span>
+        </div>
+        <div class="col-xs-4 col-lg-3 col-lg-offset-1">
+            <a href="{% url 'rtn_funcionario_certificar_documentos_natural' pst.id %}"
+               class="btn btn-info btn-flat btn-block">
+                Ir a certificación de documentos
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Ubicación
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Estado:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.estado }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Municipio:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.municipio }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Parroquia:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.parroquia }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Urbanización/sector:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.urbanizacion }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Avenida/calle/carretera:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.avenida_calle }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Edificio/casa:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.edificio }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Oficio/Apto./No.:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.oficina_apartamento }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Código postal:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.codigo_postal }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Punto de referencia:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ direccion.punto_referencia }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="title">
+                Datos de contacto
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono fijo:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ pst.telefono_fijo }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Teléfono móvil:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ pst.telefono_celular }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <label>Correo electrónico:</label>
+        </div>
+        <div class="col-xs-8">
+            {{ user.correo_electronico }}
+        </div>
+    </div>
+
+    <div class="title">
+        Domicilio Fiscal
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Estado:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.estado }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Municipio:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.municipio }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Parroquia:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.parroquia }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Urbanizaci&oacute;n:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.urbanizacion }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Avenida/Calle/Carretera:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.avenida_calle }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Edificio/Casa:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.edificio }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Oficina/Apto./No.:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.oficina_apartamento }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">C&oacute;digo postal:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.codigo_postal }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Punto de referencia:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.punto_referencia }}</p>
+        </div>
+    </div>
+
+    <div class="title">
+        Actividad Comercial Principal
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Tipo de PST:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ actividad_principal.actividad.nombre }}</p>
+        </div>
+    </div>
+
+    {% for field, value in datos_especificos.iteritems %}
+        <div class="row">
+            <div class="col-xs-4 text-right">
+                <p class="bold">{{ field }}:</p>
+            </div>
+
+            <div class="col-xs-4">
+                {% if value.path %}
+                    <p>
+                        {{ value|basename }}
+                        <a href="{{ MEDIA_URL }}{{ value }}" target="_blank">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </p>
+
+                {% else %}
+                    <p>{{ value }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="title">
+        Actividad Comercial Secundaria
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Licencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for actividad in actividades_secundarias %}
+                        <tr>
+                            <td>{{ actividad.actividad.nombre }}</td>
+                            <td>{{ actividad.licencia }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+            <a href="{% url 'rtn_funcionario_certificar_documentos_natural' pst.id %}"
+               class="btn btn-info btn-block btn-flat">
+                Ir a certificación de documentos
+            </a>
+        </div>
+    </div>
+    </div>
+
+    </form>
+
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
+    </aside><!-- /.right-side -->
+
+
+
+{% endblock %}
+

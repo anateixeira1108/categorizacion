@@ -1,0 +1,41 @@
+[
+    {
+        "model": "verificacion.Verificacion",
+        "pk": 1,
+        "fields": {
+            "pst": 1,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-01",
+            "hasta": "2014-05-31",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_verificacion": 1
+
+        }
+    },
+    {
+        "model": "verificacion.Verificacion",
+        "pk": 2,
+        "fields": {
+            "pst": 2,
+            "rif": "V-12346578-1",
+            "desde": "2014-05-01",
+            "hasta": "2014-05-31",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_verificacion": 1
+
+        }
+    },
+    {
+        "model": "verificacion.Verificacion",
+        "pk": 3,
+        "fields": {
+            "pst": 3,
+            "rif": "V-12346578-2",
+            "desde": "2014-05-01",
+            "hasta": "2014-05-31",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_verificacion": 2
+
+        }
+    }
+]

@@ -1,0 +1,301 @@
+{% load filtros_datos %}
+
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-pencil-square-o"></i>
+                <span>Registro {{ pst|get_tipo_usuario_short }}</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="{% url 'cuentas_natural_1' %}">
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                {% if nuevo_registro %} Nuevo registro {% else %} Actualización de datos {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+                {% if mostrar_cambio_perfil %}
+                    <li>
+                        <a href="{% url 'cuentas_cambio_de_perfil' %}">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Solicitar cambio de perfil
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endif %}                
+            </ul>
+        </li>
+
+        {########### BEGIN Menu de Categorizacion ###############}
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-star-half-o"></i>
+                <span>Categorizaci&oacute;n</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li p="0">
+                    <a href="{%url 'bandeja'%}?ver=todo" class="cargar_recurso" s=""><!-- link a bandeja categorización -->
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                Bandeja
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span>Libro</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="{%url 'bandeja_libro'%}?ver=todo" class="cargar_recurso" s=""><!-- link a bandeja LSR -->
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                Bandeja
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'portallsr' operacion='entradas' %}?ver=todo"><!-- link a entradas LSR -->
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                Entradas
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{%url 'oficios_respuesta' operacion='bandeja' %}?ver=todo" class="cargar_recurso" s="">
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                Oficios Respuesta
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {#% if mostrar_placas %#}
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-credit-card"></i>
+                <span>Placas</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="{%url 'bandeja_placa'%}?ver=todo">
+                        <div class="row">
+                            <div class="col-xs-1 text-center">
+                                <i class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div class="col-xs-10">
+                                Bandeja
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {#% endif %#}
+
+        {########### END Menu de Categorizacion ###############}
+<!--
+        {% if pst.numero_contribuyente %}
+        <li>
+            <a href="{% url "registro_funcionario_imprimir_certificado_riftur_persona_natural_menu" pst.id %}">
+                <i class="fa fa-certificate"></i>
+                <span>RIFTUR</span>
+            </a>
+        </li>
+        {% endif %}
+        {% if pst.rtn %}
+        <li>
+            <a href="{% url "registro_funcionario_imprimir_certificado_rtn_persona_natural_menu" pst.id %}">
+                <i class="fa fa-certificate"></i>
+                <span>RTN</span>
+            </a>
+        </li>
+        {% endif %}
+
+
+        {#            <li class="treeview">#}
+        {#                <a href="#">#}
+        {#                    <i class="fa fa-pencil-square-o"></i>#}
+        {#                    <span>RTN</span>#}
+        {#                    <i class="fa fa-angle-left pull-right"></i>#}
+        {#                </a>#}
+        {#                <ul class="treeview-menu">#}
+        {#                    <li>#}
+        {#                        <a href="{% url 'pst_solicitudes_rtn' %}">#}
+        {#                            <div class="row">#}
+        {#                                <div class="col-xs-1 text-center">#}
+        {#                                    <i class="fa fa-angle-double-right"></i>#}
+        {#                                </div>#}
+        {#                                <div class="col-xs-10">#}
+        {#                                    Solicitudes#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </a>#}
+        {#                    </li>#}
+        {##}
+        {#                </ul>#}
+        {#            </li>#}
+        {#        #}
+
+        {#            <li class="treeview">#}
+        {#                <a href="#">#}
+        {#                    <i class="fa fa-key"></i>#}
+        {#                    <span>Licencias</span>#}
+        {#                    <i class="fa fa-angle-left pull-right"></i>#}
+        {#                </a>#}
+        {#                <ul class="treeview-menu">#}
+        {#                    <li>#}
+        {#                        <a href="{% url 'pst_solicitudes_licencias' %}">#}
+        {#                            <div class="row">#}
+        {#                                <div class="col-xs-1 text-center">#}
+        {#                                    <i class="fa fa-angle-double-right"></i>#}
+        {#                                </div>#}
+        {#                                <div class="col-xs-10">#}
+        {#                                    Solicitudes#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </a>#}
+        {#                    </li>#}
+        {##}
+        {#                </ul>#}
+        {#            </li>#}
+
+        {% if pst.rtn or pst.numero_contribuyente %}
+            <li>
+                <a href="{% url 'declaraciones_pst_declaraciones' %}">
+                    <i class="fa fa-file-o"></i>
+                    <span>Declaraciones</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Pagos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'pst_compromisos_pago' %}">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Estado de cuenta
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'pst_pago_indebido' %}">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Solicitud de Reconocimiento de Pago Indebido
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'pst_reconocimientos_pago_indebido' %}">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Cesion de Reconocimiento de Pago Indebido
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            {% if pst.emprendedor %}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-check-square"></i>
+                        <span>Factibilidad</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'pst_solicitudes_factibilidad' %}">
+                                <div class="row">
+                                    <div class="col-xs-1 text-center">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        Solicitudes
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {% endif %}
+        {% endif %}
+-->
+
+    </ul>
+    <div class="bottom-container">
+        <div class="logo-bottom">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="{{ STATIC_URL }}img/logo-blanco.png">
+                </div>
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="{{ STATIC_URL }}img/logo_inatur.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.sidebar -->
+</aside>

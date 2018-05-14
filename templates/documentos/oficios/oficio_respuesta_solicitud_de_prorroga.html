@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				top:4cm;
+                bottom: 3cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					
+				}
+                @frame header {
+                    -pdf-frame-content: headerTextContent;
+                    top: 2cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                }
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+            .pg{
+                font-size:12px;
+            }
+            .cortar{
+                margin-right: 8cm;
+                text-align:justify;
+            }
+            .parrafo-centrado{
+                font-size:12px;
+                text-align:center;
+            }
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="50" width="300" alt="image" src="static/img/placas/logo.jpg"/>
+		</div> 
+        <span>{{data.nomenclatura_oficios}}/{{data.fecha.year}}/{{data.oficio.id}}</span>
+		<div class="pg">
+            <div style="text-align:right;"> Caracas, {{data.fecha}}</div>
+            <div>Se&ntilde;ores:</div>
+            <span>{{ data.razon_social }}</span>
+            <div class="cortar">Direcci&oacute;n: 
+                <span>{{ data.direccion }}</span>
+            </div>
+            <div>Tel&eacute;fonos:
+                <span> {{ data.telefonos }}</span>
+            </div>
+            <br>
+            {% if data.contacto %}
+            <div style="text-align:right;">Atenci&oacute;n a:</div>
+            <span style="text-align:right;">{{data.contacto.nombres}}} {{data.contacto.apellidos}}</span>
+            <span style="text-align:right;">Cargo: {{data.contacto.cargo_empresa}}}</span>
+            {% endif %}
+            <div style="font-style:underline;">Presente.-</div>
+            <br>
+            <div class="parrafo">
+                &Tab;Con un saludo bolivariano y revolucionario, me dirijo a usted, en la oportunidad de dar respuesta a su solicitud mediante la cual requiere un plazo adicional al concedido para cumplir con los requerimientos faltantes en el proceso de categorizaci&oacute;n del establecimiento {{data.razon_social}} por usted representado.
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;En tal sentido, una vez analizada la solicitud por usted presentada, este Ministerio, en su condici&oacute;n de &oacute;rgano rector en materia de turismo, decide otorgar una pr&oacute;rroga de {{data.dias}} d&iacute;as h&aacute;biles contados a partir de la notificaci&oacute;n de la presente comunicaci&oacute;n, para cumplir con las disposiciones de mejoras emitida y obtener la categor&iacute;a correspondiente, todo de conformidad con los art&iacute;culos 7 y 8&deg; de la Resoluci&oacute;n 003, de fecha 04 de febrero de 2015, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela N&deg; 40.600 de fecha 11 de febrero de 2015.
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;Finalmente, aprovecho la oportunidad de participarle que podr&aacute; denunciar cualquier irregularidad a trav&eacute;s del correo DENUNCIA@MINTUR.GOB.VE; record&aacute;ndole que los mensajes de datos est&aacute;n sometidos a las disposiciones constitucionales y legales que garantizan los derechos a la privacidad de las comunicaciones y de acceso a la informaci&oacute;n personal, seg&uacute;n lo dispuesto en el art&iacute;culo 5 del Decreto N&deg; 1204 con Fuerza de Ley sobre Mensajes de Datos y Firmas Electr&oacute;nicas, publicado en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela N&deg; 37.148 de fecha 10 de febrero de 2001.
+            </div>
+            <br>
+            <div class="parrafo-centrado">
+                <div>Atentamente,</div>
+                <br>
+                <br>
+                <span>Viceministro</span>
+            </div>
+		</div>
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div> 
+	</body>
+</html> 

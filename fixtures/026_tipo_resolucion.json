@@ -1,0 +1,8 @@
+[
+    {
+        "model": "resoluciones.TipoResolucion",
+        "fields": {
+            "nombre": "Resolución de Imposición de Sanciones"
+        }
+    }
+]

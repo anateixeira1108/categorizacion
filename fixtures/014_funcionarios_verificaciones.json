@@ -1,0 +1,102 @@
+[
+    {
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 1,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 1
+        }
+    },
+    {
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 2,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 10,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 1
+        }
+    },
+	{
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 3,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 11,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 1
+        }
+    },
+    {
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 4,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 2
+        }
+    },
+    {
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 5,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 10,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 2
+        }
+    },
+	{
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 6,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 11,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 2
+        }
+    },
+	{
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 7,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 3
+        }
+    },
+    {
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 8,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 11,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 3
+        }
+    },
+	{
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 9,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 12,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 3
+        }
+    },
+	{
+        "model": "verificacion.FuncionariosVerificacion",
+        "pk": 10,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 12,
+            "asignado_el": "2014-05-23 13:00:00.00",
+            "verificacion": 1
+        }
+    }
+]

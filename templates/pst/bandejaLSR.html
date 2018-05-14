@@ -1,0 +1,655 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        {% csrf_token %}
+        <section class="content-header">
+            <h1>Libro de Sugerencias y Reclamos<small>Bandeja de Trabajo</small></h1>
+                <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li class="active"><i class="fa fa-book"></i>Libro</li> <!--Editar icono -->
+            </ol>
+        </section>
+        <section class="content lsr_bandeja">
+            <div class="box box-danger">
+                <div class="box-body">
+                {% if activar_libro == False %}
+                    <div class="alert alert-warning alert-dismissible contenido-centrado" role="alert">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-5">
+                                <i class="fa fa-ban fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                             Debe poseer una licencia vigente para poder optar por libros de sugerencias y reclamos físicos
+                        </div>
+                    </div>  
+
+                {% elif busqueda and not solicitudes %}
+                        <div class="alert alert-warning alert-dismissible contenido-centrado" role="alert">
+                            <div class="row">
+                                <div class="col-xs-2 col-xs-offset-5">
+                                    <i class="fa fa-frown-o fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 Su b&uacute;squeda no arroj&oacute; resultados
+                            </div>
+                        </div>  
+
+                {% else %}
+
+                    <div class="row title" id="row-buscar">
+                        <div class="col-xs-2 col-xs-offset-10">
+                            <a id="activar_buscar_modal" href="#" class="btn btn-primary btn-flat pull-right col-xs-12 {% if not solicitudes and not busqueda %} disabled {% endif %}">
+                                Buscar&nbsp;&nbsp;<i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                         
+                        {% if error == "error" %}
+
+                          <div class="alert alert-warning alert-dismissible col-xs-9" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                              <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                              <strong>Error: </strong> 
+                              Este archivo no cumple con los requisitos de formato o tamaño, error al subir archivo
+                          </div>
+
+                        {% endif %}
+
+                        <div class="col-xs-2 col-xs-offset-10">
+                            <a href="#" class="btn btn-flat btn-primary col-xs-12" data-toggle="modal" data-target="#lugar-recepcion-libro">
+                            Nueva solicitud&nbsp;&nbsp;<i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--
+                    <div class="row">
+                        <div class="col-lg-2 col-lg-offset-10 col-md-2 col-md-offset-10">
+                            <a href="#" class="btn btn-flat btn-primary nueva-sol" data-toggle="modal" data-target="#lugar-recepcion-libro">
+                            Nueva solicitud &nbsp;<i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div><br/>
+                    -->
+                    
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-striped table-partner table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Identificador</th>
+                                        <th>Sede</th>
+                                        <th>Estatus</th>
+                                        <th>Oficina de Entrega</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>                           
+                                <tbody>
+                                {% for s in solicitudes %}
+
+                                    <tr id="{{s.id}}">
+                                        <td>{{s.fecha_realizacion|date}}</td>
+                                        <td>
+                                        {% if libros|keyvalue:s.id %}
+                                        {{libros|keyvalue:s.id}}
+                                        {% else %}
+                                        -
+                                        {% endif %}
+                                        </td>
+                                        <td>{{s.sucursal.nombre|default_if_none:"Sede Principal"}}</td>
+                                        <td>
+                                            <div id="estatus_{{s.id}}">
+                                            {% if s.estatus.abreviacion == 'PP' %}
+                                            <label data-toggle="tooltip" title="Por Pagar" class="label label-danger etiqueta-estatus">Por Pagar</label>
+                                            {% elif s.estatus.abreviacion == 'E' %}
+                                            <label data-toggle="tooltip" title="Entregado" class="label label-success etiqueta-estatus">Entregado</label>
+                                            {% else %}
+                                            <label data-toggle="tooltip" title="{{s.estatus.descripcion}}" class="label label-warning etiqueta-estatus">{{s.estatus.nombre}}</label>
+                                            {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>{{s.oficina.nombre}}</td>
+                                        <td>        
+                                            {% if s.estatus.abreviacion != 'E' %}
+                                            <a data-toggle="tooltip" title="Cargar c&oacute;digo de comprobante" href="#" class="btn btn-info cargar_{{s.id}} cargar-comprobante {% if s.estatus.abreviacion != 'PP' %}  disabled{% endif %}" id="{{s.id}}">
+                                                <i class="fa fa-money icon-white"></i>
+                                            </a>
+                                            <!--
+                                            <a data-toggle="tooltip" title="Ver planilla de pago" href="#" class="btn btn-info activar-modal-pdf" id="{{s.id}}">
+                                                <i class="fa fa-file-text-o icon-white"></i>
+                                            </a>
+                                            -->
+                                            {% else %}
+                                            <a data-toggle="tooltip" title="Subir folios"  href="#" class="btn btn-info subir_folios" id="{{libros|keyvalue:s.id}}">
+                                                   <i class="fa fa-upload icon-white"></i>
+                                            </a>
+                                            <a 
+                                            data-toggle="tooltip" 
+                                            title="Ver folios" 
+                                            href="" 
+                                            class="btn btn-info ver_folios" 
+                                            id="{{s.id}}" 
+                                            libro="{{libros|keyvalue:s.id}}">
+                                                <i class="fa fa-book icon-white"></i>
+                                            </a>
+                                            {% endif %}
+                                            
+                                        </td>
+                                    </tr>     
+                                {% endfor %}
+                                </tbody>    
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+                <!--///////////////////Paginador\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+                    <div class="row root_paginator" p="{{p}}">        
+                        <a href="
+                        {% if busqueda == True %}
+                            {% url 'bandeja_libro' %}?p={{p}}&s=-&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {% url 'bandeja_libro' %}?p={{p}}&s=-
+                        {% endif %}
+                        " class="col-xs-2 col-xs-offset-2 btn btn-flat btn-primary paginar fa fa-chevron-left" id="prev" s="-"style="
+                        {% if p == 0 %}
+                            visibility:hidden
+                        {% endif %}"                
+                         ></a>
+                        <a href="
+                        {% if busqueda == True %}
+                            {%url 'bandeja_libro' %}?p={{p}}&s=%2B&busqueda=busqueda&solicitudes={{sol_buscar}}
+                        {% else %}
+                            {%url 'bandeja_libro' %}?p={{p}}&s=%2B
+                        {% endif %}
+                        " class="col-xs-2 col-xs-offset-2 btn  btn-flat btn-primary paginar fa fa-chevron-right" id="next" s="+" style="
+                        {% if mas == False %}
+                            visibility:hidden
+                        {% endif %}"
+                        ></a>
+                    </div>
+                <!--////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <div class="modal fade" id="solicitud_libro" tabindex="-1" role="dialog" aria-labelledby="solicitud_libro_label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-full-screen modal-content-full-screen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <br>
+            <br>
+            <div class="row">
+            <div class="col-xs-2">
+              <h4 class="modal-title" id="solicitud_libro_label">Solicitar libro</h4>
+            </div>
+            <div class="col-xs-offset-7 col-xs-3">
+              <div class="timestamp"></div>
+            </div>
+            </div>
+          </div>
+          <div class="modal-body" >                
+                
+          </div>
+          <div class="modal-footer contenido-centrado">
+            <a id="boton-rechazar-documento"  href="#" class="btn btn-danger">Rechazar</a>
+            <a id="boton-aceptar-documendo" href="#" class="btn btn-primary" data-dismiss="modal">Aceptar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include '_modales_categorizacion.html' %}
+
+    <div class="modal fade" id="lugar-recepcion-libro" tabindex="-1" role="dialog" aria-labelledby="recepcion-Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="recepcionLabel">Nueva Solicitud de Libro</h4>
+          </div>
+
+          <div class="modal-body"> 
+            <form action="" class="lugar-recepcion-form">
+                
+                <div class="row">
+                    <label class="col-xs-offset-3 col-xs-6" style="padding:0px;">Solicitar libro para</label>        
+                </div>
+                
+                <div class="row">
+                    <select id="sucursal-libro" class="col-xs-offset-3 col-xs-6">
+                      <option value="-1">Seleccione una de sus Sucursales</option> 
+                      {% for su in sucursales %}
+                        {% if su.sucursal %}
+                      <option value="{{su.sucursal.id}}">{{su.sucursal.nombre}}</option>
+                        {% else %}
+                      <option value="0">Sede Principal</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                </div>               
+
+                <div class="row">
+                    <label for="estado" class="col-xs-offset-3 col-xs-6" style="padding:0px;">Estado de entrega</label>
+                </div>                
+
+                <div class="row">
+                    <select id="estado" class="col-xs-offset-3 col-xs-6" disabled="true">
+                      <option value="-1" selected="selected">Seleccione un Estado</option>
+                      {% for e in estados %}
+                      <option value="{{e.id}}">{{e.estado}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label for="municipio" class="col-xs-offset-3 col-xs-6" style="padding:0px;">Municipio de entrega</label>
+                    </div>
+                    <div class="row">
+                    <select id="municipio" class="col-xs-offset-3 col-xs-6" disabled="true">
+                      <option value="-1">Selecione un municipio</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-offset-3 col-xs-6" style="padding:0px;">Oficina Regional de entrega</label>
+                </div>
+                <div class="row">
+                    <select id="oficina" class="col-xs-offset-3 col-xs-6" disabled="true">
+                      <option value="-1" selected="selected">Seleccione una oficina regional</option>
+                    </select>
+                </div> 
+                <div class="col-xs-offset-2 sin-oficina">
+                </div>
+            </form>          
+          </div>
+
+          <div class="modal-footer contenido-centrado">
+
+            <div class="col-xs-6" data-dismiss="modal">
+                <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>
+            </div>
+            <div class="col-xs-6" data-dismiss="modal">
+                <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12 nueva-sol-libro" disabled="true">Aceptar</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<!-- BEGIN Modal Ingresar folio-->
+<div class="modal fade" id="ingresar-folio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="ingresar-folio-Label">N&uacute;mero de Folio</h4>
+      </div>
+
+      <div class="modal-body"> 
+      
+     <form 
+      id = "load-folio-form" 
+      enctype="multipart/form-data" 
+      method="post" 
+      action="/categorizacion/libro/subirfolio"
+      class="subir-folio-form">
+
+        <div class="row">
+            <input class="col-xs-11 folio-ingresado" type="number" placeholder="" disabled>          
+            <a class="btn btn-info cargar-folio col-xs-1" id="folio">
+              <i class="fa fa-upload icon-white"></i>
+            </a>
+        </div>        
+        <div class="msj-error-modal">
+        </div>
+        {% csrf_token %}
+        <input type="number" class="input-escondido" id="folio_id" name="folio" value="">
+        <input type="file" class="input-escondido" id="folio-0" name="folio-file"/>
+        <input type="number" class="input-escondido" id="id_libro" value="" name="libro"/>        
+     </form> 
+
+      </div>
+
+      <div class="modal-footer contenido-centrado ingresar-folio-footer">       
+      </div>
+  </div>
+  </div>
+</div>   
+<!-- END Modal Ingresar folio -->
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {
+
+            var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+            $(".ver_folios").click(function(event){
+                
+                event.preventDefault();
+                event.stopImmediatePropagation();
+
+                libro=$(this).attr('libro');
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/libro/verfolios',
+                    data:{
+                        'libro':libro,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    var x ='';
+                    $("#ver-folios-modal .modal-body").css('overflow-x', 'hidden');
+                    $("#ver-folios-modal .modal-body").css('overflow-y', 'visible');
+                    if(!jQuery.isEmptyObject(server_data.folios)){
+                        $("#ver-folios-modal-body").html('');
+                        $.each(server_data.folios, function(k, v){
+                            if (v[1] == "SI"){
+                                x='<i id="'+k+'" libro="'+libro+'" class="fa fa-edit icon-black editar-folio icono-accion" ></i>'
+                            }
+                            $("#ver-folios-modal-body").append('<tr>\
+                                    <td id="'+k+'" folio="'+v[0]+'" class="ver-folio icono-accion col-lg-10 col-xs-10 col-md-10">Folio '+k+'</td>\
+                                    <td class="col-lg-2 col-xs-2 col-md-2">'+x+'</td>\
+                                </tr>');
+                        });                        
+                        $('#ver-folios-modal').modal('show');
+                    }
+                    else{
+                        $('#ver-folios-modal .modal-body').html('<div class="alert alert-warning alert-dismissible" role="alert"><strong>Error:&nbsp;</strong> no hay folios para mostrar</div>');
+                        $('#ver-folios-modal').modal('show');
+                    }
+
+
+                },error: function(xhr, textStatus, errorThrown) {
+                    alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+            });
+
+            /*
+            $(document).on('click', '.ver-folio', function(){
+                var id_folio = $(this).attr('id');
+                var folio = $(this).attr('folio');
+                $('#visualizar_modal_titulo').html('Folio '+id_folio+'');
+                $('.imagen-requisito').attr('src', folio);
+                $('#ver-folios-modal').modal('hide');
+                $('#visualizar_modal').modal('show');
+            });
+            */
+
+            $(document).on('click', '.editar-folio', function(){
+                var id_folio = $(this).attr('id');
+                var libro = $(this).attr('libro');
+                $('.subir-folio-form').trigger('reset');
+                $('.msj-error-modal').html('');
+                $('.folio-ingresado').attr('placeholder', ''+id_folio+'');
+                $('#folio_id').attr('value', ''+id_folio+'');
+                $('#id_libro').attr('value', ''+libro+'')
+                $('.ingresar-folio-footer').html('<div class="col-xs-6" data-dismiss="modal">\
+                    <a href="#" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6">\
+                    <a href="#" id="boton-aceptar-documento" class="btn btn-primary btn-subir-folios col-xs-12">Aceptar</a>\
+                    </div>');
+                $('#ver-folios-modal').modal('hide');
+                $('#ingresar-folio').modal('show');
+               });
+
+            $(".subir_folios").click(function(){
+                var libro = $(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/libro/comprobarfolio',
+                    data:{
+                        'libro': libro,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                    $('.subir-folio-form').trigger('reset');
+                    $('.msj-error-modal').html('');
+                    $('.folio-ingresado').attr('placeholder', ''+server_data.folio+'');
+                    $('#folio_id').attr('value', ''+server_data.folio+'');
+                    $('#id_libro').attr('value', ''+libro+'')
+                    $('.ingresar-folio-footer').html('<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" class="btn btn-danger col-xs-12">Cancelar</a>\
+                        </div>\
+                        <div class="col-xs-6">\
+                        <a href="#" type="submit" id="boton-aceptar-documento" class="btn btn-primary col-xs-12 btn-subir-folios">Aceptar</a>\
+                        </div>');
+                    $('#ingresar-folio').modal('show');
+
+                    },error: function(xhr, textStatus, errorThrown) {
+                        alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+
+            });                      
+
+            $(document).on('click', '.btn-subir-folios', function(e){
+                e.preventDefault();
+                if (($('#folio-0').get(0).files).length === 1){
+                    $('#load-folio-form').submit();
+                }
+                else{
+                    $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong> La imagen es requerida</div>');            
+                }
+            });
+
+            $(document).on('click', '.btn-subir-comprobante', function(){
+                $('.msj-error-modal').html('');
+                comprobante=$('#comprobante').val();
+                var max = parseInt($('#comprobante').attr('maxlength'));
+                var min = parseInt($('#comprobante').attr('minlength'));
+                var val = $('#comprobante').val().toString();
+                var i = 0;
+                var res= "";
+                var logic = false;
+                while(i<max){
+                    res = val.slice(i);
+                    console.log(res);
+                    if(res==""){
+                        if(i>min){
+                            logic=true;
+                        }
+                        break;
+                    }
+                    i+=1
+                }
+                if(i==max){
+                    $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>Por favor insertar menos de '+max+' digitos</div>');
+                }else{
+                    if(i<min){
+                        $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>Cantidad de digitos incorrecto, insertar mas hasta llegar a la cantidad apropiada: '+min+'</div>');
+                    }
+                }
+                if(logic==true){
+                    solicitud=$(this).attr('solicitud');
+                    $.ajax({
+                        type: 'POST',
+                        url: '/categorizacion/libro/comprobar',
+                        data:{
+                            'comprobante':comprobante,
+                            'solicitud': solicitud,
+                            csrfmiddlewaretoken:  token,
+                    },success: function() {
+                        if(($('#archivo-0').get(0).files).length === 1){
+
+                            $('#load-comprobante-form').submit();
+                            $('#ingresar-comprobante').modal('hide');
+                           // $('.cargar_'+solicitud).addClass('disabled');
+                            //$('#estatus_'+solicitud).html('<label data-toggle="tooltip" title="En Comprobaci&oacute;n de Pago" class="label label-warning etiqueta-estatus">Comprobaci&oacute;n</label>');
+                        }
+                        else{
+                            $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>La imagen es requerida</div>');
+                        }
+                    },error: function(server_data) {
+                       $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>'+server_data.responseText+'</div>');
+                        
+                    }
+                    });       
+                }
+                
+            });
+
+            $('#sucursal-libro').change(function(){
+                if ($(this).val()==0){
+                    $('#estado').attr('disabled', true);
+                    $('.nueva-sol-libro').attr('disabled', true);
+                    $('#municipio').html('');
+                    $('#municipio').html('<option value="-1">Selecione un municipio</option>');
+                    $('#municipio').attr('disabled',true)
+                    $('#oficina').html('');
+                    $('#oficina').html('<option value="-1">Selecione una oficina regional</option>');
+                    $('#oficina').attr('disabled',true)
+                    $('.nueva-sol-libro').attr('disabled', true);
+                }else{
+                    $('#estado').attr('disabled', false);
+                }
+               
+            });
+
+            $('#estado').change(function(){
+                if($(this).val()>=0){
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/categorizacion/libro/municipios',
+                        data:{
+                            'estado':$(this).val(),
+                            csrfmiddlewaretoken:  token,
+                    },success: function(server_data) {
+                        $('#municipio').attr('disabled', false);
+                        var x = '<option value="-1">Selecione un municipio</option>';
+                        $.each(server_data.municipios, function(k, v){
+                            x+='<option value="'+k+'">'+v+'</option>';
+                        });
+                        $('#municipio').html(x);
+                        $('#oficina').html('');
+                        $('#oficina').html('<option value="-1">Selecione una oficina regional</option>');
+                        $('.nueva-sol-libro').attr('disabled', true);
+
+                    },error: function(server_data) {
+                        $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>'+server_data.responseText+'</div>');
+
+                        }
+                    });
+                }else{
+                    $('#municipio').html('');
+                    $('#municipio').html('<option value="-1">Selecione un municipio</option>');
+                    $('#municipio').attr('disabled',true)
+                    $('#oficina').html('');
+                    $('#oficina').html('<option value="-1">Selecione una oficina regional</option>');
+                    $('#oficina').attr('disabled',true)
+                    $('.nueva-sol-libro').attr('disabled', true);
+                }
+                
+            });
+
+            $('#municipio').change(function(){
+                $('.sin-oficina').html("");
+                if($(this).val()>0){
+                    $.ajax({
+                        type: 'POST',
+                        url: '/categorizacion/libro/oficinas',
+                        data:{
+                            'municipio':$(this).val(),
+                            csrfmiddlewaretoken:  token,
+                    },success: function(server_data) {
+                        if (jQuery.isEmptyObject(server_data.oficinas)) {
+                            $('.sin-oficina').html('<div class="alert alert-warning alert-dismissible col-xs-9" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>No hay oficina regional en ese municipio</div>');
+                        }
+                        else{
+                            $('#oficina').attr('disabled', false);
+                            var x = '<option value="-1">Selecione una oficina regional</option>';
+                            $.each(server_data.oficinas, function(k, v){
+                                x+='<option value="'+k+'">'+v+'</option>';
+                            });
+                            $('#oficina').html(x);
+                            $('.nueva-sol-libro').attr('disabled', true);
+
+                        }
+                    },error: function(server_data) {
+                        $('.msj-error-modal').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong>'+server_data.responseText+'</div>');
+                        }
+                    });
+                }else{
+                    $('#oficina').html('');
+                    $('#oficina').html('<option value="-1">Selecione una oficina regional</option>');
+                    $('#oficina').attr('disabled',true)
+                    $('.nueva-sol-libro').attr('disabled', true);
+                }
+                
+            });
+
+            $('#oficina').change(function(){
+                if($(this).val()>0){
+                    $('.nueva-sol-libro').attr('disabled', false);
+                }else{
+                    $('.nueva-sol-libro').attr('disabled', true);
+                }
+                
+            });
+            
+            $('.nueva-sol-libro').click(function(){
+                s=$('#sucursal-libro').val();
+                o=$('#oficina').val();
+                if (s>=0 && o>0){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/libro/nuevasolicitud',
+                    data:{
+                        'oficina':o,
+                        'sucursal':s,
+                        csrfmiddlewaretoken:  token,
+                },success: function() {
+                        location.reload()
+                    },error: function(xhr, textStatus, errorThrown) {
+                        alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                        }
+                    });
+                }
+            });            
+
+            $('.activar-modal-pdf').click(function(){
+                $('#ver-documento-pdf .modal-dialog .modal-content .modal-footer').remove();
+                $('#ver-documento-pdf').modal({
+                });
+            });
+
+            $('#lugar-recepcion-libro').on('hide.bs.modal', function (e) {      
+                    // En esta parte se realiza el envio de la data previo al reset del formulario
+                    $('.lugar-recepcion-form').trigger("reset");
+                    $('.sin-oficina').html("");
+                    $('#estado').attr('disabled', true);
+                    $('#municipio').attr('disabled', true);
+                    $('#oficina').attr('disabled', true);
+                    $('.nueva-sol-libro').attr('disabled', true);
+             });
+
+        });
+    </script>
+{% endblock %}

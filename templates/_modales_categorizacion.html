@@ -1,0 +1,477 @@
+<!-- 
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Definicion de modales empleadas en los procesos de categorizacion
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!-- BEGIN Modal Ver Documento pdf-->
+<div class="modal fade" id="ver-documento-pdf" tabindex="-1" role="dialog" aria-labelledby="ver-documento-pdf-Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-full-screen modal-content-full-screen">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <!-- <br>
+        <br> -->
+        <div class="row">
+        <div class="col-xs-4">
+          <h4 class="modal-title" id="ver-documento-pdf-Label">Ver documento&nbsp;<small class="timestamp"></small></h4>
+        </div>
+        </div>
+      </div>
+      <div class="modal-body" >            
+            <iframe class="marco-visor-pdf"                    
+            src="{% url 'ver_pdf' %}?file=">
+            </iframe>
+            <div class="observaciones-pdf">
+            </div>
+      </div>
+      <div class="visor-pdf-modal-footer contenido-centrado">
+        <div class="col-xs-6" data-dismiss="modal">
+          <a href="#" id="boton-rechazar-inspeccion" class="btn btn-danger col-xs-12">Cancelar</a>
+        </div>
+        <div class="col-xs-6" data-dismiss="modal">
+            <a href="#" id="boton-aprobar-inspeccion" class="btn btn-primary col-xs-12">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Ver documento pdf -->
+
+<!-- BEGIN Modal Ingresar observaciones-->
+<div class="modal fade" id="ingresar-observaciones" tabindex="-1" role="dialog" aria-labelledby="ingresar-observaciones-Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="ingresar-observaciones-Label">Observaciones</h4>
+      </div>
+
+      <div class="modal-body"> 
+        <textarea id="comentario-ingresado" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea> 
+      </div>
+
+      <div class="modal-footer contenido-centrado">
+
+        <div class="col-xs-6" data-dismiss="modal">
+            <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>
+        </div>
+        <div class="col-xs-6" data-dismiss="modal">
+            <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12">Aceptar</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Ingresar observaciones -->
+
+<!-- BEGIN Modal Solicitud inspeccion -->
+<div class="modal fade" id="solititud-inspeccion" tabindex="-1" role="dialog" aria-labelledby="solititud-inspeccion-Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="solititud-inspeccion-Label">El Analista sugiere que se realice una inspecci&oacute;n</h4>
+      </div>
+
+      <div class="modal-body"> 
+        <div class="row">
+        <div class="col-lg-12">               
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5>Se han  realizado las siguientes observaciones</h5>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-lg-12">
+                    <textarea class="textarea-presonalizada" name="observaciones" id="observaciones" rows="10" readonly>Las observaciones hechas por los analistas que sirvan como justificaci&oacute;n para la realizaci&oacute;n de una inspecci&oacute;n se colocaran en esta secci&oacute;n</textarea>
+                </div>
+            </div>                
+        </div>           
+        </div>     
+      </div>
+      <div class="modal-footer contenido-centrado">
+        <button id="boton-rechazar-inspeccion" type="button" class="btn btn-danger" data-dismiss="modal">Rechazar solicitud</button>
+        <button id="boton-enviar-inspeccion" type="button" class="btn btn-primary" data-dismiss="modal">Aceptar solicitud</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Solicitud inspeccion -->
+
+<!-- BEGIN Modal Notificacion rechazo solicitud -->
+<div class="modal fade" id="observaciones-rechazo" tabindex="-1" role="dialog" aria-labelledby="observaciones-rechazo-Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="observaciones-rechazo-Label">Observaciones</h4>
+      </div>
+
+      <div class="modal-body"> 
+        <div class="row">
+        <div class="col-lg-12">           
+            <div class="row">
+                <div class="col-lg-12">
+                    <textarea class="textarea-presonalizada" name="observaciones" id="observaciones" rows="10" readonly>Aqu&iacute; se mostrar&aacute;n las observaciones realizadas por alg&uacute;n usuario justificando el rechazo de alguna solicitude
+                    </textarea>
+                </div>
+            </div>                
+        </div>           
+        </div>     
+      </div>
+      <div class="modal-footer contenido-centrado">
+        <button id="boton-aceptar" type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Notificacion rechazo solicitud -->
+
+<!-- BENGIN Modal Notificacion general -->
+<div class="modal fade" id="notificacion-general" tabindex="-1" role="dialog" aria-labelledby="notificacion-general-Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close notificacion-general-cerrar" data-dismiss="modal" aria-hidden="true">&times;</button>        
+          <h4 class="modal-title" id="notificacion-general-Label"></h4>
+      </div>
+      <div class="modal-body"> 
+        <div class="row">
+        <div class="col-lg-12">           
+            <div class="row">                
+                <div class="col-lg-12 " id="notificacion-general-body">
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer contenido-centrado" id="notificacion-general-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Notificacion general -->
+
+<!-- BEGIN Filtros Bandeja -->
+<div class="modal fade" id="buscar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-full-screen modal-content-full-screen">
+        <div class="modal-content">
+
+            <div class="modal-header" style="background-color: #CE4744; color: white;">
+                <button type="button" id="quitar-busqueda2" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Buscar</h4>
+            </div>
+            <form method="POST" action="{% url 'buscar-avanzada' %}" class="form-busqueda">
+            {% csrf_token %}
+            <input class="hidden buscar_bandeja" type="text" name="bandeja" value=""/> 
+            <div class="modal-body">
+                <div class="row">
+                  <div id="buscar_col_0">                    
+                    <div id="buscar_texto" class="col-xs-3">
+                        <div class="input-group col-xs-12">
+                            <input type="text" id="buscar-texto" class="form-control input-sm" maxlength="30" name="buscar_texto" placeholder="Ingrese el texto a buscar" >
+                            <div id="msj-error-buscar"></div>
+                            <!--<a href="#" class="input-group-addon" id="buscar-textos">
+                                <i class="fa fa-search"></i>
+                            </a>-->
+                        </div>
+                    </div>
+                    <div id="razon_social_check_buscar" class="col-xs-2 check-buscador">
+                        <input type="checkbox" name="razon_social" value="" /> &nbsp;Raz&oacute;n Social
+                    </div>
+                    <div id="rif_check_buscar" class="col-xs-2 check-buscador">
+                        <input type="checkbox" name = "rif" value="" /> &nbsp;RIF
+                    </div>
+                    <div id="rtn_check_buscar" class="col-xs-2 check-buscador">
+                        <input type="checkbox" name="rtn" value="" /> &nbsp;RTN
+                    </div>
+                    <div class="col-xs-2">
+                        <a id="btn-buscar-avanzada-filtros">
+                            Búsqueda avanzada
+                        </a>
+                    </div>
+                    
+                </div>
+              </div>
+                <br/>
+                <div class="box box-danger box-busqueda-avanzada" id="filtros-busqueda-avanzada" >
+                    <div class="box-body">
+                        
+                        <div class="row">
+                            <div id="buscar_col_1" class="col-xs-3">
+                                <label id="ubicacion-geografica" class="labelmodal">Ubicación geográfica</label>
+                                <div ></div>
+                                <select id="estados" name="estados" class="form-control input-sm" >
+                                    <option value="">Estado</option>
+                                </select><br/>
+                                
+                                <select id="municipios" name="municipios" class="form-control input-sm">
+                                    <option value="">Municipio</option>
+                                </select><br/>
+                                <select id="parroquias" name="parroquias">
+                                    <option value="">Parroquia</option>
+                                </select>
+                                
+                            </div>
+
+                            <div class="col-xs-3" id="fecha-busqueda">
+
+                                <div class="col-xs-12">
+                                  <div id="campo-fecha">
+                                    <div class="row" >
+                                        <div class="col-xs-12">
+                                            <label class="labelmodal">Período</label>
+                                        </div>
+                                        <div class="col-xs-3 col-xs-offset-1">Desde</div>
+                                        <div class="col-xs-7"> 
+                                            <div class="input-group input-append date"  data-date-min-view-mode="months" data-date-end-date="today">
+                                                <input type="text" id="periodo-desde" ng-model="periodo_desde" class="form-control" name="periodo-desde" data-date-format="dd-mm-yyyy" readonly> 
+                                                <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-3 col-xs-offset-1">Hasta</div>
+                                        <div class="col-xs-7"> 
+                                            <div class="input-group input-append date" data-date-min-view-mode="months" data-date-end-date="today">
+                                                <input type="text" id="periodo-hasta" name="periodo-hasta" ng-model="periodo_hasta" class="form-control" data-date-format="dd-mm-yyyy" readonly> 
+                                                <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label class="labelmodal" id="estatus_placas">Estatus</label>
+                                            <select name="estatus" id="buscar-estatus" class="select">
+                                                <option value="">--Seleccione--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="buscar_col_2" class="col-xs-3">
+                              <label class="labelmodal" id="sucursal">Sede</label>
+                                <select name="sucursal" id="sucursales" class="select">
+                                  <option value="">--Seleccione--</option>
+                                </select>
+                              <label class="labelmodal" id="libro">Libro</label>
+                                <select name="libro" id="libros" class="select">
+                                  <option value="">--Seleccione--</option>
+                                </select>
+                            </div>
+                             <div id="buscar_col_3" class="col-xs-3">
+                            </div>
+                        </div>
+                        <div class="msj-error-modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="col-xs-6">
+                    <a href="#" id="quitar-busqueda" class="btn btn-danger col-xs-12" data-dismiss="modal">Cancelar</a>
+                </div>
+                <div class="col-xs-6">
+                    <!--<input type="submit" id="boton-aceptar-buscar" class="btn btn-primary col-xs-12" data-dismiss="modal" name="Enviar"> -->
+                    <a href="#" type="submit" id="boton-aceptar-buscar" class="btn btn-primary col-xs-12" data-dismiss="modal">Enviar</a>
+                </div>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- END Filtros Bandeja -->
+
+<!-- MODAL OBSERVACIONES INSPECTOR -->
+<div class="modal fade" id="modal_observaciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #CE4744; color: white;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            
+                <h4 class="modal-title" id="observaciones_header_Label">Observaciones</h4>
+
+            </div>
+
+            <div id="observaciones_body" class="modal-body"> 
+                <div class="panel-group" id="accordion">
+                  
+                </div>
+            </div>
+          
+            
+        
+        </div>
+    </div>
+</div>
+<!-- END MODAL OBSERVACIONES INSPECTOR -->
+
+<!-- BEGIN Modal Ingresar comprobante-->
+<div class="modal fade" id="ingresar-comprobante" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="ingresar-comprobante-Label">Comprobante de pago</h4>
+      </div>
+
+    <div class="modal-body">
+     <form
+      id = "load-comprobante-form" 
+      enctype="multipart/form-data" 
+      method="POST" 
+      action="{% url 'pst_libro' operacion='subircomprobante' %}"
+      class="subir-comprobante-form">
+
+        <div class="row">
+            <input class="col-xs-11 dato-ingresado" type="text" id="comprobante" name="numero" minlength="1" maxlength="20" placeholder="" required>          
+            <a class="btn btn-info cargar-elemento col-xs-1" id="archivo">
+              <i class="fa fa-upload icon-white"></i>
+            </a>
+        </div>        
+        <div class="msj-error-modal">
+        </div>
+        {% csrf_token %}
+        <input 
+        type="file" 
+        class="input-escondido" 
+        id="archivo-0" 
+        name="comprobante-file" 
+        required="true" 
+        alt = "Existen errores en el archivo. Por lo cual no es posible visualizarlo" 
+        src = "" />
+
+        <input type="number" class="input-escondido" id="id_sol" min="1" max ="" name="solicitud"/>        
+     
+     </form>
+    </div>
+
+      <div class="modal-footer contenido-centrado ingresar-comprobante-footer">
+       
+      </div>
+  </div>
+  </div>
+</div>   
+<!-- END Modal Ingresar comprobante -->
+
+<!-- BENGIN Modal Notificacion guardado -->
+<div class="modal fade" id="notificacion-guardado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;" id="notificacion-guardado-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        
+          <h4 class="modal-title"> Notificaci&oacute;n</h4>
+
+      </div>
+
+      <div class="modal-body"> 
+        <div class="row">
+        <div class="col-lg-12">           
+            <div class="row" id="notificacion-guardado-body">
+                  <div class="col-lg-12 text-center">
+                        <h4>Su progreso ha sido guardado exitosamente</h4>
+                </div>
+            </div>               
+        </div>           
+        </div>     
+      </div>
+      
+      <div class="modal-footer contenido-centrado" id="notificacion-guardado-footer">        
+        <div class="col-xs-offset-1 col-xs-10" data-dismiss="modal">
+            <a href="#" id="boton-aceptar" class="btn btn-primary col-xs-12">Aceptar</a>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- END Modal Notificacion guardado -->
+
+<!-- BENGIN Modal Notificacion general -->
+<div class="modal fade" id="notificacion" tabindex="-1" role="dialog" aria-labelledby="notificacion-Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>        
+          <h4 class="modal-title" id="notificacion-Label"></h4>
+      </div>
+      <div class="modal-body"> 
+        <div class="row">
+        <div class="col-lg-12">           
+            <div class="row">                
+                <div class="col-lg-12 " id="notificacion-body">
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer contenido-centrado" id="notificacion-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal Notificacion general -->
+
+<!-- ~~~~~~~~ Modal para ver folios ~~~~~~~~ -->
+    <div class="modal fade" id="ver-folios-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header" style="background-color: #CE4744; color: white;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="ver-folios-label" id="myModalLabel">Ver Folios</h4>
+                </div>
+                
+                <div class="col-lg-12 col-md-12 col-xs-12 modal-body">
+                    <table class="table table-striped table-partner table-hover text-center">
+                        <tbody id="ver-folios-modal-body">
+                                                                
+                        </tbody>    
+                    </table>
+                </div>
+
+                <div class="modal-footer ver-folios-footer">
+                </div>
+
+            </div>
+        </div>
+    </div>
+  <!-- END Modal para ver folios -->
+
+<!-- BEGIN Modal para visualizar una imagen -->
+  <div class="modal fade" id="visualizar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header" style="background-color: #CE4744; color: white;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="visualizar_modal_titulo"></h4>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="thumbnail">
+                        <img class="img-responsive imagen-requisito" src="{{STATIC_URL}}img/img-400x300.gif" alt="Existen errores en el archivo. Por lo cual no es posible visualizarlo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  <!-- END Modal para visualizar una imagen -->

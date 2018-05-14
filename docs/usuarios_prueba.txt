@@ -1,0 +1,106 @@
+ROL PST - PERSONA NATURAL
+==========================
+Usuario 1:
+    - correo_electonico: pst1@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+Usuario 2:
+    - correo_electonico: pst2@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+Usuario 3:
+    - correo_electonico: pst3@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+
+ROL PST - PERSONA JURIDICA
+==========================
+Usuario 4:
+    - correo_electonico: pst4@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+Usuario 5:
+    - correo_electonico: pst5@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+Usuario 6:
+    - correo_electonico: pst6@gmail.com
+    - clave: 123456
+    - Grupo: pst
+
+
+ROL PST - EMPRENDEDOR - PERSONA NATURAL
+=======================================
+Usuario 7:
+    - correo_electonico: emprendedor1@gmail.com
+    - clave: 123456
+    - Grupo: emprendedores
+
+Usuario 8:
+    - correo_electonico: emprendedor2@gmail.com
+    - clave: 123456
+    - Grupo: emprendedores
+
+
+ROL FUNCIONARIO
+===============
+Usuario 9:
+    - correo_electonico: funcionario1@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_dggt
+
+Usuario 10:
+    - correo_electonico: funcionario2@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_dggt
+
+Usuario 11:
+    - correo_electonico: funcionario3@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_dggt
+
+Usuario 12:
+    - correo_electonico: funcionario4@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_dggt
+
+
+Usuario 13:
+    - correo_electronico: admin@mintur.gob.ve
+    - clave: admin
+    - Grupo: Admin, SuperUser
+
+Usuario 14:
+    - correo_electonico: funcionario_dggt@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_dggt
+
+Usuario 15:
+    - correo_electonico: coordinador_dggt@mintur.gob.ve
+    - clave: 123456
+    - Grupo: coordinadores_dggt
+
+Usuario 16:
+    - correo_electonico: gerente_dggt@mintur.gob.ve
+    - clave: 123456
+    - Grupo: gerente_dggt
+
+Usuario 17:
+    - correo_electonico: funcionario_rtn@mintur.gob.ve
+    - clave: 123456
+    - Grupo: funcionarios_rtn
+
+Usuario 18:
+    - correo_electonico: coordinador_rtn@mintur.gob.ve
+    - clave: 123456
+    - Grupo: coordinadores_rtn
+
+Usuario 19:
+    - correo_electonico: gerente_rtn@mintur.gob.ve
+    - clave: 123456
+    - Grupo: gerente_rtn

@@ -1,0 +1,39 @@
+ Próximas entregas:
+   Crons:
+     ☐ No se genera el mensaje de alerta de los dos meses que no se ha subido folio al LSR.
+     ☐ Al pasar las 48 Hrs no se envía el correo de notificación al PST de que no ha respondido una entrada en el LSR Digital
+   Firmas:
+     ☐ Firmar oficios de Respuestas
+     ☐ Firmas placas de identificacion
+   General:
+     ☐ Integración con licencia (Configuración de placas, LSR y tabulador)
+     ✔ Al paginar, se cancelan los filtros aplicados previamente @done (15-05-21 16:19)
+     ☐ Terminar reportes estadisticos para placas y lsr [Falta integracion con licencias + estatus: sin LSR o sin Placa]
+     ✔ En formato PDF no se aprecian los filtros aplicados @done (15-05-21 11:28)
+     ✔ Nuevos reportes estadísticos @done (15-05-19 10:51)
+     ✔ Corregir Oficios de Respuesta @done (15-05-19 10:52)
+     ☐ Roles y permisos (Fase1) [Última entrega]
+     ☐ La vista de las solicitudes para todos los roles debe adaptarse correctamente y no alterar el orden de las opciones.
+   Lsr:
+     ☐ Verificación de pago de planilla 99 para LSR
+   Categorización:
+     ✔ Incluir tablas en Informe Técnico [Falta calculo del Tabulador] @done (15-06-16 15:48)
+   Placas:
+     ✔ Corregir: filtros, paginado @done (15-05-25 15:39)
+     ☐ Actualizar oficios para Placas de Identificación [Se necesita integración con licencia]
+   Tabulador:
+     ☐ Gestión ambiental
+     ☐ Impresión
+     ✔ Cálculo @done (15-06-11 11:37)
+     ✔ Vista de la Inspección por rol de usuario @done (15-06-18 10:54)
+     ☐ Asociacion de numero de repeticion con valor ingresado por el PST, ejemplo numero de habitaciones con el porcentaje de muestreo [Validar antes de comenzar, sino se puede resolver de otra forma, pero cumpliendo lo esperado por el cliente]
+     ☐ Subsecciones del tipo Escala requieren un valor minimo
+     ☐ Las preguntas que aparecen al contestar la primera de Subsección Condicionales deberian estar cercanas a la primera pregunta y no a la que le sigue.
+     ☐ Mostrar opción para solicitar imágenes por cada subsección
+     ☐ Implementar el tipo de subseccion "Requisito de mantenimiento" RM
+   Nuevo:
+     ☐ Al inspector cargar los datos de la inspección se le debe enviar el resultado de inspección en formato PDF al PST. Y cada vez que el inspector haga una modificación en el informe se le envíe la copia al PST. 
+     ☐ Debe quedar una copia en PDF del informe de inspección que genero el inspector y que este pueda ser observado por el analista en el momento que él lo requiera. 
+     ☐ Modificar la redacción del correo que se le envía al PST al cargar la inspección, ya que agregaran un mensaje que indique la cantidad de días que tiene el PST para quejarse del informe de inspección.
+     ✔ Únicamente el analista puede editar la evaluación de un PST, ni el coordinador, ni el director o algún otro rol pueden editar, solo le pueden sugerir la modificación y devolverla al analista para que lo realice.  @done (15-06-16 16:51)
+     ☐ Quitar el campo porcentaje dentro del desglose de las categorías a asignar.

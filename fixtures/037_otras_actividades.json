@@ -1,0 +1,1858 @@
+[
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Cereales (excepto arroz), legumbres y semillas oleaginosas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Arroz",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivos de Vegetales y Melones, Raíces y Tubérculos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Caña de Azúcar",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Tabaco",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Fibras",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivos de Otros Productos no Perennes",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Uvas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Frutas Tropicales y Subtropicales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Frutas Cítricas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Frutas con Hueso y con Pepa",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Otras Frutas que Crecen en Árboles y Arbustos y Nueces",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Frutas Oleaginosas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Productos para Preparar Bebidas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cultivo de Plantas Aromáticas, Medicinales y Especias",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros Cultivos Perennes",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Ganado Vacuno y Búfalos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Caballos y Otros Equinos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Camellos y Camélidos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Ovejas y Cabras",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Cerdos / Puercos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Aves de Corral",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Cría de Otros Animales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Apoyo a los Cultivos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Apoyo a la Ganadería",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades Posteriores a la Cosecha",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Procesamiento de Semillas para la Propagación",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Pesca Marítima",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Pesca de Agua Dulce",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Acuicultura Marítima",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Acuicultura de Agua Dulce",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Extracción de Minerales de Uranio y Torio",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Extracción de otros Minerales Metalíferos No Ferrosos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Extracción y aglomeración de Turba",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Extracción de Sal",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Explotación de Otras Minas y Canteras n. c. p.",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de Productos de Molinería",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de Almidones y Productos Derivados del Almidón",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Destilación, Rectificación y mezclas de bebidas alcohólicas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de vinos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de bebidas malteadas y de malta",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de bebidas no alcohólicas; producción de aguas minerales y aguas embotellada",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Preparación e Hiladura de Fibras Textiles",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Tejedura de Productos Textiles",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Acabado de Productos Textiles",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Curtido y Adobo de Cueros; Adobo y Teñido de Pieles",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maletas, Bolsos de Mano y Artículos de Talabartería y Guarnicionería",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de hojas de madera para enchapado;fabricación de tableros contrachapados, tableros laminados, tableros de partículas y otros tableros y paneles",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Partes y Piezas de Carpintería para Edificios y Construcciones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Recipientes de Madera",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Impresión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Servicios relacionados con la impresión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Sustancias Químicas Básicas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación Abonos y Compuestos de Nitrógeno",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación Abonos y Compuestos de Nitrógeno",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Plásticos y de Caucho Sintético en Formas Primarias",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Pesticidas y de Otros Productos Químicos de Uso Agropecuario",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Pinturas, Barnices y Productos de Revestimiento Similares, Tintas de Imprenta y Masillas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Jabones y Detergentes, Preparados para Limpiar y Pulir, Perfumes y Preparados de Tocador",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Productos Químicos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de cubiertas y cámaras de cauchos; recauchutado y renovación de cubierta de cauchos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Productos de Caucho",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Productos Refractarios",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Materiales de Arcilla para la Construcción",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Productos de Cerámica y Porcelana",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Cemento, de la Cal y del Yeso",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Artículos de Hormigón, de Cemento y de Yeso",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Corte, Tallado y Acabado de la Piedra",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Corte, Tallado y Acabado de la Piedra",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Productos Minerales No metálicos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fundición de Hierro y Acero",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fundición de Metales No Ferrosos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Productos Metálicos para Uso Estructural",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Tanques, Depósitos y Recipientes de Metal",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de los Generadores de Vapor, Excepto Calderas de Agua Caliente para Calefacción Central",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Forja, Prensado, Estampado y Laminado de Metales; Pulvimetalurgia",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación, Tratamiento y Revestimiento de Metales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Artículos de Cuchillería, Herramientas de Mano y Artículos de Ferretería",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Productos de Metal",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de equipos para medir, verificar, y navegar y de equpos de control, y relojes de todo tipo",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Todo Tipo de Relojes",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Cables de Fibra Óptica",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Cables Eléctricos y Electrónicos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Dispositivos de Cableado",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Motores y Turbinas, Excepto Motores para Aeronaves, Vehículos Automotores y Motocicletas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Equipos Hidráulicos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Bombas, Compresores, Grifos y Válvulas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Cojinetes, Engranajes, Trenes de Engranaje y Piezas de Transmisión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Hornos, Hogares y Quemadores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Equipo de Elevación y Manipulación",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria y equipo de Oficina (excepto Computadoras y Equipos Periféricos)",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Herramientas Manuales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Tipos de Maquinaria de Uso General",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria Agropecuaria y Forestal",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinarias de Metal Formación y Máquinas  de herramientas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria para Metalurgia",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria para Explotación de Minas y Canteras y para Obras de Construcción",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria para la Elaboración de Alimentos, Bebidas y Tabaco",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Maquinaria para la Elaboración de Productos Textiles, Prendas de Vestir y Cueros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Elaboración de Otros Tipos de Maquinaria de Uso Especial",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Construcción de Buques y Estructuras Flotantes",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Construcción de Embarcaciones de Recreo y Deporte",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Motocicletas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Bicicletas y Sillas de Ruedas para Inválidos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Otros Tipos de Equipo de Transporte",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de joyas y artículos conexos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fabricación de Joyas de Imitación y Artículos Conexos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Tratamiento y eliminación de Desechos No peligrosos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Tratamiento y Eliminación de Desechos Peligrosos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Demolición del Terreno",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Preparación del Terreno",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Instalación Eléctrica",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fontanería e Instalación de Calefacción y Aire Acondicionado",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otro Tipo de Instalaciones de Construcción",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Ventas al por mayor de textiles, prendas de vestir y calzados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Otros Enseres Domésticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Computadoras, Equipo Informático Periférico y Programas Informáticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Equipo Electrónico de Telecomunicaciones y de sus partes y piezas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Maquinaria, Equipo Agrícola y sus Suministros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Otro Tipo de Maquinaria y Equipo",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Combustibles Sólidos, Líquidos y Gaseosos y de Productos Conexos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Metales y de Minerales Metalíferos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Materiales de Construcción, Artículos de Ferretería y Equipo y Materiales de Fontanería y Calefacción",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Mayor de Basura, Desecho y Otros Productos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor en Almacenes No Especializados, con Surtido Compuestos Principalmente de Alimento, Bebidas y Tabaco",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Otros productos en Almacenes No Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Alimento en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Bebidas en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Tabaco en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al por Menor de Computadoras, Unidades Periféricas, Equipo de Software y Telecomunicaciones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Equipo de Audio y Video en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Textiles en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Artículos de Ferretería, Pinturas y Productos de Vidrio en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Alfombras, Cubiertas de Pared y Piso en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Aparatos, Muebles, Artículos y Equipos de Uso Doméstico en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Libros, Periódicos y Artículos de Papelería en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Grabaciones Musicales y Videográficas en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Artículos de Deporte en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Juegos y de Juguetes en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Producto Textiles, Prendas de Vestir, Calzado y Artículos de Cuero en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Productos Farmacéuticos y Medicinales, Cosméticos y Artículos de Tocador en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Productos Nuevos en Almacenes Especializados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor de Mercancías de Segunda Mano",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor en Puestos de Venta y Mercados de: Alimento, Bebidas y de Productos del Tabaco",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor en Puestos de Venta y Mercados de: Artículos Textiles, Ropa y Calzado",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor en Puestos de Venta y Mercados de Otras Mercancías",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Venta al Por Menor a Través de Pedido por Correo o Vía Internet",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros Tipos de Venta al Por Menor No Realizada en Almacenes, Puestos de Venta o Mercados",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Pasajeros por Vía Férrea",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Carga por Vía Férrea",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte Terrestre de Pasajeros del Área Urbana, Suburbana o Metropolitana",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros Transporte Terrestre de Pasajeros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Carga por Carretera",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte Marítimo y de Cabotaje de Pasajero",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte Marítimo y de Cabotaje de Carga",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Pasajeros por Vías de Navegación Interiores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Carga, por vías de Navegación Interiores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Servicio Secundario de Transporte por Vía Terrestre",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Servicio Secundario de Transporte por Vía Acuática",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Transporte de Carga, por vías de Navegación Interiores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Servicio Secundario de Transporte por Vía Aéreo",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Manipulación de Carga",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Complementarias de Transporte",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Complementarias de Transporte",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Abastecimiento de Eventos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades del Servicio de Alimentación",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Publicación de Libros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Publicación de Directorios y Listas de Envío",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Publicación de Periódicos, Diarios y Revistas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Publicaciones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades Posteriores de la Producción de Películas, Videocintas y Programas de Televisión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Distribución de Películas, Videocintas y Programas de Televisión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Difusión de televisión",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Procesamiento de Datos, Hosting y Actividades Conexas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Portales Web",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Banca Central",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros Tipos de Intermediación Monetaria",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Arrendamiento Financiero",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros Tipos de Crédito",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Financieras, Excepto Seguros y de Fondos de Pensiones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Seguros de Vida",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Seguros Generales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Administración de Mercados Financieros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Títulos de Valor y Contratos de Corretaje de Materias Primas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Auxiliares a las Actividades de Servicios Financieros",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Evaluación de Riesgos y Daños",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de los Agentes y Corredores de Seguro",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Auxiliares de Seguros y Fondos de Pensiones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Renta y Alquiler de Equipo de Recreo y Deportivo",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Alquiler de Cintas de Video y Discos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Alquiler de Otros Efectos Personales y Enseres Domésticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Agencias de viaje",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Operadores turísticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Limpieza General de Edificios",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades de Limpieza en Edificios e industrial",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades Combinadas de Servicio Administrativo de la Oficina",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Fotocopia, preparación de documentos y otras actividades especializadas de apoyo para la oficina",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Agencias de Cobranza y Oficinas de Crédito",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Embalaje",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades de Apoyo",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de la Administración Pública general",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Regulación de las actividades de organismos que presten servicios sanitarios, educativos, culturales y otros servicios sociales excepto servicios de seguridad social",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Regulación y facilitación de la actividad económica",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Relaciones exteriores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de defensa",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de mantenimiento del orden público y de seguridad",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Enseñanza secundaria de formación general",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Enseñanza secundaria de formación técnica y profesional",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Educación deportiva y recreativa",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Educación cultural",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otros tipos de enseñanza",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Gestión de Instalaciones Deportivas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Clubes Deportivos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades Deportivas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Parques de Atracciones y Parques Temáticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras Actividades de Diversión y Esparcimiento",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Organizaciones Empresariales y de Empleadores",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Organizaciones Profesionales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Organizaciones Religiosas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Organizaciones Políticas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de Otras Asociaciones",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Computadoras y Equipo Periférico",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Equipos Comunicacionales",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Aparatos de Consumo Eléctrico",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Aparatos Domésticos y Equipamiento de Hogar y Jardín",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Calzado y Artículos Cuero",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Muebles y Accesorios para el Hogar",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Reparación de Otros Bienes Personales y Domésticos",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Lavado y secado de prendas de tela y de piel",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Actividades de peluquería y otros tratamientos de belleza",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Funerales y actividades conexas",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  },
+  {
+    "model": "registro.TipoPst",
+    "fields": {
+      "nombre": "Otras actividades de servicios",
+      "tipo_persona": 3,
+      "descripcion": "Actividad no turistica"
+    }
+  }
+]

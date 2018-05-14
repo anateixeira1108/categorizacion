@@ -1,0 +1,44 @@
+[
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 5,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/VDF/IF140000030001",
+            "tipo": 2,
+            "providencia": 3,
+            "estatus": 2,
+            "pst": 3,
+            "verificacion": 3,
+            "fiscalizacion": null,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    },
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 6,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/FSC/IF140000040001",
+            "tipo": 2,
+            "providencia": 4,
+            "estatus": 2,
+            "pst": 3,
+            "verificacion": null,
+            "fiscalizacion": 3,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    }
+]

@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% load filtros_declaraciones %}
+
+{% block main_content %}
+<aside class="right-side">
+  <section class="content-header">
+    <h1>
+      Declaraciones
+      <small>Panel de Control</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+      <li class="active">Declaraciones</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content" ng-controller="DeclaracionesCtrl">
+    <div class="box box-danger">
+      <div class="box-body">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="title">
+              Declaraciones
+
+              <div class="col-xs-3 pull-right">
+                <a href="#" class="btn btn-flat btn-block btn-info btn-add" data-toggle="modal" data-target="#periodo-tipo-modal">Nueva declaración</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table table-bordered table-striped table-condensed text-center">
+              <thead>
+                <tr>
+                  <th>Tipo de Declaración</th>
+                  <th>Fecha de Declaración</th>
+                  <th>Periodo</th>
+                  <th>Estatus</th>
+                  <th colspan="3">Opciones</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for declaracion in declaraciones %}
+                  <tr>
+                    <td>{{ declaracion.tipo_declaracion.nombre }}</td>
+                    <td>{{ declaracion.fecha_presentacion|date:"d/m/Y - h:i A" }}</td>
+                    <td>{{ declaracion.periodo|date:"F-Y" }}</td>
+                    <td>
+                      {% if declaracion.estatus == 'Por anular' %}
+                        <small class="estatus badge bg-orange">
+                      {% elif declaracion.estatus == 'Anulada' %}
+                        <small class="estatus badge bg-red">
+                      {% elif declaracion.estatus == 'Pagada' %}
+                        <small class="estatus badge bg-green">
+                      {% else %}
+                        <small class="estatus badge bg-blue">
+                      {% endif %}
+                      {{ declaracion.estatus|default:"Declarada" }}</small>
+                    </td>
+                    <td><a class="fa fa-search" href="{% url 'declaraciones_pst_declaracion_ver' declaracion.id %}"></a></td>
+                    <td><a class="fa fa-download" href="{% url 'declaracion_pdf' declaracion.id %}"></a></td>
+                    <td>
+                      {% if declaracion.estatus|not_in:"por Anular,Anulada,Pagada" %}
+                        <a class="fa fa-trash-o anular-button" href="#" data-toggle="modal" data-target="#anular-declaracion" dec-id={{ declaracion.id }}></a>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <span class="step-links">
+              {% if declaraciones.has_previous %}
+                  <a class="fa fa-arrow-left" href="?page={{ declaraciones.previous_page_number }}"></a>
+              {% endif %}
+
+              <span class="current" style="padding: 0.8em;">
+                  Página {{ declaraciones.number }} de {{ declaraciones.paginator.num_pages }}
+              </span>
+
+              {% if declaraciones.has_next %}
+                  <a class="fa fa-arrow-right" href="?page={{ declaraciones.next_page_number }}"></a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+
+        <div class="modal fade" id="anular-declaracion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <form action="{% url 'declaraciones_pst_anular' %}" enctype="multipart/form-data" method="POST" name="formAnularDeclaracion" id="anular-declaracion-form">
+                {% csrf_token %}
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Anular Declaraci&oacute;n</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title"> Justificaci&oacute;n de la anulaci&oacute;n de la declaraci&oacute;n.</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                        <textarea class="form-control" name="justificacion" rows="5" id="justificacion-textarea" placeholder="Describa la razón por la cual desea anular la declaración." required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>					
+							<div ng-repeat="choice in choices">
+							  <input type="file" name="[[ choice.id ]]">
+							  <button ng-show="showAddChoice(choice)" ng-click="addNewChoice($event)" class="btn btn-success btn-flat">Agregar otro archivo</button>
+							</div>
+                        </div></br>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="hidden" name="declaracion-id" value="" id="declaracion-id">
+                                    <input type="submit" value="Solicitar Anulaci&oacute;n" class="btn btn-primary btn-flat btn-block">
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-danger btn-flat btn-block" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
+
+<div id="periodo-tipo-modal" class="modal fade" ng-controller="DeclaracionesModalCtrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #CE4744; color: white;">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Indique el período de la declaración a realizar...</h4>
+      </div>
+
+      <div class="modal-body row">
+        <div class="text-center col-xs-4">
+          <div class="input-group input-append date" data-date-format="MM-yyyy" data-date-min-view-mode="1" data-date-end-date="today">
+              <input id="periodo" class="form-control text-center span2" name="periodo" type="text" readonly ng-model="periodo" ng-change="getDeclaraciones()">
+              <span class="input-group-addon add-on" style="padding: 2px 10px;"><i class="fa fa-calendar"></i></span>
+          </div>
+        </div>
+
+        <div class="text-center col-xs-8">
+          <input class="select" type="text" readonly ng-model="dummy_tipo_declaracion">
+          <select id="tipo_declaracion" class="select" name="tipo_declaracion" style="display: none;" ng-model="tipo_declaracion" ng-options="opt.nombre for opt in tipos_declaracion track by opt.id"></select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="onConfirmar()">Confirmar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+
+{% block main_content %}
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+
+                <section class="content-header">
+                    <h1>
+                        Empresa de Recreación Turística
+                        <small>Solicitud</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-edit"></i>Licencias</a></li>
+                        <li class="active">Solicitud</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+
+                    <div class="box box-danger">
+                        <div class="box-body">
+
+                            <div class="header">Solicitud de Licencia para Empresa de Recreación Turística</div>
+                            <form action="../../index.html" method="post">
+                                <!-- Solicitud de Licencia de ERT, paso 2 -->
+                                <div class="body" id="persona-natural">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-xs-offset-6">
+                                            <label>Proceso de solicitud</label><br>
+                                            <select class="select" onchange="location = this.options[this.selectedIndex].value;">
+                                                <option value="{% url 'pst_ert_solicitud_paso_1' %}">
+                                                    Paso 1: Datos básicos
+                                                </option>
+                                                <option selected>
+                                                    Paso 2: Vista previa
+                                                </option>
+                                                <option value="{% url 'pst_ert_solicitud_paso_3' %}">
+                                                    Paso 3: Confirmar solicitud
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        Solicitud de Licencia para Empresa de Recreación Turística
+                                    </div>
+                                </div><br>
+                                <div class="footer">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-lg-5 col-lg-offset-1">
+                                            <a  href="{% url 'pst_ert_solicitud_paso_1' %}" class="btn btn-info btn-flat btn-block">
+                                                <i class="fa fa-arrow-circle-o-left btn-icon-back"></i>
+                                                Volver al paso 1
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-5">
+                                            <a href="{% url 'pst_ert_solicitud_paso_3' %}" class="btn bg-blue btn-flat btn-block">
+                                                Continuar al paso 3: Confirmar solicitud
+                                                <i class="fa fa-arrow-circle-o-right btn-icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+
+{% endblock %}

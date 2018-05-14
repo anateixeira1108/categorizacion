@@ -1,0 +1,26 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+
+
+Señores:
+{{razon_social}}
+Direccion: 
+{{direccion}}
+
+{% if contacto %}
+Atención:
+{{contacto.nombres}} {{contacto.apellidos}}
+Cargo: {{contacto.cargo_empresa}}
+{% endif %}
+
+
+Con un saludo bolivariano y revolucionario me dirijo a usted para notificarle que su categorización ha expirado y requiere de una renovación, este proceso de renovación ocurre debido a haber cumplido 4 años desde último proceso, este  seguirá los mismos pasos que el proceso de categorización expirado.
+
+Para este proceso se tendrán los documentos anteriormente subidos por usted en el proceso de categorización expirado, antes de comenzar este proceso de renovación, usted está en la capacidad de cambiar cualquiera de los documentos precargados, cumpliendo con los mismos criterios.
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

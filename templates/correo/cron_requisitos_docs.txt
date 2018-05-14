@@ -1,0 +1,30 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+
+
+Señores:
+{{razon_social}}
+Direccion: 
+{{direccion}}
+
+{% if contacto %}
+Atención:
+{{contacto.nombres}} {{contacto.apellidos}}
+Cargo: {{contacto.cargo_empresa}}
+{% endif %}
+
+
+Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de notificarle que una vez analizada la solicitud de categorización por usted realizada, se le solicitó la {{tipo}} de los requisitos indicados en el documento adjunto al presente correo, otorgándose un plazo de quince (15) días hábiles para consignar los requisitos correspondientes.
+
+Tomando en consideración lo anteriormente señalado y visto que el prestador de servicios turísticos no ha dado cumplimiento a lo requerido por esta administración, lo que se traduce en la paralización del procedimiento administrativo, se le exhorta a su reactivación, con la debida {{tipo}} de los requisitos señalados en el documento adjunto.
+
+
+
+
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

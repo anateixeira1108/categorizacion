@@ -1,0 +1,56 @@
+
+{% load obtener_valor %}
+
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+         {%for key in modelos %}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i>
+                    <span>{{key}}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    {% for e in modelos|keyvalue:key %}
+                        {% for mykey,myvalue in e.items %}                         
+                            <li p="0">
+                                <a 
+                                href = ""
+                                url = "{%url 'paginar_recurso' myvalue.url %}" 
+                                class="cargador_recursos"
+                                s="">
+                                    <div class="row">
+                                        <div class="col-xs-1 text-center">
+                                            <i class="fa fa-angle-double-right"></i>
+                                        </div>
+                                        <div class="col-xs-10"> 
+                                            {{ myvalue.nombre_mostrar }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+         </ul>
+        <div class="bottom-container">
+            <div class="logo-bottom">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo-blanco.png">
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo_inatur.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sidebar -->
+</aside>

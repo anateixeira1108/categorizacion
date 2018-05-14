@@ -1,0 +1,488 @@
+{% extends "base_funcionario.html" %}
+
+{% block main_content %}
+
+    {% load tipo_persona_juridica %}
+    {% load filtros_datos %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+    <section class="content-header">
+        <h1>
+            Detalle de registro de PST
+            <small>(No verificado)</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-edit"></i> Registro</a></li>
+            <li class="active">Registro</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+    <div class="box box-danger">
+    <div class="box-body">
+
+    <div class="body" id="funcionario">
+    {% if not pst.numero_contribuyente %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" data-toggle="modal"
+                   data-target="#registrar_conclusiones">
+                    Confirmar asignación de RIFTUR
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" href="{% url "registro_funcionario_certificar_documentos_natural" pst.id %}">
+                    Certificar
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="title">
+        Datos B&aacute;sicos
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">RIF:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>
+                {{ pst.rif }}
+                <a href="{{ MEDIA_URL }}{{ pst.archivo_rif }}" target="_blank">
+                    <span class="fa fa-search"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">C&eacute;dula:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>
+                {{ pst.cedula }}
+                <a href="{{ MEDIA_URL }}{{ pst.archivo_cedula }}" target="_blank">
+                    <span class="fa fa-search"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">RTN (Registro turístico nacional):</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.rtn|default_if_none:"No posee RTN" }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Nombres:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.nombres }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Apellidos:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.apellidos }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Recibo de servicio público:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>
+                {{ pst.archivo_servicio|basename }}
+                <a href="{{ MEDIA_URL }}{{ pst.archivo_servicio }}" target="_blank">
+                    <span class="fa fa-search"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Foto tipo pasaporte:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>
+                {{ pst.archivo_pasaporte|basename }}
+                <a href="{{ MEDIA_URL }}{{ pst.archivo_pasaporte }}" target="_blank">
+                    <span class="fa fa-search"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="title">
+        Datos de Contacto
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Tel&eacute;fono fijo:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.telefono_fijo }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Tel&eacute;fono móvil:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.telefono_celular }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Correo electr&oacute;nico:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ pst.correo_electronico }}</p>
+        </div>
+    </div>
+
+    <div class="title">
+        Domicilio Fiscal
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Estado:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.estado }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Municipio:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.municipio }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Parroquia:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.parroquia }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Urbanizaci&oacute;n:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.urbanizacion }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Avenida/Calle/Carretera:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.avenida_calle }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Edificio/Casa:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.edificio }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Oficina/Apto./No.:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.oficina_apartamento }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">C&oacute;digo postal:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.codigo_postal }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Punto de referencia:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ direccion.punto_referencia }}</p>
+        </div>
+    </div>
+
+    <div class="title">
+        Actividad Comercial Principal
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-right">
+            <p class="bold">Tipo de PST:</p>
+        </div>
+
+        <div class="col-xs-4">
+            <p>{{ actividad_principal.actividad.nombre }}</p>
+        </div>
+    </div>
+
+    {% for field, value in datos_especificos.iteritems %}
+        <div class="row">
+            <div class="col-xs-4 text-right">
+                <p class="bold">{{ field }}:</p>
+            </div>
+
+            <div class="col-xs-4">
+                {% if value.path %}
+                    <p>
+                        {{ value|basename }}
+                        <a href="{{ MEDIA_URL }}{{ value }}" target="_blank">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </p>
+
+                {% else %}
+                    <p>{{ value }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="title">
+        Actividad Comercial Secundaria
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th>Actividad</th>
+                    <th>Licencia</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for actividad in actividades_secundarias %}
+                    <tr>
+                        <td>{{ actividad.actividad.nombre }}</td>
+                        <td>{{ actividad.licencia }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br/>
+
+    {% if not pst.numero_contribuyente %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" data-toggle="modal"
+                   data-target="#registrar_conclusiones">
+                    Confirmar asignación de RIFTUR
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-6 col-lg-3 col-lg-offset-9">
+                <a class="btn btn-info btn-block btn-flat" href="{% url "registro_funcionario_certificar_documentos_natural" pst.id %}">
+                    Certificar
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
+    </aside><!-- /.right-side -->
+
+    <div class="modal fade" id="registrar_conclusiones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" ng-controller="registroConclusionesCtrl">
+            <div class="modal-content">
+                <form class="form-horizontal"
+                      role="form"
+                      action="{% url "registro_funcionario_certificar_documentos_aprobar_riftur" pst.id %}"
+                      method="post">{% csrf_token %}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Registro de conclusiones</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="opciones">El registro del PST cumple con la condición de:</label>
+                        <select name="opciones"
+                                id="opciones"
+                                class="form-control"
+                                ng-model="optionA"
+                                ng-change="verificar_opcion(optionA)"
+                                ng-init="optionA='pst'">
+                            <option value="pst">
+                                Prestador de Servicios Turísticos (P.S.T)
+                            </option>
+                            <option value="zit">
+                                Ejerce actividad comercial en una Zona de Interés Turísticas (Z.I.T)
+                            </option>
+                            <option value="otros">
+                                Otros
+                            </option>
+                        </select>
+
+                        <div id="riftur_option">
+                            <label for="riftur">Se genera RIFTUR para este contribuyente:</label>
+                            <select name="riftur"
+                                    id="riftur"
+                                    class="form-control"
+                                    ng-model="optionB"
+                                    ng-change="actualizar_respuesta(optionB)"
+                                    ng-init="optionB='si'">
+                                <option value="si">
+                                    Si
+                                </option>
+                                <option value="no">
+                                    No
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <a href="{% url 'registro_funcionario_certificar_documentos_natural' pst.id %}"
+                                   class="btn btn-info btn-block btn-flat">
+                                    Aceptar
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button"
+                                        class="btn btn-danger btn-block btn-block"
+                                        ng-click="ingresar_conclusiones()">
+                                    No procede
+                                </button>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button"
+                                        class="btn btn-danger btn-block btn-flat"
+                                        data-dismiss="modal">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ingresar_conclusiones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Ingresar conclusiones</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-center">
+                        <div class="text-center col-xs-12">
+                            <label for="rechazar_registro_conclusiones">Conclusiones del análisis</label>
+                            <br/>
+                            <textarea name="rechazar_registro_conclusiones" id="rechazar_registro_conclusiones" class="col-xs-12" cols="15" rows="5"></textarea>
+                        </div>
+                        <div class="text-center col-xs-12">
+                            <label for="rechazar_registro_observaciones">Observaciones para el PST</label>
+                            <br/>
+                            <textarea name="rechazar_registro_observaciones" id="rechazar_registro_observaciones" class="col-xs-12" cols="15" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <button type="submit"
+                                        class="btn btn-info btn-block btn-flat">
+                                    Guardar
+                                </button>
+                            </div>
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                <button type="button"
+                                        class="btn btn-danger btn-block btn-flat"
+                                        data-dismiss="modal">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/helpers.js" type="text/javascript"></script>
+{% endblock javascripts %}
+

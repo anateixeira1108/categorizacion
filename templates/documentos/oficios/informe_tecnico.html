@@ -1,0 +1,180 @@
+<html>
+{% load obtener_valor %}
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				top:4cm;
+                bottom: 3cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					
+				}
+                @frame header {
+                    -pdf-frame-content: headerTextContent;
+                    top: 2cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                }
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+            .pg{
+                font-size:12px;
+            }
+            .parrafo-centrado{
+                font-size:12px;
+                text-align:center;
+            }
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="50" width="300" alt="image" src="static/img/placas/logo.jpg"/>
+            <!--Cambiar SRC por Imagen de MINTUR roja-->
+		</div> 
+        <div class=".bold" style="text-align:center;font-size: 12px">
+            INFORME T&Eacute;CNICO DEL ESTABLECIMIENTO DE ALOJAMIENTO TUR&Iacute;STICO
+        </div>
+            <br>
+            <div class="parrafo">
+                &Tab;Iniciado el procedimiento de categorizaci&oacute;n al Establecimiento de Alojamiento Tur&iacute;stico denominado {{data.razon_social}} por parte del Ministerio del Poder Popular para el Turismo, se procedi&oacute; al an&aacute;lisis del Informe de Inspecci&oacute;n de Categorizaci&oacute;n, efectuada por los inspectores {{data.inspector1}} {{data.inspector2}}. En tal sentido, se señala lo siguiente:
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;Se procedi&oacute; a la revisi&oacute;n de los documentos elaborados por los inspectores, con el fin de identificar los servicios que presta {{data.razon_social}} y a la vez, verificar la conformidad de los mismos seg&uacute;n lo establecido en la Resoluci&oacute;n {{data.resolucion.numero}} de fecha {{data.resolucion.fecha}}, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela N&deg; {{data.gaceta.numero}} de fecha {{data.gaceta.fecha}}, la cual indica las condiciones que deben cumplir los establecimientos de alojamiento tur&iacute;stico tipo: {{data.tipo_pst}} para optar a una categor&iacute;a.
+            </div>
+            <br>
+            <div class="parrafo-centrado">
+            <br>
+                <table style="border-collapse:collapse;border:black 1px solid;text-align:center;padding:2pt">
+                
+                <thead>
+                    <tr>   
+                        <th>Subsecci&oacute;n</th>
+                        {% for ct in data.categorias %}
+                            <th>{{ct.nombre}}</th>
+                        {% endfor %}  
+                    </tr>
+                </thead>   
+                <tbody>
+                    <tr>
+                        {% for c1 in data.cuadro_incumplimiento %}
+                            <td> {{c1 }}</td>
+                            {% for ct in data.categorias %}
+                                {% if c1|keyvalue:ct.id %}
+                                    <td>x</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </tr>
+                </tbody>     
+                </table>           
+            </div>
+            <br>
+            {% if data.cuadro_incumplimiento_mya %}
+            <div class="parrafo">
+                &Tab;En cuanto al mantenimiento y funcionalidad, se evidenciaron las siguientes deficiencias:
+            </div>
+            <div class="parrafo-centrado">
+            <br>
+                <table style="border-collapse:collapse;border:black 1px solid;text-align:center;padding:2pt">
+                
+                <thead>
+                    <tr>   
+                        <th>Subsecci&oacute;n</th>
+                        {% for ct in data.categorias %}
+                            <th>{{ct.nombre}}</th>
+                        {% endfor %}  
+                    </tr>
+                </thead>   
+                <tbody>
+                    <tr>
+                        {% for c2 in data.cuadro_incumplimiento_mya %}
+                            <td> {{c2}}</td>
+                            {% for ct in data.categorias %}
+                                {% if c2|keyvalue:ct.id %}
+                                    <td>x</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </tr>
+                </tbody>     
+                </table>           
+            </div>
+            {% endif %}
+            <br>
+            <div class="parrafo">
+                &Tab;Con base a lo anterior, el resultado de la evaluaci&oacute;n para el establecimiento de alojamiento tur&iacute;stico denominado {{data.razon_social}}, es el siguiente:
+            </div>
+            <div class="parrafo-centrado">
+            <br>
+                <table style="border-collapse:collapse;border:black 1px solid;text-align:center;padding:2pt">
+                
+                <thead>
+                    <tr>   
+                        {% for ct in data.categorias %}
+                            <th>{{ct.nombre}}</th>
+                        {% endfor %}  
+                    </tr>
+                </thead>   
+                <tbody>
+                    <tr>
+                        {% for ct in data.categorias %}
+                            <td>{{data.cuadro_porcentajes|keyvalue:ct.id}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>     
+                </table>           
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;En virtud del an&aacute;lisis precedente, el (la) funcionario (a) {{data.funcionario.nombre}} {{data.funcionario.apellido}}, adscrito (a) a la Direcci&oacute;n General de Calidad Tur&iacute;stica, recomienda comunicarle al establecimiento {{data.razon_social}}, las resultas de la presente evaluaci&oacute;n.
+
+            </div>
+            <br>
+            <div class="parrafo">
+                &Tab;Sin m&aacute;s a que hacer referencia, queda de usted.
+            </div>
+            <br>
+            <div class="parrafo-centrado">
+                <div>Atentamente,</div>
+                <br> 
+                <br>
+                <span>{{data.funcionario.nombre}} {{data.funcinario.apellido}}</span>
+            </div>
+		</div>
+		<div id="footerContent">
+            DESPACHO DE LA VICEMINISTRA DE TURISMO NACIONAL
+            DIRECCI&Oacute;N GENERAL DE CALIDAD TUR&Iacute;STICA
+  		</div> 
+	</body>
+</html> 

@@ -1,0 +1,20 @@
+[
+  {
+    "model": "registro.tipobien",
+    "fields": {
+      "nombre": "Sit autem ullam repudiandae ad accusantium nihil."
+    }
+  },
+  {
+    "model": "registro.tipobien",
+    "fields": {
+      "nombre": "Ipsam eveniet amet cupiditate doloremque voluptates deserunt!"
+    }
+  },
+  {
+    "model": "registro.tipobien",
+    "fields": {
+      "nombre": "Velit ullam optio provident odit ex"
+    }
+  }
+]

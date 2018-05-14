@@ -1,0 +1,1 @@
+Certificación {{ tipo_certificacion }} en el Portal MinTur

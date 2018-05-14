@@ -1,0 +1,31 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+
+
+Señores:
+{{razon_social}}
+Direccion: 
+{{direccion}}
+
+{% if contacto %}
+Atención:
+{{contacto.nombres}} {{contacto.apellidos}}
+Cargo: {{contacto.cargo_empresa}}
+{% endif %}
+
+
+Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de informarle que, este Ministerio del Poder Popular para el Turismo, en su condición de órgano rector en materia de turismo y en ejercicio de las atribuciones conferidas en el artículo {{articulo.numero}}, numeral (es) {{numerales}} del Decreto con Rango, Valor y Fuerza de Ley Orgánica de Turismo, decidió otorgar la Licencia de Turismo N° {{licencia}}, bajo la clasificación de {{clasificacion}}, razón por la cual, se exhorta a tramitar la correspondiente categoría, de conformidad con la normativa legal aplicable a la materia.
+
+¿Qué es la Categorización?
+Acto administrativo emitido por el ministerio del poder popular con competencia en materia de turismo, que tiene por objeto, asignar un rango o grado al prestador de servicios turísticos, de acuerdo a la clasificación otorgada, a la calidad y cantidad de servicios que ofrecen a los turistas o visitantes y cualquier otra consideración que se establezca en la normativa que a tal efecto se dicte.
+¿Quiénes deben solicitar la categorización?
+Aquellas personas jurídicas que prestan al público el servicio de hospedaje en forma temporal en cualesquiera de sus modalidades.
+
+
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

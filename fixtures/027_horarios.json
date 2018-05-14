@@ -1,0 +1,10 @@
+[
+{
+    "pk": 1, 
+    "model": "configuracion.horarios", 
+    "fields": {
+        "valido_hasta": "2100-12-31",
+        "valido_desde": "2014-07-23"
+    }
+}
+]

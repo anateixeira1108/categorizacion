@@ -1,0 +1,14 @@
+[
+  {
+    "model": "pagos.tipopago",
+    "fields": {
+      "nombre": "Transferencia"
+    }
+  },
+  {
+    "model": "pagos.tipopago",
+    "fields": {
+      "nombre": "Depósito"
+    }
+  }
+]

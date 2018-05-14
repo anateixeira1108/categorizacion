@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<style type="text/css">
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+				font-size: 8px;
+				text-align:center;
+			}
+			.titulo {
+				text-align:center;
+				font-size: 14px;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			.bold{
+				font-weight:bold;
+			}
+
+		 </style>
+
+	</head>
+
+	<body class="pg">
+
+	 	<div class="titulo">
+			<h4>MINISTERIO DEL PODER POPULAR PARA EL TURISMO</h4>
+		</div>
+			<br>
+
+		<div style="margin-right:5cm;text-align:justify;">
+			<span>Se&ntilde;ores: </span>
+			<span>{{razon_social}}</span>
+			<span>Direccion : {{direccion}}<span>
+		</div>
+			<br>
+		{% if contacto %}
+			<div style="text-align:right;"> 
+				<span> Atenci&oacute;n: </span>
+				<span>{{contacto.nombres}}} {{contacto.apellidos}}</span>
+	            <span>Cargo: {{contacto.cargo_empresa}}}</span>
+			</div>
+		{% endif %}
+
+		<div class="parrafo" style="text-align:justify;
+		font-size:12px;">
+			Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de notificarle que  una vez analizado el Informe de Inspecci&oacute;n de Categorizaci&oacute;n al establecimiento que usted representa y verificada la conformidad de lo establecido en la Resoluci&oacute;n Nº {{resolucion.numero}} de fecha {{resolucion.fecha}}, publicada en la Gaceta Oficial Nº {{gaceta.numero}} de fecha {{gaceta.fecha}}, que dicta las condiciones que deben cumplir los establecimientos de alojamiento tur&iacute;stico tipo: {{tipo_pst}} para optar a una categor&iacute;a, el  establecimiento debe proceder a subsanar los requisitos faltantes indicados en el documento adjunto al presente correo,  otorg&aacute;ndose un plazo {{dias}} d&iacute;as h&aacute;biles para acometer las disposiciones de mejoras de servicio, mantenimiento o reparaci&oacute;n all&iacute; notificadas.
+
+		</div><br><br>
+
+		<div class="parrafo" style="text-align:justify;
+		font-size:12px;">
+			En tal sentido, adjunto al presente correo encontrar&aacute; un documento oficial relacionado con las disposiciones de mejora.
+		</div><br><br>
+
+		<div id="footerContent" style="font-size: 8px;
+		text-align:center;">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+
+	</body>
+
+</html>

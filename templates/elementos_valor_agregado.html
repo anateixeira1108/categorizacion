@@ -1,0 +1,577 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        {% csrf_token %}
+        <section class="content-header">
+            <h1>Categorizaci&oacute;n<small>Evaluaci&oacute;n&nbsp;de&nbsp;
+            {% if tipo == 'RB' %}
+                Requisitos B&aacute;sicos
+            {% elif tipo == 'RE' %}
+                Requisitos Espec&iacute;ficos                
+            {%endif%}
+            </small></h1>
+            <ol class="breadcrumb" >
+                <li class="active">
+                    <a href="/"> Inicio</a>
+                </li>
+                <li>
+                    <a href="{%url 'bandeja'%}">
+                        <i class="fa fa-star-half-o"></i>Categorizaci&oacute;n
+                    </a>
+                </li>
+                <li>
+                    <a href>
+                        <i class="fa fa-file-text-o"></i>
+                        {% if tipo == 'RB' %}
+                            Requisitos B&aacute;sicos
+                        {% elif tipo == 'RE' %}
+                            Requisitos Espec&iacute;ficos                
+                        {%endif%}
+                    </a>
+                </li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body zona-tabulador">
+                <div class="panel panel-default">
+
+                    <!-- Formulario evaluacion para carga de respuestas al servidor -->
+                    <form ng-controller="ShowLoadedController" id="formulario-evaluacion" method="POST" encoding="multipart/form-data"
+                    enctype="multipart/form-data" 
+                    action="{% url 'elementos_valor_agregado' solicitud=solicitud.id %}"              >
+                        <div class="row zona-notificaciones-error"></div>
+                        {% csrf_token %}
+                        <div class="panel-heading nombre-tabulador"></div>
+
+                        <div class="row contenido-centrado loading-spinner">
+                            <i class="fa fa-spinner fa-spin fa-2x"></i>
+                        </div>
+
+                        <div style="display:none;" class="contenido-main">                        
+                            <div class="panel-body contenido-tabulador">
+                                <div class="alert alert-warning" role="alert">
+                                    No existen elementos para mostrar, porfavor contacte con 
+                                    nuestro personal para m&aacute;s informaci&oacute;n
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END Formulario de evaluacion-->
+                    </div>            
+                </div>
+            </div>
+        </section>
+        
+        <div class="save-bar col-lg-12 col-md-12">
+
+            {% if desactivar == 0 %}
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            {% else %}
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {% endif %}
+                <a 
+                href="{% url 'bandeja' %}"
+                id="anterior"
+                type="button"
+                class="btn btn-flat btn-primary col-lg-12 col-md-12">
+                    <i class="fa fa-arrow-left"></i> &nbsp;&nbsp;Anterior
+                </a>
+            </div>
+
+            {% if desactivar == 0 %}
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <a                    
+                id="enviar-requisitos"
+                type="button"
+                class="btn btn-flat btn-info col-lg-12 col-md-12">
+                    Guardar &nbsp;&nbsp;<i class="fa fa-save"></i>
+                </a>
+            </div>
+            {% endif %}
+            </div>        
+
+        </section>
+    </aside>
+
+    <div class="modal fade" id="imagen_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close devolver_modal" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="imagen_modal_titulo">Imagen</h4>
+                </div>
+                
+                <div class="modal-body" style="max-height:100%;">
+                    <div class="thumbnail">
+                        <img class="img-responsive imagen-elemval" src="" alt="test">                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ng-scope" id="mostrar-imagenes" solicitudid="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Imagenes</h4>
+                </div>
+                
+                <div class="modal-body modal_cuerpo">
+                    <form id="formulario-imagenes" target='upload_iframe' method="POST" encoding="multipart/form-data"
+                        enctype="multipart/form-data" 
+                        action="{% url 'operacion_elemval' tabulador=tabulador solicitud=solicitud.id operacion='imagenes' %}">
+                        {% csrf_token %}
+                        <table id="tabla_cargadas" class="table table-modal text-center">
+                            <thead>
+                                <tr class="label-info">
+                                    <th>Subsecciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-cargadas">
+                            </tbody>
+                        </table>
+                        <iframe id="upload_iframe" class="hidden" name="upload_iframe" src="" style="width:0;height:0;border:0px solid #fff;"></iframe>
+                </div>
+                <div class="modal-footer contenido-centrado imagen-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="aceptar-form-imagenes" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include '_modales_categorizacion.html' %}
+    
+{% endblock %}
+
+{% block javascripts %}
+    
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/jquery.validate.min.js" type="application/javascript"></script>
+    
+    <script type="application/javascript">
+    $(function(){
+
+        //<i rel="tooltip" data-toggle="tooltip" title="" class="fa fa-check icono-carga-realizada icono-accion" style="color:green;" data-original-title="Ya ha sido cargado"></i>
+
+        var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+        $(document).on('click','.observaciones',function(){
+            id= $(this).attr('id');
+            subsecc = $(this).attr('name');
+            $.ajax({
+                type: 'GET',
+                url: "/categorizacion/funcionario/tabulador/"+{{tabulador}}+"/"+{{solicitud.id}}+"/"+id+"/observaciones",
+                success: function(server_data){
+                    var observacion =server_data.data.observacion;
+                    var edit = server_data.data.editar;
+                    var htmlstr = "";
+                    $('#notificacion-general-Label').html('Observaciones');
+                    if (edit && observacion == 'No se han registrado observaciones'){
+                        observacion='';
+                    }
+                    
+                    if(edit){
+                        $('#notificacion-general-body').html('<ul class="wysihtml5-toolbar point-ul">\
+                        <textarea  name ="observacion" id="textarea-wysi" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control campo-comentario" rows="10" style="width:100%; height:100%;" required ></textarea>\
+                                </ul>');
+                        htmlstr+='<div class="col-xs-12" data-dismiss="modal"><a  class="btn btn-primary col-xs-12 btn-guardar-observaciones" id="'+id+'"> Guardar&nbsp;&nbsp;<i class="fa fa-save"></i> </a></div>'
+                    }else{
+                        //$('.campo-comentario').attr('disabled', "disabled");
+                        //$('.campo-comentario').setAttribute('contenteditable', false);
+                        $('#notificacion-general-body').html(
+                            '<div class="col-lg-12 text-center">\
+                                <h4>'+observacion+'</h4>\
+                            </div>')
+                        htmlstr+='<div class="col-xs-offset-1 col-xs-10" data-dismiss="modal">\
+                                    <button class="btn btn-primary col-xs-12">Aceptar</button>\
+                                </div>'
+                    }
+
+                    $('#notificacion-general-footer').html(htmlstr);
+
+                    $('.campo-comentario').html(''+observacion+'');
+                    $('#textarea-wysi').wysihtml5();
+                    $('#notificacion-general').modal({
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                    $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                    $('.wysihtml5-toolbar').children('ul').children('li')[3].remove();
+                    
+                },
+                error: function(e){
+                    console.log(e);
+                }   
+            });
+        });
+        
+        $(document).on('click', '.btn-guardar-observaciones', function(){
+            id = $(this).attr('id');
+            $.ajax({
+                type: 'POST',
+                url: "/categorizacion/funcionario/tabulador/"+{{tabulador}}+"/"+{{solicitud.id}}+"/"+id+"/observaciones",
+                data: {
+                    'observacion': $('.campo-comentario').val(),
+                     csrfmiddlewaretoken:  token,
+                },
+                success: function(server_data){
+                    console.log("entra");
+                },
+                error: function(e){
+                    console.log(e);
+                }
+            })
+        });
+
+        $('#enviar-requisitos').click(function(){
+            
+            $('#formulario-evaluacion').validate();
+            if ($('#formulario-evaluacion').valid())
+            {    
+                $('#formulario-evaluacion').trigger('submit');
+            }else{
+                $(".zona-notificaciones-error").html(
+                    '<div \
+                    class="alert alert-warning alert-dismissible" \
+                    role="alert" \
+                    style = "margin:2%;" >\
+                    <button \
+                      type="button" \
+                      class="close" \
+                      data-dismiss="alert">\
+                        <span aria-hidden="true">&times;</span>\
+                        <span class="sr-only">Close</span>\
+                    </button>\
+                    <strong><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Se han encontrado problemas en el formulario, se recomienda revisar y modifiquar aquellas secciones que se indican con error para poder continuar con el proceso.</strong>\
+                    </div>');
+
+                // Hacemos un scrollTop para permitir al usuario ver el error generado
+                $('body,html').scrollTop(0);
+            }
+        });
+    
+
+        $('.cargador_recursos').click(function(){
+          url = ($(this).attr('url')).split('/');
+          location.href = "{% url 'home_panel_administrativo' %}"+ url[4];
+        });
+
+        function r (j){
+            var re = '';                        
+            for(var k in j){                                
+                if ( typeof(j[k]) === "object")
+                {
+                    re +=  k + '&nbsp;<i class="fa fa-angle-right"></i>&nbsp;'+ r(j[k]);
+                }else{
+                    re += '<div class="row subseccs">\
+                    <div class="col-lg-5 col-md-5 col-sm-4">\
+                    <label class="etiqueta-autoevaluacion">'+k+'</label>\
+                    </div>\
+                    '+j[k]+'\
+                    </div>';
+                }
+            }
+            return re;
+        }
+
+        $(document).on('click', '.imagenes',function(){
+            var subsecc = $(this).parent().find('input').first();
+            var existe = false;
+            var valor = "";
+
+            if (subsecc.attr('type') == 'radio'){
+                valor = subsecc.val();
+                existe = true;
+            }else{
+                if (subsecc.attr('type') == 'number')
+                    valor = subsecc.attr('name');
+                    existe = true;
+            }
+            console.log(valor);
+            if (existe){
+                $.ajax({
+                    type: 'GET',
+                    url: "{% url 'operacion_elemval' tabulador=tabulador solicitud=solicitud.id operacion='imagenes' %}",
+                    data: {
+                        'info': valor,
+                    },   
+                    success: function(server_data) {
+                        if (!jQuery.isEmptyObject(server_data.data)){
+                            var tienen = []
+                            var no_tienen = []
+                            var edit = server_data.data.editar;
+                            tienen = server_data.data.tienen;
+                            no_tienen = server_data.data.no_tienen;
+                            $('#table-body-cargadas').html('');
+                            $.each(tienen, function(position, tienen){
+                                if(edit){
+                                      $('#table-body-cargadas').append('\
+                                        <tr class="with" id='+tienen[1]+'>\
+                                        <td>'+tienen[0]+' \
+                                            <i class="fa fa-eye ver_imagen pull-right" title="Ver Imagen" tipo="'+tienen[3]+'"  documento = "'+tienen[2]+'"></i>\
+                                            <input type="file" name="'+tienen[1]+'" \
+                                              class="input-escondido" id="'+tienen[1]+'-0" />\
+                                            <i id="'+tienen[1]+'" class="fa fa-edit icono-accion cargar-elemento pull-right" title="Editar Imagen" target="'+tienen[1]+'"  data-toggle="tooltip"></i>\
+                                        </td>\
+                                        </tr>');
+                                      $('#'+tienen[1]+'-0').on('change', function(){
+                                        $(this).parent().children('.icono-carga-realizada').remove();
+                                        $(this).parent().append('<span class ="icono-carga-realizada">\
+                                        &nbsp;&nbsp;&nbsp;</span>\
+                                        <i \
+                                        rel = "tooltip" \
+                                        data-toggle="tooltip" \
+                                        title="Ya ha sido cargado" \
+                                        class="fa fa-check icono-carga-realizada icono-accion pull-right" \
+                                        style="color:green;"\
+                                        ></i>');
+                                      });
+
+                                }else{
+                                    $('#table-body-cargadas').append('\
+                                        <tr class="with" id='+tienen[1]+'>\
+                                        <td>'+tienen[0]+' \
+                                            <i class="fa fa-eye ver_imagen pull-right" title="Ver Imagen" tipo="'+tienen[3]+'"  documento = "'+tienen[2]+'"></i>\
+                                        </td>\
+                                    </tr>');
+                                }   
+
+                              
+                            });
+                            $.each(no_tienen, function(position, no_tienen){
+                                if(edit){
+                                    $('#table-body-cargadas').append('\
+                                        <tr class="without" id='+no_tienen[1]+'>\
+                                            <td>'+no_tienen[0]+' \
+                                                <input type="file" name="'+no_tienen[1]+'" class="input-escondido" id="'+no_tienen[1]+'-0" />\
+                                                <i id="'+no_tienen[1]+'" class="fa fa-upload icono-accion cargar-elemento pull-right" title="Subir Imagen" target="'+no_tienen[1]+'"  data-toggle="tooltip"></i>\
+                                            </td>\
+                                        </tr>');
+                                    $('#'+no_tienen[1]+'-0').on('change', function(){
+                                        $(this).parent().children('.icono-carga-realizada').remove();
+                                        $(this).parent().append('<span class ="icono-carga-realizada">\
+                                        &nbsp;&nbsp;&nbsp;</span>\
+                                        <i \
+                                        rel = "tooltip" \
+                                        data-toggle="tooltip" \
+                                        title="Ya ha sido cargado" \
+                                        class="fa fa-check icono-carga-realizada icono-accion pull-right" \
+                                        style="color:green;"\
+                                        ></i>');
+                                      });
+                                }else{
+                                    $('#table-body-cargadas').append('\
+                                        <tr class="without" id='+no_tienen[1]+'>\
+                                            <td>'+no_tienen[0]+' \
+                                            <i \
+                                            data-toggle="tooltip" \
+                                            title="No se cargo la im&aacute;gen requerida" \
+                                            class="fa fa-times pull-right" \
+                                            style="color:red;"></i>\
+                                            </td>\
+                                    </tr>');
+                                }
+                            });
+
+                            if(edit==false){
+                                $('.imagen-footer').html('');
+                                $('.imagen-footer').html('\
+                                    <div class="col-xs-offset-1 col-xs-10" data-dismiss="modal">\
+                                    <button class="btn btn-primary col-xs-12">Aceptar</button>\
+                                </div>')    
+                            }   
+                            $('#mostrar-imagenes').modal({
+                                keyboard: false,
+                                backdrop: 'static'
+                            });
+                                    
+                        }else{
+                            $('#notificacion-guardado-header').html('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\
+                                <h4 class="modal-title"> Notificaci&oacute;n</h4>');
+                            $('#notificacion-guardado-body').html('<div class="col-lg-12 text-center">\
+                               <h4>Ninguna subseccion de este aspecto fundamental requiere fotos</h4>\
+                                </div>');
+                            $('#notificacion-guardado').modal();
+
+                        }
+                    },
+                    error: function(e){
+                        console.log(e)
+                    }
+                });
+            }
+            
+        });
+         $(document).on('click', '.devolver_modal', function(){
+            $('#mostrar-imagenes').css('z-index',1040);
+        });
+        $(document).on('click', '#aceptar-form-imagenes', function(){
+            $('#formulario-imagenes').submit();
+        });
+
+        $("#upload_iframe").load(function (){
+            var retval = $(frames['upload_iframe'].document).text();
+            var obj = jQuery.parseJSON(retval);
+            var htmlstr =""
+            if(obj.err_msg!=""){
+                $('#notificacion-guardado-header').html('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\
+                        <h4 class="modal-title"> Error</h4>');        
+                if(obj.data.length>0){
+                    var arr = obj.data;
+                    htmlstr+= '<div class="col-lg-12 text-center">\
+                        <h4>Las siguientes imagenes han sido subidas incorrectamente</h4>\
+                        <table class="table text-center">\
+                            <thead>\
+                                <tr class="label-info">\
+                                    <th>Subsecciones</th>\
+                                </tr>\
+                            </thead><tbody>'
+                    $.each(arr, function(p){
+                        htmlstr+='<tr><td>'+arr[p]+'</td></tr>'
+                    }); 
+                    htmlstr+= '</tbody></table></div>'
+                    $('#notificacion-guardado-body').html(htmlstr);
+                }else{
+                     $('#notificacion-guardado-body').html('<div class="col-lg-12 text-center">\
+                        <h4>Algunas de las subsecciones seleccionadas son incorrectas, intente nuevamente</h4>\
+                        </div>');
+                }
+            }else{
+                $('#notificacion-guardado-header').html('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\
+                        <h4 class="modal-title"> Notificacion</h4>');
+                $('#notificacion-guardado-body').html('<div class="col-lg-12 text-center">\
+                        <h4>Las imagenes han sido subidas correctamente</h4>\
+                        </div>');    
+            }
+            $('#notificacion-guardado').modal();
+        });
+
+        $(document).on('click', '.ver_imagen', function(){
+            $('#mostrar-imagenes').css('z-index',500);
+            if (
+                $(this).attr('tipo').toLowerCase() ==='png' ||
+                $(this).attr('tipo').toLowerCase() ==='jpeg'
+              )
+            {
+              $('.imagen-elemval').attr('src',$(this).attr('documento'));
+
+              $('#imagen_modal').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+              });
+
+            }
+            /*else if ($(this).attr('tipo').toLowerCase() ==='pdf')
+            {
+              $(".marco-visor-pdf").attr(
+                'src',
+                "{% url 'ver_pdf' %}?file="+$(this).attr('document')
+              );
+
+              $('#ver-documento-pdf .modal-footer').html('<div class="row"></div>');
+              $('#ver-documento-pdf').modal();
+            }
+            */
+          });
+
+
+        a = function(){
+            $.ajax({
+                type: 'GET',
+                {% if tipo %}
+                url: "{% url 'generar_tabulador' tabulador=tabulador tipo=tipo desactivar=desactivar valores_asociados=valores_asociados solicitud=solicitud.id %}",
+                {% else %}
+                url: "{% url 'generar_tabulador' tabulador=tabulador desactivar=desactivar valores_asociados=valores_asociados solicitud=solicitud.id %}",
+                {% endif %}
+                
+                success: function(server_data) {
+
+                    var tabulador = server_data.data;
+                    //console.log(tabulador);
+                    var clear = true;
+                    var name = "";
+                    var htmlstr="";
+                    // Nombre del tabulador
+                    $.each(tabulador,function(k, v){
+                        name = k;
+                        // Aspectos fundamentales 
+                        $.each(v, function(kp, vp){
+
+                            if (clear){
+                                $('.contenido-tabulador').html('');
+                                clear = false;
+                            }
+                            htmlstr+='<div class="aspecto_fund">';
+
+                            htmlstr+='<div class="row item-autoevaluacion"> \
+                                '+kp+' </div>\
+                                <div class="fa fa-camera fa-lg icono-accion imagenes pull-right" title="Mostrar Imagenes">\
+                                </div>';
+
+                            $.each(vp, function(kpp,vpp){
+                                htmlstr+= r(vpp);
+                            });
+
+                            htmlstr+='</div>';
+                            //---------------------------------------------------------------------
+                            // DEBIDO A QUE APPEND CIERRA TAGS IMPLICITAMENTE, SE COCATENARA STRINGS
+
+                            /*
+                            $('.contenido-tabulador').append(
+                                '<div class="aspecto_fund">\
+                            ')
+
+                            $('.contenido-tabulador').append(
+                                '<div class="row item-autoevaluacion"> \
+                                '+kp+' </div>\
+                                <div class="fa fa-camera fa-lg icono-accion imagenes pull-right">\
+                                </div>'
+                            );
+
+                            $.each(vp, function(kpp,vpp){
+                                $('.contenido-tabulador').append(r(vpp));
+                            });
+                            $('.contenido-tabulador').append('</div>');
+                            */
+                            //---------------------------------------------------------------------
+                        });
+                        $('.contenido-tabulador').append(htmlstr);
+                    });
+
+                    $(".nombre-tabulador").html(
+                        "<h3>{{pst.razon_social}} - {{solicitud.sucursal.nombre}} &nbsp;&nbsp;<small>{{pst.tipo_pst.nombre}}</small></h3>");
+                    
+                    $('input').iCheck({
+                        checkboxClass: 'icheckbox_minimal',
+                        radioClass: 'iradio_minimal',
+                        increaseArea: '20%',
+                    });
+                    $('.iradio_minimal.checked.disabled').removeClass("disabled");
+                    $(".loading-spinner").remove();
+                    $(".contenido-main").show();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        a();
+    });      
+    </script>
+{% endblock %}

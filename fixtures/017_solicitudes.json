@@ -1,0 +1,92 @@
+[
+    {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 1,
+        "fields": {
+            "pst": 1,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 0,
+            "tipo_verificacion": 1,
+            "estado": 0
+
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 2,
+        "fields": {
+            "pst": 2,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 0,
+            "tipo_verificacion": 1,
+            "estado": 0
+
+        }
+    },
+     {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 3,
+        "fields": {
+            "pst": 1,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 0,
+            "tipo_verificacion": 1,
+            "estado": 0
+
+        }
+    },
+     {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 4,
+        "fields": {
+            "pst": 4,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 1,
+            "tipo_verificacion": null,
+            "estado": 0
+
+        }
+    },
+     {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 5,
+        "fields": {
+            "pst": 5,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 1,
+            "tipo_verificacion": null,
+            "estado": 0
+
+        }
+    },
+     {
+        "model": "inteligencia_tributaria.Solicitud",
+        "pk": 6,
+        "fields": {
+            "pst": 6,
+            "rif": "V-12346578-0",
+            "desde": "2014-05-23",
+            "hasta": "2014-06-23",
+            "creado_el": "2014-05-23 13:00:00.00",
+            "tipo_solicitud": 1,
+            "tipo_verificacion": null,
+            "estado": 0
+
+        }
+    }
+]

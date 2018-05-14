@@ -1,0 +1,30 @@
+MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+
+
+Señores:
+{{razon_social}}
+Direccion: 
+{{direccion}}
+
+{% if contacto %}
+Atención:
+{{contacto.nombres}} {{contacto.apellidos}}
+Cargo: {{contacto.cargo_empresa}}
+{% endif %}
+
+
+Con un saludo bolivariano y revolucionario me dirijo a usted en la oportunidad de notificarle que  una vez analizado el Informe de Inspección de Categorización al establecimiento que usted representa y verificada la conformidad de lo establecido en la Resolución Nº {{resolucion.numero}} de fecha {{resolucion.fecha}}, publicada en la Gaceta Oficial Nº {{gaceta.numero}} de fecha {{gaceta.fecha}}, que dicta las condiciones que deben cumplir los establecimientos de alojamiento turístico tipo: {{tipo_pst}} para optar a una categoría, el  establecimiento debe proceder a subsanar los requisitos faltantes indicados en el documento adjunto al presente correo,  otorgándose un plazo {{dias}} días hábiles para acometer las disposiciones de mejoras de servicio, mantenimiento o reparación allí notificadas.
+
+En tal sentido, adjunto al presente correo encontrará un documento oficial relacionado con las disposiciones de mejora.
+
+
+
+
+
+-----------------------------------------------
+
+Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726. 
+Telfs.: 0-500- Turismo (0-500-8874766) / Fax: +58 (212) 208.4522 www.mintur.gob.ve 
+www.venezuelaturismo.gob.ve 
+DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO 
+DENUNCIA@MINTUR.GOB.VE

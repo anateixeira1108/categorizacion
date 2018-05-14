@@ -1,0 +1,80 @@
+[
+  {
+    "model": "configuracion.configuracion",
+    "fields": {
+      "activo": true,
+      "art66cot": 1.2,
+      "dias_vencimiento_planilla_pago": 15
+    }
+  },
+  {
+    "model": "configuracion.area",
+    "fields": {
+      "acronimo": "DGGT",
+      "nombre": "Gerencia General Tributaria"
+    }
+  },
+  {
+    "model": "configuracion.area",
+    "fields": {
+      "acronimo": "DGPT",
+      "nombre": "Gerencia de Proyectos Turísticos"
+    }
+  },
+  {
+    "model": "configuracion.area",
+    "fields": {
+      "acronimo": "DGRL",
+      "nombre": "Gerencia de RTN y Licencias"
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-01-01",
+      "tasa_interes": 15.12
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-02-01",
+      "tasa_interes": 15.54
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-03-01",
+      "tasa_interes": 15.05
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-04-01",
+      "tasa_interes": 15.44
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-05-01",
+      "tasa_interes": 15.54
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-06-01",
+      "tasa_interes": 15.56
+    }
+  },
+  {
+    "model": "configuracion.tasainteresbcv",
+    "fields": {
+      "periodo" : "2014-07-01",
+      "tasa_interes": 15.86
+    }
+  }
+]

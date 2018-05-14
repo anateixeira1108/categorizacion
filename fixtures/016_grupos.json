@@ -1,0 +1,66 @@
+[
+{
+    "pk": 1,
+    "model": "auth.group",
+    "fields": {
+        "name": "pst",
+        "permissions": []
+    }
+},
+{
+    "pk": 2,
+    "model": "auth.group",
+    "fields": {
+        "name": "emprendedores",
+        "permissions": []
+    }
+},
+{
+    "pk": 3,
+    "model": "auth.group",
+    "fields": {
+        "name": "funcionarios_dggt",
+        "permissions": []
+    }
+},
+{
+    "pk": 4,
+    "model": "auth.group",
+    "fields": {
+        "name": "coordinadores_dggt",
+        "permissions": []
+    }
+},
+{
+    "pk": 5,
+    "model": "auth.group",
+    "fields": {
+        "name": "gerente_dggt",
+        "permissions": []
+    }
+},
+{
+    "pk": 6,
+    "model": "auth.group",
+    "fields": {
+        "name": "funcionarios_rtn",
+        "permissions": []
+    }
+},
+{
+    "pk": 7,
+    "model": "auth.group",
+    "fields": {
+        "name": "coordinadores_rtn",
+        "permissions": []
+    }
+},
+{
+    "pk": 8,
+    "model": "auth.group",
+    "fields": {
+        "name": "gerente_rtn",
+        "permissions": []
+    }
+}
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 1,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "fiscalizacion": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 2,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 10,
+            "fiscalizacion": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 3,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "fiscalizacion": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 4,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 10,
+            "fiscalizacion": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 5,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 9,
+            "fiscalizacion": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+    {
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 6,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 11,
+            "fiscalizacion": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+	{
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 7,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 12,
+            "fiscalizacion": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+	{
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 8,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 11,
+            "fiscalizacion": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+	{
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 9,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 13,
+            "fiscalizacion": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    },
+	{
+        "model": "fiscalizacion.FuncionariosFiscalizacion",
+        "pk": 10,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 13,
+            "fiscalizacion": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+        }
+    }
+]

@@ -1,0 +1,11 @@
+Grupos creados en el sistema:
+=============================
+    - pst
+    - emprendedores
+    - funcionarios_dggt
+    - coordinadores_dggt
+    - gerente_dggt
+    - funcionarios_rtn
+    - coordinadores_rtn
+    - gerente_rtn
+

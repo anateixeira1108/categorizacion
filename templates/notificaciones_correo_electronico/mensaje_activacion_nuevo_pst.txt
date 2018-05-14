@@ -1,0 +1,2 @@
+Hola {{ pst.nombres }} {{ pst.apellidos }}, ingrese al siguiente link para activar su cuenta en mintur:
+    - {{ server_uri }}{% url 'cuentas_activar_cuenta' pst.activation_key %}

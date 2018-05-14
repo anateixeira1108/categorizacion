@@ -1,0 +1,145 @@
+{% extends "base_funcionario.html" %}
+
+{% load filtros_datos %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+
+        <section class="content-header">
+            <h1>
+                Prestador de servicios turísticos
+                <small>(Sin certificar)</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-edit"></i> Registro</a></li>
+                <li class="active">PST</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="box box-danger">
+                <div class="box-body">
+                    {% if psts %}
+                        <form method="get" action="{% url 'registro_funcionario_rtn_busqueda_por_rif' %}">
+                            <div class="body" id="persona-juridica">
+                                <div class="row">
+                                    <div class="col-xs-6 col-xs-offset-6">
+                                        <div class="input-group">
+                                            <input type="text"
+                                                   name="query"
+                                                   class="form-control rif-mask"/>
+
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-default"
+                                                        type="submit">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-striped table-partner table-hover text-center">
+                                    <thead>
+                                    <tr>
+                                        <th>RIF</th>
+                                        <th>Razón social</th>
+                                        <th>Tipo de PST</th>
+                                        <th>Estatus</th>
+                                        <th>Tipo de solicitud</th>
+                                        <th>Fecha de registro</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for pst in psts %}
+                                        <tr>
+                                            <td>{{ pst.rif }}</td>
+                                            {% if pst.razon_social %}
+                                                <td>{{ pst.razon_social }}</td>
+                                            {% else %}
+                                                <td>No aplica</td>
+                                            {% endif %}
+                                            <td>{{ pst|get_tipo_pst }}</td>
+                                            {% if pst.estatus == 1 %}
+                                                <td>
+                                                    <small class="badge bg-green">Registro sin completar</small>
+                                                </td>
+                                            {% elif pst.estatus == 2 %}
+                                                <td>
+                                                    <small class="badge bg-green">Registro completado</small>
+                                                </td>
+                                            {% elif pst.estatus == 3 %}
+                                                <td>
+                                                    <small class="badge bg-green">Primera certificación</small>
+                                                </td>
+                                            {% elif pst.estatus == 4 %}
+                                                <td>
+                                                    <small class="badge bg-green">Segunda certificación</small>
+                                                </td>
+                                            {% endif %}
+                                            <td>
+                                                {% if pst.creado_el == pst.modificado_el %}
+                                                    <small class="badge bg-red">Nuevo registro</small>
+                                                {% else %}
+                                                    <small class="badge bg-blue">Actualización</small>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ pst.modificado_el | date:"SHORT_DATE_FORMAT" }}</td>
+                                            <td>
+                                                <!--Si es persona juridica muestra su url correspondiente.
+                                                    Si es persona natural muestra su url correspondiente.
+                                                -->
+                                                <a
+                                                        {% if pst.tipo_figura == 1 %}
+                                                            href="{% url 'rtn_funcionario_detalle_pst_juridica_solicitud' pst.id %}"
+                                                        {% else %}
+                                                            href="{% url 'rtn_funcionario_detalle_pst_natural_solicitud' pst.id %}"
+                                                        {% endif %}
+                                                            class="btn btn-block btn-info btn-flat">
+                                                    Ver solicitud <i class="fa fa-search icon-white"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+
+                        </div>
+                    {% else %}
+                        {% if error %}
+                            <div class="text-center">
+                                <label>
+                                    <h3>
+                                        No se ha encontrado la solicitud de busqueda
+                                    </h3>
+                                </label>
+                                <br>
+                            </div>
+                        {% else %}
+                            <div class="text-center">
+                                <label>
+                                    <h3>
+                                        No hay solicitudes a verificar
+                                    </h3>
+                                </label>
+                                <br>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+            </div>
+
+        </section>
+    </aside>
+{% endblock %}

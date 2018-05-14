@@ -1,0 +1,212 @@
+[
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 1,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 2,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 3,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 3,
+            "solicitud": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 4,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 4,
+            "solicitud": 1,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 5,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 6,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 7,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 3,
+            "solicitud": 2,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 8,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 9,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 10,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 3,
+            "solicitud": 3,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 11,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 4,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 12,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 4,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 13,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 3,
+            "solicitud": 4,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 14,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 5,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 15,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 5,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 16,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 5,
+            "solicitud": 6,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+        {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 17,
+        "fields": {
+            "es_coordinador": true,
+            "funcionario": 1,
+            "solicitud": 6,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 18,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 2,
+            "solicitud": 6,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    },
+    {
+        "model": "inteligencia_tributaria.FuncionariosSolicitud",
+        "pk": 19,
+        "fields": {
+            "es_coordinador": false,
+            "funcionario": 3,
+            "solicitud": 6,
+            "asignado_el": "2014-05-23 13:00:00.00"
+            
+        }
+    }
+    
+]

@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Main content -->
+        {% csrf_token %}
+        <section class="content-header">
+            <h1>Categorizaci&oacute;n<small>Bandeja de trabajo</small></h1>
+                <ol class="breadcrumb">
+                <li><a href="/"> Inicio</a></li>
+                <li class="active"><i class="fa fa-star-half-o"></i>Categorizaci&oacute;n</li> <!--Editar icono -->
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-danger">
+                <div class="box-body">
+                    <div class="row title">
+                        <div class="col-xs-2 col-xs-offset-10">
+                            <a id="activar_buscar_modal" href="#" class="btn btn-primary btn-flat pull-right col-xs-12">
+                                Buscar &nbsp;&nbsp;<i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-striped table-partner table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>RIF</th>
+                                        <th>RTN</th>
+                                        <th>Raz&oacute;n social</th>
+                                        <th>Categorizaci&oacute;n</th>
+                                        <th>Estatus</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>                           
+                                <tbody>
+                                {% for s in solicitudes %}
+                                    <tr>
+                                        
+                                        
+
+                                        <td>{{s.fecha_apertura|date}}</td>
+                                        <td>{{s.pst.rif}}</td>
+                                        <td>{{s.pst.rtn}}</td>
+                                        <td>{{s.pst.razon_social}}</td>
+                                        <td>
+                                            <span class="text-red">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="text-gray">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>    
+                                            </span>                                            
+                                        </td>
+                                        <td>
+                                            <label data-toggle="tooltip" title="{{s.estatus.descripcion}}" class="label label-warning etiqueta-estatus">{{s.estatus.nombre}}</label>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a data-toggle="tooltip" title="Ver requisitos" href="#" class="btn btn-info">
+                                                    <i class="fa fa-eye icon-white"></i>
+                                                </a>
+                                            </div>
+                                            <div class="btn-group">                                                  
+                                                <a id="btn_0" href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-bars icon-white"></i>&nbsp;
+                                                    <span class="caret"></span>
+                                                </a>
+
+                                                <ul class="dropdown-menu  pull-right"  role="menu">
+                                               
+                                                    {% for e in opciones|keyvalue:s.id %}
+                                                       <li><a data-row="0" class ="{{e}}" id="{{s.id}}" >{{e}}</a></li> 
+                                                    {% endfor %}
+                                                 
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    {% include '_modales_categorizacion.html' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="application/javascript">
+        $(function() {
+
+            var modal_padre;
+            var fila_seleccionada;
+            var id;
+            var analista;
+
+            var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+             
+            $('.solicitar-aprobacion').click(function(){
+                console.log($(this).attr("id"));
+                fila_seleccionada = $(this).attr('data-row');
+                console.log(fila_seleccionada)
+                $('#notificacion-general-Label').html('Confirmar solicitud de aprobaci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que quiere solicitar la aprobaci&oacute;n para esta solicitud?</h4>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" solicitud_id="'+$(this).attr("id")+'" class="btn btn-primary col-xs-12 bt-solicitar-aprobacion">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+            
+            $(document).on('click','.bt-solicitar-aprobacion',function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/analista/aprobar',
+                    data:{
+                        'solicitud':$(this).attr("solicitud_id"),
+                        csrfmiddlewaretoken:  token,},
+                            success: function(server_data) {
+
+                $('#notificacion-general').modal('hide');
+                if (server_data.success.length){
+                    $('#objeto_'+server_data.data.elemento_id).remove();
+                    $('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>La solicitud ha sido enviada para su aprobaci&oacute;n.</h4>\
+                        </div>'
+                    );
+                    $('#notificacion-guardado').modal();
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+            }
+        });
+    });
+
+            $('.solicitar-inspeccion').click(function(){
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12"><div class="text-center">\
+                        <h4>¿Est&aacute; seguro que quiere solicitar una inspecci&oacute;n para esta solicitud?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea> \
+                    </div></div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-aceptar-documento" class="btn btn-primary col-xs-12">Aceptar</a>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('.solicitar-reparaciones').click(function(){
+                 id= $(this).attr('id');
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de desea proponer la realizaci&oacute;n de reparaciones a este prestador?</h4>\
+                    </div><div>\
+                    <form method="post" action="/categorizacion/analista/2/solicitud/'+id+'/reparacion" role="form" class="lanz-formulario"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" name ="comentario-reparacion" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                          <input type=submit id="boton-aceptar-documento" class="btn btn-primary col-xs-12" value="Aceptar"/>\
+                    </div></form>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+            $(document).on('click','#boton-aceptar-documento',function(){
+                $(".lanz-formulario").submit();
+
+            });
+
+            $('.devolver-observaciones').click(function(){
+                id= $(this).attr('id');
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-general-Label').html('Confirmar solicitud de inspecci&oacute;n');
+                $('#notificacion-general-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro de desea devolver la solicitud al Prestador de Servicios Turístico?</h4>\
+                    </div><div>\
+                        <form method="post" action="/categorizacion/analista/2/solicitud/'+id+'/devolverobservacion" role="form" class="lanz-formulario"><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" name ="comentario-observaciondev" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea>\
+                    </div>'
+                );
+                $('#notificacion-general-footer').html(
+                    '<div class="col-xs-6" data-dismiss="modal">\
+                        <a href="#" id="boton-rechazar-documento" class="btn btn-danger col-xs-12">Cancelar</a>\
+                    </div>\
+                    <div class="col-xs-6" data-dismiss="modal">\
+                       <input type=submit id="boton-aceptar-documento" class="btn btn-primary col-xs-12" value="Aceptar"/>\
+                    </div>'
+                );
+                $('#notificacion-general').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('.no-procede').click(function(){
+                fila_seleccionada = $(this).attr('data-row');
+                $('#notificacion-guardado-body').html(
+                    '<div class="col-lg-12 text-center">\
+                        <h4>¿Est&aacute; seguro que esta solicitud no procede?</h4>\
+                    </div><div>\
+                    <br><p>Observaciones</p>\
+                    <textarea id="comentario-ingresado" placeholder="Ingrese aqu&iacute; sus comentarios" class="form-control" rows="10" style="width:100%; height:100%;"></textarea> \
+                    </div></div>'
+                );
+                $('#notificacion-guardado').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $(document).on('click', '.confirmar', function(){
+                $('#notificacion-general').modal('hide');
+                $('#ingresar-observaciones').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+            });
+
+            $('#boton-enviar-observacion').click(function(){
+                $('#btn_'+fila_seleccionada).addClass('disabled');
+                $('#ingresar-observaciones').modal('hide');
+            });
+
+            $('#activar_buscar_modal').click(function(){
+                $('#buscar_modal').modal();
+            });
+            
+        });
+    </script>
+{% endblock %}

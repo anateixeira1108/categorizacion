@@ -1,0 +1,63 @@
+[
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 1,
+        "fields": {
+            "nombre": "Zona de Utilidad Pública y de Interés General"
+        }
+    },
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 2,
+        "fields": {
+            "nombre": "Zona de Utilidad Pública y de Interés Turístico"
+        }
+    },
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 3,
+        "fields": {
+            "nombre": "Zona de Utilidad Pública y de Interés Turístico Recreacional"
+        }
+    },
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 4,
+        "fields": {
+            "nombre": "Zona de Utilidad Pública y de Interés Turístico Recreacional Popular"
+        }
+    }
+    ,
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 5,
+        "fields": {
+            "nombre": "Zona de Interés Turístico Recreacional"
+        }
+    }
+    ,
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 6,
+        "fields": {
+            "nombre": "Zona de Interés Turístico Colonial"
+        }
+    }
+    ,
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 7,
+        "fields": {
+            "nombre": "Zona de Interés Turístico"
+        }
+    }
+    ,
+    {
+        "model": "registro.CategoriaZonaInteresTuristico",
+        "pk": 8,
+        "fields": {
+            "nombre": "No especificada"
+        }
+    }
+]
+

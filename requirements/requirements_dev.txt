@@ -1,0 +1,65 @@
+# Framework backend utilizado para el desarrollo
+Django==1.6.4
+
+# Procesamiento digital de imagenes
+Pillow==2.4.0
+
+# Manejo y generacion de reportes
+PyPDF2==1.22
+xhtml2pdf==0.0.6
+reportlab==3.1.44
+django-easy-pdf==0.1.0
+
+# Versiones y control de migraciones de la base de dats
+South==0.8.4
+
+# Motor de busqueda
+Whoosh==2.6.0
+
+# Utilidad para facilitar la creacion de una interfaz de linea comandos amigable
+argparse==1.2.1
+
+# Mixins to add easy functionality to Django class-based views, forms, and models
+django-braces==1.4.0
+
+# Utilidades para el framework Django
+django-extensions==1.3.6
+
+# Validadores y campos de formulario que verifican fortaleza de contraseñas
+django-passwords==0.2.0
+
+# Base de datos de parroquas, municipios y estados del territorio Venezolano
+django-venezuela==0.4.1
+
+# Personalizar forma en que campos se muestran dentro del template
+django-widget-tweaks==1.3
+
+# Framework REST para desarrollo con Django
+djangorestframework==2.3.14
+
+# Extension del modulo estandard de python datetime
+python-dateutil==2.2
+
+# Uso del lenguaje de programacion python de manera interactiva
+ipython==2.0.0
+
+# Libreria de compatibilidad entre python 2 y 3
+six==1.6.1
+
+# Validacion de modulo wsgi basado en PEP 333
+wsgiref==0.1.2
+
+# Creacion de hojas de calculo Excel compatibles con MS Excel 97/2000/XP/2003 XLS
+xlwt==0.7.5
+
+# Modulo de criptografia
+pycrypto==2.6.1
+
+# Manejo de funcionalidades mediante el uso de procesos cron
+django-crontab==0.6.0
+
+# Libreria para Scraping de pantalla, manipulacion de manera propia de arboles de conversion y manejo de esquemas de notacion escrita 
+beautifulsoup4==4.3.2
+
+# Driver de conexion con base de datos postgres server
+psycopg2==2.6

@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+
+
+{% block main_content %}
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+
+                <section class="content-header">
+                    <h1>
+                        Agencia de Turismo
+                        <small>Solicitud</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-edit"></i>Licencias</a></li>
+                        <li class="active">Solicitud</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+
+                    <div class="box box-danger">
+                        <div class="box-body">
+
+                            <form action="../../index.html" method="post">
+                                <!-- Solicitud de Licencia de ADT, paso 1 -->
+                                <div class="body" id="persona-natural">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-xs-offset-6">
+                                            <label>Proceso de solicitud</label><br>
+                                            <select class="select" onchange="location = this.options[this.selectedIndex].value;">
+                                                <option selected>
+                                                    Paso 1: Datos básicos
+                                                </option>
+                                                <option value="{% url 'pst_adt_solicitud_paso_2' %}">
+                                                    Paso 2: Vista previa
+                                                </option>
+                                                <option value="{% url 'pst_adt_solicitud_paso_3' %}">
+                                                    Paso 3: Confirmar solicitud
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="title">
+                                        Cantidad de Empleados
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <label>Nº de Empleados</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <label>Nº de de empleados por condición</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-6"><b>Fijos:</b></div>
+                                                <div class="col-xs-6"><input type="number" class="form-control"></div>
+                                            </div><br>
+                                            <div class="row">
+                                                <div class="col-xs-6"><b>Contratados:</b></div>
+                                                <div class="col-xs-6"><input type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label>Nº de de empleados por sexo</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-6"><b>Masculino:</b></div>
+                                                <div class="col-xs-6"><input type="number" class="form-control"></div>
+                                            </div><br>
+                                            <div class="row">
+                                                <div class="col-xs-6"><b>Femenino:</b></div>
+                                                <div class="col-xs-6"><input type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Nº de Empleados por area</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-2"><b>Gerencial:</b></div>
+                                                <div class="col-xs-4"><input type="number" class="form-control"></div>
+                                                <div class="col-xs-2"><b>Administrativo:</b></div>
+                                                <div class="col-xs-4"><input type="number" class="form-control"></div>
+                                            </div><br>
+                                            <div class="row">
+                                                <div class="col-xs-2"><b>Obrero:</b></div>
+                                                <div class="col-xs-4"><input type="number" class="form-control"></div>
+                                                <div class="col-xs-2"><b>Técnico/Especialista:</b></div>
+                                                <div class="col-xs-4"><input type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="title">
+                                        Patente
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <label>Nº de Patente</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label>Fecha de Inscripción</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Copia de la Patente (Archivo digitalizado en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        Constancia de Exoneración de la Patente
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <label>Nº de Constancia</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label>Fecha</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Copia de la Constancia (Archivo digitalizado en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        Póliza de Responsabilidad Civil contra daños a terceros
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label>Nº de Póliza</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label>Fecha de emisión</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label>Nombre de la Empresa Aseguradora</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Copia de la Póliza (Archivo digitalizado en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        Contrato de Concesión
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <p>
+                                                ¿El establecimiento se encuentra ubicado en un Área Bajo Régimen de Administración Especial (ABRAE)?
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-1" id="option_si">
+                                            <input type="radio" name="ABRAERadios"  value="si" checked> Si
+                                        </div>
+                                        <div class="col-xs-1" id="option_no">
+                                            <input type="radio" name="ABRAERadios" value="no"> No
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label>Nº de Contrato de Concesión</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label>Fecha de emisión del Contrato</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label>Fecha de vencimiento del Contrato</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Copia del Contrato (Archivo digitalizado en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        Constancia de Calificación de Empresas
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <p>
+                                                ¿El capital de la empresa tiene inversión extranjera?
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-1" id="option_si">
+                                            <input type="radio" name="capitalRadios"  value="si" checked> Si
+                                        </div>
+                                        <div class="col-xs-1" id="option_no">
+                                            <input type="radio" name="capitalRadios" value="no"> No
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <label>Nº de Expediente</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label>Capital Nacional de la empresa</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label>Fecha</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label>Nombre del Accionista Extranjero</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Copia de la Constancia (Archivo digitalizado en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Lugar de Emision</label>
+                                            <div class="box"> 
+                                                <div class="col-xs-4">
+                                                    <label>Estado</label><br>
+                                                    <select class="select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label>Municipio</label><br>
+                                                    <select class="select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <label>Parroquia</label><br>
+                                                    <select class="select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="title">
+                                        Currículo vitae del Gerente de la Agencia de Turismo
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label>Título obtenido/Institución</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label>Ciudad</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label>Fecha</label><br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control focus.inputmask" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label>Nº Credencial de Agente</label><br>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label>Currículo en formato digital (Archivo en formato PDF)</label><br>
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <a class="btn btn-default btn-flat btn-block" href="#">
+                                                        Buscar archivo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <br>
+                                <div class="footer">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-xs-offset-6 col-lg-5 col-lg-offset-7">
+                                            <a href="{% url 'pst_adt_solicitud_paso_2' %}" class="btn btn-primary btn-flat btn-block">
+                                                Continuar al paso 2: Vista previa
+                                                <i class="fa fa-arrow-circle-o-right btn-icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+{% endblock %}

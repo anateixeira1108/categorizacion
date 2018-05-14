@@ -1,0 +1,50 @@
+[
+    {
+        "pk": 1,
+        "model": "declaraciones.Declaracion",
+        "fields": {
+            "pst": 1,
+			"tipo_declaracion": 1,
+			"periodo": "2013-05-01",
+			"fecha_desde": "2013-05-01",
+			"fecha_presentacion": "2014-05-23 13:00:00.00",
+			"fecha_hasta": "2013-05-31"
+        }
+    },
+	{
+        "pk": 2,
+        "model": "declaraciones.Declaracion",
+        "fields": {
+            "pst": 1,
+			"tipo_declaracion": 2,
+			"periodo": "2013-05-01",
+			"fecha_desde": "2013-05-01",
+			"fecha_presentacion": "2014-05-23 13:00:00.00",
+			"fecha_hasta": "2013-05-31"
+        }
+    },
+	{
+        "pk": 3,
+        "model": "declaraciones.Declaracion",
+        "fields": {
+            "pst": 1,
+			"tipo_declaracion": 3,
+			"periodo": "2013-05-01",
+			"fecha_desde": "2013-05-01",
+			"fecha_presentacion": "2014-05-23 13:00:00.00",
+			"fecha_hasta": "2013-05-31"
+        }
+    },
+	{
+        "pk": 4,
+        "model": "declaraciones.Declaracion",
+        "fields": {
+            "pst": 1,
+			"tipo_declaracion": 1,
+			"periodo": "2013-05-01",
+			"fecha_desde": "2013-05-01",
+			"fecha_presentacion": "2014-05-23 13:00:00.00",
+			"fecha_hasta": "2013-05-31"
+        }
+    }
+]

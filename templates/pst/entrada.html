@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% load obtener_valor %}
+
+{% block main_content %}
+
+	<!-- Right side column. Contains the navbar and content of the page -->
+	<aside class="right-side">
+	    <!-- Main content -->
+	    {% csrf_token %}
+	    <section class="content-header">
+	        <h1>Libro de Sugerencias y Reclamos<small>Entrada Libro</small></h1>
+	            <ol class="breadcrumb">
+	            <li><a href="/"> Inicio</a></li>
+	            <li><a href="{% url 'portallsr' operacion='entradas' %}"><i class="fa fa-book"></i> Entradas Libro</a></li>
+	            <li class="active"> Entrada {{entrada.id}}</li> <!--Editar icono -->
+	        </ol>
+	    </section>
+	    <section class="content">
+	        <div class="box box-danger">
+	            <div class="box-body">
+					<div class="row" style="padding:2% 5% 2% 5%;">
+						
+						<table class="table table-striped table-part table-hover tabla-personalizada table-responsive text-center">
+							<thead>
+								<th colspan="2">Datos entrada</th>	
+							</thead>
+						  	<tbody>
+							  <tr id="fecha-entrada">
+							    <td id="label" ><label style="margin:0%;">Fecha</label></td>
+							    <td id="value" >{{entrada.fecha_entrada|date}}</td>
+							  </tr>
+							  <tr id="tipo-entrada">
+							    <td id="label" ><label style="margin:0%;">Tipo de entrada</label></td>
+							    <td id="value" >{{entrada.tipo_comentario}}</td>
+							  </tr>
+							  {% if entrada.severidad %}
+							  <tr id="severidad-entrada">
+							    <td id="label" ><label style="margin:0%;">Severidad</label></td>
+							    <td id="value">
+									<h4>
+									{% if entrada.severidad.abreviacion == 'A' %}
+                                        <span class="label label-danger">{{entrada.severidad}}</span>
+                                    {% elif entrada.severidad.abreviacion == 'I' %}
+                                        <span class="label label-warning">{{entrada.severidad}}</span>
+                                    {% elif entrada.severidad.abreviacion == 'B' %}
+                                        <span class="label label-success">{{entrada.severidad}}</span>
+                                    {% endif %}
+									</h4>
+							    </td>
+							  </tr>
+							  {% endif %}
+							  <tr id="autor-entrada">
+							    <td id="label" ><label style="margin:0%;">Autor</label></td>
+							    <td id="value" >{% if entrada.anonimo == False %}{{entrada.turista.nombre|capfirst}} {{entrada.turista.apellido|capfirst}}{% else %}An&oacute;nimo{% endif %}</td>
+							  </tr>
+							  <tr id="lugar-entrada">
+							    <td id="label" ><label style="margin:0%;">Lugar</label></td>
+							    <td id="value" > {% if entrada.turista.ciudad.ciudad %}{{entrada.turista.ciudad.ciudad}} {% else %} - {% endif %}</td>
+							  </tr>
+							  <tr id="observacion-entrada">
+							  	<td id="label" colspan="2">
+							  		<label style="margin:0%;">Observaciones del Turista</label>
+							  	</td>
+							  </tr>
+							  <tr id="observacion-entrada">
+							  	<td id="value" colspan="2">
+							  		<textarea 
+							  		class="textarea-presonalizada" 
+							  		name="observaciones" 
+							  		id="observaciones" 
+							  		rows="5"
+									readonly="true"
+									disabled="disabled" >{{entrada.comentario}}</textarea>							  		
+							  	</td>
+							  </tr>
+							  {% if entrada.tipo_comentario.abreviacion != 'F' %}
+							  <tr id="respuesta-entrada">
+							  	<td id="label" colspan="2">
+							  		<label style="margin:0%;">Respuesta a la solicitud</label>
+							  	</td>
+							  </tr>
+							  <tr id="respuesta-entrada">
+									<td id="valor-respuesta" colspan="2">
+										<textarea 
+										class="textarea-presonalizada respuesta-texto" 
+										name="respuesta" 
+										rows="5" {% if respuesta %}
+										readonly='true'
+										disabled="disabled"  {% endif %}>{{respuesta.comentario}}</textarea>
+									</td>
+							  </tr>
+							  <tr>
+							  	<td id="label" colspan="2">
+							  	<div class="col-xs-12 respuesta-vacia">
+							  	</div>
+							  	</td>
+							  </tr>
+							  {% endif %}
+							  <tr>
+							{% if secciones %}
+							  <td id= "encuesta-entrada" colspan="2">
+								<div class="row item-autoevaluacion">                                                 
+								    <div class="col-xs-11">
+								        <label class="etiqueta-autoevaluacion" style="float:left;">Ver Encuesta</label>
+								    </div>
+								    <div id="encuesta" class="col-xs-1 contenido-centrado icono-control icono-accion">
+								        <i class="fa fa-minus fa-2x"></i>
+								    </div>
+								</div>
+								<div id="encuesta_subitem">								
+									<div class="row" style="min-height:250px">
+									{% for sec in secciones %}
+										<div class="col-lg-12 col-md-12">
+											<div class="col-lg-12 col-md-12 text-center">
+												<h4>{{sec}}</h4>
+											</div>
+											{% for s in secciones|keyvalue:sec %}
+											<div class="col-lg-12 col-md-12">
+												<div id="chart_div_{{s|keyvalue:'id_s'}}_{{s|keyvalue:'id_val'}}"></div>
+											</div>
+											{% endfor %}
+										</div>
+									{% endfor %}
+									</div>
+								</div>
+							</td>
+							{% endif %}
+							</tr>
+						  </tbody>
+						</table>			
+					</div>
+				</div>
+	        </div>
+	    </section>
+		<div class="row">
+			{% if entrada.tipo_comentario.abreviacion != 'F' %}
+			<div class="col-lg-6 col-md-6">
+				<a href="{% url 'portallsr' operacion='entradas' %}" class="btn btn-primary col-lg-12 col-md-12">
+					<i class="fa fa-arrow-left"></i> &nbsp;&nbsp;Volver
+				</a>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<a href="#" class="btn btn-info col-lg-12 col-md-12 responder {% if respuesta %} disabled {% endif %}">
+					Responder &nbsp;&nbsp;<i class="fa fa-reply"></i>
+				</a>
+			</div>
+			{% else %}
+				<div class="col-lg-12 col-md-12">
+					<a href="{% url 'portallsr' operacion='entradas' %}" class="btn btn-primary col-lg-12 col-md-12">
+						<i class="fa fa-arrow-left"></i> &nbsp;&nbsp;Volver
+					</a>
+				</div>
+			{% endif %}
+		</div>
+	</aside>
+{% include '_modales_categorizacion.html' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/google-chart/jsapi.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/google-chart/visualization.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}js/google-chart/styles.css"/>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/google-chart/corechart.js"></script>
+    <!--<script type="text/javascript" src="{{ STATIC_URL }}js/chart-js/ChartNew.js"></script>-->
+    <script type="application/javascript">
+        $(function() {
+            var token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+            $('.responder').click(function(){
+            	if (!jQuery.isEmptyObject($('.respuesta-texto').val())){
+            		$('.respuesta-vacia').html('');
+               		respuesta=$('.respuesta-texto').val();
+               		entrada={{entrada.id}};
+               		$.ajax({
+                    type: 'POST',
+                    url: '/categorizacion/portallsr/responder',
+                    data:{
+                        'respuesta': respuesta,
+                        'entrada': entrada,
+                        csrfmiddlewaretoken:  token,
+                },success: function(server_data) {
+                	$('.respuesta-texto').attr('value', respuesta);
+                	$('.respuesta-texto').attr('readonly', true);
+                	$('.responder').addClass('disabled');
+                	$('#notificacion-guardado-body').html(
+                        '<div class="col-lg-12 text-center">\
+                            <h4>Se ha registrado su respuesta.</h4>\
+                        </div>'
+                        );
+                    $('#notificacion-guardado').modal('show');
+
+                    },error: function(xhr, textStatus, errorThrown) {
+                        alert('Please report this error: '+errorThrown+xhr.status+xhr.responseText);
+                    }
+                });
+               	}
+               	else{
+               		$('.respuesta-vacia').html('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Error:&nbsp;</strong> No esta ingresando ninguna respuesta.</div>'); 
+               	}
+            });
+        });
+  
+
+        	// Load the Visualization API and the piechart package.
+            //google.load('visualization', '1.0', {'packages':['corechart']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+	      	google.setOnLoadCallback(drawChart);
+
+	      	// Callback that creates and populates a data table,
+	      	// instantiates the pie chart, passes in the data and
+	      	// draws it.
+	      	function drawChart() {
+
+	      		{% for sec in secciones %}
+	      		{% for s in secciones|keyvalue:sec %}
+
+		        // Create the data table.
+		        var data = google.visualization.arrayToDataTable([
+	                ['Item', 'Calificación', { role: 'style' } ],
+	                {% for e in s|keyvalue:'elementos' %}
+		                	[
+		                	'{% if e.observacion %} {{e.observacion}} {% else %} {{e.elemento_encuesta.nombre}} {% endif %}', 
+		                	{{e.valoracion.puntaje}}, 
+		                	'color: #DFB717; opacity: 0.{{e.valoracion.puntaje}}'
+		                	],
+	                {% endfor %}
+	                
+	                
+              	]);
+
+		        // Instantiate and draw our chart, passing in some options.
+		        var chart = new google.visualization.ColumnChart(document.getElementById("chart_div_{{s|keyvalue:'id_s'}}_{{s|keyvalue:'id_val'}}"));
+		        chart.draw(data, {
+		        	vAxis: {
+					    viewWindow: {
+					        min: {{s|keyvalue:'minimo'}},
+					        max: {{s|keyvalue:'maximo'}}
+					    },
+					    ticks: [
+					    {v:{{s|keyvalue:'minimo'}}, f:''}
+					    {% for v in s|keyvalue:'valores' %}
+					    		, {
+					    			v:{{v.puntaje}},
+					    			f:'{{v.nombre}}'
+					    		}
+					    {% endfor %}
+					    ],
+					    // display labels every 25
+
+					},
+
+					legend : 'none'	,
+		        });
+
+
+		       {% endfor %}
+		       {% endfor %}
+		    }
+
+		    /*var data = {
+		        labels: ["Item 1", "Item 2", "Item3", "Item 4", "Item 5"],
+		        datasets: [
+		            {
+		                label: "My First dataset",
+		                fillColor: "rgba(0,0,0,0.5)",
+		                strokeColor: "rgba(220,220,220,0.8)",
+		                highlightFill: "rgba(220,220,220,0.75)",
+		                highlightStroke: "rgba(220,220,220,1)",
+		                data: ["-","Bueno", "Malo", "regular", 1]
+		            },
+		            {
+		                label: "My Second dataset",
+		                fillColor: "rgba(151,187,205,0.5)",
+		                strokeColor: "rgba(151,187,205,0.8)",
+		                highlightFill: "rgba(151,187,205,0.75)",
+		                highlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 86, 27, 90]
+		            }
+		        ]
+		    };
+           
+           var ctx = document.getElementById("serivicio_chart").getContext("2d");
+           var myNewChart = new Chart(ctx).HorizontalBar(data,{
+           		responsive : true,
+           		scaleGridLineWidth : 3,
+           		barStrokeWidth : 1,
+           		barValueSpacing : 5,
+           		xAxisLabel : 'Title of X Axis',
+           		scaleLabel : "<%=' Pcst'%>"
+           });*/
+        	
+    </script>
+{% endblock %}

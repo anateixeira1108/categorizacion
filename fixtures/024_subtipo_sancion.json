@@ -1,0 +1,72 @@
+[
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE INFORMAR CAMBIOS"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "DEBER DE INSCRIBIRSE ANTE LA ADMINISTRACIÓN TRIBUTARIA"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE LLEVAR LIBROS Y REGISTROS ESPECIALES Y CONTABLES"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE PERMITIR EL CONTROL DE LA ADMINISTRACIÓN TRIBUTARIA"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE INFORMAR Y COMPARECER ANTE LA ADMINISTRACIÓN TRIBUTARIA"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE INFORMAR LA COMPENSACIÓN O CESIÓN DE CRÉDITOS FISCALES"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "DESACATO A LAS ÓRDENES DE LA ADMINISTRACIÓN TRIBUTARIA"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "DEBERES FORMALES EN SEDE"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 2,
+            "nombre": "REGISTRO ÚNICO DE INFORMACIÓN TURÍSTICA (RIFTUR)"
+        }
+    },
+    {
+        "model": "resoluciones.SubTipoSancion",
+        "fields": {
+            "tipo_sancion": 1,
+            "nombre": "OBLIGACIÓN DE DECLARAR"
+        }
+    }
+]

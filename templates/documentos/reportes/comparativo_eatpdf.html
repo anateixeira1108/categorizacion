@@ -1,0 +1,96 @@
+<html>
+{% load obtener_valor %}
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				top:4cm;
+                bottom: 3cm;
+				margin-left: 1cm;
+				margin-right: 1cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					
+				}
+                @frame header {
+                    -pdf-frame-content: headerTextContent;
+                    top: 2cm;
+                    margin-left: 2cm;
+                    margin-right: 2cm;
+                }
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			@page imPage{
+				top:0cm;
+				margin-left: 1cm;
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="100" width="200" alt="image" src="static/img/informes/logo.jpg"/>
+		</div> 
+        <div id="headerTextContent" style="text-align:center;font-size:23px;">
+            Comparativo EAT
+        </div>
+		<div class="pg">
+			<div class="parrafo">
+				<table style="border-collapse:collapse;border:black 1px solid;text-align:center;padding:2pt">
+                                <thead>
+                                    <tr>
+                                        <th>Entidad Federal</th>
+                                        <th>EAT categorizados</th>
+                                        <th>EAT en proceso</th>
+                                        <th>EAT sin categorizar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for c in data.consulta %}
+                                    <tr >
+                                        <td>{{c|keyvalue:'show_name'}}</td>
+                                        <td>{{c|keyvalue:'total_con'}}</td>
+                                        <td>{{c|keyvalue:'total_pro'}}</td>
+                                        <td>{{c|keyvalue:'total_sin'}}</td>
+                                    </tr>
+                                	{% endfor %}
+                                </tbody>
+                            </table>
+
+			</div>
+		</div>
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div> 
+	</body>
+</html> 

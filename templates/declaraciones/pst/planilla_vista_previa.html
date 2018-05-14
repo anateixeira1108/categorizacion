@@ -1,0 +1,374 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% load filtros_declaraciones %}
+
+{% block css %}
+  {{ block.super }}
+  <style>
+    form input.form-control {
+      padding: 0 0.1em;
+    }
+    td.col-xs-2.special {
+      padding: 0.4em;
+    }
+    .modal-content .modal-body span {
+      font-weight: bold;
+    }
+    .modal-content .modal-header {
+      background-color: #E74F4C;
+      color: #FFF;
+    }
+  </style>
+{% endblock %}
+
+{% block main_content %}
+<aside class="right-side">
+  <section class="content-header">
+    <h1>
+      Planilla de Declaración
+      <small>Vista Previa</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-check-square"></i>PST</a></li>
+      <li class="active">Declaraciones</li>
+    </ol>
+  </section>
+
+  <!-- Main content -->
+  <section class="content" ng-controller="DeclaracionesCtrl">
+    <div class="box box-danger">
+      <div class="box-body">
+        <form id="declarar-form" action="{% url 'declaraciones_pst_declaracion_vista_previa' %}" method="POST">
+          {% csrf_token %}
+          <div class="body">
+            <table id="declaraciones" class="table table-declaracion">
+              <tr>
+                <th colspan="8" class="text-center col-xs-12">A.- Datos del Contribuyente</th>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="text-center font-bold col-xs-2">RIF</td>
+                <td colspan="2" class="text-center font-bold col-xs-4">Razón Social del Contribuyente</td>
+                <td colspan="2" class="text-center font-bold col-xs-3">RTN</td>
+                <td colspan="2" class="text-center font-bold col-xs-3">Licencia</td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="text-center col-xs-2">
+                  <input class="form-control text-center" type="text" value="{{ form.initial.pst.rif }}" readonly>
+                </td>
+                <td colspan="2" class="text-center col-xs-4">
+                  <input class="form-control text-center" type="text" value="{{ form.initial.pst.razon_social }}" readonly>
+                </td>
+                <td colspan="2" class="text-center col-xs-3">
+                  <input class="form-control text-center" type="text" value="{{ form.initial.pst.rtn|default:"" }}" readonly>
+                </td>
+                <td colspan="2" class="text-center col-xs-3">
+                  <input class="form-control text-center" type="text" value="{{ form.initial.pst|get_licencia }}" readonly>
+                </td>
+              </tr>
+
+              <tr>
+                <th colspan="8" class="text-center col-xs-12">B.- Ejercicio Gravable</th>
+              </tr>
+
+              <tr>
+                <td class="text-center font-bold col-xs-3">Tipo de Declaración</td>
+                <td class="text-center font-bold col-xs-3">Periodo</td>
+                <td colspan="2" class="text-center font-bold col-xs-1">Desde</td>
+                <td colspan="2" class="text-center col-xs-1 {% if form.fecha_desde.errors %} has-errors {% endif %}">
+                  {% render_field form.fecha_desde class+="form-control text-center" readonly="" %}
+                </td>
+                <td colspan="2" class="text-center font-bold col-xs-4">Fecha de Presentación</td>
+              </tr>
+
+              <tr>
+                <td class="text-center col-xs-3 {% if form.tipo_declaracion.errors %} has-errors {% endif %}">
+                  <input id="dummy_tipo_declaracion" class="form-control text-center" type="text" disabled>
+                  {% render_field form.tipo_declaracion class+="select" style="display: none;"%}
+                </td>
+                <td class="text-center col-xs-3 {% if form.periodo.errors %} has-errors {% endif %}">
+                  <input class="form-control text-center" type="text" value="{{ clean_periodo|date:"F-Y" }}" readonly>
+                  {% render_field form.periodo|attr:"style:display:none;" readonly="" %}
+                </td>
+                <td colspan="2" class="text-center font-bold col-xs-1">Hasta</td>
+                <td colspan="2" class="text-center col-xs-1 {% if form.fecha_hasta.errors %} has-errors {% endif %}">
+                  {% render_field form.fecha_hasta class+="form-control text-center" readonly="" %}
+                </td>
+                <td colspan="2" class="text-center col-xs-4 {% if form.fecha_presentacion.errors %} has-errors {% endif %}">
+                  <input id="id_fecha_presentacion" class="form-control text-center" type="text"  name="fecha_presentacion" readonly="" ng-model="fecha_presentacion">
+                </td>
+              </tr>
+
+              <tr>
+                <th colspan="8" class="text-center col-xs-12">C.- Autoliquidación del Impuesto</th>
+              </tr>
+
+              <tr>
+                <th colspan="8" class="text-center col-xs-12">C.1.- Estado Demostrativo del Ingreso</th>
+              </tr>
+
+              <tr>
+                <th colspan="8" class="col-xs-12">Fuente Territorial</th>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">1</td>
+                <td colspan="2" class="col-xs-5">Ventas Propias Internas no Gravadas por la Ley del IVA</td>
+                <td colspan="2" class="col-xs-1 text-center">7</td>
+                <td colspan="2" class="col-xs-5 {% if form.ventas_propias.errors %} has-errors {% endif %}">
+                  {% render_field form.ventas_propias class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">2</td>
+                <td colspan="2" class="col-xs-5">Ventas de Exportación</td>
+                <td colspan="2" class="col-xs-1 text-center">8</td>
+                <td colspan="2" class="col-xs-5 {% if form.ventas_exportacion.errors %} has-errors {% endif %}">
+                  {% render_field form.ventas_exportacion class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">3</td>
+                <td colspan="2" class="col-xs-5">Ventas Internas Gravadas por Alícuota General</td>
+                <td colspan="2" class="col-xs-1 text-center">9</td>
+                <td colspan="2" class="col-xs-5 {% if form.ventas_internas_general.errors %} has-errors {% endif %}">
+                  {% render_field form.ventas_internas_general class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">4</td>
+                <td colspan="2" class="col-xs-5">Ventas Internas Gravadas por Alícuota General más Alícuota Adicional</td>
+                <td colspan="2" class="col-xs-1 text-center">10</td>
+                <td colspan="2" class="col-xs-5 {% if form.ventas_internas_adicional.errors %} has-errors {% endif %}">
+                  {% render_field form.ventas_internas_adicional class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">5</td>
+                <td colspan="2" class="col-xs-5">Ventas Internas Gravadas por Alícuota Reducida</td>
+                <td colspan="2" class="col-xs-1 text-center">11</td>
+                <td colspan="2" class="col-xs-5 {% if form.ventas_internas_reducida.errors %} has-errors {% endif %}">
+                  {% render_field form.ventas_internas_reducida class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">6</td>
+                <td colspan="2" class="col-xs-5 font-bold">Total Ventas de Fuente Territorial (7+8+9+10+11)</td>
+                <td colspan="2" class="col-xs-1 text-center">12</td>
+                <td colspan="2" class="col-xs-5 {% if form.total_ventas_territorial.errors %} has-errors {% endif %}">
+                  {% render_field form.total_ventas_territorial class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <th colspan="8">Anticipo</th>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">13</td>
+                <td colspan="2" class="col-xs-5 font-bold">Anticipo</td>
+                <td colspan="2" class="col-xs-1 text-center">16</td>
+                <td colspan="2" class="col-xs-5 {% if form.anticipo_declaracion.errors %} has-errors {% endif %}">
+                  {% render_field form.anticipo_declaracion class+="select" hidden="" %}
+                  <input class="form-control text-center" type="text" value="{{ form.cleaned_data.anticipo_declaracion|default:"-" }}" readonly>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">14</td>
+                <td colspan="2" class="col-xs-5 font-bold">Total Ventas Menos Anticipo (12-16)</td>
+                <td colspan="2" class="col-xs-1 text-center">17</td>
+                <td colspan="2" class="col-xs-5 {% if form.total_ventas_menos_anticipo.errors %} has-errors {% endif %}">
+                  {% render_field form.total_ventas_menos_anticipo class+="form-control text-center" type="text" readonly="" placeholder="0.0" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">15</td>
+                <td colspan="2" class="col-xs-5 font-bold">Contribución Especial Determinada</td>
+                <td colspan="2" class="col-xs-1 text-center">18</td>
+                <td colspan="2" class="col-xs-5 {% if form.contribucion_especial_determinada.errors %} has-errors {% endif %}">
+                  {% render_field form.contribucion_especial_determinada class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <th colspan="8" class="text-center col-xs-12">D.- Compensación</th>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">19</td>
+                <td colspan="7" class="col-xs-11">Compensaciones con Créditos Propios</td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">20</td>
+                <td colspan="2" class="col-xs-4 text-center">Número de Resolución</td>
+                <td class="col-xs-1 text-center">24</td>
+                <td colspan="2" class="col-xs-2 text-center">Fecha</td>
+                <td class="col-xs-1 text-center">28</td>
+                <td class="col-xs-3 text-center">Monto</td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">21</td>
+                <td colspan="2" class="col-xs-4 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">25</td>
+                <td colspan="2" class="col-xs-2 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">29</td>
+                <td class="col-xs-3 text-center"><span class="btn-full"></span></td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">22</td>
+                <td colspan="2" class="col-xs-4 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">26</td>
+                <td colspan="2" class="col-xs-2 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">30</td>
+                <td class="col-xs-3 text-center"><span class="btn-full"></span></td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">23</td>
+                <td colspan="2" class="col-xs-4 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">27</td>
+                <td colspan="2" class="col-xs-2 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">31</td>
+                <td class="col-xs-3 text-center"><span class="btn-full"></span></td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">32</td>
+                <td colspan="7" class="col-xs-11">Compensaciones con Créditos Adquiridos (Cesión)</td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">33</td>
+                <td class="col-xs-4 text-center">Número de Resolución</td>
+                <td class="col-xs-1 text-center">35</td>
+                <td class="col-xs-1 text-center">Fecha</td>
+                <td class="col-xs-1 text-center">37</td>
+                <td class="col-xs-1 text-center">RIF Cedente</td>
+                <td class="col-xs-1 text-center">39</td>
+                <td class="col-xs-2 text-center">Monto</td>
+              </tr>
+
+              <tr>
+                <td class="col-xs-1 text-center">34</td>
+                <td class="col-xs-4 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">36</td>
+                <td class="col-xs-1 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">38</td>
+                <td class="col-xs-1 text-center"><span class="btn-full"></span></td>
+                <td class="col-xs-1 text-center">40</td>
+                <td class="col-xs-2 text-center"><span class="btn-full"></span></td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">41</td>
+                <td colspan="2" class="col-xs-8 font-bold">Total Compensación (29+30+31+40)</td>
+                <td colspan="2" class="col-xs-1 text-center">43</td>
+                <td colspan="2" class="col-xs-2">
+                  {% render_field form.total_compensacion class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2" class="col-xs-1 text-center">42</td>
+                <td colspan="2" class="col-xs-4 font-bold">TOTAL A PAGAR (18-43)</td>
+                <td colspan="2" class="col-xs-1 text-center">44</td>
+                <td colspan="2" class="col-xs-6 {%if form.total_pagar.errors %} has-errors {% endif %}">
+                  {% render_field form.total_pagar class+="form-control text-center" type="text" placeholder="0.0" readonly="" %}
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <br>
+
+          <div class="footer">
+            <div class="row">
+              <div class="col-xs-5">
+                <a href="javascript:window.history.back()" class="btn btn-info btn-block btn-flat">
+                  <span class="fa fa-arrow-circle-o-left btn-icon-previous"></span>Editar
+                </a>
+              </div>
+
+              <div class="col-xs-5 col-xs-offset-2">
+                <button type="button" class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#declarar-modal">
+                  Declarar
+                  <span class="fa fa-arrow-circle-o-right btn-icon-next"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</aside>
+
+<div class="modal fade" id="declarar-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Declaración</h4>
+      </div>
+      <div class="modal-body">
+        {% if form.initial.pst.tipo_figura == 1 %}
+          <p>
+            JURO QUE LOS DATOS CONTENIDOS EN ESTA DECLARACIÓN HAN SIDO DETERMINADOS CON BASE A LAS
+            DISPOSICIONES LEGALES Y EXAMINADOS POR MI PERSONA:
+            <span>{{ form.initial.pst.representantecontacto_set.first.nombres|capall }} {{ form.initial.pst.representantecontacto_set.first.apellidos|capall }}</span>
+          </p>
+          <p>Lugar: <span>{{ form.initial.pst.direccion_set.first.estado.estado|capall }}</span></p>
+          <p>Fecha: <span id="current-date"></span></p>
+          <p>REPRESENTANTE LEGAL Nº RIF: <span>{{ form.initial.pst.representantecontacto_set.first.rif }}</span></p>
+        {% else %}
+          <p>
+            YO, <span>{{ form.initial.pst.nombres|capall }} {{ form.initial.pst.apellidos|capall }}</span> CON CÉDULA
+            DE IDENTIDAD Nº <span>{{ form.initial.pst.cedula }}</span>, DECLARO QUE LOS DATOS Y CIFRAS
+            QUE APARECEN EN LA PRESENTE DECLARACIÓN SON UNA COPIA FIEL Y EXACTA DE LOS DATOS CONTENIDOS
+            EN LOS REGISTROS DE CONTABILIDAD Y CONTROL TRIBUTARIO QUE HAN SIDO LLEVADOS CONFORME A LA
+            LEY EN EL ESTADO <span>{{ form.initial.pst.direccion_set.first.estado.estado|capall }}</span> A LOS
+            <span id="day"></span> DÍAS DEL MES DE <span id="month"></span>.
+          </p>
+        {% endif %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" form="declarar-form">Declarar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}
+
+
+{% block javascripts %}
+  {{ block.super }}
+  <script>
+    $(function() {
+      $('select option:not(:selected)').prop('disabled', true);
+
+      moment.lang('es');
+      $('#day').html(moment().format('D'));
+      $('#month').html(moment().format('MMMM').toUpperCase());
+      $('#current-date').html(moment().format('DD/MM/YYYY'));
+
+      $('#dummy_tipo_declaracion').val(
+        $('#id_tipo_declaracion option:selected').html()
+      );
+    });
+  </script>
+{% endblock %}

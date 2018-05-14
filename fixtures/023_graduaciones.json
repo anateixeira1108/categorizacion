@@ -1,0 +1,14 @@
+[
+    {
+        "model": "resoluciones.Graduacion",
+        "fields": {
+            "nombre": "TÉRMINO MEDIO"
+        }
+    },
+    {
+        "model": "resoluciones.Graduacion",
+        "fields": {
+            "nombre": "INCREMENTO"
+        }
+    }
+]

@@ -1,0 +1,46 @@
+<div class="modal-dialog" id="eliminar_acta">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">Eliminar Acta</h3>
+        </div>
+
+        <form class="form-horizontal" action="{% url 'eliminar_nueva_acta_fiscalizacion' pk=object.id pk_fiscalizacion=object.fiscalizacion_id %}" method="POST">
+            <div class="modal-body">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="">Código</th>
+                        <th class="">Tipo</th>
+                        <th class="">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="">
+                            {{ object.codigo }}
+                        </td>
+                        <td class="">
+                            {{ object.tipo.nombre }}
+                        </td>
+                        <td class="">
+                            <small class="label{% if object.estatus == 2 %} label-success {% else %} label-warning {% endif %}">{{ object.get_estatus_display }}</small>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <div class="row text-center">
+                    <div class="col-lg-3"></div>
+                    <input type="submit" value="Eliminar" class="btn btn-primary col-lg-3"/>
+                    <button type="button" class="btn btn-danger col-lg-3" data-dismiss="modal">Cancelar</button>
+                    <div class="col-lg-3"></div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

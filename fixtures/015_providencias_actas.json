@@ -1,0 +1,86 @@
+[
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 1,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/VDFP/PR14000001",
+            "tipo": 1,
+            "providencia": 1,
+            "estatus": 1,
+            "pst": 1,
+            "verificacion": 1,
+            "fiscalizacion": null,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    },
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 2,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/VDFP/PR14000002",
+            "tipo": 1,
+            "providencia": 2,
+            "estatus": 1,
+            "pst": 2,
+            "verificacion": 2,
+            "fiscalizacion": null,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    },
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 3,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/VDFP/PR14000003",
+            "tipo": 1,
+            "providencia": 3,
+            "estatus": 1,
+            "pst": 3,
+            "verificacion": 3,
+            "fiscalizacion": null,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    },
+    {
+        "model": "actas.ActaDocumentos",
+        "pk": 4,
+        "fields": {
+            "codigo": "INATUR/DE/GRF/FSC/PR14000004",
+            "tipo": 1,
+            "providencia": 4,
+            "estatus": 1,
+            "pst": 3,
+            "verificacion": 3,
+            "fiscalizacion": null,
+            "fecha_generacion": "2014-05-23 13:00:00.00",
+            "fecha_notificacion": null,
+            "observaciones": "ninguna",
+            "hallazgos_materia": null,
+            "hallazgos_condicion": null,
+            "hallazgos_criterio": null,
+            "hallazgos_efecto": null,
+            "hallazgos_evidencia": null
+        }
+    }
+]

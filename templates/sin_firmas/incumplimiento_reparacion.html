@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<style>
+			@page {
+				size: letter portrait;
+				top : 6cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1cm;
+					margin-left: 3cm;
+					margin-right: 1cm;
+					height: 11cm;
+				}
+				@frame header {
+					-pdf-frame-content: headerTextContent;
+					top: 4cm;
+					margin-left: 1.5cm;
+					margin-right: 1cm;
+					height: 5cm;
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			@page noHeader{
+				size: letter portrait;
+				top : 2cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 0cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 3cm;
+				}
+
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			#headerLogoContent{
+				
+				width:100;
+				height: 100;
+			}
+			#headerTextContent{
+				text-align:justify;
+				font-size: 8px;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img width="100" height="100" src="static/img/credenciales/Escudo-Venezuela.jpg">
+		</div>
+		<div id="headerTextContent">
+			REPUBLICA BOLIVARIANA DE VENEZUELA
+			<br>MINISTERIO DEL PODER POPULAR PARA EL TURISMO
+			<br>DESPACHO DEL VICEMINISTERIO DE TURISMO NACIONAL
+			<br>Nro. {{ data.n_despacho }}
+		</div>
+
+		<div>
+			<div style="font-style:italic;font-size:14px;">Se&ntilde;ores:</div>
+			<span class="bold">{{ data.nombre_establecimiento }}</span>
+			<br>Direcci&oacute;n: {{ data.direccion }}<br>
+			<div style="font-style:italic;font-size:14px;">Presente.-</div>
+			<br>
+			<div class="parrafo">
+				Con un saludo me dirijo a usted, en la oportunidad de notificarle el resultado de la inspecci&oacute;n de categorizaci&oacute;n realizada en fecha {{ data.dia_inspeccion }} de {{ data.mes_inspeccion }} de {{ data.año_inspeccion }}, al establecimiento de alojamiento tur&iacute;stico {{ data.nombre_establecimiento }}, inscrito  en el  Registro  Tur&iacute;stico  Nacional  (RTN)  con  el Nro {{ data.rtn }} y con Licencia de Turismo Nro {{ data.licencia }}, correspondiente a la evaluaci&oacute;n de la orden de fecha {{ data.dia_orden }} de {{ data.mes_orden }} de {{ data.año_orden }}, en virtud del procedimiento de categorizaci&oacute;n iniciado (de oficio o a instancia de parte) en fecha {{ data.dia_inicio }} de {{ data.mes_inicio }} de {{ data.año_inicio }}, todo de conformidad con lo dispuesto en los art&iacute;culos 11 y 12 de la Resoluci&oacute;n 011 de fecha 12 de marzo de 2013, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 40.132 de fecha 12 de marzo de 2013.
+			</div>
+			<div class="parrafo">
+				En tal sentido, una vez analizado el Informe de Inspecci&oacute;n de verificaci&oacute;n de dicha orden y de conformidad con lo establecido en la Resoluci&oacute;n Nro {{ data.nro_tabulador }} "Tabulador de Servicios para las Categor&iacute;as de los Establecimientos de Alojamiento Tur&iacute;stico: Tipo {{ data.tipo_establecimiento }}", publicado en la Gaceta Oficial Nro {{ data.numero_gaceta }} de fecha {{ data.dia_gaceta }} de {{ data.mes_gaceta }} de {{ data.año_gaceta }}, se pudo constatar los siguientes incumplimientos con respecto a los requisitos m&iacute;nimos se&ntilde;alados en el referido tabulador:
+				<br>{{ data.incumplimientos }}
+			</div>
+			<br>
+			<div class="parrafo">
+				En cuanto al mantenimiento y funcionalidad, se evidenciaron las siguientes deficiencias:
+				<br>{{ data.deficiencias }}
+			</div>
+			<div class="parrafo">
+				Por lo tanto, se le informa que el establecimiento de alojamiento tur&iacute;stico {{ data.nombre_establecimiento }}, no cumpli&oacute; con los requisitos m&iacute;nimos en sus instalaciones, as&iacute; como de mantenimiento y funcionalidad para optar a ninguna de las estrellas, según se evidencia en los resultados anteriores, todo lo cual conlleva al cierre del presente procedimiento de categorizaci&oacute;n, remiti&eacute;ndose el expediente administrativo a  la  instancia  organizativa  de este Ministerio con competencia en la determinaci&oacute;n de las sanciones administrativas correspondientes, de conformidad con lo dispuesto en el artículo 13 de la Resoluci&oacute;n 011 de fecha 12 de marzo de 2013, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 40.132 de fecha 20 de  marzo de 2013.
+			</div>
+			<br>Sin otro particular, agradeciendo su colaboraci&oacute;n y receptividad, se suscribe de usted
+			<br><div style="text-align:center;">Atentamente</div>
+			<div class="bold" style="text-align:center;">{{ data.nombre_ministro }}</div>
+		</div>
+
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

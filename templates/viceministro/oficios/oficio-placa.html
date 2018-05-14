@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				top:4cm;
+				margin-left: 2cm;
+				margin-right: 1cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1.5cm;
+					margin-left: 2cm;
+					margin-right: 1cm;
+					
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			@page imPage{
+				top:0cm;
+				margin-left: 1cm;
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="50" width="300" alt="image" src="static/img/placas/logo.jpg"/>
+		</div>
+		<div class="pg">
+			<div style="font-style:italic;">Se&ntilde;or(es):</div>
+			<span class="bold">{{ data.nombre_pst }}</span>
+			<div style="font-style:italic;">Representante(s) de:</div>
+			<span class="bold">{{ data.nombre_establecimiento }}</span>
+			<div style="font-style:italic;">Direccion:</div>
+			<span class="bold">{{ data.direccion }}</span>
+			<div style="font-style:italic;">Tel&eacute;fonos:
+				<span class="bold" style="font-style:normal;"> {{ data.telefonos }}</span></div>
+			<br>
+			<div style="font-style:italic;font-weight:bold;">Presente.-</div>
+			<div class="parrafo">
+				Con un saludo me dirijo a usted, en la oportunidad de dar respuesta a su solicitud, mediante la cual requiere el dise&ntilde;o de la Placa de Identificaci&oacute;n para {{ data.nombre_establecimiento }}, inscrito en el Registro Tur&iacute;stico Nacional (RTN) con el Nro {{ data.RTN }}, y con Licencia de Turismo {{ data.licencia }} por usted representado.
+			</div>
+			<br>
+			<div class="parrafo">
+				En este sentido, mediante la presente se le suministra en forma digital, el dise&ntilde;o de la Placa con las especificaciones que all&iacute; se se&ntilde;alan e igualmente se le autoriza el uso de la misma, todo  de conformidad  con  lo  dispuesto  en el art&iacute;culo 3ro de la Resoluci&oacute;n Nro 002 de fecha 04 de enero de 2012, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.837 de fecha 06 de enero de 2012.
+			</div>
+			<br>
+			<div class="parrafo">
+				Finalmente aprovecho la oportunidad de participarle que podr&aacute; denunciar cualquier irregularidad a trav&eacute;s del correo DENUNCIA@MINTUR.GOB.VE; record&aacute;ndole que los mensajes de datos est&aacute;n sometidos a las disposiciones constitucionales y legales que garantizan los derechos a la privacidad de las comunicaciones y de acceso a la informaci&oacute;n personal, seg&uacute;n lo dispuesto en el art&iacute;culo 5 del Decreto Nro 1204 con Fuerza de Ley sobre Mensajes de Datos y Firmas Electr&oacute;nicas, publicado en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 37.148 de fecha 10 de febrero de 2001.
+			</div>
+			<br>
+			<div style="text-align:center;font-size:12px;">
+				<br><span style="text-align:center;">Atentamente:
+				<br><br><span class="bold">{{ data.nombre_funcionario }}</span>
+				<br>Profesional de turismo/Viceministro</span>
+			</div>
+		</div>
+		{% for lic in data.rutas_licencias %}
+			<div>
+				<pdf:nexttemplate name="imPage"/>
+			</div>
+			<div>
+				<pdf:nextpage/>
+			</div>
+			<div>
+				<img width="768" height="1024" src={{ lic }}>
+			</div>
+		{% endfor %}
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

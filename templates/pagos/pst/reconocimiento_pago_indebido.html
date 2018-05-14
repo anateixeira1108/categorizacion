@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+    	<section class="content-header">
+            <h1>
+                Reconocimientos de pago indebido
+                <small>Cesión</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-key"></i> Pagos</a></li>
+                <li><a href="#" class="active">Reconocimientos de Pago Indebido (cesión)</a></li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+			<div class="box box-danger">
+	        	<div class="box-body">
+					<div class="row">
+	        			<div class="col-xs-12">
+	        				<div class="title">
+	        					Reconocimientos
+{#	        					<div class="col-xs-3 pull-right">#}
+{#	        						<a href="#" class="btn btn-flat btn-block btn-info btn-add" data-toggle="modal" data-target="#nuevo_pago_indebido">#}
+{#			        					Nueva solicitud#}
+{#			        					<i class="fa fa-plus btn-icon icon-white"></i>#}
+{#			        				</a>#}
+{#	        					</div>#}
+	        				</div>
+	        			</div>
+	        		</div>
+	                <form action="../../index.html" method="post">
+
+	                    <div class="body" id="persona-juridica">
+ 							<div class="row">
+	                            <div class="col-xs-12">
+	                                <table class="table table-striped table-partner table-hover">
+	                                    <thead>
+	                                        <tr>
+	                                            <th class="col-xs-3">Resolución</th>
+	                                            <th class="col-xs-3">Fecha de reconocimiento</th>
+	                                            <th class="col-xs-1">Disponible (Bs)</th>
+	                                            <th class="col-xs-1">Estatus</th>
+	                                            <th class="col-xs-4 text-center">Opciones</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>
+	                                            <td class="col-xs-3">RS000000000001</td>
+	                                            <td class="col-xs-3">01/01/2014</td>
+	                                            <td class="col-xs-1">500</td>
+	                                            <td class="col-xs-1">
+	                                            	<small class="badge bg-green">Activo</small>
+	                                            </td>
+	                                            <td class="col-xs-4">
+	                                            	<div class="col-xs-12">
+	                                            		<div class="row">
+	                                            			<div class="col-xs-12">
+	                                            				<a href="" data-toggle="modal" data-target="#nuevo_pago_indebido" class="btn btn-block btn-info btn-flat">
+				                                            		Ceder
+				                                            		<i class="fa fa-share btn-icon icon-white"></i>
+				                                            	</a>
+	                                            			</div>
+	                                            		</div>
+	                                            	</div>
+	                                            </td>
+	                                        </tr>
+	                                        <tr>
+	                                            <td class="col-xs-3">RS000000000002</td>
+	                                            <td class="col-xs-3">01/01/2014</td>
+	                                            <td class="col-xs-1">500</td>
+	                                            <td class="col-xs-1">
+	                                            	<small class="badge bg-green">Activo</small>
+	                                            </td>
+	                                            <td class="col-xs-4">
+	                                            	<div class="col-xs-12">
+	                                            		<div class="row">
+	                                            			<div class="col-xs-12">
+	                                            				<a href="" data-toggle="modal" data-target="#nuevo_pago_indebido" class="btn btn-block btn-info btn-flat">
+				                                            		Ceder
+				                                            		<i class="fa fa-share btn-icon icon-white"></i>
+				                                            	</a>
+	                                            			</div>
+	                                            		</div>
+	                                            	</div>
+	                                            </td>
+	                                        </tr>
+
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+	                    </div>
+
+	                </form>
+
+
+                    <br/>
+					<div class="row">
+	        			<div class="col-xs-12">
+	        				<div class="title">
+	        					Solicitudes de cesión
+	        				</div>
+	        			</div>
+	        		</div>
+
+ 							<div class="row">
+	                            <div class="col-xs-12">
+	                                <table class="table table-striped table-partner table-hover">
+	                                    <thead>
+	                                        <tr>
+	                                            <th class="col-xs-2">Fecha de solicitud</th>
+	                                            <th class="col-xs-2">RIF de contribuyente que recibirá la cesión</th>
+	                                            <th class="col-xs-2">Monto a ceder</th>
+	                                            <th class="col-xs-2">Estatus</th>
+	                                            <th class="col-xs-4 text-center">Opciones</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>
+	                                            <td class="col-xs-2">01/01/2014</td>
+	                                            <td class="col-xs-2">J-123456789</td>
+	                                            <td class="col-xs-2">500</td>
+	                                            <td class="col-xs-2">
+	                                            	<small class="badge bg-green">Sin certificar</small>
+	                                            </td>
+	                                            <td class="col-xs-4">
+	                                            	<div class="col-xs-12">
+	                                            		<div class="row">
+	                                            			<div class="col-xs-6">
+	                                            				<a href="" data-toggle="modal" data-target="#nuevo_pago_indebido" class="btn btn-block btn-info btn-flat">
+				                                            		Ver
+				                                            		<i class="fa fa-search btn-icon icon-white"></i>
+				                                            	</a>
+	                                            			</div>
+
+	                                            			<div class="col-xs-6">
+	                                            				<a href="" data-toggle="modal" data-target="#nuevo_pago_indebido" class="btn btn-block btn-info btn-flat">
+				                                            		Carpeta de solicitud
+				                                            		<i class="fa fa-download btn-icon icon-white"></i>
+				                                            	</a>
+	                                            			</div>
+
+
+
+
+	                                            		</div>
+	                                            	</div>
+	                                            </td>
+	                                        </tr>
+
+
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+
+
+
+
+
+
+	        	</div>
+        	</div>
+
+        	<!-- Modal Seleccion de Tipo de Licencia-->
+			<div class="modal fade" id="nuevo_pago_indebido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">Solicitar Cesión de Reconocimiento de Pago Indebido</h4>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="row">
+
+									<div class="col-xs-12">
+										<label>Monto reconocido (Bs): 50000</label><br>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Monto a ceder</label><br>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<label>RIF del contribuyente que recibirá la cesión</label><br>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-xs-12">
+										<label>Copia del Documento Notariado (Archivo en formato PDF)</label><br>
+										<div class="row">
+											<div class="col-xs-6">
+												<a href="#" class="btn btn-info btn-block btn-flat">
+													Buscar archivo
+													<i class="fa fa-upload btn-icon icon-white"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-6">
+									<a href="#" class="btn btn-primary btn-block btn-flat">Guardar solicitud</a>
+								</div>
+								<div class="col-xs-6">
+									<button type="button" class="btn btn-danger btn-block btn-flat" data-dismiss="modal">Cancelar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+        </section>
+    </aside>
+{% endblock %}

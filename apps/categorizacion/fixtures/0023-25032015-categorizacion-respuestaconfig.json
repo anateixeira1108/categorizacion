@@ -1,0 +1,65 @@
+[
+   {
+      "pk":1,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Archivo  Requisito - Requisitos Documentales/Requisitos Fotograficos ",
+         "tipo_respuesta":5,
+         "tipo_medida":null
+      }
+   },
+   {
+      "pk":2,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Respuesta  Est\u00e1ndar - Bueno/Malo/Deficiente",
+         "tipo_respuesta":1,
+         "tipo_medida":null
+      }
+   },
+   {
+      "pk":3,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Respuesta Rango - Temperaturas de zonas de descanso",
+         "tipo_respuesta":2,
+         "tipo_medida":4
+      }
+   },
+   {
+      "pk":4,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Respuesta Medida - Niveles de Ruidos en zonas comunes",
+         "tipo_respuesta":3,
+         "tipo_medida":3
+      }
+   },
+   {
+      "pk":5,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Respuesta  Dual - Tiene/Cumple o No tiene/No cumple",
+         "tipo_respuesta":4,
+         "tipo_medida":null
+      }
+   },
+   {
+      "pk":7,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Elemento Estructura",
+         "tipo_respuesta":6,
+         "tipo_medida":null
+      }
+   },
+   {
+      "pk":127,
+      "model":"categorizacion.respuestaconfig",
+      "fields":{
+         "nombre":"Respuesta Condicional - Si/No",
+         "tipo_respuesta":8,
+         "tipo_medida":null
+      }
+   }
+]

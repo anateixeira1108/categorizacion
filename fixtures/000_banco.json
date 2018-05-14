@@ -1,0 +1,194 @@
+[
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO VENEZOLANO DE CRÉDITO"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "100% BANCO, BANCO UNIVERSAL, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCAMIGA BANCO MICROFINANCIERO, C."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO ACTIVO C.A. BANCO COMERCIAL"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO AGRICOLA DE VENEZUELA, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO BICENTENARIO"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO CARONÍ, C.A. BANCO UNIVERSAL"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO CENTRAL DE VENEZUELA"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DE LA FUERZA ARMADA NACIONAL"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DE LA GENTE EMPRENDEDORA"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DE VENEZUELA"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DEL CARIBE, C.A. BANCO UNIV"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DEL PUEBLO SOBERANO, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO DEL TESORO, C.A. BANCO UNIV"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO ESPIRITO SANTO, S.A. SUCURSAL"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO EXTERIOR, C.A. BANCO UNIV"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO INTERNACIONAL DE DESARROLLO"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO MERCANTIL C.A. S.A.C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO NACIONAL DE CRÉDITO, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO OCCIDENTAL DE DESCUENTO"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO PLAZA C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO PROVINCIAL S.A. BANCO UNIV"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCO SOFITASA BANCO UNIVERSAL, C.A"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANCRECER S.A BANCO MICROFINANCIERO"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANESCO BANCO UNIVERSAL S.A.C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BANPLUS BANCO UNIVERSAL, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "BFC BANCO FONDO COMÚN C.A. BANCO UNIVERSAL"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "CITIBANK, N.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "DEL SUR BANCO UNIVERSAL, C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "INDUSTRIAL DE VENEZUELA C.A."
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "INSTITUTO MUNICIPAL DE CDTO POPULAR"
+    }
+  },
+  {
+    "model": "configuracion.banco",
+    "fields": {
+      "nombre": "MIBANCO, BANCO MICROFINANCIERO, C.A"
+    }
+  }
+]

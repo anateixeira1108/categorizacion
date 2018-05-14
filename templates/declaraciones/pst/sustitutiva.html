@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        
+    	<section class="content-header">
+            <h1>
+                Declaración sustitutiva
+                <small>Formulario</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-check-square"></i> Declaraciones</a></li>
+                <li class="active">Declaración sustitutiva</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+        	<div class="box box-danger">
+	        	<div class="box-body">
+	        		<div class="row">
+	        			<div class="col-xs-12">
+	        				<div class="title">
+	        					Ejercicio gravable
+	        				</div>
+	        			</div>
+	        		</div>
+	        		<form>
+	        			<div class="row">
+	        				<div class="col-xs-12 col-lg-3">
+	        					<label>Tipo de declaración</label>
+	        					<input type="text" class="form-control" placeholder="Sustitutiva" disabled="disabled">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-3">
+	        					<label>Periodo</label>
+	        					<input type="text" class="form-control" placeholder="Ene-14" disabled="disabled">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-1">
+	        					<label>Desde</label>
+	        					<input type="text" class="form-control" placeholder="01/01/2014" disabled="disabled">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-1">
+	        					<label>Hasta</label>
+	        					<input type="text" class="form-control" placeholder="31/01/2014" disabled="disabled">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-4">
+	        					<label>Fecha de presentación</label>
+	        					<input type="text" class="form-control" placeholder="03/02/2014" disabled="disabled">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Autoliquidación del impuesto (Estado demostrativo del ingreso)
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Fuente territorial
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Ventas propias internas no gravadas por la ley del IVA</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Ventas de exportación</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Ventas internas gravadas por alicuota general</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Ventas internas gravadas por alicuota general más alicuota adicional</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Ventas internas gravadas por alicuota reducida</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-6">
+	        					<label>Total ventas de fuente territorial</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Fuente extraterritorial
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12 col-lg-4">
+	        					<label>Ingresos</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-4">
+	        					<label>Total fuente extraterritorial</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        				<div class="col-xs-12 col-lg-4">
+	        					<label>Total ventas a efecto de la determinación</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Impuesto determinado
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<label>Contribución especial determinada</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Anticipos aplicables al impuesto del período
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<label>Impuesto pagado en declaración No.</label>
+	        					<input type="text" class="form-control">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Compensaciones con créditos propios
+	        						<div class="col-xs-3 pull-right">
+	        							<a href="#" class="btn btn-info btn-block btn-flat btn-add" data-toggle="modal" data-target="#credito-propio">
+	        								Agregar
+	        							</a>
+	        						</div>
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<table class="table table-striped">
+	        						<thead>
+	        							<tr>
+	        								<th>Número de la resolución</th>
+	        								<th>Fecha</th>
+	        								<th>Monto</th>
+	        							</tr>
+	        						</thead>
+	        						<tbody>
+	        							<tr>
+	        								<td>1234</td>
+	        								<td>01/01/2014</td>
+	        								<td>1.000.000 Bs.</td>
+	        							</tr>
+	        							<tr>
+	        								<td>1234</td>
+	        								<td>01/01/2014</td>
+	        								<td>1.000.000 Bs.</td>
+	        							</tr>
+	        						</tbody>
+	        					</table>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<div class="title">
+	        						Compensaciones con créditos adquiridos
+	        						<div class="col-xs-3 pull-right">
+	        							<a href="#" class="btn btn-info btn-block btn-flat btn-add" data-toggle="modal" data-target="#credito-adquirido">
+	        								Agregar
+	        							</a>
+	        						</div>
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="col-xs-12">
+	        					<table class="table table-striped">
+	        						<thead>
+	        							<tr>
+	        								<th>Número de la resolución</th>
+	        								<th>Fecha</th>
+	        								<th>RIF cedente</th>
+	        								<th>Monto</th>
+	        							</tr>
+	        						</thead>
+	        						<tbody>
+	        							<tr>
+	        								<td>1234</td>
+	        								<td>01/01/2014</td>
+	        								<td>V-123456789-0</td>
+	        								<td>1.000.000 Bs.</td>
+	        							</tr>
+	        							<tr>
+	        								<td>1234</td>
+	        								<td>01/01/2014</td>
+	        								<td>V-123456789-0</td>
+	        								<td>1.000.000 Bs.</td>
+	        							</tr>
+	        						</tbody>
+	        					</table>
+	        				</div>
+	        			</div>
+
+	        			<!-- Modal de compensaciones para credito propio -->
+
+						<div class="modal fade" id="credito-propio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">Compensaciones con crédito propio</h4>
+									</div>
+									<div class="modal-body">
+										<form>
+											<div class="row">
+												<div class="col-xs-12">
+													<label>Número de resolución</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<div class="row">
+											<div class="col-xs-6">
+												<button type="button" class="btn btn-primary btn-flat btn-block">Agregar</button>
+											</div>
+											<div class="col-xs-6">
+												<button type="button" class="btn btn-danger btn-flat btn-block" data-dismiss="modal">Cancelar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+	        			<!-- Modal de compensaciones para credito adquirido -->
+
+	        			<div class="modal fade" id="credito-adquirido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">Compensaciones con crédito adquirido</h4>
+									</div>
+									<div class="modal-body">
+										<form>
+											<div class="row">
+												<div class="col-xs-12">
+													<label>Número de resolución</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<div class="row">
+											<div class="col-xs-6">
+												<button type="button" class="btn btn-primary btn-flat btn-block">Agregar</button>
+											</div>
+											<div class="col-xs-6">
+												<button type="button" class="btn btn-danger btn-flat btn-block" data-dismiss="modal">Cancelar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+	        		</form>
+	        	</div>
+        	</div>
+        </section>
+
+    </aside>
+{% endblock %}

@@ -1,0 +1,704 @@
+[
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Azerí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Afrikaans"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Albanés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Alemán"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Alsaciano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Amárico"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Anglosajón"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Árabe"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Aragonés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Armenio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Asturiano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Aymara"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Bajo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Bengalí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Bielorruso"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Birmano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Bosnio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Bretón"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Búlgaro"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Canarés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Catalán"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Chamorro"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Checo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Cheroqui"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Chino"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Coreano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Corso"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Croata"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Curdo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Danés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Eslovaco"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Esloveno"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Español"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Esperanto"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Estonio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Euskera"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Feroés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Fiyiano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Finlandés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Francés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Frisón"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Galés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Gallego"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Georgiano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Griego"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Guaraní"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Gujaratí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Hebreo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Hindi"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Holandés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Húngaro"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Ido"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Igbo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Indonesio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Inglés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Interlingua"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Irlandés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Islandés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Italiano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Japonés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Javanés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Kazako"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Laosiano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Latín"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Letón"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Lingala"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Lituano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Luxemburgués"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Macedonio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Malabar"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Malayo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Malgache"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Maltés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Manés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Maorí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Marati"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Moldavo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Mongol"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Náhuatl"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Nauruano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Noruego"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Occitano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Papiamento"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Persa"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Polaco"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Portugués"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Punjabí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Quechua"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Quirguiz"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Romanche"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Rumano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Ruso"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Sardo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Serbio"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Sesotho"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Siciliano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Somalí"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Sueco"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Swahili"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Tagalo"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Tailandés"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Tamil"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Tártaro"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "tegulú"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Tibetano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Turco"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Turcomano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Ucraniano"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Urdu"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Uzbeko"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Valón"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Vietnamita"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Volapuk"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Xhosa"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Yidish"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Yoruba"
+        }
+    },
+    {
+        "model": "registro.idioma",
+        "fields": {
+            "nombre": "Zulú"
+        }
+    }
+]

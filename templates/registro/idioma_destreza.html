@@ -1,0 +1,27 @@
+{% load filtros_datos %}
+
+<ul>
+    <div class="row">
+        {% for idioma in idiomas %}
+        <li class="row col-xs-6">
+            <div class="col-xs-3">
+                <label for="id_idioma_{{ idioma.0 }}">
+                    <input class="form-control" id="id_idioma_{{ idioma.0 }}" name="idiomas" type="checkbox" value="{{ idioma.0 }}" {% if idioma.0|slugify in initial %} checked {% endif %} />
+                    {{ idioma.1 }}
+                </label>
+            </div>
+
+            <ul class="col-xs-9">
+                {% for destreza in destrezas %}
+                    <li>
+                        <label for="id_destreza_{{ idioma.0 }}_{{ forloop.counter }}">
+                            <input class="form-control" id="id_destreza_{{ idioma.0 }}_{{ forloop.counter }}" name="destrezas_{{ idioma.0 }}" type="checkbox" value="{{ idioma.0 }}_{{ forloop.counter }}" {% if initial|key:idioma.0|key:destreza %} checked {% endif %} />
+                            {{ destreza }}
+                        </label>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </div>
+</ul>

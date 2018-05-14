@@ -1,0 +1,298 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pencil-square-o"></i>
+        <span>Registro PST</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'registro_funcionario_solicitudes' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Solicitudes
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pencil-square-o"></i>
+        <span>RTN</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'rtn_funcionario_solicitudes' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Solicitudes
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</li>
+{##}
+{#            <li class="treeview">#}
+{#                <a href="#">#}
+{#                    <i class="fa fa-key"></i>#}
+{#                    <span>Licencias</span>#}
+{#                    <i class="fa fa-angle-left pull-right"></i>#}
+{#                </a>#}
+{#                <ul class="treeview-menu">#}
+{#                    <li>#}
+{#                        <a href="{% url 'funcionario_licencias_solicitudes' %}">#}
+{#                            <div class="row">#}
+{#                                <div class="col-xs-1 text-center">#}
+{#                                    <i class="fa fa-angle-double-right"></i>#}
+{#                                </div>#}
+{#                                <div class="col-xs-10">#}
+{#                                    Solicitudes#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </li>#}
+{##}
+{#                </ul>#}
+{#            </li>#}
+{##}
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-file-o"></i>
+        <span>Declaraciones</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_declaracion_por_anular' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Anulaciones
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-dashboard"></i>
+        <span>Inteligencia Tributaria</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_crear_solicitud' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Solicitudes
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'verificar_solicitud_gerente' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Aprobaciones
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pencil-square-o"></i>
+        <span>Verificación</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_verificaciones' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Verificaciones
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pencil-square-o"></i>
+        <span>Fiscalización</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_fiscalizaciones' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Fiscalizaciones
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-key"></i>
+        <span>Actas</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'actas_lista_para_aprobar' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Solicitudes
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-check-square"></i>
+        <span>Factibilidad</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_factibilidad_solicitudes' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Solicitudes
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-check-square"></i>
+        <span>Resoluciones</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_resoluciones_aprobaciones' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        Aprobaciones
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li>
+    <a href="{% url 'funcionario_metas' %}">
+        <i class="fa fa-check-square"></i>
+        <span>Metas</span>
+    </a>
+</li>
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-check-square"></i>
+        <span>Reportes</span>
+        <i class="fa fa-angle-left pull-right"></i>
+    </a>
+    <ul class="treeview-menu">
+        <li>
+            <a href="{% url 'funcionario_reportes' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        PST
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'funcionario_reportes_en_mora' %}">
+                <div class="row">
+                    <div class="col-xs-1 text-center">
+                        <i class="fa fa-angle-double-right"></i>
+                    </div>
+                    <div class="col-xs-10">
+                        PST en mora
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+</ul>
+<div class="bottom-container">
+    <div class="logo-bottom">
+        <div class="row">
+            <div class="col-xs-6">
+                <img class="img-responsive" src="{{ STATIC_URL }}img/logo-blanco.png">
+            </div>
+            <div class="col-xs-6">
+                <img class="img-responsive" src="{{ STATIC_URL }}img/logo_inatur.png">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- /.sidebar -->
+</aside>

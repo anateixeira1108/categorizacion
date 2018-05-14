@@ -1,0 +1,66 @@
+[
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 37.36,
+            "valido_desde": "2007-01-12",
+            "valido_hasta": "2008-01-22"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 46,
+            "valido_desde": "2008-01-22",
+            "valido_hasta": "2009-02-26"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 55,
+            "valido_desde": "2009-02-26",
+            "valido_hasta": "2010-02-04"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 65,
+            "valido_desde": "2010-02-04",
+            "valido_hasta": "2011-02-24"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 76,
+            "valido_desde": "2011-02-24",
+            "valido_hasta": "2012-02-16"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 90,
+            "valido_desde": "2012-02-16",
+            "valido_hasta": "2013-02-06"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 107,
+            "valido_desde": "2013-02-06",
+            "valido_hasta": "2014-02-19"
+        }
+    },
+    {
+        "model": "configuracion.UnidadTributaria",
+        "fields": {
+            "valor": 127,
+            "valido_desde": "2014-02-19",
+            "valido_hasta": "2015-02-19"
+        }
+    }
+]

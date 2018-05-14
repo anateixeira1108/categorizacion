@@ -1,0 +1,293 @@
+/*
+	CGTS DevTeam
+	Estilos creados por el equipo de desarrollo web.
+*/
+.contenido-centrado{
+    text-align:center;
+}
+
+.padd-0{
+	padding-top:15px;
+	padding-left:0px;
+}
+
+.color-rojo{
+	color:#a94442;
+}
+
+.activar-campos{
+	margin-top: 10px;
+}
+
+.save-bar{
+	position: relative;
+	padding: 1%;
+	padding-bottom: 5%;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.item-autoevaluacion{
+	font-weight: bold;	
+	border-bottom: 2px solid #999;
+	margin:15px 0 10px 0;
+	font-size: 16px;
+	padding: 0px;
+}
+
+.icono-accion {
+	cursor: pointer;
+}
+
+.btn {
+    overflow: hidden;
+}
+.seccion-autoevaluacion {
+	font-weight: bold;
+	margin: 15px 0;
+	font-size: 16px;
+}
+
+.etiqueta-autoevaluacion {
+	margin: 1px;
+	padding: 2px;
+	text-align: left;
+}
+
+.requisito-autoevaluacion{
+	padding-left: 5%;
+}
+
+.seccion-actual {
+	margin-top: 2%;	
+}
+
+.row {
+	margin-bottom: 5px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.radio-item {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.image-container {
+	padding: 1%;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	margin-bottom: 2%;
+}
+
+.table-modal tbody tr {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.quitar-analista, .quitar-inspector {
+	cursor: pointer;
+	padding-left: 2%;
+}
+
+.dama-checkbox-fixture{
+	padding-left: 0%;
+}
+
+.caballero-checkbox-fixture{	
+	padding-left:14%;
+}
+
+.elemento-oculto{
+	display: none;
+}
+
+.contenedor-extrapadding{
+	padding-bottom: 5%;
+}
+
+.contenedor-delineado{
+	border: 1px solid;
+    border-radius: 10px;
+    border-color: #0058B0;
+    padding: 5%;
+}
+
+.textarea-presonalizada{
+    width:100%;
+    height:100%;
+    border-color:#ECEAE8;
+    word-wrap: break-word;
+}
+
+.tabla-ancho-fijo tr {
+
+	width: 70%;
+}
+
+.tabla-ancho-fijo tr {
+	width: 70%;
+}
+
+.input-escondido {
+	position: absolute;
+	opacity: 0;
+	z-index: -2;
+	display: none;
+}
+
+.one-liner-dropdown{
+	display: inline-block;
+}
+
+.tabla-personalizada{
+	vertical-align: center;
+	padding: 8px;
+}
+
+.estilo-inicial
+{
+	background-color: #0000FF;
+}
+
+.tabla-lsr tbody tr {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.text-red{
+	color: #CE4744;
+}
+
+.text-gray{
+	color: #D1D2CA;
+}
+
+.no-padding-right-container{
+	padding-right: 0px;
+}
+
+.dropdown-menu {
+	text-align: left;
+}
+
+.etiqueta-estatus {
+	font-size : 95%;
+}
+
+.table tbody tr td {
+	vertical-align: middle;
+}
+
+
+ #Dimg {
+    white-space: nowrap; 
+    width: 12em; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.margin-combo{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.en-option{
+	color:#000 !important;
+}
+
+.dis-option{
+	color:#92A398 !important;
+}
+
+.timestamp{
+	text-align: left;
+}
+
+.text-justificado {
+	text-align: justify;
+}
+
+.input-ajustado {
+	width: 100%;
+	height: 100%;
+}
+
+.alert-ajustado{
+	padding: 1%;
+	margin: 0%;
+}
+.point-ul{
+	padding-left:0;
+
+}
+.point-ul li{
+	list-style-type: none; 
+	display:inline;
+}
+
+/** Bootstrap FIX **/
+.bg-danger {
+	background-color: #F2DEDE;
+}
+
+.zona-checkbox-dinamico .icheckbox_minimal{
+	margin-top: 3%;
+}
+
+.warning-icon{
+	text-align: center;
+}
+
+.error{
+	color:#8a6d3b !important;
+}
+
+/*
+|	CSS for add tabulator functionality
+|*/
+
+.contenedor-opcion, .contenedor-escogencia{	
+	padding: 1%;
+	padding-top: 5%;
+	margin: 1%;
+	border-radius: 3px;
+	background-color: #EDF0F2;		
+	border: 1px solid #DDD;
+	margin-left:5%;
+}
+
+.contenedor-opcion:hover, .contenedor-escogencia:hover{
+	background-color:#FFFFFF;
+	cursor: pointer;
+}
+.contenedor-escogencia{
+	height: 120px;
+}
+
+.row_alternative_clone:hover{
+	cursor: pointer;
+}
+
+.fixed-spinner{
+	display: none;
+}
+
+.default-hiden-tab{
+	display: none;
+}
+
+.heading-subseccion{
+	background-color: #f5f5f5;
+}
+
+.table-modal > tbody > tr > .active, .table-modal > td > tr > .active, .table-modal > thead > .active > td, .table-modal > tbody > .active > td, .table-modal > tfoot > .active > td, .table-modal > thead > .active > th, .table-modal > tbody > .active > th {
+    background-color: #B8D4E1;
+}
+
+
+.popover-content > .table-icons > tbody > tr > td > .btn-icon{
+	position: initial;
+	color: #333;
+	border-radius: 0px;
+}

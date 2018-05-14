@@ -1,0 +1,43 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-star-half-o"></i>
+                    <span>LSR Digital</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{% url 'entrada_turista' operacion='formulario' %}">
+                            <div class="row">
+                                <div class="col-xs-1 text-center">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div class="col-xs-10">
+                                    Entrada
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+         </ul>
+        <div class="bottom-container">
+            <div class="logo-bottom">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo-blanco.png">
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="{{ STATIC_URL }}img/logo_inatur.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@page {
+				size: letter portrait;
+				margin:3cm;
+				@frame header {
+					-pdf-frame-content: headerLogoContent;
+					top: 1.5cm;
+					margin-left: 2cm;
+					margin-right: 1cm;
+					
+				}
+				@frame footer {
+					-pdf-frame-content: footerContent;
+					bottom: 1cm;
+					margin-left: 1cm;
+					margin-right: 1cm;
+					height: 2cm;
+				}
+
+			}
+			@page imPage{
+				top:0cm;
+				margin-left: 1cm;
+			}
+			.bold{
+				font-weight:bold;
+			}
+			.parrafo{
+				text-align:justify;
+				font-size:12px;
+			}
+			.pg{
+				text-align:justify;
+			}
+			#footerContent {
+    			font-size: 8px;
+    			text-align:center;
+			}
+
+		</style>
+	</head>
+	<body style="font-family: arial;">
+		<div id="headerLogoContent">
+			<img height="50" width="300" alt="image" src="static/img/placas/logo.jpg"/>
+		</div>
+		<div class="pg">
+			<div style="text-align:right;"> Caracas, {{data.fecha}}</div>
+			<div style="font-style:italic;">Ciudadano(a):</div>
+			<span class="bold">{{ data.nombre_pst }}</span>
+			<div style="font-style:italic;">Representante de:</div>
+			<span class="bold">{{ data.nombre_establecimiento }}</span>
+			<div style="font-style:italic;">Direccion: 
+			<span style="width:300;">{{ data.direccion }}</span></div>
+			<div style="font-style:italic;">Tel&eacute;fonos:
+				<span style="font-style:normal;"> {{ data.telefonos }}</span></div>
+			<br>
+			<div style="font-style:italic;font-weight:bold;">Presente.-</div>
+			<div class="parrafo">
+				Con un saludo bolivariano y revolucionario me dirijo a usted, en la oportunidad de dar respuesta a su solicitud, mediante la cual requiere el diseño de la Placa de Identificaci&oacute;n para {{ data.tipo_pst }}, inscrito en el Registro Tur&iacute;stico Nacional (RTN) con el Nro  {{ data.rtn }} y con Licencia de Turismo {{ data.licencia }}.
+			</div>
+			<br>
+			<div class="parrafo">
+				En este sentido, de la revisi&oacute;n efectuada al expediente del Prestador de Servicios Tur&iacute;sticos que Usted representa y que reposa en este Despacho, se constat&oacute; que la Licencia de Turismo no se encuentra actualizada, requisito &eacute;ste indispensable para la tramitaci&oacute;n y posterior obtenci&oacute;n de la placa de identificaci&oacute;n.
+			</div>
+			<br>
+			<div class="parrafo">
+				Raz&oacute;n por la cual se le exhorta a que actualice la Licencia de Turismo correspondiente, conforme a lo dispuesto en el art&iacute;culo 12 de la Resoluci&oacute;n 085 de fecha 4 de agosto de 2009, corregida por error material mediante Resoluci&oacute;n Nro 088 de fecha 25 de agosto de 2009 publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.253 de fecha 31 de agosto de 2009; y una vez obtenida la misma, se le otorgar&aacute; la autorizaci&oacute;n y diseño de la Placa de Identificaci&oacute;n, tal y como lo establece el art&iacute;culo 3 de la Resoluci&oacute;n Nro 002 de fecha 4 de enero de 2012, publicada en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 39.837 de fecha 06 de enero de 2012.
+			</div>
+			<br>
+			<div class="parrafo">
+				Se le informa que contra la presente decisi&oacute;n podr&aacute; ejercer, dentro de un lapso de quince (15) d&iacute;as h&aacute;biles contados a partir del d&iacute;a siguiente a su notificaci&oacute;n, el Recurso de Reconsideraci&oacute;n contemplado en el art&iacute;culo 94 de la Ley Org&aacute;nica de Procedimientos Administrativos, publicada en la Gaceta Oficial de la Rep&uacute;blica de Venezuela Nro 2.818 Extraordinario de fecha 01 de julio de 1981, todo ello conforme a lo dispuesto en el art&iacute;culo 73, ejusdem.
+			</div>
+			<br>
+			<div class="parrafo">
+				Finalmente aprovecho la oportunidad de participarle que podr&aacute; denunciar cualquier irregularidad a trav&eacute;s del correo DENUNCIA@MINTUR.GOB.VE; record&aacute;ndole que los mensajes de datos est&aacute;n sometidos a las disposiciones constitucionales y legales que garantizan los derechos a la privacidad de las comunicaciones y de acceso a la informaci&oacute;n personal, seg&uacute;n lo dispuesto en el art&iacute;culo 5 del Decreto Nro 1204 con Fuerza de Ley sobre Mensajes de Datos y Firmas Electr&oacute;nicas, publicado en la Gaceta Oficial de la Rep&uacute;blica Bolivariana de Venezuela Nro 37.148 de fecha 10 de febrero de 2001.
+			</div>
+			<br>
+			<div style="text-align:center;font-size:12px;">
+				<br><span style="text-align:center;">Atentamente:
+				<br><br><span class="bold">{{ data.viceministro }}</span>
+				<br>VICEMINISTRO DE TURISMO NACIONAL</span>
+
+			</div>
+		</div>
+		<div id="footerContent">
+			<hr style="border-bottom:5px solid red;" />
+    		Av. Francisco de Miranda con Av. Ppal. de La Floresta, Complejo MINTUR, Torre Norte. Apartado Postal: 025726.
+    		<br>Telfs.: 0-500- Turismo (0-500-8874766) /  Fax: +58 (212) 208.4522  <a href="www.mintur.gob.ve"> www.mintur.gob.ve </a>
+    		<br><a href="www.venezuelaturismo.gob.ve">www.venezuelaturismo.gob.ve</a>
+    		<br>DENUNCIA CUALQUIER IRREGULARIDAD A TRAVES DEL CORREO
+    		<br>DENUNCIA@MINTUR.GOB.VE
+  		</div>
+	</body>
+</html> 

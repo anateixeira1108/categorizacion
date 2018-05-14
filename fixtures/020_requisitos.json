@@ -1,0 +1,128 @@
+[
+    {
+        "model": "actas.Requisito",
+        "pk": 1,
+        "fields": {
+            "requisito": "Registro Único de Información Fiscal (RIF)"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 2,
+        "fields": {
+            "requisito": "Copia de oficio del Registro Turístico Nacional (RTN)"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 3,
+        "fields": {
+            "requisito": "Acta Constitutiva"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 4,
+        "fields": {
+            "requisito": "Escrito explicativo de manera cronológica y detallado, por medio del cual se reflejen las modificaciones del documento constitutivo (reformas parciales y/o globales), referentes a su composición accionaria, denominación o razón social, durante el(los) ejercicio(s) fiscal(es) sujeto(s) verificación"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 5,
+        "fields": {
+            "requisito": "Relación y Documentación detallada del(de los) Representante(s) Legal(es)"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 6,
+        "fields": {
+            "requisito": "Informar: a. Actual número telefónico de la contribuyente. b. Actual correo electrónico de la contribuyente."
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 7,
+        "fields": {
+            "requisito": "Copia del libro Mayor (cuentas de Ingresos) correspondientes a los ejercicios investigados"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 8,
+        "fields": {
+            "requisito": "Libros de: Accionistas. Se requieren originales y copia fotostáticos"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 9,
+        "fields": {
+            "requisito": "Listado de establecimientos tales como casa matriz, sucursales, agencias, locales comerciales o de servicios, fábricas o plantas productivas, depósitos o almacenes, oficinas administrativas y demás lugares de desarrollo de la actividad o establecimientos permanentes"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 10,
+        "fields": {
+            "requisito": "Copia de Factura de ventas (muestra), correspondiente a el(los) ejercicio(s) fiscal(es) sujeto(s) verificación"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 11,
+        "fields": {
+            "requisito": "Soportes de pago de la Contribución del 1%, y sus respectivas planillas Nº 1. para los periodos fiscales sujetos a verificación. Se requieren originales y copias fotostáticas"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 12,
+        "fields": {
+            "requisito": "Declaraciones de Impuesto al Valor Agregado para los periodos fiscales sujetos a verificación"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 13,
+        "fields": {
+            "requisito": "Declaraciones de Impuesto Sobre la Renta para el(los) ejercicio(s) fiscal(es) sujeto(s) verificación, y sus respectivos papeles de trabajo (en formato Excel)"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 14,
+        "fields": {
+            "requisito": "Declaración de ingresos brutos presentada ante las Alcaldías respectivas durante los ejercicios objeto de verificación"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 15,
+        "fields": {
+            "requisito": "Balances de Comprobación mensuales detallados (en medio magnético formato Excel), correspondientes a los períodos fiscales sujetos a verificación"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 16,
+        "fields": {
+            "requisito": "Estados financieros, correspondiente a los ejercicios fiscales sujetos a verificación (en medio magnético)"
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 17,
+        "fields": {
+            "requisito": "Copia de los Libros de Ventas del Impuesto al Valor Agregado, en medio magnético (formato Excel), correspondientes a los periodos fiscales sujetos a verificación."
+        }
+    },
+    {
+        "model": "actas.Requisito",
+        "pk": 18,
+        "fields": {
+            "requisito": "Indicar por escrito si en el domicilio fiscal de la contribuyente existen otras empresas, en caso de ser afirmativo, indique nombre y número de Registro de Información Fiscal (R.I.F.) de las misma"
+        }
+    }
+]
